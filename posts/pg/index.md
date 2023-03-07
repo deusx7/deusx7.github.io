@@ -46,4 +46,4 @@ OffSec Proving Grounds (PG) Play and Practice is a modern network for practicing
 - [[Feb 24 2023]] [Craft](https://markuched13.github.io/posts/pg/craft.html) `Macros, File Upload, PrintSpoofer`
 - [[Feb 24 2023]] [Sona](https://markuched13.github.io/posts/pg/sona.html) `Scripting, Python Library Hijack`
 - [[Feb 28 2023]] [Slort](https://markuched13.github.io/posts/pg/slort.html) `LFI, Weak Permissions`
-- [[Mar 04 2023]] [Surf](https://markuched13.github.io/posts/pg/surf.html) `Weak Authentication, SSRF, Sudo`
+- [[Mar 04 2023]] [Surf](https://h4ckyou.github.io/posts/pg/posts/surf.html) `Weak Authentication, SSRF, Sudo`
