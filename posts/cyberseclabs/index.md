@@ -3,7 +3,7 @@ layout: default
 title:  CyberSecLabs.
 ---
 
-<h2 class="menu-header" id="indexhtml"><ahref="../../index.html">Main</a></h2>
+<h2 class="menu-header" id="indexhtml"><a href="../../index.html">Main</a></h2>
 <hr>
 
 ![image](https://user-images.githubusercontent.com/113513376/223276121-b32e5487-55df-44d4-89ec-d7a8e0eb5a0e.png)
