@@ -91,7 +91,7 @@ undefined8 FUN_004018c5(int argc,undefined8 *argv)
       if (compare == 0) {
         FUN_004017b5("Correct!\n");
         FUN_004017b5("Welcome back!\n");
-        FUN_0040ba90(local_98,0x80,"bicWC{%s}\n",argv[2]);
+        FUN_0040ba90(local_98,0x80,)
         FUN_004017b5(local_98);
       }
       else {
