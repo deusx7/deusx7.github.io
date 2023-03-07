@@ -1,8 +1,8 @@
 <h3> Dubai Police CTF '23 </h3>
-
+ 
 ### Professional Category
 
-### Description: This was a fun ctf I partook in and I played as `NeroHero` . My intension was just solving only pwn but I ended up solving all web + pwn and few others
+### Description: This was a fun ctf I partook in and I played as `NeroHero` . My intension was just solving only pwn but I ended up solving all web + pwn and few others.
 
 ### Web Exploitation
 ![image](https://user-images.githubusercontent.com/113513376/223123603-08d16cd1-76c4-4ddd-b5b8-211b7a1baeee.png)
