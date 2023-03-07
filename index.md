@@ -40,7 +40,8 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 - [[Feb 09 2023]] [UnbakedPie](https://markuched13.github.io/posts/thm/unbakedpie.html) `Python Deserialization, Docker, Python Library Hijack`
 - [[Feb 11 2023]] [MD2PDF](https://markuched13.github.io/posts/thm/md2pdf.html) `SSRF`
 - [[Feb 14 2023]] [DearQA](https://markuched13.github.io/posts/thm/dearqa.html) `Ret2Win (BOF)`
--
+- 
+
 
 * * *
 ### **HackTheBox Writeups:~#**
@@ -65,10 +66,6 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 - [[Feb 12 2023]] [HollyWood](https://markuched13.github.io/posts/ptd/hollywood.html) `ActiveMQ`
 - [[Feb 12 2023]] [MrBlue](https://markuched13.github.io/posts/ptd/mrblue.html) `Eternal Blue (MS17-010)`
 - [[Feb 12 2023]] [IAmGroot](https://markuched13.github.io/posts/ptd/groot.html) `[Not Authorized]`
-- [[Feb 12 2023]] [Seth-PC](https://markuched13.github.io/posts/ptd/sethpc.html) `[Not Authorized]`
-- [[Feb 12 2023]] [DeCoCo-Server](https://markuched13.github.io/posts/ptd/decocoserver.html) `[Not Authorized]`
-- [[Feb 13 2023]] [Juno](https://markuched13.github.io/posts/ptd/juno.html) `Reverse Engineering, Cryptography`
-
 -
 
 * * *
