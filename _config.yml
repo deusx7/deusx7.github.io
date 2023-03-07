@@ -4,8 +4,17 @@ description: Try Harder!.
 show_downloads: false
 show_repo: false
 
+safe: true
+
+plugins:
+  - jekyll-gist
+  - jekyll-coffeescript
+  - jekyll-seo-tag
+  - some-other-jekyll-plugin
+  
 gems:
-- jekyll-sitemap
+  - jekyll-sitemap
 
 whitelist:
-- jekyll-sitemap
+  - jekyll-sitemap
+
