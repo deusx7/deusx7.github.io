@@ -40,7 +40,7 @@ After decompiling it i'll click on the entry function
 Then i'll click on `FUN_004018c5` which is going to be the main function
 ![image](https://user-images.githubusercontent.com/113513376/221995630-55f448e4-f7ed-4712-8952-e5f497ce7325.png)
 
-We can see the decompiled code 
+Here's the decompiled code [Source](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/bic23/source.c)
 
 Well thats some confusion goin on here 😹. Anyways looking at the code we see that some hex values are stored in two variable then it checks if argv[1] that means the argument one i.e the username is equal to password 
 
