@@ -90,7 +90,7 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 
 * * *
 ### **Articles:~#**
-- [[Feb 27 2023]] [WindowPrivEsc](https://markuched13.github.io/posts/articles/winprivesc_cheatsheet.html) `Windows Privilege Escalation CheatSheet`
+- [[Feb 27 2023]] [Windows Privilege Escalation](https://markuched13.github.io/posts/articles/winprivesc_cheatsheet.html) `Windows Privilege Escalation CheatSheet`
 
 * * *
 ### **Reverse Engineering Practice:~#**
