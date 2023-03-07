@@ -46,6 +46,6 @@ Binary exploitation involves taking advantage of a bug or vulnerability in order
 - [[Feb 09 2023]] [RopEmporium_Write](https://markuched13.github.io/posts/bof/write.html) `ROP (Section Data Write)`
 - [[Feb 18 2023]] [HackTheBox_Controller](https://markuched13.github.io/posts/bof/controller.html) `Ret2Plt`
 - [[Feb 20 2023]] [PICO ClutterOverflow](https://markuched13.github.io/posts/bof/clutter.html) `Variable Overwrite`
-- [[Mar 02 2023]] [HTB Apocalypse '21 Harvester](https://markuched13.github.io/posts/bof/harvester.html) `ROP (PIE Leak + Canary Bypass + Ret2Libc`
-- [[Mar 04 2023]] [HTB_Console](https://markuched13.github.io/posts/bof/console.html) `ROP (Section Data Write)`
-- [[Mar 04 2023]] [HTB_PwnShop](https://markuched13.github.io/posts/bof/pwnshop.html) `ROP (PIE Leak + Stack Pivot + Ret2Libc)`
+- [[Mar 02 2023]] [HTB Apocalypse '21 Harvester](https://h4ckyou.github.io/posts/bof/posts/harvester.html) `ROP (PIE Leak + Canary Bypass + Ret2Libc`
+- [[Mar 04 2023]] [HTB_Console](https://h4ckyou.github.io/posts/bof/posts/console.html) `ROP (Section Data Write)`
+- [[Mar 04 2023]] [HTB_PwnShop](https://h4ckyou.github.io/posts/bof/posts/pwnshop.html) `ROP (PIE Leak + Stack Pivot + Ret2Libc)`
