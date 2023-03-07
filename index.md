@@ -40,11 +40,6 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 - [[Feb 09 2023]] [UnbakedPie](https://markuched13.github.io/posts/thm/unbakedpie.html) `Python Deserialization, Docker, Python Library Hijack`
 - [[Feb 11 2023]] [MD2PDF](https://markuched13.github.io/posts/thm/md2pdf.html) `SSRF`
 - [[Feb 14 2023]] [DearQA](https://markuched13.github.io/posts/thm/dearqa.html) `Ret2Win (BOF)`
-- [[Feb 14 2023]] [PWN101](https://markuched13.github.io/posts/thm/pwn101.html) `BOF, Variable Overwrite, Ret2Win, Ret2Shellcode, Integer Overflow, Format String, Stack Canary/PIE Leak & Ret2Win , GOT Overwrite, Ret2Plt & Ret2Libc `
-- [[Feb 20 2023]] [BrainPan](https://markuched13.github.io/posts/thm/brainpan1.html) `Ret2Shellcode`
-- [[Mar 05 2023]] [BinaryHeaven](https://github.com/markuched13/markuched13.github.io/blob/main/posts/thm/binaryheaven.md) `Reverse Engineering, ROP (Ret2Libc) , Path Hijack`
-
-
 -
 
 * * *
