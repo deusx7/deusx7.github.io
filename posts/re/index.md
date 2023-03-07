@@ -8,7 +8,7 @@ title:  Reverse Engineering.
 
 * * *
 <h4 class="menu-header" id="reverse-engineering">Reverse Engineering:</h4>
-Noting writeups and reverse engineering challs
+Reverse-engineering is the act of dismantling an object to see how it works. It is done primarily to analyze and gain knowledge about the way something works but often is used to duplicate or enhance the object
 <hr>
 <hr>
 
