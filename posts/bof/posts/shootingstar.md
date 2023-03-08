@@ -93,3 +93,31 @@ Running it locally leaks the address of write and also we can see that its indee
 
 Cool with this now we can just perform Ret2Libc 
 
+Here's my exploit [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/pwn/shootingstar/local_exploit.py)
+
+Running it works locally
+![image](https://user-images.githubusercontent.com/127159644/223864693-d8ced134-250c-4b12-a32f-161429dd19b1.png)
+
+But since our libc library is going to be different from that of the remote libc the exploit won't work remotely
+![image](https://user-images.githubusercontent.com/127159644/223864922-65ad26d2-1e97-47b2-a6e0-481cb766c93f.png)
+
+So we need to leak the write libc address then use [Libc](https://libc.blukat.me/) to get the remote libc library
+![image](https://user-images.githubusercontent.com/127159644/223865100-0edcae8d-c035-45a6-8151-7d46542ea2f5.png)
+![image](https://user-images.githubusercontent.com/127159644/223865293-58fe930d-a12b-4bff-84fc-52e915db67a6.png)
+
+Looking at the result the library is likely the last one since its for x64 while the rest are for x86
+
+I'll download the libc library to use 
+![image](https://user-images.githubusercontent.com/127159644/223865769-283c28f5-e09b-45d2-9e5b-e5c1915f74d6.png)
+
+Now i'll make the exploit use the libc library we downloaded
+
+Here's the remote exploit [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/pwn/shootingstar/remote_exploit.py)
+
+Running it remotely works
+![image](https://user-images.githubusercontent.com/127159644/223866286-21add3b6-f676-419a-9e24-7c606c8fd0cd.png)
+
+And that's all 👻
+
+<br> 
+[Back To Home](../../../index.md)
