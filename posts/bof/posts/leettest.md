@@ -86,3 +86,14 @@ So basically the if check will be true since:
 ```
 0 * 0x1337c0de == 0 ( is true )
 ```
+
+To overwrite those values i'll need to know the offset of where our input is stored on the stack
+![image](https://user-images.githubusercontent.com/127159644/223870459-b75a7eb2-804f-4aa5-8fa0-b2871caebf2d.png)
+
+We can see that our input is at offset 10 on the stack
+![image](https://user-images.githubusercontent.com/127159644/223870547-a11a7749-715a-47b7-b0ac-423880252034.png)
+
+Pwntools can also automatically get the offset for us 🙂
+
+Now that we know our offset we need to know the valu
+
