@@ -120,5 +120,5 @@ Running it remotely works
 And that's all 👻
 
 <br> 
-[Back To Home](../../index.md)
+[Back To Home](../index.md)
 <br>
