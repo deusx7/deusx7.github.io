@@ -58,3 +58,17 @@ At this point i almost gave up cause there's no way around this 🤔
 So i decided to take a look at the decompiled code
 
 And unfortunately the creator just rick rolled me 😹
+
+Why i say that is cause from the decompiled code the last call isn't printf but puts
+![image](https://user-images.githubusercontent.com/127159644/223620898-13ead469-d89a-4b39-a948-5e1b6b965c31.png)
+
+So this is ok for our GOT overwrite and ROP chain
+
+Here's what i'll do:
+
+```
+1. Calculate libc base address
+2. Overwrite the GOT of puts to main+<a_value> # to bypass the check that's done to know if main is called
+2. Overwrite the GOT of printf to system
+```
+
