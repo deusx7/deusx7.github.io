@@ -69,27 +69,7 @@ Flag: lactf{b4by_h1t_m3_0ne_m0r3_t1m3}
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### RickRoll
 
 Basic File Checks
 ![image](https://user-images.githubusercontent.com/127159644/223547243-312b4a38-1031-4316-9090-a87808bac4fc.png)
