@@ -69,11 +69,11 @@ During the program execution write got is already populated
 ![image](https://user-images.githubusercontent.com/113513376/222982323-d937e0e8-179c-4fc2-8bb3-209ff0babe3a.png)
 ![image](https://user-images.githubusercontent.com/113513376/222982336-a91123fa-e5fc-4ceb-9638-60a78a52d5db.png)
 
-So the best thing at this point is to perform a Ret2Libc attack
+So the best thing at this point is to perform Ret2Libc
 
 But we need a gadget to use which we can get using `ropper`
 
-Also the calling convention of `write` requires passing 3 arguments which the register are rdi,rsi,rdx 
+Also the calling convention of `write` requires passing 3 arguments which the register are rdi,rsi,rdx which is just `write(stdout, GOT_WRITE, size)`
 ![image](https://user-images.githubusercontent.com/127159644/223857605-77786288-8dda-45cb-bc2b-deb7ee623136.png)
 
 Since the syscall `write` is called before `ret` therefore `rdi` would already have been populated with some values so we'll just need the rsi gadget
@@ -82,4 +82,14 @@ Using ropper i'll get a pop_rdi gadget
 ![image](https://user-images.githubusercontent.com/127159644/223857787-8f3a5f43-11a4-4ec5-87a8-04ced43a8766.png)
 
 Then a pop rsi gadget
+![image](https://user-images.githubusercontent.com/127159644/223858398-f9db78fc-9dd7-41ae-87f6-40fdf60693dc.png)
+
+But we don't have like a lone `pop_rdi` gadget whereas we have `pop_rsi_r15` its not too bad cause we can just pop a null value to the r15 register
+
+Here's the script i used for my libc leak [Leak](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/pwn/shootingstar/leak.py)
+
+Running it locally leaks the address of write and also we can see that its indeed the address of write from the gdb check
+![image](https://user-images.githubusercontent.com/127159644/223860088-f3b49d65-d519-4790-84b8-20cd6a0ae830.png)
+
+Cool with this now we can just perform Ret2Libc 
 
