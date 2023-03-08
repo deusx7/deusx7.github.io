@@ -95,5 +95,12 @@ We can see that our input is at offset 10 on the stack
 
 Pwntools can also automatically get the offset for us 🙂
 
-Now that we know our offset we need to know the valu
+Now that we know our offset we need to know the address of the winner value which can be easily gotten from looking at ghidra
+![image](https://user-images.githubusercontent.com/127159644/223877359-bf05750c-0640-4106-ba0a-5f5964be5115.png)
+
+But for the random address, it's not going to be just like a memory address its rather going to be at the stack
+
+To get that i'll use a fuzz script which i'll set a breakpoint at the function which compares the value of winner with `random * 0x1337c0de` 
+
+Here's my fuzz script 
 
