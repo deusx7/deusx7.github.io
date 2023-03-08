@@ -48,3 +48,13 @@ The program is a simple C program and here's what it does:
 5. Our input is then printed out without using a format specifier
 6. Printf is called again and this time prints out rickroll lyrics
 ```
+
+Looking at the code doesn't show any form of buffer overflow but instead a format string vulnerability
+
+Since its a format string vulnerability we can perform a GOT overwrite but the problem is that we want to first leak a libc address then perform another GOT overwrite on printf to call system on buf. But since printf is already there if we overwrite the printf we can't actually perform another GOT overwrite
+
+At this point i almost gave up cause there's no way around this 🤔
+
+So i decided to take a look at the decompiled code
+
+And unfortunately the creator just rick rolled me 😹
