@@ -49,3 +49,4 @@ Binary exploitation involves taking advantage of a bug or vulnerability in order
 - [[Mar 02 2023]] [HTB Apocalypse '21 Harvester](https://h4ckyou.github.io/posts/bof/posts/harvester.html) `ROP (PIE Leak + Canary Bypass + Ret2Libc`
 - [[Mar 04 2023]] [HTB_Console](https://h4ckyou.github.io/posts/bof/posts/console.html) `ROP (Section Data Write)`
 - [[Mar 04 2023]] [HTB_PwnShop](https://h4ckyou.github.io/posts/bof/posts/pwnshop.html) `ROP (PIE Leak + Stack Pivot + Ret2Libc)`
+- [[Mar 08 2023]] [HTB_ShootingStar](https://h4ckyou.github.io/posts/bof/posts/shootingstar.html) `ROP (Ret2PLT)`
