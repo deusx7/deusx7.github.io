@@ -2,7 +2,94 @@
 
 ### Description: LA CTF is an annual cybersecurity competition hosted by ACM Cyber at UCLA. During the CTF I was only able to solve few pwn challenges
 
-#### Rickroll
+#### One Time Pad
+
+This is a cryptography challenge i don't know crytpography but i gave this a shot and did it cause its more of a simple python code
+
+Here's the script
+![image](https://user-images.githubusercontent.com/127159644/223719532-1c230b84-9ce2-4610-8bf0-517caec3b1f3.png)
+
+```
+from itertools import cycle
+pt = b"Long ago, the four nations lived together in harmony ..."
+
+key = cycle(b"lactf{??????????????}")
+
+ct = ""
+
+for i in range(len(pt)):
+    b = (pt[i] ^ next(key))
+    ct += f'{b:02x}'
+print("ct =", ct)
+
+#ct = 200e0d13461a055b4e592b0054543902462d1000042b045f1c407f18581b56194c150c13030f0a5110593606111c3e1f5e305e174571431e
+```
+
+We can see what the code does which is:
+
+```
+1. it assigns some value in variable pt
+2. Then does the some a for loop on the length of the value stored in pt
+3. It then xors each character of pt with the next value of key 
+4. Then it makes the value stored in ct a two-digit hexadecimal string with a leading zero if necessary.
+```
+
+We're already given a cipher text to use 
+
+So the idea is to reverse the operation done 
+
+Here's my solve script
+![image](https://user-images.githubusercontent.com/127159644/223724230-9db44f30-abd0-4f97-a1f7-40975c0451cd.png)
+
+```
+pt = b"Long ago, the four nations lived together in harmony ..."
+
+ct = '200e0d13461a055b4e592b0054543902462d1000042b045f1c407f18581b56194c150c13030f0a5110593606111c3e1f5e305e174571431e'
+
+# pair the ct in 2
+val = []
+flag = []
+
+for i in range(0, len(ct), 2):
+    pair = ct[i:i+2]
+    val.append(pair)
+
+for i in range(len(pt)):
+    decoded = (pt[i] ^ int(val[i], 16))
+    flag.append(chr(decoded))
+
+print("".join(flag))
+```
+
+Running it gives us the flag
+![image](https://user-images.githubusercontent.com/127159644/223724505-69c39d6c-4e9b-4e07-ac52-21cfea9fdd62.png)
+
+```
+Flag: lactf{b4by_h1t_m3_0ne_m0r3_t1m3}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Basic File Checks
 ![image](https://user-images.githubusercontent.com/127159644/223547243-312b4a38-1031-4316-9090-a87808bac4fc.png)
