@@ -102,5 +102,42 @@ But for the random address, it's not going to be just like a memory address its 
 
 To get that i'll use a fuzz script which i'll set a breakpoint at the function which compares the value of winner with `random * 0x1337c0de` 
 
-Here's my fuzz script 
+Here's my fuzz script [Fuzz](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/pwn/leet_test/fuzz.py)
+
+Running it opens up gdb
+![image](https://user-images.githubusercontent.com/127159644/223880282-fe0382d5-e6d6-4a87-a4c2-d5c92c7916b5.png)
+
+And looking at the assembly code 
+![image](https://user-images.githubusercontent.com/127159644/223880435-72009337-c807-4f58-83c9-cd29543e5bfd.png)
+
+```
+        004013a1 8b 85 cc        MOV        EAX,dword ptr [RBP + random]
+                 fe ff ff
+        004013a7 69 d0 de        IMUL       EDX,EAX,0x1337c0de
+                 c0 37 13
+        004013ad 8b 05 c5        MOV        EAX,dword ptr [winner]                           = CAFEBABEh
+                 2c 00 00
+        004013b3 39 c2           CMP        EDX,EAX
+```
+
+We see that:
+
+```
+1. The value of random is stored in EAX
+2. It then multiplies the value of EAX with 0x1337c0de
+3. It then stores the value of 0xCAFEBABE in pointer winner
+4. Then it compares the value of EAX which is the random value and the pointer winner which is then stored in the EDX
+```
+
+That means that the random value is stored in RAX
+![image](https://user-images.githubusercontent.com/127159644/223881236-907a69ac-e988-4fbd-9ca8-e5240dd5ec63.png)
+
+Looking at the stack value of the current RAX we can get the stack address of the RAX
+![image](https://user-images.githubusercontent.com/127159644/223881428-5a546bdd-fa97-475f-b233-43719c927aca.png)
+
+With this, we can calculate the random value stack address by subtracting it with a known valid stack address
+
+I'll use this address to get the offset
+![image](https://user-images.githubusercontent.com/127159644/223881779-f23e7ebc-0ebb-4d0c-96a1-67de82194192.png)
+
 
