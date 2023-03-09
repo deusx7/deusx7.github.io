@@ -20,7 +20,7 @@ vuln: ELF 32-bit LSB executable, Intel 80386, version 1 (GNU/Linux), statically 
     RWX:      Has RWX segments
 ```
 
-We're working with a x86 binary, and from the checking the protections we see that there's no canary present and NX is disabled this means that we can inject shellcode to the stack and execute it
+We're working with a x86 binary which is statically linked and from the checking the protections we see that there's no canary present and NX is disabled this means that we can inject shellcode to the stack and execute it
 
 Source code is given
 
@@ -56,7 +56,17 @@ int main(int argc, char **argv){
 
 Nothing much going on the main function just calls the vuln function and the vuln function prints out some words then use gets() to receive our input
 
-The problem is the usage of get in the program. get() doesn't validate the amount of bytes passed in and from the code we see that the input buffer can only contain 16bytes of data but since get is used we can overflow it and cause a buffer overflow
+The problem is the usage of get in the program. get() doesn't validate the amount of bytes passed in and from the code we see that the input buffer can only hold up to 16 bytes of data but since get() is used we can overflow it and cause a buffer overflow
 
-From the challenge title its called `ROPFU` so basically this is a ROP chall `Return-Oriented-Programming` 
+First lets get the offset
+![image](https://user-images.githubusercontent.com/127159644/224171429-c031f830-4844-477b-87fc-32a27ecb0b72.png)
+![image](https://user-images.githubusercontent.com/127159644/224171505-2f23757b-8951-4596-8128-38ddceda46de.png)
+
+Cool the offset is 28
+
+Now how do we get shell ?
+
+We would have tried some shellcode injection to the stack but the problem is that the length of the shellcode will be bigger than the offset
+
+Making it not possible and since the binary is statiscally linked it already has all the neccessary calls stored in it already so we can't do some ROP like ret2libc or sth 
 
