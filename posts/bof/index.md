@@ -42,7 +42,7 @@ Binary exploitation involves taking advantage of a bug or vulnerability in order
 - [[Feb 06 2023]] [PICO_22 Ret2Win](https://markuched13.github.io/posts/bof/wine.html) `Ret2Win, Windows`
 - [[Feb 08 2023]] [RopEmporium_Ret2Win](https://markuched13.github.io/posts/bof/ret2win.html) `Ret2Win`
 - [[Feb 08 2023]] [RopEmporium_Split](https://markuched13.github.io/posts/bof/split.html) `ROP`
-- [[Feb 09 2023]] [RopEmporium_Callme](https://markuched13.github.io/posts/bof/callme.html) `ROP + Argument`
+- [[Feb 09 2023]] [RopEmporium_Callme](https://markuched13.github.io/posts/bof/callme.html) `Ret2Win + Argument`
 - [[Feb 09 2023]] [RopEmporium_Write](https://markuched13.github.io/posts/bof/write.html) `ROP (Section Data Write)`
 - [[Feb 18 2023]] [HackTheBox_Controller](https://markuched13.github.io/posts/bof/controller.html) `Ret2Plt`
 - [[Feb 20 2023]] [PICO ClutterOverflow](https://markuched13.github.io/posts/bof/clutter.html) `Variable Overwrite`
