@@ -139,5 +139,6 @@ With this, we can calculate the random value stack address by subtracting it wit
 
 I'll use this address to get the offset
 ![image](https://user-images.githubusercontent.com/127159644/223881779-f23e7ebc-0ebb-4d0c-96a1-67de82194192.png)
+![image](https://user-images.githubusercontent.com/127159644/223882985-2606f55f-623d-4628-ac5a-811abde4f38e.png)
 
 
