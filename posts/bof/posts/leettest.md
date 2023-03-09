@@ -141,4 +141,4 @@ I'll use this address to get the offset
 ![image](https://user-images.githubusercontent.com/127159644/223881779-f23e7ebc-0ebb-4d0c-96a1-67de82194192.png)
 ![image](https://user-images.githubusercontent.com/127159644/223882985-2606f55f-623d-4628-ac5a-811abde4f38e.png)
 
-
+Cool so the idea is that the offset of the address on the 2nd element of the stack + 8488 will give the stack address of the random value
