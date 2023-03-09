@@ -141,4 +141,37 @@ I'll use this address to get the offset
 ![image](https://user-images.githubusercontent.com/127159644/223881779-f23e7ebc-0ebb-4d0c-96a1-67de82194192.png)
 ![image](https://user-images.githubusercontent.com/127159644/223882985-2606f55f-623d-4628-ac5a-811abde4f38e.png)
 
-Cool so the idea is that the offset of the address on the 2nd element of the stack + 8488 will give the stack address of the random value
+Cool so the idea is that the offset betweeen the address of the first element of the stack and the random value stack address is 8488
+
+Here's my exploit [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/pwn/leet_test/localexploit.py)
+
+Running it locally works
+![image](https://user-images.githubusercontent.com/127159644/223887185-f174082f-32af-4fae-b5d2-c2fa149fea5a.png)
+
+I ran it on the remote server but it didn't work
+![image](https://user-images.githubusercontent.com/127159644/223887472-2d5b2538-384b-40af-9df9-dcc9ba199af5.png)
+
+So when i ran the fuzz script and compared with my own local fuzz script the stack address are different
+![image](https://user-images.githubusercontent.com/127159644/223888238-8e4e8190-6373-4d81-a091-3715f054b164.png)
+
+I decided to use another value
+![image](https://user-images.githubusercontent.com/127159644/223889080-8dcd544d-40a0-4809-9fa1-3ea47b51e870.png)
+
+And the remote server has a stack address at offset 55
+![image](https://user-images.githubusercontent.com/127159644/223889291-88e1f09a-a786-431d-a3fc-a8584a1d06d7.png)
+
+I edited the exploit code to leak the address at 55 and use offset -608. After running it works 
+![image](https://user-images.githubusercontent.com/127159644/223890205-84e64009-11cb-4105-be4d-03ababa73c78.png)
+
+But still i ran it remotely but it didn't work 😂
+![image](https://user-images.githubusercontent.com/127159644/223890529-26129f51-7e39-4b1e-ba07-e31b5ed6ff9b.png)
+
+So after a lot of trial i got the offset to be -287
+
+Here's the remote [exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/pwn/leet_test/remote_exploit.py)
+![image](https://user-images.githubusercontent.com/127159644/223891011-627ce85f-f1fd-4005-a495-6e73df0ab628.png)
+
+And we're done 👻
+
+<br> 
+[Back To Home](../index.md)
