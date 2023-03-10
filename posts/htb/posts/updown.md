@@ -22,3 +22,19 @@ I'll add that to my `/etc/hosts` file
 10.10.11.177    siteisup.htb
 ```
 
+There's a function on the web page that allows user to check is a site is up 
+
+I'll test it to know if i can fingerprint anything whether the option chosen is debug mode or not
+![image](https://user-images.githubusercontent.com/127159644/224434357-2e5471ed-0fe5-4b19-9dc3-e8f6314094be.png)
+![image](https://user-images.githubusercontent.com/127159644/224434500-f4a69762-ff37-460b-a0ab-74fba8c44498.png)
+
+Nothing much expect the domain name which we already know
+
+I'll try it also with debug mode enabled 
+![image](https://user-images.githubusercontent.com/127159644/224434661-6860b141-1759-40de-87a0-4c7cb34dbf41.png)
+![image](https://user-images.githubusercontent.com/127159644/224434687-7f76a876-7e81-4d74-b95d-a26d4c0f4eaf.png)
+
+Nothing much here also 
+
+I'll fuzz for directories
+![image](https://user-images.githubusercontent.com/127159644/224436652-8d204833-fc22-4cc0-ac21-8b78b3b369e8.png)
