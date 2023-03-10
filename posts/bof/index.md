@@ -40,7 +40,7 @@ Binary exploitation involves taking advantage of a bug or vulnerability in order
 - [[Feb 06 2023]] [PICO_22 FlagLeak](https://h4ckyou.github.io/posts/bof/posts/flagleak.html) `Format String`
 - [[Feb 06 2023]] [PICO_22 Ropfu](https://h4ckyou.github.io/posts/bof/posts/ropfu.html) `ROP (Section Data Write + Syscall) `
 - [[Feb 06 2023]] [PICO_22 Ret2Win](https://h4ckyou.github.io/posts/bof/posts/wine.html) `Ret2Win, Windows`
-- [[Feb 06 2023]] [PICO_21 Here's A Libc](https://h4ckyou.github.io/blob/main/posts/bof/posts/here's_a_libc.md) `ROP (Ret2Libc)`
+- [[Feb 06 2023]] [PICO_21 Here's A Libc](https://h4ckyou.github.io/posts/bof/posts/here's_a_libc.html) `ROP (Ret2Libc)`
 - [[Feb 08 2023]] [RopEmporium_Ret2Win](https://markuched13.github.io/posts/bof/ret2win.html) `Ret2Win`
 - [[Feb 08 2023]] [RopEmporium_Split](https://markuched13.github.io/posts/bof/split.html) `ROP`
 - [[Feb 09 2023]] [RopEmporium_Callme](https://markuched13.github.io/posts/bof/callme.html) `Ret2Win + Argument`
