@@ -68,7 +68,7 @@ Now how do we get shell ?
 
 We would have tried some shellcode injection to the stack but the problem is that the length of the shellcode will be bigger than the offset
 
-Making it not possible and since the binary is statiscally linked it already has all the neccessary calls stored in it already so we can't do some ROP like ret2libc or sth i think 🤔
+Making it not possible and since the binary is statiscally linked it already has all the neccessary calls stored in it already so we can't do some ROP like ret2libc
 
 So here's what i did. After searching for gadgets in the binary i got a mov gadgets
 ![image](https://user-images.githubusercontent.com/127159644/224177412-6fd77a67-9e69-49fb-b048-97bc95e0efd2.png)
