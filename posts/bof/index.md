@@ -38,7 +38,7 @@ Binary exploitation involves taking advantage of a bug or vulnerability in order
 - [[Feb 06 2023]] [PICO_22 Xsixtywhat](https://markuched13.github.io/posts/bof/xsixtywhat.html) `Ret2Win, Movap Stack Allignment`
 - [[Feb 06 2023]] [PICO_22 Bof2](https://markuched13.github.io/posts/bof/bof2.html) `Ret2Win + Arguments`
 - [[Feb 06 2023]] [PICO_22 FlagLeak](https://markuched13.github.io/posts/bof/flagleak.html) `Format String`
-- [[Feb 06 2023]] [PICO_22 Ropfu](https://h4ckyou.github.io/posts/bof/posts/ropfu.html) `ROP --> Coming soon 😞`
+- [[Feb 06 2023]] [PICO_22 Ropfu](https://h4ckyou.github.io/posts/bof/posts/ropfu.html) `ROP (Section Data Write + Syscall) 😞`
 - [[Feb 06 2023]] [PICO_22 Ret2Win](https://markuched13.github.io/posts/bof/wine.html) `Ret2Win, Windows`
 - [[Feb 08 2023]] [RopEmporium_Ret2Win](https://markuched13.github.io/posts/bof/ret2win.html) `Ret2Win`
 - [[Feb 08 2023]] [RopEmporium_Split](https://markuched13.github.io/posts/bof/split.html) `ROP`
