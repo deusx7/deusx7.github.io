@@ -34,9 +34,9 @@ Binary exploitation involves taking advantage of a bug or vulnerability in order
 - [[Feb 05 2023]] [TU_19](https://markuched13.github.io/posts/bof/thefirst.html) `Ret2Win`
 - [[Feb 05 2023]] [INTIGRITI_22](https://markuched13.github.io/posts/bof/searchengine.html) `Format String`
 - [[Feb 05 2023]] [INTIGRITI_22](https://markuched13.github.io/posts/bof/easyregister.html) `Ret2Shellcode`
-- [[Feb 06 2023]] [PICO_22 Bof1](https://markuched13.github.io/posts/bof/bof1.html) `Ret2Win`
+- [[Feb 06 2023]] [PICO_22 Bof1](https://h4ckyou.github.io/posts/bof/posts/bof1.html) `Ret2Win`
 - [[Feb 06 2023]] [PICO_22 Xsixtywhat](https://markuched13.github.io/posts/bof/xsixtywhat.html) `Ret2Win, Movap Stack Allignment`
-- [[Feb 06 2023]] [PICO_22 Bof2](https://markuched13.github.io/posts/bof/bof2.html) `Ret2Win + Arguments`
+- [[Feb 06 2023]] [PICO_22 Bof2](https://h4ckyo.github.io/posts/bof/posts/bof2.html) `Ret2Win + Arguments`
 - [[Feb 06 2023]] [PICO_22 FlagLeak](https://markuched13.github.io/posts/bof/flagleak.html) `Format String`
 - [[Feb 06 2023]] [PICO_22 Ropfu](https://h4ckyou.github.io/posts/bof/posts/ropfu.html) `ROP (Section Data Write + Syscall) `
 - [[Feb 06 2023]] [PICO_22 Ret2Win](https://markuched13.github.io/posts/bof/wine.html) `Ret2Win, Windows`
