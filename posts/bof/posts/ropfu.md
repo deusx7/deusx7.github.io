@@ -68,5 +68,35 @@ Now how do we get shell ?
 
 We would have tried some shellcode injection to the stack but the problem is that the length of the shellcode will be bigger than the offset
 
-Making it not possible and since the binary is statiscally linked it already has all the neccessary calls stored in it already so we can't do some ROP like ret2libc or sth 
+Making it not possible and since the binary is statiscally linked it already has all the neccessary calls stored in it already so we can't do some ROP like ret2libc or sth i think 🤔
 
+So here's what i did. After searching for gadgets in the binary i got a mov gadgets
+![image](https://user-images.githubusercontent.com/127159644/224177412-6fd77a67-9e69-49fb-b048-97bc95e0efd2.png)
+
+Cool this is good cause we can mov the value of a register and put in another
+
+I'll search for writeable part of the binary using `readelf`
+![image](https://user-images.githubusercontent.com/127159644/224178131-67bee363-5529-4a85-9d7b-3ed876ca3eb9.png)
+
+One place we would want to write is the .data section
+
+So the idea is that we can write `/bin/sh` into the `.data` section then use a linux syscall `execve` to run `execve(.data, 0, 0)`
+
+Here's the resource to get linux syscall 
+[Syscall](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md)
+
+Here's my exploit script [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/picoctf/ropfu/exploit.py)
+
+All the gadgets there i got from using `ropper` and i hope the exploit code is self explanatory but i commented stuffs there to understand it
+
+Running it locally works
+![image](https://user-images.githubusercontent.com/127159644/224188411-db953d4f-ee4e-461f-88d1-63afdb2c0f14.png)
+
+Also running it remotely works
+![image](https://user-images.githubusercontent.com/127159644/224188534-17df7014-ed71-44a3-aecc-6c326709da83.png)
+
+
+And we're done 👻
+
+<br>
+[Back To Home](../index.md)
