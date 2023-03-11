@@ -40,4 +40,5 @@ When i tried accessing ../resources i got an error and also when i then tried /v
 ![image](https://user-images.githubusercontent.com/127159644/224515721-7cf0899d-1c46-46f4-9ed4-38fc9fc2ff8e.png)
 
 Since i'll be enumerating files on the server i don't want to do it manually so i 
-
+ 
+I used a bash script to automate listing files [ReadFiles](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/readfiles.sh)
