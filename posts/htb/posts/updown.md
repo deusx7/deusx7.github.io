@@ -132,6 +132,42 @@ $page=$_GET['page'];
 		include($_GET['page'] . ".php");
  ```
  
- Now lets read the phpinfo to know the allowed system command that can be run
+ Now lets read the phpinfo to know the allowed functions that can be run
  ![image](https://user-images.githubusercontent.com/127159644/224450661-0243739e-353b-4047-a0a9-6bd8b283652e.png)
 
+But since i don't want to start uploading it and accessing its somehow quite stressfull 
+
+So i made an upload script to do that for me [upload](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/updown/upload.py)
+
+Running it gives the path the file uploaded to 
+![image](https://user-images.githubusercontent.com/127159644/224455284-84bd1b0f-eaaf-4dfd-9cbf-fbc7b6ed1467.png)
+
+Checking it gives the file 
+![image](https://user-images.githubusercontent.com/127159644/224455334-354f116c-17fc-46f6-83ef-00a24a694f5d.png)
+
+On checking it gives the phpinfo file
+![image](https://user-images.githubusercontent.com/127159644/224455443-92471919-2c2a-42b6-aaae-531040fb072a.png)
+
+Looking at the disabled function shows a lot of function disabled
+![image](https://user-images.githubusercontent.com/127159644/224455544-d6a4e6f6-f149-494d-9390-e14c71ef4cb6.png)
+
+Hmmm they disabled lot of function that can give us opportunity to run system commands
+
+Searching google for how to bypass disable function i got this [HackTricks](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/php-tricks-esp/php-useful-functions-disable_functions-open_basedir-bypass) which lead to this [Dfunc](https://github.com/teambi0s/dfunc-bypasser) 
+
+I then gathered the list of dangerous functions from the script which is this:
+
+```
+dangerous_functions = ['pcntl_alarm','pcntl_fork','pcntl_waitpid','pcntl_wait','pcntl_wifexited','pcntl_wifstopped','pcntl_wifsignaled','pcntl_wifcontinued','pcntl_wexitstatus','pcntl_wtermsig','pcntl_wstopsig','pcntl_signal','pcntl_signal_get_handler','pcntl_signal_dispatch','pcntl_get_last_error','pcntl_strerror','pcntl_sigprocmask','pcntl_sigwaitinfo','pcntl_sigtimedwait','pcntl_exec','pcntl_getpriority','pcntl_setpriority','pcntl_async_signals','error_log','system','exec','shell_exec','popen','proc_open','passthru','link','symlink','syslog','ld','mail']
+```
+
+And after comparing it with the one's disabled i found out that `proc_open` isn't disabled 
+
+Hitting over chatgpt i got a payload
+![image](https://user-images.githubusercontent.com/127159644/224456235-56fcfe24-75ae-4800-8c45-504bbf397ad8.png)
+![image](https://user-images.githubusercontent.com/127159644/224456245-ce24841d-2f49-4237-b820-73e88db71c0a.png)
+
+Trying the php script works 
+![image](https://user-images.githubusercontent.com/127159644/224456280-bf6aa49f-37ae-4f83-bfb0-3f6f4121027f.png)
+
+So now lets get shell
