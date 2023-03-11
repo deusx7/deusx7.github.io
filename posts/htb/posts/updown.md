@@ -78,3 +78,60 @@ And from the filter we see it filers anything `php and php[0-9] i.e php1, php2,.
 
 Also the index.php script first checks if the "page" parameter is set and if it does not contain any of the prohibited directory names ("bin", "usr", "home", "var", or "etc"). If both conditions are true, it includes the corresponding PHP file using the "include" function. If the "page" parameter is not set or if it contains one of the prohibited directory names, it includes a file called "checker.php".
 
+Checking the list of files git dumped i get a .htaccess file
+![image](https://user-images.githubusercontent.com/127159644/224446678-4e61fb8c-b127-4435-a4ea-98d51885b748.png)
+
+Reading it shows this
+![image](https://user-images.githubusercontent.com/127159644/224446770-bcc16091-6f93-4d84-a4a1-834dd3b719f8.png)
+
+So basically for us to access the dev vhosts we need a `Required-Header` which is called `Special-Dev` and its value will be `only4dev`
+
+Using [Modify Header](https://addons.mozilla.org/en-US/firefox/addon/modify-header-value/) tool i'll make it add the required header on every request and response being made to the server
+![image](https://user-images.githubusercontent.com/127159644/224447447-80699647-f5a5-4ad0-a21d-72cf0dcad997.png)
+
+Now we can access the dev vhosts
+![image](https://user-images.githubusercontent.com/127159644/224447524-1e8bc941-4823-4b05-893f-29f1ed680998.png)
+
+We know that we have a file upload function but almost all php type is filtered except .phar
+
+What phar does is like it can contain the content of a php file which will be zipped to a phar file
+
+First lets test our theory by uploading a phar file which will contain a php code to echo `Hello World`
+![image](https://user-images.githubusercontent.com/127159644/224447909-38317b9e-01ca-48ca-a5fb-fd161a3f7c70.png)
+![image](https://user-images.githubusercontent.com/127159644/224447971-edc1b6f7-9d45-4283-ab46-13d3aa3bd58e.png)
+
+But now we need to know where it uploaded
+
+From the php code 
+
+```
+	# Create directory to upload our file.
+	$dir = "uploads/".md5(time())."/";
+	if(!is_dir($dir)){
+        mkdir($dir, 0770, true);
+    }
+```
+We can see it creates a directory which is formed from md5 hashing the current time
+
+So if we check /uploads we will get the directory our phar file uploaded to
+![image](https://user-images.githubusercontent.com/127159644/224448477-a2fb6f4c-76e7-4917-a0e9-7e372496b620.png)
+![image](https://user-images.githubusercontent.com/127159644/224448494-47a3043d-d166-4580-b291-840aa1121546.png)
+
+The file can't be run cause we just compressed the test.php file into it
+
+But instead we can leverage the LFI to run the test.php file
+
+Here's the resource [HackTricks](https://book.hacktricks.xyz/pentesting-web/file-inclusion#phar)
+![image](https://user-images.githubusercontent.com/127159644/224450453-be017aa6-4a90-491a-a3cc-8401b259ecb4.png)
+
+Notice how i didn't put `test.php` but instead `test` thats because from the php .php is already appended
+
+```
+$page=$_GET['page'];
+	if($page && !preg_match("/bin|usr|home|var|etc/i",$page)){
+		include($_GET['page'] . ".php");
+ ```
+ 
+ Now lets read the phpinfo to know the allowed system command that can be run
+ ![image](https://user-images.githubusercontent.com/127159644/224450661-0243739e-353b-4047-a0a9-6bd8b283652e.png)
+
