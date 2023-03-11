@@ -171,3 +171,17 @@ Trying the php script works
 ![image](https://user-images.githubusercontent.com/127159644/224456280-bf6aa49f-37ae-4f83-bfb0-3f6f4121027f.png)
 
 So now lets get shell
+
+I made a script to just automatically do all the upload & execution stress for us 
+
+All you need is just to provide the *.php file you want to run
+
+Here's the script [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/updown/exploit.py)
+
+Running the script and passing the file test.php which will run `ls -la ` as an argument works
+![image](https://user-images.githubusercontent.com/127159644/224458031-58b03801-5796-497b-9ed9-65632f4b452b.png)
+
+So i changed the payload script to give us a reverse shell by making a curl request to our host and executing a reverse shell 
+![image](https://user-images.githubusercontent.com/127159644/224458309-c26533ea-760a-47d3-9d5f-90319023f770.png)
+
+
