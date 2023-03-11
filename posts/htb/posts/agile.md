@@ -134,7 +134,7 @@ I saved em all in a file
 
 Remember this we initially got the `/etc/passwd` file so likely one of this password will be for the user
 
-I extracted the first row from the `/etc/passwd` file
+I extracted the first column from the `/etc/passwd` file
 ![image](https://user-images.githubusercontent.com/113513376/222966114-9ef498a1-37fe-49b8-8f13-decfd147dac5.png)
 
 I'll do the same to extract those password value from the pass.txt file
