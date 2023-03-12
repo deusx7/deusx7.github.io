@@ -124,3 +124,16 @@ Here's my exploit playbook
 ```
 
 After few minutes `/bin/bash/` becomes an suid binary
+![image](https://user-images.githubusercontent.com/127159644/224525119-10cbfc53-0ca4-4af9-8b34-7de311125eed.png)
+
+And we're done 👻
+
+### EDITED
+
+After I already solved the box i decided to check my script again and i was able to get it to work by using busybox nc 
+
+Here's the edited exploit [RCE](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/exploit.py)
+
+Running it works
+![image](https://user-images.githubusercontent.com/127159644/224525148-f6835466-353d-464a-bc4e-10b5bc12c873.png)
+
