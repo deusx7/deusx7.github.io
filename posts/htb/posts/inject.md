@@ -83,3 +83,44 @@ But switching user to it does
 ![image](https://user-images.githubusercontent.com/127159644/224524163-ef78f2fa-fd4d-45a1-8983-68c8b278b68f.png)
 
 Now lets escalate privilege to root 🤓
+
+I uploaded linpeas then ran it
+
+After running it i got this which looked interesting
+![image](https://user-images.githubusercontent.com/127159644/224524363-0f219c64-4794-4e62-b625-dec8d483cbec.png)
+
+Going over shows `playbook.yml`
+![image](https://user-images.githubusercontent.com/127159644/224524379-0db571e9-465c-4b74-8e26-638b97cccbec.png)
+
+```
+playbook.yml is a YAML file that defines a playbook in Ansible, which is a configuration management tool. Playbooks are used to describe a set of tasks to be executed on one or more servers, and they can be used for tasks such as software installation, configuration management, and infrastructure automation. The playbook contains a list of tasks, each of which has a set of instructions that describe what should be done on the target servers. Ansible reads the playbook and executes the tasks on the target servers using SSH or another communication method.
+```
+
+But the file is own by root :(
+
+Since its running a process i checked systemd and got the webapp service 
+![image](https://user-images.githubusercontent.com/127159644/224524558-11a56e9d-e5c2-410e-bf7e-2b7f63ce38b0.png)
+
+Since we can't really edit any of this i then decided to upload pspy
+
+After running it i got this process running as root
+![image](https://user-images.githubusercontent.com/127159644/224524827-ae04b6d2-e7ef-4f1d-a058-e52a6310d496.png)
+
+So basically it will run any .yml file in /opt/automation/tasks
+
+I then searched for ansible privilege escalation and got this [DigitalOcean](https://www.digitalocean.com/community/tutorials/understanding-privilege-escalation-in-ansible-playbooks)
+
+We can create our own playbook to give us shell but i'll just create one to make `/bin/bash` suid
+
+Here's my exploit playbook
+
+```
+- hosts: all
+  tasks:
+    - name: SUID
+      ansible.builtin.shell: |
+        chmod +s /bin/bash
+      become: true
+```
+
+After few minutes `/bin/bash/` becomes an suid binary
