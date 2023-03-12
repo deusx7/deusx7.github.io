@@ -135,5 +135,5 @@ After I already solved the box i decided to check my script again and i was able
 Here's the edited exploit [RCE](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/exploit.py)
 
 Running it works
-![image](https://user-images.githubusercontent.com/127159644/224525148-f6835466-353d-464a-bc4e-10b5bc12c873.png)
+![image](https://user-images.githubusercontent.com/127159644/224525643-fa0af20b-482b-4123-a0f7-cd23a148043e.png)
 
