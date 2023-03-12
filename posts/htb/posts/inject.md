@@ -59,7 +59,7 @@ Trying it works
 
 I tried making an exploit script to give shell but i can't seem to get it work :( 
 
-But when i try using just nc it works but i can't get shell via it[FailedExploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/failed_exp.py)
+But when i try using just nc it works but i can't get shell via it [FailedExploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/failed_exp.py)
 ![image](https://user-images.githubusercontent.com/127159644/224523610-11bff5c4-67fd-4bf1-8649-debb40131f83.png)
 
 Anyway lets get shell 
