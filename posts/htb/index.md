@@ -50,3 +50,4 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[Feb 26 2023]] [Escape](https://markuched13.github.io/posts/htb/escape.html) `SMB, MSSQl, Log File Review, Certificate Template Abuse`
 - [[Mar 05 2023]] [Agile](https://h4ckyou.github.io/posts/htb/posts/agile.html) `LFI, IDOR, Sudo Edit`
 - [[Mar 11 2023]] [Updown](https://h4ckyou.github.io/posts/htb/posts/updown.html) `Source Code Review, LFI, File Upload Vuln, PHP Dfunc Bypass, Python Code Injection, Sudo `
+- [[Mar 12 2023]] [Inject](https://h4ckyou.github.io/posts/htb/posts/inject.html) `File Upload, Directory Transveral, Spring, Ansible`
