@@ -57,4 +57,29 @@ Searching for exploit leads here [Exploit](https://github.com/me2nuk/CVE-2022-22
 Trying it works
 ![image](https://user-images.githubusercontent.com/127159644/224523573-9ba444c3-7be1-4004-baf1-0a5cfd1b628c.png)
 
-I tried making an exploit script to give shell but i can't seem to get it work :( [FailedExploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/failed_exp.py)
+I tried making an exploit script to give shell but i can't seem to get it work :( 
+
+But when i try using just nc it works but i can't get shell via it[FailedExploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/failed_exp.py)
+![image](https://user-images.githubusercontent.com/127159644/224523610-11bff5c4-67fd-4bf1-8649-debb40131f83.png)
+
+Anyway lets get shell 
+![image](https://user-images.githubusercontent.com/127159644/224523936-c4d4f2ff-54c4-4887-bc1d-9f32407e04cd.png)
+
+For shell i just uploaded a bash reverse shell to /dev/shm , made it executable then specify the full path for it to be run `/dev/shm/lol.sh`
+![image](https://user-images.githubusercontent.com/127159644/224524020-3af2d86c-9f50-4e1e-a501-b954de059975.png)
+
+Now lets escalate privilege
+
+Since there are two users we're likely goin to have to escalate to one before escalating to root
+![image](https://user-images.githubusercontent.com/127159644/224524036-a2bd3f35-7eae-4084-91a7-1e160c7bad35.png)
+
+Checking around the directories the user can access i get settings.xml which contains a cred for user phil
+![image](https://user-images.githubusercontent.com/127159644/224524099-4d1daeac-d3bf-4a91-aa25-5bc593d6832d.png)
+
+Trying it over ssh deosn't work
+![image](https://user-images.githubusercontent.com/127159644/224524155-64aacd7b-31c6-42ba-a4ba-c895514eee7e.png)
+
+But switching user to it does
+![image](https://user-images.githubusercontent.com/127159644/224524163-ef78f2fa-fd4d-45a1-8983-68c8b278b68f.png)
+
+Now lets escalate privilege to root 🤓
