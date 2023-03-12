@@ -42,3 +42,16 @@ When i tried accessing ../resources i got an error and also when i then tried /v
 Since i'll be enumerating files on the server i don't want to do it manually so i 
  
 I used a bash script to automate listing files [ReadFiles](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/readfiles.sh)
+
+After looking at files on the web server i found this
+![image](https://user-images.githubusercontent.com/127159644/224521753-d1ba120f-7efb-4674-9f61-28bbd1db7134.png)
+![image](https://user-images.githubusercontent.com/127159644/224521758-07b9d481-5134-4ed8-8c89-f1c96a805ac3.png)
+
+This are the dependencies that the web servers spring framework uses
+
+After looking through them i got a vulnerable version which is this
+![image](https://user-images.githubusercontent.com/127159644/224521906-c3763fdc-1bff-4e15-a405-ff58afdecc68.png)
+
+Searching for exploit leads here [Exploit](https://github.com/me2nuk/CVE-2022-22963)
+
+
