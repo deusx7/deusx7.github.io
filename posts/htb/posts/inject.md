@@ -54,4 +54,7 @@ After looking through them i got a vulnerable version which is this
 
 Searching for exploit leads here [Exploit](https://github.com/me2nuk/CVE-2022-22963)
 
+Trying it works
+![image](https://user-images.githubusercontent.com/127159644/224523573-9ba444c3-7be1-4004-baf1-0a5cfd1b628c.png)
 
+I tried making an exploit script to give shell but i can't seem to get it work :( [FailedExploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/inject/failed_exp.py)
