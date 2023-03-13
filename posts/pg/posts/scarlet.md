@@ -151,6 +151,11 @@ I tried using zip2john & john to get the password but it didn't work
 ![image](https://user-images.githubusercontent.com/127159644/224592587-03990927-d6b5-4d7e-84b1-7cdc5cf8b899.png)
 ![image](https://user-images.githubusercontent.com/127159644/224592656-f20244cf-56dc-438a-9d56-c859a783f067.png)
 
+We can use 7z to know the zip file encryption algorithm
+![image](https://user-images.githubusercontent.com/127159644/224592943-86395d05-705e-4c38-8498-a6409e707390.png)
 
+And in this case its `ZipCrypto Deflate`
 
+Searching google leads here [ZipCrypto](https://github.com/kimci86/bkcrack/blob/master/example/tutorial.md)
 
+Following the steps from the github ....................
