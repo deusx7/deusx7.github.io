@@ -139,10 +139,17 @@ Trying it over ssh works `brain:Standingbytheseaside12`
 ![image](https://user-images.githubusercontent.com/127159644/224591608-ac50de60-c0c6-4633-85a5-ce7b438a59f7.png)
 
 
+Now lets get root 🤓
 
+After running linpeas it showed a file in /opt
+![image](https://user-images.githubusercontent.com/127159644/224592073-9b99c914-d4c3-494b-ad29-3ed899be29a4.png)
 
+Trying to unzip it asks for password
+![image](https://user-images.githubusercontent.com/127159644/224592264-56182d67-902b-46f6-8fc3-2f153c266e5f.png)
 
-
+I tried using zip2john & john to get the password but it didn't work
+![image](https://user-images.githubusercontent.com/127159644/224592587-03990927-d6b5-4d7e-84b1-7cdc5cf8b899.png)
+![image](https://user-images.githubusercontent.com/127159644/224592656-f20244cf-56dc-438a-9d56-c859a783f067.png)
 
 
 
