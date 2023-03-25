@@ -97,7 +97,7 @@ Private Key: file:///etc/icingaweb2/ssh/haxor
 ```
 
 So we intercept the request in burp and manipulate the private key value
-![image](https://user-images.githubusercontent.com/127159644/227717380-c2cfb981-b3e9-443b-9360-a87b85eefc82.png)
+![image](https://user-images.githubusercontent.com/127159644/227717465-6ad32dc9-bcce-42e2-ab5d-f917ef4f10f6.png)
 
 After forwarding the request it works
 ![image](https://user-images.githubusercontent.com/127159644/227717395-c1fff159-ffbb-4c9c-88b9-fd84546ad1c3.png)
