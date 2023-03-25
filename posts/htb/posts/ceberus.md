@@ -64,3 +64,22 @@ Using that to login works
 
 From here we can get RCE using the same resource that exploited the path transversal
 
+#### Exploitation: Remote Code Execution (CVE-2022-24715)
+
+The exploitation goes this way
+
+```
+Create ssh key with PEM as its type
+```
+
+Using ssh-keygen works fine
+![image](https://user-images.githubusercontent.com/127159644/227715586-e284bc22-a976-4cee-854d-681dc8e7cde5.png)
+
+Now we need to create a new SSH resource in icingaweb.
+
+It can be done here:
+
+```
+Configuration -> Resources -> Create a New Resource
+```
+
