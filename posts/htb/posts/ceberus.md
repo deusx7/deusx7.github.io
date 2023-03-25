@@ -54,4 +54,13 @@ So i asked chatgpt and got the answer
 Trying that works
 ![image](https://user-images.githubusercontent.com/127159644/227715327-c72c1305-3955-422e-8e98-8728ed152669.png)
 
+```
+Username: matthew
+Password: IcingaWebPassword2023
+```
+
+Using that to login works
+![image](https://user-images.githubusercontent.com/127159644/227715398-130e54c1-1494-497b-8c22-f55e8dae793f.png)
+
+From here we can get RCE using the same resource that exploited the path transversal
 
