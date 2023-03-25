@@ -47,3 +47,11 @@ file:///etc/icingaweb2/ssh/nima
 It shows us the path to the `Icinga Web 2` 
 
 That is useful cause we want to enumerate creds
+
+So i asked chatgpt and got the answer
+![image](https://user-images.githubusercontent.com/127159644/227715278-9ee180a5-8746-494e-ac21-72b053213df1.png)
+
+Trying that works
+![image](https://user-images.githubusercontent.com/127159644/227715327-c72c1305-3955-422e-8e98-8728ed152669.png)
+
+
