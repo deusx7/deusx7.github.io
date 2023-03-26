@@ -17,3 +17,23 @@ The only function there is that it checks converts a string to a qr code or it d
 THere's a given file which can be downloaded
 ![image](https://user-images.githubusercontent.com/127159644/227752314-2284d46b-4768-4e7a-9dd7-a0eb2ec0be61.png)
 
+After downloading the file given which turns out to be a zip file i extracted it
+![image](https://user-images.githubusercontent.com/127159644/227752448-abeca5ea-8dc0-455f-835f-38296891d3d4.png)
+
+And its looks like a python compiled binary
+
+So we can decompile it using uncompyle6 but before that we need to convert it to a pyc file
+
+```
+pyi-archive_viewer qreader
+? X qreader
+to filename? ./qreader.pyc
+```
+
+Then decompile using uncompyle6
+
+```
+uncompyle6 qreader.pyc > qreader.py
+```
+
+
