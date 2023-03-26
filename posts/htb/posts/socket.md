@@ -131,8 +131,20 @@ Now we have password how about user?
 
 If you notice the name `Thomas Keller` we can try get like possible usernames from it 
 
-Using a [Script](https://github.com/PinkDraconian/CTF-bash-tools/blob/master/scripts/ctf-wordlist-names.sh)i generated possible usernames 
+Using a [Script](https://github.com/PinkDraconian/CTF-bash-tools/blob/master/scripts/ctf-wordlist-names.sh), I generated possible usernames 
 ![image](https://user-images.githubusercontent.com/127159644/227754495-1e801d2c-c4c7-4121-8386-bf4a0d8bf54f.png)
 
+So i then used hydra to brute force usernames for ssh
+![image](https://user-images.githubusercontent.com/127159644/227754554-b3c52dd9-622a-45aa-b078-6718345c26d5.png)
 
+Now that we have valid cred `tkeller:denjanjade122566` lets login to ssh
+![image](https://user-images.githubusercontent.com/127159644/227754593-97860c89-dfb6-4891-8292-b6a2cffe8317.png)
+
+Lets get root 
+
+Checking `sudo -l` shows that the user can run `/usr/local/sbin/build-installer.sh` as root
+![image](https://user-images.githubusercontent.com/127159644/227754602-680e977b-cf1d-48e6-8661-266483bb3923.png)
+
+Here's the content of `/usr/local/sbin/build-installer.sh`
+![image](https://user-images.githubusercontent.com/127159644/227754622-4e47312c-f517-4ad6-adaa-cb4a0ea06777.png)
 
