@@ -106,7 +106,7 @@ Why i did that was because during the program execution the global offset table 
 ![image](https://user-images.githubusercontent.com/127159644/227796802-3606b946-5b94-4b06-b63e-8e2cee7ccc00.png)
 ![image](https://user-images.githubusercontent.com/127159644/227796813-d73bb565-1b40-4140-b827-49a15fa2b491.png)
 
-Here's my solve script [Exploit]()
+Here's my solve script [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/practice/accessdenied/solve.py)
 
 Running it works
 ![image](https://user-images.githubusercontent.com/127159644/227796869-69662796-a767-4418-9d59-9efd1121fcde.png)
