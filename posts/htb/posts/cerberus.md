@@ -136,6 +136,8 @@ chisel server -p 9090 --reverse
 
 Since we need some requirements before exploiting the service lets get em
 
-Now i can use metasploit to exploit the service
+But i kept on getting 500 Intenal Error i don't know why
+![image](https://user-images.githubusercontent.com/127159644/227751588-411284ee-f9bb-41da-a054-6a5911770e7c.png)
 
+I'll stop here because ive been resetting and it doesn't still work 🤔
 
