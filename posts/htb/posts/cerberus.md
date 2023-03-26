@@ -71,3 +71,21 @@ Using this exploit scrpit [Exploit](https://github.com/JacobEbben/CVE-2022-24715
 I got shell
 ![image](https://user-images.githubusercontent.com/127159644/227747439-4c75a59c-8f97-4b7c-a2c7-59662defba6b.png)
 
+Now this is weird cause cerberus is a windows box and not a linux box 
+
+That means we're in some sort of container 🤔
+
+Next thing is to get root and checking for suid binary shows this
+![image](https://user-images.githubusercontent.com/127159644/227747986-0d824e24-6530-4251-8c57-05c5c6750d8a.png)
+
+```
+/usr/bin/firejail
+```
+
+So i searched for exploit and found this [Resource](https://www.openwall.com/lists/oss-security/2022/06/08/10)
+
+There's an exploit script for (CVE-2022-31214) [Exploit](https://seclists.org/oss-sec/2022/q2/att-188/firejoin_py)
+
+After i transferred it to the target and run it, my privilege was escalated to root
+![image](https://user-images.githubusercontent.com/127159644/227748283-8094b1ee-e287-4a56-8070-63a9f633fe1d.png)
+
