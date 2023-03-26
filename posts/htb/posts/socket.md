@@ -11,3 +11,9 @@ I added the domain to my `/etc/hosts/` file
 
 After checking the web server
 ![image](https://user-images.githubusercontent.com/127159644/227752256-e92d99e0-3e8d-4e55-a8c8-bca0c05f4ec9.png)
+
+The only function there is that it checks converts a string to a qr code or it decodes a qr code and shows it content
+
+THere's a given file which can be downloaded
+![image](https://user-images.githubusercontent.com/127159644/227752314-2284d46b-4768-4e7a-9dd7-a0eb2ec0be61.png)
+
