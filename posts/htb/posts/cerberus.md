@@ -86,6 +86,11 @@ So i searched for exploit and found this [Resource](https://www.openwall.com/lis
 
 There's an exploit script for (CVE-2022-31214) [Exploit](https://seclists.org/oss-sec/2022/q2/att-188/firejoin_py)
 
-After i transferred it to the target and run it, my privilege was escalated to root
+I transferred it to the target and run it, my privilege was escalated to root
 ![image](https://user-images.githubusercontent.com/127159644/227748283-8094b1ee-e287-4a56-8070-63a9f633fe1d.png)
+
+After getting root i decided to find a way to escape this container
+
+THen on running linpeas.sh i got this
+![image](https://user-images.githubusercontent.com/127159644/227748494-a022052d-65dd-4081-81e6-570bb807c7a2.png)
 
