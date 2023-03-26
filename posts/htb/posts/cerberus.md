@@ -94,3 +94,11 @@ After getting root i decided to find a way to escape this container
 THen on running linpeas.sh i got this
 ![image](https://user-images.githubusercontent.com/127159644/227748494-a022052d-65dd-4081-81e6-570bb807c7a2.png)
 
+Cache Cred is True in this joined domain host
+
+So i asked chatgpt again and it says the path where the cred and information of a windows joined domain host is located at `/var/lib/sss/db`
+
+After checking i saw that `cache_cerberus.local.ldb` has an hash
+
+Then i cracked it and it belongs to user `matthew`
+![image](https://user-images.githubusercontent.com/127159644/227749264-b16beab8-9eeb-4d54-9a6a-422541ee7a30.png)
