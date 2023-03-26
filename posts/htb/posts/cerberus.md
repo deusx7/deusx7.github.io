@@ -134,7 +134,7 @@ chisel server -p 9090 --reverse
 .\chisel-x64.exe client 10.10.14.175:9090 R:9091:socks
 ```
 
-Since we need some requirements before exploitating the service lets get em
+Since we need some requirements before exploiting the service lets get em
 
 Now i can use metasploit to exploit the service
 
