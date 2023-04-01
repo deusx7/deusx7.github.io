@@ -227,5 +227,46 @@ Flag: RS{XM3N_L0R3?_M0R3_L1K3_XM3N_3XT3RN4L_3NT1TY!}
 
 <h3> Reverse Engineering </h3>
 
-###
+### Cats At Play
+![image](https://user-images.githubusercontent.com/127159644/229308875-240e763c-cb86-4c2c-85c4-772a1c60c71d.png)
+
+This is quite very easy lets get to it
+
+After downloading the binary i ran strings on it and got the flag
+
+```
+➜  ~ strings meow.exe | grep RS{
+RS{C4tsL1keStr1ng5}
+➜  ~ 
+```
+
+```
+Flag: RS{C4tsL1keStr1ng5}
+```
+
+<h3> BIN-PWN </h3>
+
+### ret2win
+![image](https://user-images.githubusercontent.com/127159644/229309316-ec0edead-0404-46b6-b9b3-705d1f9fdcb9.png)
+
+After downloading the binary i'll check its file type and the protections enabled on it
+![image](https://user-images.githubusercontent.com/127159644/229309369-3791e617-8035-430b-ae78-e59d2df4c66a.png)
+
+From here we can see the we're working with a x64 binary and no protections are enabled on it which is a good thing 🙂
+
+Next i'll run the binary to get an overview of what it does
+![image](https://user-images.githubusercontent.com/127159644/229309426-ccea1d4c-d8b1-440e-8b91-5547090c050f.png)
+
+It just prints out some words receives our input and prints out another word
+
+Using ghidra i'll decompile the binary and view the main function
+![image](https://user-images.githubusercontent.com/127159644/229309898-18d25320-2272-4a39-8899-4b5ba6d14ceb.png)
+
+The main function just calls the user_input() function
+
+Here's the decompiled user_input() function
+![image](https://user-images.githubusercontent.com/127159644/229309923-c19eb97d-a868-4258-a993-69ac0cfa8962.png)
+
+```
+
 
