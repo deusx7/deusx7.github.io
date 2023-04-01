@@ -55,4 +55,36 @@ I currently have 160 points but normally its supposed to be just 1 point
 
 From now we can play the rps game
 
+But chances of winning is very low tho 
+
+After playing and loosing we get this
+![image](https://user-images.githubusercontent.com/127159644/229291964-ec05f126-aad7-455e-bb11-f885833da5bb.png)
+
+Checking the balance shows it reduces by the amount stacked
+![image](https://user-images.githubusercontent.com/127159644/229292005-abc29369-5255-4277-95ac-e8a5939393e2.png)
+
+So the idea is that it does
+
+```
+if botwins:
+  balance = balance - stake
+```
+
+Now it subtracts its initial balance with the amount staked
+
+But what if we stake negative number yunno what happens 🙂
+
+```
+if botwins:
+  balance = balance - (-stake)
+```
+
+It will turn to a positive number making the balance increase
+
+Trying my assumption works
+![image](https://user-images.githubusercontent.com/127159644/229292355-2017671d-b604-48f1-9950-da19be9cc449.png)
+
+Now we can get the flag
+![image](https://user-images.githubusercontent.com/127159644/229292440-b514d16f-30be-4895-b4f4-ad684458e92c.png)
+
 
