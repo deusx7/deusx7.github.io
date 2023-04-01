@@ -1,10 +1,54 @@
 <h3> PICOCTF '23 </h3>
 
-#### Description: This was a fun ctf i participated in with team 8h037. I solved from various categories like general, web, pwn, re, crypto & forensics
-![image](https://user-images.githubusercontent.com/113513376/228126952-d09c7beb-b9d7-4194-9aaa-9e0f5f09fe05.png)
+#### Description: This was a fun ctf i participated in with team 8h037. I really learnt a lot during this ctf thanks to the organizers for bringing such a good challenge
 ![image](https://user-images.githubusercontent.com/113513376/228130926-bc6f29e7-1276-47d0-9a00-f04321d01b82.png)
 
-##### So lets start from general skills
+<h3> Challenge Solved </h3>
+
+## General Skills
+- Chrono
+- Money-Ware
+- Permissions
+- Repetitions
+- Useless
+- Special
+- Specialer
+
+## Forensics
+- HideMe
+- PcapPoisioning
+- Invisible Words
+
+## Reverse Engineering
+- Ready Gladiator 0
+- Reverse
+- Safe Opener 2
+- Timer
+- No Way Out
+- Ready Gladiator 1
+- Ready Gladiator 2
+
+## WEB
+- FindMe
+- MatchTheRegex
+- SOAP
+- More SQLi
+- Java Code Analysis
+
+## Cryptography
+- HideToSee
+- ReadMyCert
+- Rotation
+- SRA
+
+## Binary Exploitation
+- BabyGame01
+- Two-Sum
+- BabyGame02
+- Hijacking
+- Tic-Tac
+- VNE
+- HorseTrack
 
 ### General Skills 8/8 :~
 
@@ -1274,3 +1318,22 @@ Flag: picoCTF{t_cache_4ll_th3_w4y_2_th4_b4nk_a9cc2c89}
 
 
 Thats all 👻
+
+<h3> Teammate Writeup </h3>
+	
+## Forensics
+- Who Is It
+- Find And Open
+- MSB
+- Unforgotten Bits
+
+## Cryptography
+- PowerAnalysis: Warmup
+- PowerAnalysis: Part 1
+- PowerAnalysis: Part 2
+
+## Reverse Engineering
+- Virtual Machine 0
+- Virtual Machine 1
+
+Here's the link to the writeup [Link]()
