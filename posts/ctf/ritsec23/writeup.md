@@ -219,8 +219,23 @@ Now this part took me quite a while cause i was looking for the wrong file 😅
 Well after my stress i found the file to be at /flag
 
 Reading it works
-![image](https://user-images.githubusercontent.com/127159644/229302188-9ee6f86e-7485-469a-bab4-006ca87914c5.png)
+![image](https://user-images.githubusercontent.com/127159644/229302249-9c2ba65f-537e-4543-8d00-00f99c6e2371.png)
 
 ```
 Flag: RS{XM3N_L0R3?_M0R3_L1K3_XM3N_3XT3RN4L_3NT1TY!}
 ```
+
+#### Broken Bot
+![image](https://user-images.githubusercontent.com/127159644/229302267-dc7c08f1-224e-4020-a37b-676cd75f0e8d.png)
+
+Checking the web server shows this login page
+![image](https://user-images.githubusercontent.com/127159644/229302281-b7ecdb2a-60ac-454d-b0ae-2201d9ace0ce.png)
+
+Using any random password just loads and it gets redirected to archive.org
+![image](https://user-images.githubusercontent.com/127159644/229302318-65d79bdc-9b58-412f-b36f-c91036cb489a.png)
+
+Checking the source code shows this encoded js and while the plain text own is showing stuff like api.telegram.org
+![image](https://user-images.githubusercontent.com/127159644/229302539-96d74ab2-b476-4d26-b305-fc16f601e33c.png)
+
+I tried again to login but this use burp suite to intercept the request
+
