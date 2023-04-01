@@ -87,4 +87,6 @@ Trying my assumption works
 Now we can get the flag
 ![image](https://user-images.githubusercontent.com/127159644/229292440-b514d16f-30be-4895-b4f4-ad684458e92c.png)
 
-
+```
+Flag: RS{TWO_NEGATIVES_DO_MAKE_A_POSITIVE}
+```
