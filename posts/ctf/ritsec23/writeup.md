@@ -90,3 +90,34 @@ Now we can get the flag
 ```
 Flag: RS{TWO_NEGATIVES_DO_MAKE_A_POSITIVE}
 ```
+
+### Chandi Bot 5
+![image](https://user-images.githubusercontent.com/127159644/229292628-7cccedb6-e49a-4e15-ac64-8fcfeed5ff32.png)
+
+This part just asks series of question and if its up to 10 and you get it right then the bot gives you the flag
+![image](https://user-images.githubusercontent.com/127159644/229292703-8e173825-1fe2-4133-adbc-6b6c1557cb06.png)
+
+After playing with it i gathered that some question asked are 
+
+```
+What was the original name of the RITSEC CTF? = RC3
+What is RITSEC's main website? = ritsec.club
+What is the name of the RITSEC Current Discord Bot?  = 0Bii
+What does ISTS stand for? = Information Security Talent Search
+Who is the current President of RITSEC? = Bradely
+When was RC3 founded? = 2013
+When was RITSEC founded? = 2018
+What year was the first version of ChandiBot featured in the RITSEC CTF?  = 2022
+What does RC3 stand for? = RIT Competitive Cybersecurity Club
+When was Sparsa founded? = 2002
+When was the first RITSEC CTF? = 2018
+Who was the first President of RITSEC? = Micah Martin
+What is the name of RITSEC's CTF Team?= Contagion
+```
+
+Trying it on the bot works
+![image](https://user-images.githubusercontent.com/127159644/229293215-cb20e611-8500-4544-84d1-f78d7e72afa9.png)
+
+```
+Flag: RS{TRIVIAL_TRIVIA_TRIUMPHS}
+```
