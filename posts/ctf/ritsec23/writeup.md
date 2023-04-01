@@ -36,3 +36,23 @@ Now we can get the flag by doing /flag
 ```
 Flag: RS{HMMM_WHAT_ARE_YOU_LOOKING_AT}
 ```
+
+### Chandi Bot 4
+![image](https://user-images.githubusercontent.com/127159644/229289993-89a9938f-bbc1-433f-ae29-e249f5720e11.png)
+
+The bot has a rock paper scissors game (rps)
+![image](https://user-images.githubusercontent.com/127159644/229290099-7385d53d-66ba-410f-92cd-bc760ee01012.png)
+
+There's also a buy flag but it requires 10000 points
+![image](https://user-images.githubusercontent.com/127159644/229290203-8a753069-086e-4b8d-b49f-fb7894a5af98.png)
+
+And the way to get point is by getting a dad joke from /dad and playing rps with staking the point you have
+
+But the dad joke just gives one point
+![image](https://user-images.githubusercontent.com/127159644/229290374-7a2cec85-f7eb-4f27-8b42-eeffa0bd63e3.png)
+
+I currently have 160 points but normally its supposed to be just 1 point 
+
+From now we can play the rps game
+
+
