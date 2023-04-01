@@ -188,3 +188,39 @@ Checking the web server shows this
 ![image](https://user-images.githubusercontent.com/127159644/229301553-66c7e2fb-0248-442b-ad7b-1a97d41d643b.png)
 
 Clicking on any of the names down and intercepting the request in burp suite shows this
+![image](https://user-images.githubusercontent.com/127159644/229301783-f80eff00-8fe8-479e-bdc0-46a2b7b4c754.png)
+
+Some base64 encoded value is stored in the cookie 
+
+Decoding it gives this
+
+```
+➜  ~ python3
+Python 3.11.1 (main, Dec 31 2022, 10:23:59) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> a='PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48aW5wdXQ+PHhtZW4+QmVhc3Q8L3htZW4+PC9pbnB1dD4='
+>>> import base64
+>>> print(base64.b64decode(a))
+b"<?xml version='1.0' encoding='UTF-8'?><input><xmen>Beast</xmen></input>"
+>>> 
+```
+
+So its encoding the it in an xml format and sending to the server then the server decodes the encoded blob then execute it
+
+This is xxe 🙂
+
+I then created a script to help me enumerate files on the server via the xxe [Req](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/ritsec/web/xmen/solve.py)
+
+Running it on and fetching `/etc/passwd` works
+![image](https://user-images.githubusercontent.com/127159644/229302089-6c826de2-b622-497e-9e86-4fd9379dacf6.png)
+
+Now this part took me quite a while cause i was looking for the wrong file 😅
+
+Well after my stress i found the file to be at /flag
+
+Reading it works
+![image](https://user-images.githubusercontent.com/127159644/229302188-9ee6f86e-7485-469a-bab4-006ca87914c5.png)
+
+```
+Flag: RS{XM3N_L0R3?_M0R3_L1K3_XM3N_3XT3RN4L_3NT1TY!}
+```
