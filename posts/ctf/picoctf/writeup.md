@@ -1316,7 +1316,6 @@ Also after running it remotely it works
 Flag: picoCTF{t_cache_4ll_th3_w4y_2_th4_b4nk_a9cc2c89}
 ```
 
-
 Thats all 👻
 
 <h3> Teammate Writeup </h3>
@@ -1336,4 +1335,4 @@ Thats all 👻
 - Virtual Machine 0
 - Virtual Machine 1
 
-Here's the link to the writeup [Link]()
+Here's the link to the writeup [Link](https://kism37.github.io/posts/picoCTF2023/writeups.html)
