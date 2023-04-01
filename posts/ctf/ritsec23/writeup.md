@@ -121,3 +121,70 @@ Trying it on the bot works
 ```
 Flag: RS{TRIVIAL_TRIVIA_TRIUMPHS}
 ```
+
+<h3> WEB </h3>
+
+#### Echos
+![image](https://user-images.githubusercontent.com/127159644/229299501-1dd44a6f-b1fa-41a0-85dd-f3dc42d9b8b2.png)
+
+On heading to the web server it shows this
+![image](https://user-images.githubusercontent.com/127159644/229299527-a34b4c10-5943-4910-ac4a-03f09808ca91.png)
+
+Trying to put any output shows that it echos the output back
+![image](https://user-images.githubusercontent.com/127159644/229299564-4a9d887e-6559-41f8-8e54-ab587d066a6e.png)
+
+What i then taught from the challenge name is that it runs like echo command on our input
+
+So i tried command injection using `whoami` and it works
+![image](https://user-images.githubusercontent.com/127159644/229299615-4f392af2-c9fe-410a-813a-588569fff434.png)
+
+Next i checked for if the flag is in the current directory
+![image](https://user-images.githubusercontent.com/127159644/229299635-141223e4-59bd-4eea-bb12-683128959af0.png)
+
+From here we can get the flag
+![image](https://user-images.githubusercontent.com/127159644/229299659-4d310a0b-c090-4c06-80f6-e6651cea6247.png)
+
+```
+Flag: RS{R3S0UND1NG_SUCS3SS!}
+```
+
+#### Rick Roll
+![image](https://user-images.githubusercontent.com/127159644/229299691-99aa9d66-5396-43cb-88e5-b210eacd97c6.png)
+
+Checking the web server shows this
+![image](https://user-images.githubusercontent.com/127159644/229299749-748b56df-16ae-4731-9f84-ebcc5956be75.png)
+
+Nothing there is really there most links there are just going to get you rick rolled
+
+But this links source code:
+
+```
+https://rickroll-web.challenges.ctf.ritsec.club/1.html
+https://rickroll-web.challenges.ctf.ritsec.club/2.css
+https://rickroll-web.challenges.ctf.ritsec.club/Don't.html
+```
+
+Gives the flag:
+
+```
+[RS{/\/eveRG0nna_]
+[_|3tY0|_|d0vvn]
+[_TuRna30unD_]
+[_D3s3RTy0u}]
+[G1v3y0uuP]
+```
+
+Then after i arranged it, i got the flag as:
+
+```
+Flag: RS{/\/eveRG0nna_G1v3y0uuP_|3tY0|_|d0vvn_TuRna30unD_D3s3RTy0u}
+```
+
+#### X-Men Lore
+![image](https://user-images.githubusercontent.com/127159644/229301469-2f9557a1-6cca-4bb9-9832-1f535b51870e.png)
+
+Checking the web server shows this
+![image](https://user-images.githubusercontent.com/127159644/229301544-f14c07ba-b53f-432b-b51a-0ec06dc000a6.png)
+![image](https://user-images.githubusercontent.com/127159644/229301553-66c7e2fb-0248-442b-ad7b-1a97d41d643b.png)
+
+Clicking on any of the names down and intercepting the request in burp suite shows this
