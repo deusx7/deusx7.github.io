@@ -119,6 +119,7 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 - [[Jan 30 2023]] [BIC Winter CTF](https://h4ckyou.github.io/posts/ctf/bic23/bicctf.html) `RE,` `Pwn`
 - [[Mar 07 2023]] [DP CTF](https://h4ckyou.github.io/posts/ctf/dp23/dpctf.html) `Web, Pwn, RE`
 - [[Mar 31 2023]] [PICO CTF 2023](https://h4ckyou.github.io/posts/ctf/picoctf/writeup.html) `General, Web, Crypto, Forensics, Pwn, RE`
+- [[April 02 2023]] [RITSEC CTF](https://h4ckyou.github.io/posts/ctf/ritsec23/writeup.html) `Web, Pwn, Crypto`
 
 * * *
 #### **Support Or Contact Me:~#**
