@@ -396,7 +396,15 @@ Same works remotely
 Flag: RS{AS5EMB1Y_M1GH7_BE_H4RD_BUT_1T_C0MES_IN_CLU7CH}
 ```
 
+<h3> Cryptography </h3>
 
+### Either or Neither nor
+![image](https://user-images.githubusercontent.com/127159644/229334439-5a1f4f92-d6ea-411f-a211-0e42ac2bbbdb.png)
+
+Link given [Link](https://metaproblems.com/6ebee70f0d78d94a4750f9cb70031965/chal.py)
+
+After downloading the file and checking its content i get this
+![image](https://user-images.githubusercontent.com/127159644/229334512-dfd27326-a8c5-4e77-a336-59dd161db620.png)
 
 
 
