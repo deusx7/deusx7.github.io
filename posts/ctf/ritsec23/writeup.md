@@ -406,8 +406,28 @@ Link given [Link](https://metaproblems.com/6ebee70f0d78d94a4750f9cb70031965/chal
 After downloading the file and checking its content i get this
 ![image](https://user-images.githubusercontent.com/127159644/229334512-dfd27326-a8c5-4e77-a336-59dd161db620.png)
 
+I made a script to reverse the process and i got the flag [Solve](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/ritsec/crypto/xor/solve.py)
+
+Running it gives the flag
+![image](https://user-images.githubusercontent.com/127159644/229336860-27cfa66f-fa74-436e-ae2c-da8362ba28e0.png)
+![image](https://user-images.githubusercontent.com/127159644/229336873-357a9b77-7707-4028-a321-7423f20b5275.png)
+
+```
+Flag: MetaCTF{x0r_th3_c0re}
+```
+
+### A Fine Cipher
+![image](https://user-images.githubusercontent.com/127159644/229336897-51e0ad79-8ba2-446c-95a1-158ce5015875.png)
+
+After searching for the encoded value on dcode.fr i got affine cipher to work
+![image](https://user-images.githubusercontent.com/127159644/229336936-23ebd3cf-a3cd-4daa-92be-c7bee523fd5d.png)
+![image](https://user-images.githubusercontent.com/127159644/229336953-3764893f-fffb-4b19-a9bf-2802aba182e0.png)
+
+```
+Flag: RS{IFYOUAREINTERESTEDCHECKOUTMORECRYTPOCTFSATCRYPTOHACK}
+```
 
 
+That's all I was able to solve during the ctf
 
-
-
+We're done 👻
