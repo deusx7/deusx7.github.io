@@ -267,5 +267,139 @@ Here's the decompiled user_input() function
 ![image](https://user-images.githubusercontent.com/127159644/229309923-c19eb97d-a868-4258-a993-69ac0cfa8962.png)
 
 ```
+void user_input(void)
+
+{
+  char local_28 [32];
+  
+  gets(local_28);
+  printf("[*] Good start %s, now do some damage :) \n",local_28);
+  return;
+}
+```
+
+This is whats happening:
+
+```
+1. It gets our input <--- bug here
+2. Then prints out the value of our input
+```
+
+The vulnerability here is the usage of get() 
+
+We see that the space that the buffer can hold up to is 32bytes but since gets() is used we can overflow it
+
+There's a special function called `supersecrettoplevelfunction`
+![image](https://user-images.githubusercontent.com/127159644/229333396-296cbc17-7b51-4d42-acc4-19c32adef343.png)
+
+```
+void supersecrettoplevelfunction(int param_1,int param_2)
+
+{
+  puts("[*]  if you figure out my address, you are hired.");
+  if ((param_1 == L'\xcafebabe') && (param_2 == L'\xc0debabe')) {
+    system("/bin/sh");
+  }
+  else {
+    puts("[!!] You are good but not good enough for my company");
+  }
+  return;
+}
+```
+
+We can see it requires two parameters whose value is being compared with 0xcafebabe and 0xc0debabe and after the check is meet we get a shell else it prints out you are good but not good enough for my company
+
+As this function isn't being called in main() or user_input(), the aim is to take hijack of the execution of the program via the buffer overflow vulnerability then make the instruction pointer point to the supersecrettoplevelfunction function
+
+First lets get the offset needed to take control of the RIP
+![image](https://user-images.githubusercontent.com/127159644/229333548-ef26f0f2-e512-4bcf-9201-dbbf76266005.png)
+![image](https://user-images.githubusercontent.com/127159644/229333566-a1ab85e9-86f0-42de-8ae9-a7e08c7d2681.png)
+
+The offset is `40` also now since this is a x64 binary and we want to pass in argument the convention of doing it matters as its passed into the registers
+
+```
+x64 linux arguments to a function are passed in via registers.
+rdi:    First Argument
+rsi:    Second Argument
+rdx:    Third Argument
+rcx:    Fourth Argument
+r8:     Fifth Argument
+r9:     Sixth Argument
+```
+
+So we need a `pop rdi; ret` gadget and a `pop rsi; ret` gadget
+
+Using ropper we can get it
+![image](https://user-images.githubusercontent.com/127159644/229333663-da2acf0a-8731-4ebc-9d28-6ce24e8d1689.png)
+
+If you notice we don't have a full `pop rsi` gadget but rather `pop rsi; pop r15` its not a problem cause we can pass in 0 byte to the r15 register
+
+Here's the exploit script [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/ritsec/pwn/ret2win/exploit.py)
+
+Running it works
+![image](https://user-images.githubusercontent.com/127159644/229333873-08bfc258-4654-492b-9048-f2e3b26bb74c.png)
+
+Same works remotely
+![image](https://user-images.githubusercontent.com/127159644/229333902-3f5268f9-42b5-4182-b5b7-ffdfeb419a8e.png)
+
+```
+Flag: RS{WHAT'S_A_CTF_WITH0UT_RET2WIN}
+```
+
+### assembly-hopping
+![image](https://user-images.githubusercontent.com/127159644/229333939-edcca96b-6731-46d1-a0d8-6ce3c84d10f6.png)
+
+After downloading the binary i checked its file type and the protection enabled on it
+![image](https://user-images.githubusercontent.com/127159644/229333959-3c0e7398-4e07-4cea-b349-cec5849f72b0.png)
+
+We see that no protection is enabled on this binary
+
+Now i'll run it to get an idea of what it does
+![image](https://user-images.githubusercontent.com/127159644/229333982-05142fe3-3dc7-4338-857b-1e2cb8e2dfc6.png)
+
+It just takes in our input and print out `[!] Saved to our feedback database....` 
+
+Using ghidra i'll decompile it and view its function
+![image](https://user-images.githubusercontent.com/127159644/229334037-4efa6178-382a-40fd-ba59-837739494198.png)
+
+It just calls the feedback_machine() function
+![image](https://user-images.githubusercontent.com/127159644/229334057-b8ea1e45-7100-4345-924d-1cdb2b04e4ee.png)
+
+Same as the previous binary it uses gets() which causes a buffer overflow but this time around no function to jump to 🤔
+
+There's a function called assembly on the binary
+![image](https://user-images.githubusercontent.com/127159644/229334127-7efc042b-2501-417f-bb93-650b9fb35f2e.png)
+
+And what it seems to be doing is a jump rsp instruction
+
+We can verify it by checking a `jmp rsp` gadget
+![image](https://user-images.githubusercontent.com/127159644/229334180-c2972376-83d1-4b0e-99f9-d8a5583c746e.png)
+
+This is good now because we know that no protection are enabled so if we get hijack of the execution on the program we can then do shellcode injection to the stack and execute it
+
+First lets get our offset
+![image](https://user-images.githubusercontent.com/127159644/229334249-2240ed3d-d772-4410-97f9-f67807c2935e.png)
+![image](https://user-images.githubusercontent.com/127159644/229334256-f5077d3a-3c53-45b9-ae99-199328bc7a8a.png)
+![image](https://user-images.githubusercontent.com/127159644/229334268-78bcb101-73c8-45a0-afb7-a97e89cae887.png)
+
+The offset is 216 
+
+Here's my exploit script [Exploit](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/ritsec/pwn/assembly-hopping/exploit.py)
+
+Running it works
+![image](https://user-images.githubusercontent.com/127159644/229334323-0aa575cb-7423-4e9e-b5c9-a56967668341.png)
+
+Same works remotely
+![image](https://user-images.githubusercontent.com/127159644/229334335-931e4468-3bd2-4aab-bc56-20644b98328f.png)
+
+```
+Flag: RS{AS5EMB1Y_M1GH7_BE_H4RD_BUT_1T_C0MES_IN_CLU7CH}
+```
+
+
+
+
+
+
 
 
