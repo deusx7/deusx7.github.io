@@ -123,4 +123,21 @@ We can copy `/bin/bash` to `/home/gordon/reports/` then set suid perm on it so t
 But after i checked `/home/gordon/backups` the bash binary doesn't have setuid perm
 ![image](https://user-images.githubusercontent.com/127159644/230931039-40cf5020-31ad-4a1b-baa6-f0a6a56f98f9.png)
 
+And that's because when cp is used to copy an suid binary it drops its permission so we can use the mode 
 
+Then i checked cp help from my terminal
+![image](https://user-images.githubusercontent.com/127159644/230932150-6e50d764-bb4e-4a87-9c67-897f4a80174c.png)
+
+Seems if we use `--preserve=mode` will prevent permission dropage
+![image](https://user-images.githubusercontent.com/127159644/230937146-c8c85ed8-682b-4615-946b-b5c43f32bb3b.png)
+
+After doing that when we check /home/gordon/backups the sh binary should have setuid permission
+![image](https://user-images.githubusercontent.com/127159644/230937529-e6d8dc85-bae8-4a7b-bcd2-43f30d2d28ca.png)
+
+We can get the root flag from there
+
+```
+Flag: THM{J0k3r$_Ar3_W1ld}
+```
+
+And we're done 👻
