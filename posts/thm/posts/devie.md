@@ -77,7 +77,7 @@ So i used a longer text
 
 And i got the real xor key
 
-Now i can decode gordon password since we know the key `supersecretkeyxor`
+Now i can decode gordon password since we know the key `supersecretkeyxorxor`
 ![image](https://user-images.githubusercontent.com/127159644/230926034-fe2db549-02f4-47d1-92ff-a1a0eb8a68eb.png)
 
 It decoded to `G0th@mR0ckz!Q<|b@fX!` but when i tried switching to user gordon it doesn't work
@@ -93,5 +93,34 @@ We can get the second flag
 Flag2: THM{X0R_XoR_XOr_xOr}
 ```
 
+After uploading pspy to the target and running it i got this process running as root
+![image](https://user-images.githubusercontent.com/127159644/230928074-a98887ea-4bc2-49e3-984a-4476778dde95.png)
+
+```
+2023/04/10 15:02:02 CMD: UID=0    PID=2145   | /usr/sbin/CRON -f
+2023/04/10 15:02:02 CMD: UID=0    PID=2146   | /bin/sh -c /usr/bin/bash /usr/bin/backup
+2023/04/10 15:02:02 CMD: UID=0    PID=2148   | cp report1 report2 report3 /home/gordon/backups/
+2023/04/10 15:02:02 CMD: UID=0    PID=2147   | /usr/bin/bash /usr/bin/backup
+```
+
+I downloaded the backup binary locally 
+![image](https://user-images.githubusercontent.com/127159644/230928764-3a5f2ef5-bdbf-4a05-b78d-ab5ea907a95d.png)
+
+Checking it shows that its just a bash script that does this
+![image](https://user-images.githubusercontent.com/127159644/230928875-8633f4b8-4136-475b-8a1a-c4c19aaf27bb.png)
+
+```
+#!/bin/bash
+cd /home/gordon/reports/
+cp * /home/gordon/backups/
+```
+
+Cool so its running as root here's what we can now do
+
+We can copy `/bin/bash` to `/home/gordon/reports/` then set suid perm on it so that when crons run it's permission will be changed to root
+![image](https://user-images.githubusercontent.com/127159644/230930600-f519fe1c-7607-402a-8266-be37e1b457d9.png)
+
+But after i checked `/home/gordon/backups` the bash binary doesn't have setuid perm
+![image](https://user-images.githubusercontent.com/127159644/230931039-40cf5020-31ad-4a1b-baa6-f0a6a56f98f9.png)
 
 
