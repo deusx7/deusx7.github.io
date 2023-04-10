@@ -33,3 +33,12 @@ def bisect(xa,xb):
 ```
 
 When a post request is made to `/` with the value xa and xb it then sums it up but the problem there is that it uses `eval` which can basically evaluate any python command given to it
+
+So I made a script to give us the reverse shell xD
+
+Here it is [Shell](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/thm/devie/shell.py)
+
+Running it gave me a reverse shell
+![image](https://user-images.githubusercontent.com/127159644/230921428-1f289160-63ef-413d-a103-c42c51809472.png)
+
+
