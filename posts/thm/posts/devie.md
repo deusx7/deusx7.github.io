@@ -41,4 +41,57 @@ Here it is [Shell](https://github.com/markuched13/markuched13.github.io/blob/mai
 Running it gave me a reverse shell
 ![image](https://user-images.githubusercontent.com/127159644/230921428-1f289160-63ef-413d-a103-c42c51809472.png)
 
+From there we can get flag1.txt
+![image](https://user-images.githubusercontent.com/127159644/230921954-2bbeeabb-218e-4639-a4ca-bfd9bd3e0af5.png)
+
+```
+Flag1: THM{Car3ful_witH_3v@l}
+```
+
+Reading the note shows this
+![image](https://user-images.githubusercontent.com/127159644/230922327-2496158c-3eae-44ac-9a9c-28e13441d6cd.png)
+
+```
+Super Secure Key: NEUEDTIeN1MRDg5K
+```
+
+So lets check out the script then!
+
+But we don't have permission over it
+![image](https://user-images.githubusercontent.com/127159644/230923206-5f9ae889-07f3-4b59-a0c1-cfd47b47088d.png)
+
+Checking sudo permission shows that we can run the script as gordon
+![image](https://user-images.githubusercontent.com/127159644/230923389-cfdef594-a243-4e1e-9e73-976879a0d7de.png)
+
+Running it works
+![image](https://user-images.githubusercontent.com/127159644/230924668-06da95d4-116a-401f-962c-8370e3774a56.png)
+
+I created a password to encrypt as `pwnerhaxor` and it gave me its encoded value
+
+Then i used python to decode it and then use the value i wanted to encrypt which is `pwnerhaxor` as the key XOR should use
+
+But the real key doesn't seem to be complete yet `supersecre`
+
+So i used a longer text
+![image](https://user-images.githubusercontent.com/127159644/230925204-0c3a109b-ac26-4ce1-8ffa-1473039149a6.png)
+
+And i got the real xor key
+
+Now i can decode gordon password since we know the key `supersecretkeyxor`
+![image](https://user-images.githubusercontent.com/127159644/230926034-fe2db549-02f4-47d1-92ff-a1a0eb8a68eb.png)
+
+It decoded to `G0th@mR0ckz!Q<|b@fX!` but when i tried switching to user gordon it doesn't work
+
+After trying various pattern i got `G0th@mR0ckz!` to work
+
+Now we can ssh as `gordon:G0th@mR0ckz!`
+
+We can get the second flag
+![image](https://user-images.githubusercontent.com/127159644/230926578-6a42594b-20aa-449e-ba41-cd0d094e26a5.png)
+
+```
+Flag2: THM{X0R_XoR_XOr_xOr}
+```
+
+
 
