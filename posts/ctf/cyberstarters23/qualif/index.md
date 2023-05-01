@@ -38,7 +38,7 @@ P.S:- The scoreboard was dynamic
 
 # Steg
 
-#### 0K (100 points)
+#### 0K 
 
 We're given a text file to download:
 ![image](https://user-images.githubusercontent.com/127159644/235382393-fce7923a-cbfb-479a-8010-7038dccfb9c6.png)
