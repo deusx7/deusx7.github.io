@@ -576,3 +576,16 @@ Searching for the contract address *0xe4C9Dcc9ea468C9BaB4C7B2fe4bc3b9b97796055* 
 
 Now checking the contract shows this
 ![image](https://user-images.githubusercontent.com/127159644/235502156-a24fd972-9f34-4991-bdec-cbade829da61.png)
+
+We can click on decompile code to get its decoded form
+![image](https://user-images.githubusercontent.com/127159644/235502679-252a8ee7-b65a-4ffa-825a-372103a6abdf.png)
+
+Clicking on *Decompile Bytecode* gives this
+![image](https://user-images.githubusercontent.com/127159644/235502867-0aa0da6e-34bc-4309-aaa6-138624cacc0b.png)
+
+We can see the flag there 🤓
+
+```
+Flag: DoHCTF{interact_w_contract}
+```
+
