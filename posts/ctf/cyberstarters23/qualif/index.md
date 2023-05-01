@@ -244,3 +244,31 @@ Next thing is checking the source code but nothing really is interesting there
 ![image](https://user-images.githubusercontent.com/127159644/235476414-bc84aab8-7f69-479b-bbc5-86d38363df20.png)
 
 So I refreshed the page again but this time intercepted the request in burp suite
+![image](https://user-images.githubusercontent.com/127159644/235478811-c0c0a895-8c02-4512-be75-16633ce59578.png)
+
+We can see a jwt token is in the request 
+
+Using jwt.io I decoded it to form
+![image](https://user-images.githubusercontent.com/127159644/235479143-d1e565a2-4939-4ceb-9f52-335c5ba41a18.png)
+
+This is the header:
+
+```
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+The payload:
+
+```
+{
+  "username": "guest"
+}
+```
+
+We don't currently know the signature 
+
+In cases like this I'd try brute forcing the signature key but it doesn't work
+
