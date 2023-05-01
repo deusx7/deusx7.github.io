@@ -302,3 +302,33 @@ Flag: DoHCTF{jwt_has_a_none_algo_loll}
 This challenge was really fun and easy but it took me a while to figure it out
 
 First after navigating to the web server it shows this
+![image](https://user-images.githubusercontent.com/127159644/235487209-f0a45edc-1807-49b7-9bb9-0f1aceeae1fd.png)
+
+The text there are just `Lorem Ipsum` things
+
+Checking the source code shows it has 3 web paths we can access
+![image](https://user-images.githubusercontent.com/127159644/235487325-fd61e50d-43d8-415e-8641-c991e3885e97.png)
+
+And there are :
+
+```
+1. Index:- / which redirects to /GgoXAQ4QGxMCHA4ZA1JKDFlWAEFRG1YQGw/c2RzZHZ5dXdnZGd3ZzcyZTcyZTk4dTJ1Yw
+2. Letter:- /HwEBBw0WGQ0HAQEaVBYcEAwHHw0QHRAaHxAdEAEQ/c2R1c2hkdWhzdWRoOHNoZGl1c2hkaXVoc3VpZGRi
+3. About:- /ISdFLDRLKitfPDRKRT0SCRcHEBIIFwsTEg/QEUqWUAqSEQqSFUoKkhmaHVoZWZpdWRmZg
+```
+
+What you will notice is that this are not in its plain text 
+
+And there's a hint that said No BruteForce hmmmmm 🤔
+
+From this we have no option but to work with this 
+
+At first I didn't really know what to do but i know that its base64 encoded
+
+After a while of looking at it and noticing the challenge name I got this:
+
+```
+^_^ ---> the ^ 
+```
+
+What `^` means is a bitwise operation mathematically and xor in the prgramming aspect 
