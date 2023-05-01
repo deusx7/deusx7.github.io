@@ -476,7 +476,8 @@ First since this is my first blockchain type of challenge I had to know what `Go
 ```
 
 Goerli is a proof-of-authority (PoA) test network for Ethereum that was launched in 2019.
-It is designed to provide a stable, secure, and reliable testing environment for Ethereum developers and users, allowing them to test their smart contracts and decentralized applications (DApps) without incurring the high costs associated with deploying on the Ethereum mainnet.
+It is designed to provide a stable, secure, and reliable testing environment for Ethereum developers and users, 
+allowing them to test their smart contracts and decentralized applications (DApps) without incurring the high costs associated with deploying on the Ethereum mainnet.
 
 Goerli is named after a small town in Germany and is one of several test networks available for Ethereum development.
 Unlike other test networks, such as Rinkeby or Ropsten, which use proof-of-work (PoW) or proof-of-stake (PoS) consensus algorithms, respectively, Goerli uses a PoA consensus algorithm.
