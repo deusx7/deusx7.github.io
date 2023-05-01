@@ -61,6 +61,7 @@ Flag: DoHCTF{_colwSPs:(}
 #### Twitter 
 
 After clicking on the [link](https://twitter.com/DiaryOfHackers) it redirects me to their twitter page
+
 ![image](https://user-images.githubusercontent.com/127159644/235383452-5e4eab09-ce6e-4b8f-8609-ec6c2f0ef83d.png)
 
 So i just clicked follow and then back on the ctf I inputted `Yes`
@@ -119,4 +120,12 @@ Searching it on linkedln gave this
 
 We can see the encoded text in the profile description
 
-So i scripted a program to decoded it [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/Cyberstarters23/Qualif/Osint/Rogue%20Agent/solve.py)
+So I scripted a program to decoded it [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/Cyberstarters23/Qualif/Osint/Rogue%20Agent/solve.py)
+
+Running it gives the flag
+![image](https://user-images.githubusercontent.com/127159644/235449707-da5a000b-84f5-44f1-b01e-0a9a83882194.png)
+
+
+# Cryptography
+
+#### di_sease
