@@ -153,3 +153,74 @@ Flag: DoHCTF{The_flags_revealed_009}
 #### Hensel's Mystery
 
 We're given a python file (ring.py) and its output (output.txt)
+
+First we get the parameters from `ring.py` and the polynomial from `output.txt`. With sagemath imported we can do the following.
+
+```
+from sage.all import *
+
+# from ring.py
+p = 35671
+k = 100
+N = p**k
+
+# the polynomial from output.txt and its derivative
+var('x')
+with open('output.txt') as file:
+    f = eval(file.read().replace('^', '**'))
+df = f.derivative()
+````
+
+As can be seen from `ring.py`, the flag is a root of the polynomial:
+
+```
+assert poly(flag) == 0
+```
+
+However, calculating the roots of this polynomial in `Z/NZ` is too hard, so we cannot do that. After lots of Googling, I found the Hensel's lifting lemma, which can be used to 'lift' the roots that were calculated in `Z/pZ` to `Z/p^kZ = Z/NZ`.
+
+Calculating the roots in `Z/pZ` is easy and can even be bruteforced since `p` is small, lets calculate the roots as follows.
+
+```
+roots = []
+for i in range(p):
+    if Mod(f(x = i), p) == 0:
+        roots.append(i)
+```
+
+There should be maximum of 4 roots now.
+
+Now let's implement the Hensel's lifting lemma, and let's lift the roots to `k=100`.
+
+```
+# https://www.geeksforgeeks.org/hensels-lemma/
+# a_{k+1} = a_k-f(a_k)*f'(a_1)^(-1) mod p^{k+1}
+
+# f'(a_1) for all roots
+derivs = [df(x = r) for r in roots]
+
+roots_old = roots
+for n in range(1, k):
+    roots = []
+    for r_old,deriv in zip(roots_old, derivs):
+        # f'(a_1)^(-1) mod p^{k+1}
+        dinv = int(Mod(deriv,p**(n+1))**(-1))
+        roots.append(int(Mod(r_old-int(f(x = r_old))*dinv, p**(n+1)))
+    roots_old = roots
+```
+
+Now we should have the lifted roots, and the flag is one of them.
+
+```
+import string
+for root in roots:
+    flag = int.to_bytes(root, 500, 'big').lstrip(b"\x00")
+    if set(flag).issubset(string.printable.encode()):
+        print(flag)
+```
+
+Here's the flag
+
+```
+Flag: DoHCTF{univariate_polynomial_ring_go_brrr}
+```
