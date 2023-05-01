@@ -595,4 +595,8 @@ The intended way is going to be that we program it in solidity or python (basica
 
 
 
+And that's all 👻
 
+If by change I made any mistake you can DM me here @Discord Hack.You#9120
+
+*Arigato*
