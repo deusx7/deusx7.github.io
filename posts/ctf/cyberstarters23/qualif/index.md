@@ -7,6 +7,7 @@ P.S:- The scoreboard was dynamic
 ```
 
 # Challenges Solved
+![image](https://user-images.githubusercontent.com/127159644/235497068-096208ea-5014-43ac-93f3-e12b8e3fe619.png)
 
 ## Sanity Check
 -      Discord (10 points)
