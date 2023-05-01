@@ -224,3 +224,5 @@ Here's the flag
 ```
 Flag: DoHCTF{univariate_polynomial_ring_go_brrr}
 ```
+
+I also made a solve [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/Cyberstarters23/Qualif/Crypto/Hensel's%20Mystery/solve.py) for it 
