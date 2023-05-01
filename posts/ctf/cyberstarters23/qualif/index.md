@@ -589,3 +589,10 @@ We can see the flag there 🤓
 Flag: DoHCTF{interact_w_contract}
 ```
 
+##### Intended 
+
+The intended way is going to be that we program it in solidity or python (basically any language that can be used to interact with smart contracts) and then call the DEF function passing the right value as parameter 
+
+
+
+
