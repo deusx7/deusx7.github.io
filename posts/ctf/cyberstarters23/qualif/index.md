@@ -376,4 +376,33 @@ B = A ⊕ C
 
 We can get the key for each part now and we know that they will each be `A || B`
 
-But here's the problem 
+But here's the problem:
+
+```
+1. Each path has it own key 
+```
+
+So if we're to encode the value of the flag's path (in this case i can guess flagflagflagflagflag) we won't know the key
+
+At this point i was stucked cause each of the directory and subdirectory has different values when base64 decoded
+
+That means that they are likely formed from encoding:
+
+```
+flagflag with flagflagflag
+flag with flagflagflagflag
+```
+
+Well basically i just assumed that it is formed from arranging 5 (flagflagflagflagflag) in 2 different places
+
+And if we do the math it's:
+
+```
+5 permutation 2:- 5P2 = 20 (so 20 different ways of arranging it
+```
+
+Well that's what I was thinking for some while 😭
+
+
+
+
