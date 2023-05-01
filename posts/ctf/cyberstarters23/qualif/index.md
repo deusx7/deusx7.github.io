@@ -129,3 +129,27 @@ Running it gives the flag
 # Cryptography
 
 #### di_sease
+
+We're given an image file and here's it metadata
+![image](https://user-images.githubusercontent.com/127159644/235450202-899a7476-2cd5-44be-868b-fbb228266ef6.png)
+
+Checking it shows various flag in it
+![image](https://user-images.githubusercontent.com/127159644/235450309-0d6c6ef0-0516-4bac-a6ce-3c1e31bc7f19.png)
+
+At first I didn't know what it is. So I checked [Dcodefr](https://www.dcode.fr/symbols-ciphers) for various image ciphers
+
+And while looking through it I saw something similar to the image given
+![image](https://user-images.githubusercontent.com/127159644/235450500-5fa056c1-a94f-4c96-a1e1-c55cac42b806.png)
+
+Navy Signal Code looks promising xD
+
+After using it and selecting the various flags from the image it decryped to this
+![image](https://user-images.githubusercontent.com/127159644/235451011-c1375fa4-4dae-4e49-b221-f80b6b000669.png)
+
+```
+Flag: DoHCTF{The_flags_revealed_009}
+```
+
+#### Hensel's Mystery
+
+We're given a python file (ring.py) and its output (output.txt)
