@@ -226,3 +226,11 @@ Flag: DoHCTF{univariate_polynomial_ring_go_brrr}
 ```
 
 I also made a solve [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/Cyberstarters23/Qualif/Crypto/Hensel's%20Mystery/solve.py) for it 
+
+Runing it on sagecell sagemath also gives the flag
+![image](https://user-images.githubusercontent.com/127159644/235452077-17251018-d7a3-4a6c-8638-4217fd111591.png)
+
+# Web
+
+#### None Shall Pass
+
