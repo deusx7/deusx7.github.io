@@ -471,7 +471,7 @@ From the challenge description we're asked to find the:
 First block on Goerli with non-zero transaction
 ```
 
-First since this is my first blockchain type of challenge I had to know what `Goerli` means
+Since this is my first blockchain type of challenge I had to know what `Goerli` means
 
 ```
 
