@@ -506,4 +506,22 @@ Clicking on *Goerli Blockchain* on the *Goerli* domain gives this
 ![image](https://user-images.githubusercontent.com/127159644/235498661-0ae7e3e7-7c5b-4d4c-9e35-7f5093bcb959.png)
 
 But we need the *block* so after looking around the site I saw this 
+![image](https://user-images.githubusercontent.com/127159644/235498955-1a5134e9-fa34-4c2f-9d9c-627539d11a79.png)
+
+Now since we want the first non-zero block transaction it's best to start from the bottom and luckily it can be done by clicking the *Last* button
+![image](https://user-images.githubusercontent.com/127159644/235499145-384fec75-ec20-4c2f-9656-a558de186563.png)
+
+Doing that loads back to the last page
+![image](https://user-images.githubusercontent.com/127159644/235499260-a1603f23-eb1c-4486-8b54-831dba648363.png)
+
+From there we can see that most transaction values are just zero
+
+After moving up and up and up and up 😂 I finally got a value that's not zero
+![image](https://user-images.githubusercontent.com/127159644/235499925-63cc140c-0400-4bca-b4e8-5c50b5030f78.png)
+
+So the flag is:
+
+```
+Flag: DoHCTF{5644}
+```
 
