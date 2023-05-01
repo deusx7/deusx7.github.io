@@ -1,4 +1,4 @@
-<h3> CyberStarters CTF '23 Qualif </h3>
+<h3> CyberStarters CTF '23 Qualification </h3>
 
 Here are the challenges I was able to solve in the ctf which lasted from 28th April 2023 - 30th April 2023
 
