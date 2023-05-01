@@ -35,6 +35,7 @@ P.S:- The scoreboard was dynamic
 # Sanity Check
 
 #### Discord
+![image](https://user-images.githubusercontent.com/127159644/235486429-a1579c01-0afe-4537-a7da-30d27c92451a.png)
 
 After joining their discord channel I got this 
 ![image](https://user-images.githubusercontent.com/127159644/235383084-70651a7e-9de9-45b0-8148-d7a244b56e74.png)
@@ -51,6 +52,7 @@ Flag: DoHCTF{try_to_be_hacktive_on_discord_hehehehehehe}
 ```
 
 #### DoHCTF{_colwSPs:(}
+![image](https://user-images.githubusercontent.com/127159644/235486483-8c86e3f9-ba07-437c-9efd-5e44bde00cfd.png)
 
 Looking at it we can tell its the flag already :D
 
@@ -59,6 +61,7 @@ Flag: DoHCTF{_colwSPs:(}
 ```
 
 #### Twitter 
+![image](https://user-images.githubusercontent.com/127159644/235486510-5a1b39d0-abce-435e-a094-8f00fb8a0729.png)
 
 After clicking on the [link](https://twitter.com/DiaryOfHackers) it redirects me to their twitter page
 
@@ -73,6 +76,7 @@ Flag: Yes
 # Steg
 
 #### 0K 
+![image](https://user-images.githubusercontent.com/127159644/235486556-f0237748-a54e-47bc-8396-4d5facb52dcc.png)
 
 We're given a text file to download:
 ![image](https://user-images.githubusercontent.com/127159644/235382393-fce7923a-cbfb-479a-8010-7038dccfb9c6.png)
@@ -94,6 +98,7 @@ Flag: DoHCTF{another_quite_simple_one}
 # OSINT
 
 #### Rogue Agent
+![image](https://user-images.githubusercontent.com/127159644/235486608-28ee14c9-6425-4d89-81f5-2cc973fede82.png)
 
 This was quite a very fun one i would say (i'm not really an osint person)
 
@@ -130,6 +135,7 @@ Running it gives the flag
 # Cryptography
 
 #### di_sease
+![image](https://user-images.githubusercontent.com/127159644/235486657-f4c931a1-0a3b-47cf-b902-c9a75dba86e8.png)
 
 We're given an image file and here's it metadata
 ![image](https://user-images.githubusercontent.com/127159644/235450202-899a7476-2cd5-44be-868b-fbb228266ef6.png)
@@ -152,6 +158,7 @@ Flag: DoHCTF{The_flags_revealed_009}
 ```
 
 #### Hensel's Mystery
+![image](https://user-images.githubusercontent.com/127159644/235486708-019deb6e-d646-4f13-a842-48f737805a6c.png)
 
 We're given a python file (ring.py) and its output (output.txt)
 
@@ -234,6 +241,7 @@ Runing it on sagecell sagemath also gives the flag
 # Web
 
 #### None Shall Pass
+![image](https://user-images.githubusercontent.com/127159644/235486754-b2190985-a18a-4e4c-94c2-862d7b1f78ff.png)
 
 We're given the web server to connect to 
 
@@ -288,3 +296,9 @@ Running it gives the flag
 Flag: DoHCTF{jwt_has_a_none_algo_loll}
 ```
 
+#### ^_^
+![image](https://user-images.githubusercontent.com/127159644/235486866-3a75734f-5c10-416d-a7b2-9837a26ec596.png)
+
+This challenge was really fun and easy but it took me a while to figure it out
+
+First after navigating to the web server it shows this
