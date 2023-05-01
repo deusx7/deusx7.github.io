@@ -489,3 +489,21 @@ Goerli is fully compatible with the Ethereum mainnet, and developers can easily 
 
                                                                                                                          Source: ChatGPT
 ```
+
+So basically its just *A cross-client proof-of-authority testing network for Ethereum.*
+
+And they said we should get the first block with a non zero transaction (txn)
+
+Searching for goerli shows this
+![image](https://user-images.githubusercontent.com/127159644/235498042-d3fa1703-74b6-4fc6-b693-1f6bd6caa6c2.png)
+
+Clicking on it (the first link) shows this
+![image](https://user-images.githubusercontent.com/127159644/235498166-592de77f-3207-4d57-b718-fc1a24238a2b.png)
+
+But since we need to know like the transaction history we need a block explorer and analytics platform and the one I got was *Etherscan*
+
+Clicking on *Goerli Blockchain* on the *Goerli* domain gives this
+![image](https://user-images.githubusercontent.com/127159644/235498661-0ae7e3e7-7c5b-4d4c-9e35-7f5093bcb959.png)
+
+But we need the *block* so after looking around the site I saw this 
+
