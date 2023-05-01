@@ -105,3 +105,18 @@ This was nearly almost impossible cause there wasn't any avaialble open source t
 And attempting to search it manually was futile
 
 Then after a while i remembered that a phone number was given! So the question is what can I do with it 🤔
+
+If you use palmpay/opay well you should know that when a number is provided, It will bring out the person full names
+
+So its worth a shot 💀
+
+After trying it on palmpay i attempted to make cash transfer to the person then i saw his name 🤤
+
+Which was `Adebayo Mustapha Ekeh` !!
+
+Searching it on linkedln gave this 
+![image](https://user-images.githubusercontent.com/127159644/235383731-b4a92241-92c5-49ce-a79a-fbc0db8bfd95.png)
+
+We can see the encoded text in the profile description
+
+So i scripted a program to decoded it [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/Cyberstarters23/Qualif/Osint/Rogue%20Agent/solve.py)
