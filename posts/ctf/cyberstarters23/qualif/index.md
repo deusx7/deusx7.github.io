@@ -347,4 +347,33 @@ But before that I was getting incorrect padding
 ![image](https://user-images.githubusercontent.com/127159644/235488342-84988922-a3d5-452e-b0df-fc4f75890908.png)
 
 So adding `==` made it look more base64ish 😹
+![image](https://user-images.githubusercontent.com/127159644/235488546-ae9d288c-cd33-49f4-8d8b-73884ee356f9.png)
 
+We get its xored value as `indexindexindexindexindex` and remember that path is for the Index page 🤔
+
+Doing the same for other paths gives its decoded form
+![image](https://user-images.githubusercontent.com/127159644/235488791-af956434-b09d-4da8-9e7c-c286d94b07a8.png)
+
+Now this is getting interesting ⁉️
+
+We can now conclude that the path are formed by xoring it with a key then base64 encoding its xored value
+
+But what is that key 🤔
+
+A property of xor is that it's commutative i.e 
+
+```
+A ⊕ B = B ⊕ A 
+```
+
+So that means:
+
+```
+A ⊕ B = C
+A = B ⊕ C
+B = A ⊕ C
+```
+
+We can get the key for each part now and we know that they will each be `A || B`
+
+But here's the problem 
