@@ -434,4 +434,28 @@ So that means our xored value should be equal to the lenth of the base64 encoded
 Currently its length is just 4, while that of the encoded form of the flag is 28
 ![image](https://user-images.githubusercontent.com/127159644/235492971-e04ed33e-2601-4b93-867a-6c8369ba70fa.png)
 
+Doing the basic math:
+
+```
+28 / 4 = 7 (so we need to multiply len(encoded(xored)) by 7
+```
+
+After doing that on my terminal I get this
+![image](https://user-images.githubusercontent.com/127159644/235493348-22fbf796-76d9-422d-aad2-297f936e36ad.png)
+
+Now we can join the two string together seperated by a slash `/`
+![image](https://user-images.githubusercontent.com/127159644/235493931-35480bc8-18dc-4556-9b96-8fa0a4e84f32.png)
+
+Now trying to access it from the web server gives the flag
+![image](https://user-images.githubusercontent.com/127159644/235494062-e92a7848-6718-4a32-828c-e62866ace9b9.png)
+
+```
+Flag: DoHCTF{xor_rox_xor}
+```
+
+I made a solve [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/Cyberstarters23/Qualif/Web/%5E_%5E/solve.py) for it also 
+
+Running it also works
+![image](https://user-images.githubusercontent.com/127159644/235495318-f41dbfe5-3da4-41be-908c-1721e86bb841.png)
+
 
