@@ -235,3 +235,12 @@ Runing it on sagecell sagemath also gives the flag
 
 #### None Shall Pass
 
+We're given the web server to connect to 
+
+After navigating to it on my web browser i see this
+![image](https://user-images.githubusercontent.com/127159644/235476332-d87b9664-f15f-4c64-995c-b80e30c89f52.png)
+
+Next thing is checking the source code but nothing really is interesting there 
+![image](https://user-images.githubusercontent.com/127159644/235476414-bc84aab8-7f69-479b-bbc5-86d38363df20.png)
+
+So I refreshed the page again but this time intercepted the request in burp suite
