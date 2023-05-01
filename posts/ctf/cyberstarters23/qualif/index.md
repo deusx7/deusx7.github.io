@@ -565,3 +565,14 @@ Also here's the abi
 For this challenge I actually was trying something before I got an easier and likely unintended way
 
 ##### Likely Unintended
+
+We are not given the test network the block chain is connected to so we are going to have to guess it 🤔
+
+After some while I searched various networks and got it to be *Sepolia Testnet Explorer*
+![image](https://user-images.githubusercontent.com/127159644/235501925-e4bbd6f9-a9c2-4ab9-97ad-51757fc732a9.png)
+
+Searching for the contract address *0xe4C9Dcc9ea468C9BaB4C7B2fe4bc3b9b97796055* shows this
+![image](https://user-images.githubusercontent.com/127159644/235502045-da83bd69-fdd8-4993-b802-d55bc9dc8354.png)
+
+Now checking the contract shows this
+![image](https://user-images.githubusercontent.com/127159644/235502156-a24fd972-9f34-4991-bdec-cbade829da61.png)
