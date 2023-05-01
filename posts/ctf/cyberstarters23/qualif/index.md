@@ -398,11 +398,40 @@ Well basically i just assumed that it is formed from arranging 5 (flagflagflagfl
 And if we do the math it's:
 
 ```
-5 permutation 2:- 5P2 = 20 (so 20 different ways of arranging it
+5 permutation 2:- 5P2 = 20 (so 20 different ways of arranging it)
 ```
 
 Well that's what I was thinking for some while 😭
 
+Until after I then taught that hmmmm how about using the just the encoded form of `flag*5` 🤔 as a directory
 
+But now here's the problem 🙁
+
+```
+- Noticing the way the web server stores it paths it uses a directory and subdirectory
+```
+
+Then I taught again for a while on how to go about this path 😂
+
+So I just said what if the subdirectory is just basically a null value so when we try access it the web server justs takes it as a non type value
+
+Here's the way I encoded it
+![image](https://user-images.githubusercontent.com/127159644/235492178-5f550f50-c503-4128-b0b1-9b347137dfa7.png)
+
+```
+P.S: When you xor a value of the same kind it returns zero
+```
+
+Now we know that xoring `0 with 0 = 0000` 
+
+But here's another thing to notice from the web server
+
+Each directory and subdirectory has the same length 
+![image](https://user-images.githubusercontent.com/127159644/235492478-ab9e9ae4-4c94-4cc7-8752-d739c27e9b59.png)
+
+So that means our xored value should be equal to the lenth of the base64 encoded form of `flag*5` 
+
+Currently its length is just 4, while that of the encoded form of the flag is 28
+![image](https://user-images.githubusercontent.com/127159644/235492971-e04ed33e-2601-4b93-867a-6c8369ba70fa.png)
 
 
