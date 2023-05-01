@@ -331,4 +331,20 @@ After a while of looking at it and noticing the challenge name I got this:
 ^_^ ---> the ^ 
 ```
 
-What `^` means is a bitwise operation mathematically and xor in the prgramming aspect 
+What `^` means is a bitwise operation mathematically and xor in the programming aspect 
+
+So I then decided to base64 decode the directory and the subdirectory for each path then xor them together
+
+```
+Path: /GgoXAQ4QGxMCHA4ZA1JKDFlWAEFRG1YQGw/c2RzZHZ5dXdnZGd3ZzcyZTcyZTk4dTJ1Yw
+Directory: /GgoXAQ4QGxMCHA4ZA1JKDFlWAEFRG1YQGw
+SubDirectory: c2RzZHZ5dXdnZGd3ZzcyZTcyZTk4dTJ1Yw
+```
+
+Using python I acheived that and was able to decode it 
+
+But before that I was getting incorrect padding 
+![image](https://user-images.githubusercontent.com/127159644/235488342-84988922-a3d5-452e-b0df-fc4f75890908.png)
+
+So adding `==` made it look more base64ish 😹
+
