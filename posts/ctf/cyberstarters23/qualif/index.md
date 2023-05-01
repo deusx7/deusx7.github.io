@@ -591,11 +591,23 @@ Flag: DoHCTF{interact_w_contract}
 
 ##### Intended 
 
-The intended way is going to be that we program it in solidity or python (basically any language that can be used to interact with smart contracts) and then call the DEF function passing the right value as parameter 
+*The intended way is going to be that we program it in solidity or python (basically any language that can be used to interact with smart contracts) and then call the DEF function passing the right value as parameter *
 
 
+#### Conclusion
 
-And that's all 👻
+```
+- Learnt new lots of thing (block
+- Improved my reasoning skills 
+- Had fun while partaking in the CTF
+```
+
+Till the final xD
+
+And that's all for today 👻
+
+<br> 
+<br>
 
 If by change I made any mistake you can DM me here @Discord Hack.You#9120
 
