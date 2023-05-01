@@ -525,3 +525,42 @@ So the flag is:
 Flag: DoHCTF{5644}
 ```
 
+#### Blockr
+![image](https://user-images.githubusercontent.com/127159644/235500153-3debc2fa-3ab9-4d86-b9ac-3c8026baf4bb.png)
+
+Another fun challenge I'd say 🙂
+
+We're given a zip file and after unzipping it, it contains two files *abi, blockr.sol*
+![image](https://user-images.githubusercontent.com/127159644/235500377-3c2c9735-02a6-4fd9-8276-f19f7919eaae.png)
+
+First from checking the content of blockr.sol it shows this
+![image](https://user-images.githubusercontent.com/127159644/235500555-2dcdb7d4-2692-4dee-8984-53179d241db2.png)
+
+```
+pragma solidity ^0.8.0;
+
+contract ABC {
+    function DEF(string GHI) external view returns (string memory) {
+        bytes32 JKL = blockhash(block.number - 5);
+        require(GHI == JKL, ":D");
+        return ""; // Flag//
+    }
+}
+```
+
+Here's what this program does:
+
+```
+- It's a solidity program
+- It creates a contract ABC which has a function called DEF
+- The function takes in a parameter string GHI and also its set to it to be view only and the function is to return a value from memory (later called at the end of the code)
+- It then sets a variable JKL which data type is bytes32 and it's set to be the value of the blockhash of the blocknumber before 5 (5 blocks before the blocknumber)
+- A check is done to compare the value of the parameter called from the DEF function with the value of GHI 
+- If its meet it returns the flag
+```
+
+Also here's the abi
+![image](https://user-images.githubusercontent.com/127159644/235501410-723a8d9c-c95e-4ea6-836d-a369f21f0586.png)
+
+
+
