@@ -271,4 +271,20 @@ The payload:
 We don't currently know the signature 
 
 In cases like this I'd try brute forcing the signature key but it doesn't work
+![image](https://user-images.githubusercontent.com/127159644/235482786-2c9d7dc8-ceb4-4086-a210-9a66b3ececc1.png)
+
+No we know that the algorithm used for signing the key is `HS256` how about we set it to None 🤔
+
+That's a method to be tried for exploiting jwts
+
+I made a script to create a new token and call the web server index page
+
+Here's the solve [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/Cyberstarters23/Qualif/Web/None%20Shall%20Pass/solve.py)
+
+Running it gives the flag
+![image](https://user-images.githubusercontent.com/127159644/235486114-863360fc-767e-4b6f-b46d-3ce2c77069a6.png)
+
+```
+Flag: DoHCTF{jwt_has_a_none_algo_loll}
+```
 
