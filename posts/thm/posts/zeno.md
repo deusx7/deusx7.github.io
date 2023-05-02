@@ -52,4 +52,6 @@ I then logged in to the db and got some hashes after cracking it and trying it, 
 ![image](https://user-images.githubusercontent.com/127159644/235658425-e4a85462-069e-41d8-a774-13e973c107a5.png)
 ![image](https://user-images.githubusercontent.com/127159644/235658463-a869b0c5-7a36-47bb-8a8d-9e4102fb83e1.png)
 
+So i ran linpeas to see what else is interesting
+
 
