@@ -622,6 +622,9 @@ We can achieve this using python (Thanks to one of the organisers @Lytes for ver
 Here's my solve script for it
 
 ```python
+#!/usr/bin/python3
+# Author: Hack.You
+
 from web3 import Web3
 
 RPC = 'https://eth.getblock.io/[YOUR_API_KEY]/sepolia/' # https://account.getblock.io/ 
@@ -661,7 +664,11 @@ print(result)
 ```
 
 Running it works :D
+![image](https://user-images.githubusercontent.com/127159644/235752703-7b4d079d-0b68-40d0-b634-baa29d77d0c9.png)
 
+```
+Flag: DoHCTF{interact_w_contract}
+```
 
 #### Conclusion
 
