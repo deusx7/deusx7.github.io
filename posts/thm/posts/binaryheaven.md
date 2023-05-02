@@ -21,7 +21,7 @@ Lets run the binary to know what it does
 It asks for username so using ghidra i'll decompile the binary to know what it does
 ![image](https://user-images.githubusercontent.com/113513376/222933006-bdfd37b5-0cfa-4114-bf13-1e06b5ef6a2b.png)
 
-```
+```c
 undefined8
 main(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5,
     undefined8 param_6)
@@ -229,7 +229,7 @@ It just calls the vuln function
 And here's the vuln function
 ![image](https://user-images.githubusercontent.com/113513376/222936926-a53548d2-bae9-4ce5-99fb-00f0daf95269.png)
 
-```
+```c
 void vuln(void)
 
 {
@@ -275,7 +275,7 @@ I'll get a more stable shell
 
 And to stabilize the shell i'll do this:
 
-```
+```bash
 python3 -c "import pty; pty.spawn('/bin/sh')"
 export TERM=xterm
 CTRL +Z
