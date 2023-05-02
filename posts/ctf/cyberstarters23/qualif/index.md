@@ -593,6 +593,9 @@ Flag: DoHCTF{interact_w_contract}
 
 *The intended way is going to be that we program it in solidity or python (basically any language that can be used to interact with smart contracts) and then call the DEF function passing the right value as parameter*
 
+We can achieve this using python (Thanks to one of the organisers @Lytes for verifying the mistake I made initially)
+
+
 
 #### Conclusion
 
