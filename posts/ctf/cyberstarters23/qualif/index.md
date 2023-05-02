@@ -536,7 +536,7 @@ We're given a zip file and after unzipping it, it contains two files *abi, block
 First from checking the content of blockr.sol it shows this
 ![image](https://user-images.githubusercontent.com/127159644/235500555-2dcdb7d4-2692-4dee-8984-53179d241db2.png)
 
-```
+```solidity
 pragma solidity ^0.8.0;
 
 contract ABC {
