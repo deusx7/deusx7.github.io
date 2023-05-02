@@ -88,4 +88,6 @@ WantedBy=multi-user.target
 ```
 
 So now when we restart the box and login */bin/bash* should have *SUID* permission set on it
+![image](https://user-images.githubusercontent.com/127159644/235669434-32f06385-94de-47c3-87be-d5ae303a24c8.png)
 
+And we're done 👻
