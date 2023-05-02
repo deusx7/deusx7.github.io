@@ -26,3 +26,4 @@ Discover CyberSecLabs. With our growing platform delivering beginner hacking con
 - [[Feb 20 2023]] [BrainPan](https://markuched13.github.io/posts/thm/brainpan1.html) `Ret2Shellcode`
 - [[Mar 05 2023]] [BinaryHeaven](https://h4ckyou.github.io/posts/thm/posts/binaryheaven.html) `Reverse Engineering, ROP (Ret2Libc) , Path Hijack`
 - [[April 10 2023]] [Devie](https://h4ckyou.github.io/posts/thm/posts/devie.html) `Python Command Injection, Cryptography, Cron`
+- [[May 02 2023]] [Zeno](https://h4ckyou.github.io/posts/thm/posts/zeno.html) `Remote Code Execution, Service Hijack`
