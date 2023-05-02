@@ -54,4 +54,8 @@ I then logged in to the db and got some hashes after cracking it and trying it, 
 
 So i ran linpeas to see what else is interesting
 
+After running it I got this cred *FrobjoodAdkoonceanJa*
+![image](https://user-images.githubusercontent.com/127159644/235661487-0ae0868f-1d14-43ea-888f-92dd3b622eac.png)
 
+Trying to ssh to user edward with it works
+![image](https://user-images.githubusercontent.com/127159644/235661733-16bd96f6-8690-4427-9fed-bc59f98c619e.png)
