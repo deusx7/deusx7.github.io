@@ -41,8 +41,15 @@ I url encoded my python reverse shell
 So we get the shell 😉
 ![image](https://user-images.githubusercontent.com/127159644/235653724-134efc4c-5cf5-4c3e-9f66-ef96360ba685.png)
 
-Out user perm sucks right?
+Our user perm sucks right?
 
-Lets escalate privilege 
+Lets escalate privilege *Best will be to switch to user edward*
 
-I first wanted to get shell 
+But I tried playing around and got the db password but it didn't work while i tried using it via ssh or switching to user edward
+
+I then logged in to the db and got some hashes after cracking it and trying it, it also didn't work
+![image](https://user-images.githubusercontent.com/127159644/235658352-21398100-d234-43c6-98fe-845b6bf6dd19.png)
+![image](https://user-images.githubusercontent.com/127159644/235658425-e4a85462-069e-41d8-a774-13e973c107a5.png)
+![image](https://user-images.githubusercontent.com/127159644/235658463-a869b0c5-7a36-47bb-8a8d-9e4102fb83e1.png)
+
+
