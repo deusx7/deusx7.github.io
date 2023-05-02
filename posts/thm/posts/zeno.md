@@ -34,3 +34,15 @@ We can now confirm it by accessing it and executing a command
 ![image](https://user-images.githubusercontent.com/127159644/235652964-e9250e2e-783c-4472-a97f-dbcdf294e60c.png)
 
 Now lets get a reverse shell :D
+
+I url encoded my python reverse shell 
+![image](https://user-images.githubusercontent.com/127159644/235653596-1f204300-394c-4981-813e-798f46af8511.png)
+
+So we get the shell 😉
+![image](https://user-images.githubusercontent.com/127159644/235653724-134efc4c-5cf5-4c3e-9f66-ef96360ba685.png)
+
+Out user perm sucks right?
+
+Lets escalate privilege 
+
+I first wanted to get shell 
