@@ -619,6 +619,48 @@ Flag: DoHCTF{interact_w_contract}
 
 We can achieve this using python (Thanks to one of the organisers @Lytes for verifying and correcting the mistake I made initially)
 
+Here's my solve script for it
+
+```python
+from web3 import Web3
+
+RPC = 'https://eth.getblock.io/[YOUR_API_KEY]/sepolia/' # https://account.getblock.io/ 
+
+web3 = Web3(Web3.HTTPProvider(RPC))
+print(f'Connected: {web3.is_connected()}')
+
+address = web3.to_checksum_address("0xe4C9Dcc9ea468C9BaB4C7B2fe4bc3b9b97796055")
+abi = [
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "GHI",
+                "type": "bytes32"
+            }
+        ],
+        "name": "DEF",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+contract = web3.eth.contract(address=address, abi=abi)
+
+blocknumber = web3.eth.block_number
+blockhash = web3.eth.get_block(blocknumber - 5).hash
+
+result = contract.functions.DEF(blockhash).call()
+print(result)
+```
+
+Running it works :D
 
 
 #### Conclusion
