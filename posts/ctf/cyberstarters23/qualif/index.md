@@ -609,6 +609,6 @@ And that's all for today 👻
 <br> 
 <br>
 
-If by change I made any mistake you can DM me here @Discord Hack.You#9120
+If by chance I made any mistake you can DM me here @Discord Hack.You#9120
 
 *Arigato*
