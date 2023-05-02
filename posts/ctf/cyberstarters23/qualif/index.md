@@ -562,6 +562,30 @@ Here's what this program does:
 Also here's the abi
 ![image](https://user-images.githubusercontent.com/127159644/235501410-723a8d9c-c95e-4ea6-836d-a369f21f0586.png)
 
+```json
+[
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "GHI",
+                "type": "bytes32"
+            }
+        ],
+        "name": "DEF",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+```
+
 For this challenge I actually was trying something before I got an easier and likely unintended way
 
 ##### Likely Unintended
