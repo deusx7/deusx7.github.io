@@ -59,3 +59,33 @@ After running it I got this cred *FrobjoodAdkoonceanJa*
 
 Trying to ssh to user edward with it works
 ![image](https://user-images.githubusercontent.com/127159644/235661733-16bd96f6-8690-4427-9fed-bc59f98c619e.png)
+
+Now lets escalate privilege to root
+
+Running *sudo -l* shows we can reboot any service
+![image](https://user-images.githubusercontent.com/127159644/235664935-c0ce7a53-3e70-42ee-9822-e53c23382c68.png)
+
+We now need a service that is writeable and searching for it we get one 🤓
+![image](https://user-images.githubusercontent.com/127159644/235665161-a3366d89-f722-489e-82bc-ea1485568819.png)
+
+Checking its content shows it starts the script running at */root/zeno-monitoring.py*
+![image](https://user-images.githubusercontent.com/127159644/235665255-8d6385be-62cf-4a18-aecb-d1018e840925.png)
+
+I'll replace its content with this:
+![image](https://user-images.githubusercontent.com/127159644/235668365-f3db23a0-e9f7-4b31-964c-c9e0f95b1f7e.png)
+
+```
+[Unit]
+Description=Zeno monitoring
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/bash -c 'chmod +s /bin/bash'
+
+[Install]
+WantedBy=multi-user.target
+```
+
+So now when we restart the box and login */bin/bash* should have *SUID* permission set on it
+
