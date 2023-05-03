@@ -122,5 +122,18 @@ Using crackmapexec it can be achieved
 
 Cool we have new users that we can add to our list and perharps try doing password spray on them
 
+```
+[Users]
 
+lvetrova
+twilliams
+sbradley
+xyan1d3
+```
+
+Performing password spray shows that user *sbradley* password has expired
+![image](https://user-images.githubusercontent.com/127159644/235820922-6ccec17d-abf7-40b6-acf0-acf5afa20fa1.png)
+
+We can reset the password to anything new 
+pwnerhaxor@123
 
