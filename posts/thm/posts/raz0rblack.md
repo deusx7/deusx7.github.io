@@ -93,3 +93,34 @@ Export list for raz0rblack.thm:
 Cool we can mount the *users* share over to our host
 ![image](https://user-images.githubusercontent.com/127159644/235819021-aaced37f-eb85-452a-86f1-cbf365cf512c.png)
 
+The *sbradley.txt* file contains a flag 
+
+But checking the .xlsx file shows a list of usernames
+![image](https://user-images.githubusercontent.com/127159644/235819299-2f9af96d-05af-4974-b445-eec2c89d3365.png)
+
+So i can compiled the names to a file then used a [script](https://github.com/PinkDraconian/CTF-bash-tools/blob/master/scripts/ctf-wordlist-names.sh) to convert them to the way AD does its naming
+![image](https://user-images.githubusercontent.com/127159644/235819517-3f661c9a-e1fa-4c42-aca7-8009b41c3e7e.png)
+
+From here I can try validating some of the users in the list using kerbrute then I can proceed by doing ASREP roasting
+![image](https://user-images.githubusercontent.com/127159644/235819632-33e33f23-2f02-49f9-a631-80a4927e3deb.png)
+
+Now we have three valid users. Saving it in a list and performing ASREP roasting gives the hash of the user *twilliams*
+![image](https://user-images.githubusercontent.com/127159644/235819820-c8aaf949-984e-4183-824b-a57853e5ae51.png)
+
+Using *John The Ripper* I'll brute force the password hash
+![image](https://user-images.githubusercontent.com/127159644/235819889-c1878002-88a3-41f8-85ee-0eedc8744f57.png)
+
+Nice we have the cred for user *twilliams* as *roastpotatoes*
+
+At this point lets check out smb
+![image](https://user-images.githubusercontent.com/127159644/235820151-adc3014a-d538-451c-9344-5346da3ec970.png)
+
+We can see that the user *twilliams* has read access over the *IPC$* share. With this we can brute force RID's and get other users on the box
+
+Using crackmapexec it can be achieved 
+![image](https://user-images.githubusercontent.com/127159644/235820397-31a98f54-3022-485c-9dae-78cdf7925697.png)
+
+Cool we have new users that we can add to our list and perharps try doing password spray on them
+
+
+
