@@ -1,4 +1,4 @@
-<h3> raz0rblack TryHackMe </h3>
+<h3> Raz0rblack TryHackMe </h3>
 
 Difficulty = Medium
 
@@ -91,5 +91,5 @@ Export list for raz0rblack.thm:
 ```
 
 Cool we can mount the *users* share over to our host
+![image](https://user-images.githubusercontent.com/127159644/235819021-aaced37f-eb85-452a-86f1-cbf365cf512c.png)
 
-``
