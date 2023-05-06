@@ -103,9 +103,44 @@ From the hint we know that how the word should be arranged. I was able to arrang
 
 Then I told my team mate @cyberhajibi and immediately she got it 💀
 
-It turned out to be: (note the flag isn't sensitive)
+It turned out to be: *(Note the flag isn't sensitive)*
 
 ```
 TheWorldHasMovedOn
 ```
 
+#### Insanity
+![image](https://user-images.githubusercontent.com/127159644/236647487-d741ed97-62ec-4908-82a7-ca5b952dcbae.png)
+
+Initially I didn't solve this during the CTF but i knew it just that i was having a really hard time with copying the UNICODE values
+
+So lets get to it :D
+
+Looking at the file given shows this
+![image](https://user-images.githubusercontent.com/127159644/236647623-ad44c550-a535-4369-8b2c-667b997e2c4f.png)
+
+Looks normal but checking the file size shows this
+![image](https://user-images.githubusercontent.com/127159644/236647635-7b77d5f0-a267-496d-9f7b-78bb58b7e7ab.png)
+
+From the file size we can tell that there's something more in it 
+
+Using *xxd* to check its hexdump shows this
+![image](https://user-images.githubusercontent.com/127159644/236647663-2c7844a5-e5af-4358-a378-6a2b7d7a53a7.png)
+![image](https://user-images.githubusercontent.com/127159644/236647672-3b5e0c77-0c8b-4b78-9b27-4e9fd34c2385.png)
+
+From the hex dump we can see that there are some values more of like *.* in it 
+
+Using vim to view the file shows this
+![image](https://user-images.githubusercontent.com/127159644/236647698-5926b866-e154-4fef-ad8b-9f7e73d0a16f.png)
+
+We can see some unicode characters in it and this kind of steg (more of steg than forensics) is called *Zero Width Joiner* 
+
+How do i know that 🤔 (Well from reading previous ctf writeups)
+
+We can use tool like [this](https://330k.github.io/misc_tools/unicode_steganography.html) to decode it
+
+But here was where my problem was 😂
+
+How to copy the whole file 💀
+
+*VIM 101* to the rescue
