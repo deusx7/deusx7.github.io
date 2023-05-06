@@ -69,7 +69,6 @@ Using cyberchef I got this
 ![image](https://user-images.githubusercontent.com/127159644/236646519-10d4eaf4-f64c-4015-bbbe-49716773b850.png)
 
 After downloading the file keylog.txt and viewing its content it shows this
-![image](https://user-images.githubusercontent.com/127159644/236646520-c8df40f5-8b7d-45e7-820c-9daf9587f884.png)
 ![image](https://user-images.githubusercontent.com/127159644/236646526-4dfbccf9-2fd7-432d-93f2-f2dbc9c27aa2.png)
 
 At first this looks weird lol but after arranging it well i got this
