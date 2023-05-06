@@ -75,7 +75,37 @@ After downloading the file keylog.txt and viewing its content it shows this
 At first this looks weird lol but after arranging it well i got this
 
 Here's how i arranged it 
-
+![image](https://user-images.githubusercontent.com/127159644/236646963-c26ea430-f1ee-4950-a38d-fab4b97e023b.png)
 ```bash
-Command: cat keylog.txt | cut -d ':' -f 2 | tr '\n' ',' 
+Command: cat keylog.txt | cut -d ':' -f 2 | tr '\n' ' ' 
 ```
+
+Now we can manually remove the spaces to form this 
+
+```
+844339666777555555 344277777777 6666888337 33 366666
+```
+
+Then using dcodefr you know the drill I got the cipher it is which turns out to be *Multi-tap Phone (SMS)*
+![image](https://user-images.githubusercontent.com/127159644/236647162-5f4d3d31-8e4e-4d09-bd2f-44160e9b0b3a.png)
+
+Decoding it forms this
+![image](https://user-images.githubusercontent.com/127159644/236647203-c0326cb1-8016-41be-a582-c624375eda28.png)
+
+```
+THEWORLL DHASS OMVEP E DON
+```
+
+At this point it looks like readable English but somehow after a while of nobody solving it they gave this hint
+![image](https://user-images.githubusercontent.com/127159644/236647244-02223cec-0f6c-4331-b081-d789c3b3fef6.png)
+
+From the hint we know that how the word should be arranged. I was able to arrange the first three words but the remaining last two were hard 😭
+
+Then I told my team mate @cyberhajibi and immediately she got it 💀
+
+It turned out to be: (note the flag isn't sensitive)
+
+```
+TheWorldHasMovedOn
+```
+
