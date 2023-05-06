@@ -48,4 +48,18 @@ Then using its [decoder](https://www.dcode.fr/ascii-code) I decoded it to get th
 Flag: DoHCTF{what_do_the_numbers_mean}
 ```
 
+#### Idan
+![image](https://user-images.githubusercontent.com/127159644/236645955-c0e9d353-35ac-4e56-8c9d-fa6dc3059a5b.png)
+
+After downloading the python file and it's output.txt I checked it out
+
+Looking at the python code shows this
+![image](https://user-images.githubusercontent.com/127159644/236646004-83121247-3f3e-4d30-8bfe-95af76b2b772.png)
+
+While it's output shows this
+![image](https://user-images.githubusercontent.com/127159644/236646017-e7a65f6e-e5b7-4b9c-8b90-96573cc604ee.png)
+
+Using cyberchef I got this
+![image](https://user-images.githubusercontent.com/127159644/236646298-358bff7f-4863-45e3-a7bf-6fe2979a4a6c.png)
+
 
