@@ -160,7 +160,51 @@ How to copy the whole file 💀
 
 # Web
 
+#### 
+
 Unfortunately the challs are not more up
 ![image](https://user-images.githubusercontent.com/127159644/236681326-cc285653-e294-4209-b2f7-0c85203fb6f8.png)
 
 But *TD;LR*: The challenge involves a login and a register page. When we register we get directed to our account and the flag isn't there. And the page was saying something about we are not admin then looking at the login page source code *(CTRL + U)* discloses the admin email address and what we will notice is that the login submit button is disabled. Trying to register another account using the admin email shows *user already exists* trying *SQL Truncation* works now we have access over the admin account. So we can login using it but we will need to inspect element and change the disabled field to enabled then after loggin in, we get the flag 
+
+For the second web challenge: We're given a page and only one end point in it and that endpoint involves purchasing the flag. But we are only currently having about 18000 If i can remember. Now we are not actually given a specfic amount on how much the flag worths and trying to like buy the flag shows fails 🤔
+
+Looking at the logic of the web app we can tell that it does something like this:
+
+```python
+amount = 180000
+price = 20000
+buy_flag = price - amount
+if buy_flag > $some_amount:
+   print('Purchased')
+ else:
+   print('Failed')
+```
+
+Another thing we should note is that the cookie is a jwt token which when decoded gives a json array of something like:
+
+```json
+{
+   "username": "guest123321",
+   "flag": "0"
+}
+```
+
+And it's algorithm is *HS256* . Since we don't currently have the flag the flag variable of our cookie is just zero. But if we purchase the flag it should return the flag. But now how do we achieve purchasing the flag 🤔
+
+From the login proposed earlier if no form of sanitation is done to check the usage of a negative number what happens :
+
+```python
+amount = -18000
+price = 20000
+buy_flag = price - amount
+if buy_flag > $some_amount:
+   print('Purchased')
+ else:
+   print('Failed')
+```
+
+We can see that the *buy_flag* variable will return a huge number sweeeet 😅
+
+After I tried that it showed purchased then on viewing the jwt decoded token gives the flag
+
