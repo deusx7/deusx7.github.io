@@ -39,11 +39,25 @@ I uploaded linpeas.sh to the box for further enumeration
 
 After runnng the script *bash linpeas.sh* I found this interesting
 ![image](https://user-images.githubusercontent.com/127159644/236708089-753e8acd-e56f-45b7-98c6-d1c91d9018f0.png)
+![image](https://user-images.githubusercontent.com/127159644/236708228-6fea0537-d908-4bfd-b11e-7ef7cbac1aa2.png)
 
 Using [gtfobins](https://gtfobins.github.io/gtfobins/capsh/#suid) shows a way we can escalate priv to root
 
 Trying it gives us root user on the docker container
 ![image](https://user-images.githubusercontent.com/127159644/236708149-7ec67b1b-2c27-4b5f-ac4c-210044f764ff.png)
+
+Remember that there's mysql running on this docker container and we currently only know the password to the db and not the user checking /entrypoint.sh discloses some information
+![image](https://user-images.githubusercontent.com/127159644/236708367-aaf63af1-430a-41c9-8286-8924264b2689.png)
+
+Now loggin in as *root:root* on host *db* works
+![image](https://user-images.githubusercontent.com/127159644/236708399-8e12cab0-6f27-474e-a2ed-21514457bd90.png)
+
+Dumping the *user_auth* table shows some accounts
+![image](https://user-images.githubusercontent.com/127159644/236708430-59b305a8-7cba-4a8a-9cee-a893ecfcfe6a.png)
+
+Cracking the hash of user *marcus* gives 
+
+
 
 
 
