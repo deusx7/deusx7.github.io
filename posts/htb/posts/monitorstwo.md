@@ -37,4 +37,14 @@ stty raw -echo;fg
 I uploaded linpeas.sh to the box for further enumeration
 ![image](https://user-images.githubusercontent.com/127159644/236707872-ca91d3c8-d9b4-47b7-be45-cc2171a2e209.png)
 
+After runnng the script *bash linpeas.sh* I found this interesting
+![image](https://user-images.githubusercontent.com/127159644/236708089-753e8acd-e56f-45b7-98c6-d1c91d9018f0.png)
+
+Using [gtfobins](https://gtfobins.github.io/gtfobins/capsh/#suid) shows a way we can escalate priv to root
+
+Trying it gives us root user on the docker container
+![image](https://user-images.githubusercontent.com/127159644/236708149-7ec67b1b-2c27-4b5f-ac4c-210044f764ff.png)
+
+
+
 
