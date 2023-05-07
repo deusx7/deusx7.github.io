@@ -157,3 +157,10 @@ How to copy the whole file 💀
 
 *VIM 101* to the rescue
 
+
+# Web
+
+Unfortunately the challs are not more up
+![image](https://user-images.githubusercontent.com/127159644/236681326-cc285653-e294-4209-b2f7-0c85203fb6f8.png)
+
+But *TD;LR*: The challenge involves a login and a register page. When we register we get directed to our account and the flag isn't there. And the page was saying something about we are not admin then looking at the login page source code *(CTRL + U)* discloses the admin email address and what we will notice is that the login submit button is disabled. Trying to register another account using the admin email shows *user already exists* trying *SQL Truncation* works now we have access over the admin account. So we can login using it but we will need to inspect element and change the disabled field to enabled then after loggin in, we get the flag 
