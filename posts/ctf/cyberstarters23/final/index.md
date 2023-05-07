@@ -192,7 +192,7 @@ Another thing we should note is that the cookie is a jwt token which when decode
 
 And it's algorithm is *HS256* . Since we don't currently have the flag the flag variable of our cookie is just zero. But if we purchase the flag it should return the flag. But now how do we achieve purchasing the flag 🤔
 
-From the login proposed earlier if no form of sanitation is done to check the usage of a negative number what happens :
+From the logic proposed earlier if no form of sanitation is done to check the usage of a negative number what happens :
 
 ```python
 amount = -18000
