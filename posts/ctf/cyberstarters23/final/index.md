@@ -208,3 +208,12 @@ We can see that the *buy_flag* variable will return a huge number sweeeet 😅
 
 After I tried that it showed purchased then on viewing the jwt decoded token gives the flag
 
+
+#### Conclusion:
+
+The CTF was really fun even tho the time was given to solve the challenges were quite not enough but overall I thank the organizers for hosting it and also @Lytes for his wonderful challenges
+
+After the struggle my team took second 😅
+![image](https://user-images.githubusercontent.com/127159644/236682943-d30edcb5-591f-4365-9086-489aa031c75d.png)
+
+Till another CTF Adios 👻
