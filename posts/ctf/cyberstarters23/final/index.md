@@ -62,6 +62,19 @@ While it's output shows this
 Using cyberchef I got this
 ![image](https://user-images.githubusercontent.com/127159644/236646298-358bff7f-4863-45e3-a7bf-6fe2979a4a6c.png)
 
+```
+Encoded Flag: GrKFWI{LGDQ_WKH_GHFUBSWRRU}
+```
+
+Then using dcodefr i got the encoded text to be affine cipher
+![image](https://user-images.githubusercontent.com/127159644/236681059-c6ef40d2-462f-4129-bf3e-348ac4b7f13b.png)
+
+Decoding it forms this
+![image](https://user-images.githubusercontent.com/127159644/236681093-fc523dcf-56a1-460d-a731-f3a49549d08a.png)
+
+```
+Flag: DoHCTF{IDAN_THE_DECRYPTOOR}
+```
 
 # Forensics
 
