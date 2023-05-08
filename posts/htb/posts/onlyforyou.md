@@ -150,3 +150,9 @@ Lets dump the users 🙂
 ![image](https://user-images.githubusercontent.com/127159644/236719601-0f0aa538-ec26-414f-9ac9-f1a3478099ed.png)
 ![image](https://user-images.githubusercontent.com/127159644/236719571-89a3a6db-91a6-4e92-a0ad-fadbe415c235.png)
 
+Cool we have the hash of two users *admin & john* since we already know the admin user's password which is *admin* lets crack that of John's
+![image](https://user-images.githubusercontent.com/127159644/236719927-5c9ef76f-3feb-4610-a5ea-26b50b6ccfb0.png)
+
+The password for user John is *ThisIs4You*
+
+Lets try this over the Gogs instance
