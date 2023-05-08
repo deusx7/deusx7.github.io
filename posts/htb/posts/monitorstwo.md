@@ -90,4 +90,4 @@ I then did it manually by calling */bash -p* from the docker container
 ![image](https://user-images.githubusercontent.com/127159644/236709528-9ee589a8-04cf-4c43-858a-15f5b4fdd35a.png)
 
 And we're done 👻
-![image](https://giphy.com/gifs/warrify-hackerman-whackerman-warrifyhackerman-ieBWQkIVEELhbizGAp)
+![hackerman](https://user-images.githubusercontent.com/127159644/236709940-c9b72732-379e-4791-a3fd-7d13e75ca470.gif)
