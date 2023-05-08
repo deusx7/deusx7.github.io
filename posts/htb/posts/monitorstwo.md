@@ -49,16 +49,44 @@ Trying it gives us root user on the docker container
 Remember that there's mysql running on this docker container and we currently only know the password to the db and not the user checking /entrypoint.sh discloses some information
 ![image](https://user-images.githubusercontent.com/127159644/236708367-aaf63af1-430a-41c9-8286-8924264b2689.png)
 
-Now loggin in as *root:root* on host *db* works
+Loggin in as *root:root* on host *db* works
 ![image](https://user-images.githubusercontent.com/127159644/236708399-8e12cab0-6f27-474e-a2ed-21514457bd90.png)
 
 Dumping the *user_auth* table shows some accounts
 ![image](https://user-images.githubusercontent.com/127159644/236708430-59b305a8-7cba-4a8a-9cee-a893ecfcfe6a.png)
 
-Cracking the hash of user *marcus* gives 
+Cracking the hash of user *marcus* gives *funkymonkey*
+![image](https://user-images.githubusercontent.com/127159644/236708632-b208f355-c80f-4a27-8384-6b8f2a52dfd6.png)
 
+Now using it over *ssh* works
+![image](https://user-images.githubusercontent.com/127159644/236708569-11dcec17-5cfd-4bcb-b5cf-cdb0e4cb458b.png)
 
+I uploaded *linpeas.sh* and after running it i get this
+![image](https://user-images.githubusercontent.com/127159644/236708708-9af6f847-5849-4b6e-a511-889b2b194559.png)
+![image](https://user-images.githubusercontent.com/127159644/236708872-b3fa83ac-e8e9-4414-9740-686bba310be3.png)
 
+Reading the mail shows this
+![image](https://user-images.githubusercontent.com/127159644/236708895-1f346c69-0529-41d8-a331-d4c0c8fc96d4.png)
 
+We can see that the mail talks about various exploits and the one that looks particularly interesting to us is:
 
+```
+CVE-2021-41091: This vulnerability affects Moby, an open-source project created by Docker for software containerization. Attackers could exploit this vulnerability by traversing directory contents and executing programs on the data directory with insufficiently restricted permissions. The bug has been fixed in Moby (Docker Engine) version 20.10.9, and users should update to this version as soon as possible. Please note that running containers should be stopped and restarted for the permissions to be fixed.
+```
 
+I searched for the [exploit](https://github.com/UncleJ4ck/CVE-2021-41091) then uploaded *exp.sh* to the target
+![image](https://user-images.githubusercontent.com/127159644/236709065-a3dec63c-0879-4e0a-88a7-c26d9ef8618c.png)
+
+Running the exploit shows this
+![image](https://user-images.githubusercontent.com/127159644/236709082-b470ae96-45b3-4ade-aff4-eaff3eeb7086.png)
+
+So I had to set */bin/bash* perm to *suid* on the docker container
+![image](https://user-images.githubusercontent.com/127159644/236709291-346c93c4-cb0d-4375-8228-a30bb02a7b1c.png)
+
+Then i ran the exploit again but the shell doesn't seem to last it just cuts off
+![image](https://user-images.githubusercontent.com/127159644/236709483-50b77b0f-b09d-4a59-a15b-c60b45f523dc.png)
+
+I then did it manually by calling */bash -p* from the docker container
+![image](https://user-images.githubusercontent.com/127159644/236709528-9ee589a8-04cf-4c43-858a-15f5b4fdd35a.png)
+
+And we're done 👻
