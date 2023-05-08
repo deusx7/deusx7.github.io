@@ -1,4 +1,4 @@
-<h3> Monitors Two </h3>
+<h3> Monitors Two HackTheBox </h3>
 
 Difficulty = Easy
 
