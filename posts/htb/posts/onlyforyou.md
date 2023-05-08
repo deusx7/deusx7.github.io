@@ -33,6 +33,7 @@ The user can query files for download and there's a prevention against LFI but w
 I made a [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/onlyforyou/enumerate.py) to automate finding of files 
 
 We know that the server is hosted on *Nginx* from *Wappalyzer Result*
+
 ![image](https://user-images.githubusercontent.com/127159644/236713368-0084a968-f8bf-44ae-b873-11e106219ef7.png)
 
 And the default path for web server (vhost) config running nginx is */etc/nginx/sites-enabled/default*
