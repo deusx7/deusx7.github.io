@@ -30,4 +30,15 @@ But here's the vulnerable part of the code
 The user can query files for download and there's a prevention against LFI but we can still achieve file inclusion without using *../*
 ![image](https://user-images.githubusercontent.com/127159644/236712019-dbbffe0c-5cf4-445f-8518-c5e59f253816.png)
 
-I made a [script]() to automate finding of files 
+I made a [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/htb/b2b/onlyforyou/enumerate.py) to automate finding of files 
+
+We know that the server is hosted on *Nginx* from *Wappalyzer Result*
+![image](https://user-images.githubusercontent.com/127159644/236713368-0084a968-f8bf-44ae-b873-11e106219ef7.png)
+
+And the default path for web server (vhost) config running nginx is */etc/nginx/sites-enabled/default*
+
+Checking it shows the web path to the vhost which turns out to be */var/www/only4you.htb/ and /var/www/beta.only4you.htb*
+![image](https://user-images.githubusercontent.com/127159644/236713662-546d441f-f348-44a7-acef-080cda872f97.png)
+
+Now we can enumerate more files
+
