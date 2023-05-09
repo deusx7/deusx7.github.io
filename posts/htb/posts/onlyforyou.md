@@ -155,4 +155,8 @@ Cool we have the hash of two users *admin & john* since we already know the admi
 
 The password for user John is *ThisIs4You*
 
-Lets try this over the Gogs instance
+Lets try this over ssh
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b2ea6c18-eaef-4479-8b7d-495b7cafff0a)
+
+Cool it works finally 😭
+
