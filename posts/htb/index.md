@@ -53,4 +53,4 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[Mar 12 2023]] [Inject](https://h4ckyou.github.io/posts/htb/posts/inject.html) `File Upload, Directory Transveral, Spring, Ansible`
 - [[Mar 26 2023]] [Cerberus](https://h4ckyou.github.io/posts/htb/posts/cerberus.html) `Icinga CVE, Path Transversal, RCE, Pivoting, Windows Joined Domain`
 - [[May 08 2023]] [MonitorsTwo](https://h4ckyou.github.io/posts/htb/posts/monitorstwo.html) `Cacti RCE, SUID, CVE`
-- [[May 09 2023]] [OnlyForYou] (hhttps://h4ckyou.github.io/posts/htb/posts/onlyforyou.html) `LFI, Source Code Review, Command Injection, Cypher Injection`
+- [[May 09 2023]] [OnlyForYou] (https://h4ckyou.github.io/posts/htb/posts/onlyforyou.html) `LFI, Source Code Review, Command Injection, Cypher Injection`
