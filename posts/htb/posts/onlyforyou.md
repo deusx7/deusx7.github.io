@@ -162,7 +162,7 @@ Cool it works finally 😭
 
 Lets escalate privilege to root 🙂
 
-Checking sudo permission shows that the user can run */usr/bin/pip3 download http\://127.0.0.1\:3000/*\*.tar.gz* as root
+Checking sudo permission shows that the user can run `*/usr/bin/pip3 download http\://127.0.0.1\:3000/*.tar.gz*` as root
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fea37e1c-b355-42be-93dd-4b41103d4aa1)
 
 Remember that the service running on port 3000 is Gogs
