@@ -114,3 +114,69 @@ But it asks for password after some trial *password1* works
 
 I then tried loggin in to ssh as user *carlJ:Pas$w0RD59247*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/67e5eee9-52cc-4f66-8fdd-1910f5ba9ad6)
+
+Searching for suid shows this binary 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/56299232-7412-42dd-8242-3f2c9866402c)
+
+I transferred it to my machine and decompiled it in ghidra
+
+Lets check the file type and the mitigations enabled
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1166be89-1a17-4b36-bf29-b8de1f940707)
+
+It's a x64 binary and has only one protection enabled which is :
+
+```
+1. NX enabled (No-Execute)
+```
+
+What NX enabled prevents is shellcode being placed on the stack and executing it
+
+Looking at the main function shows this:
+
+```c
+int main(void)  {   
+    int buf;
+    char message [80];
+    setuid(0);
+       
+    puts("What do you wanna do\n1-Send Message\n2-Change your Signature");
+    __isoc99_scanf(%d, &buf);
+    fgetc(stdin);
+    
+    if (buf == 1) {
+        puts("What message you want to send(limit 80)");
+        fgets(message,80,stdin); 
+        puts("Sent!");
+    }   
+    else if (buf == 2) {     
+        puts("Write your signature...");
+        sig();
+    }   
+    
+    return 0; 
+}
+```
+
+And here's the sig() decompiled function:
+
+```c
+void sig(void)  { 
+    char buf [64];
+    gets(buf); 
+    puts("Changed");
+    
+    return;
+}
+```
+
+From the code we can tell that it a binary that:
+
+```
+1. Asks if we want to send a message or change signature
+2. If we choose the send message option it prompts for input then receives 80 bytes of our input which is stored in a 80 bytes buffer and puts Sent!
+3. If we choose the change signature option it calls the sig function which uses gets() to receive out input then puts Changes # bug here 
+```
+
+Looking at the sig function we can tell it's a buffer overflow vulnerability from the usage of gets() in the code
+
+Lets get the offset to over
