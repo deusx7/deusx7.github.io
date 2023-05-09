@@ -223,3 +223,7 @@ Now create a new repo
 
 I'll upload the tar file
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ad218262-eee5-4e42-bb83-9c14d9d040c6)
+
+Lets run pip download on the uploaded tar file
+![root](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/af915a4e-607b-485a-b866-0c58473dcb27)
+
