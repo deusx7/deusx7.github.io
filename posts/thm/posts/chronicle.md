@@ -203,3 +203,5 @@ Before thinking of how to make it work remotely luckily the creator left pwntool
 Now i will just upload it to the target and run it here's the [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/thm/chronicle/solve.py)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2566aea3-3f04-4b69-bbbc-eaf409c8be02)
 
+After running it I got shell as root
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3df13efb-0002-4d59-8991-c0fd55304037)
