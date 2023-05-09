@@ -19,6 +19,7 @@ Going over there gives us access denied
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f0260872-6462-4b08-96f3-b304accb15ad)
 
 Looking at the cookie shows it set to *denied* 
+
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fa31997c-cd20-4919-935d-7bef55d62c94)
 
 Changing it to *granted* shows this 
