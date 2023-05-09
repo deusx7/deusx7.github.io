@@ -179,4 +179,10 @@ From the code we can tell that it a binary that:
 
 Looking at the sig function we can tell it's a buffer overflow vulnerability from the usage of gets() in the code
 
-Lets get the offset to over
+Lets get the offset to overflow the binary
+
+I use gdb in cases like this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/31852355-c7cb-4f04-ace5-c3e231eb7f9a)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cefb3bcd-4c79-43d3-947c-b99a5c4e6c18)
+
+The offset is *72*
