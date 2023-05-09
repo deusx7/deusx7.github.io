@@ -97,3 +97,20 @@ Now we can login to ssh using *tommy:DevMakesStuff01*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6ea9c656-029e-48fb-9c2e-c21690b63e4d)
 
 Lets escalate privilege 
+
+After checking the other user directory I got a mozilla directory
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/28a0b5c6-7756-4742-ae61-c12a2e852d37)
+
+We can use this [tool](https://github.com/lclevy/firepwd) to dump its password
+
+First I need to make a tar ball of it then transfer it to my host
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0e9f60f2-0f36-4ca0-ba3c-b02b42e653e1)
+
+Now i will decompress it and use the tool to dump it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/793c2cba-17d5-4aa9-a0f8-e38d9b958ef2)
+
+But it asks for password after some trial *password1* works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/885e14d5-931b-46ce-820a-9892502c5c2a)
+
+I then tried loggin in to ssh as user *carlJ:Pas$w0RD59247*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/67e5eee9-52cc-4f66-8fdd-1910f5ba9ad6)
