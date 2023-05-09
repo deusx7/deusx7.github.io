@@ -205,9 +205,18 @@ setup(
 
 Now I will create the .tar.gz file that will be the one to be uploaded to the repository on Gogs.
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4917881b-be5a-49a3-9e40-4c869c5673f5)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ce151d92-dce0-4694-a14c-75d65eca0b40)
 
 ```bash
 pip install build --break-system-packages
 python3 -m build
 ```
 
+With this ready i'll create a new repo on the Gogs instance and upload the tar.gz file
+
+I'll login as *john:ThisIs4You* on the Gogs instance
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6290556c-ec26-4bae-bd80-d61dea680a0a)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4d3a7e91-e72b-440e-b8a9-dfbdb844c4e0)
+
+Now create a new repo
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0a068d7b-77d7-4fd7-9153-5f5b3a0a9720)
