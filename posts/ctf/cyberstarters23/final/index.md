@@ -114,7 +114,7 @@ From the hint we know that how the word should be arranged. I was able to arrang
 
 Then I told my team mate @cyberhajibi and immediately she got it 💀
 
-It turned out to be: *(Note the flag isn't sensitive)*
+It turned out to be: *(Note the flag isn't case sensitive)*
 
 ```
 TheWorldHasMovedOn
