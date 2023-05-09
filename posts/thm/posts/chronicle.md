@@ -192,4 +192,14 @@ In cases like this the attack ROP we can use is *Ret2Libc*
 Cause during program execution we can see the got of puts is being used
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/df055899-a77c-469d-b722-7b46b82772c8)
 
-So we can basically leak it, calculate the libc base then rop to system
+So we can basically leak it, calculate the libc base address then rop to system
+
+I made a pwn script 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/93768ff8-203f-4c3b-bc41-7df205c67aad)
+
+Before thinking of how to make it work remotely luckily the creator left pwntools python library on the box
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/557f05bd-7778-4ed1-a9f7-c34a4c5ab16c)
+
+Now i will just upload it to the target and run it here's the [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/thm/chronicle/solve.py)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2566aea3-3f04-4b69-bbbc-eaf409c8be02)
+
