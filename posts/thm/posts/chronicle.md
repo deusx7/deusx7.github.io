@@ -186,3 +186,10 @@ I use gdb in cases like this
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cefb3bcd-4c79-43d3-947c-b99a5c4e6c18)
 
 The offset is *72*
+
+In cases like this the attack ROP we can use is *Ret2Libc*
+
+Cause during program execution we can see the got of puts is being used
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/df055899-a77c-469d-b722-7b46b82772c8)
+
+So we can basically leak it, calculate the libc base then rop to system
