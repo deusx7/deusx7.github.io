@@ -49,4 +49,21 @@ While for commit two shows the web app source code
 And remember that there's another web server running on port 8081 so likely this is the source code since nmap showed that its based off a python web server
 
 Moving over to port 8081 shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e9203a58-15e3-4e8f-bd08-d8eedc79f08f)
+
+Nothing much interesting there except the login page
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5d70971f-5853-4bff-b8da-8f423b56f8f7)
+
+And the forgot password
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/02a79e9d-c6fd-4108-a554-5975a0ffb15c)
+
+Looking at the source code shows that it really indeeds just requires a username then it shows the password of that user
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d70fca49-8b76-4ccf-b840-d8c31b3f87f8)
+
+But it requires the correct key value for it to work and since we have it lets try it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b1bf3b15-0e4f-44e5-88db-b1be6760e6d2)
+
+We get Invalid Username the only here is to brute force right?
+
+So I made a script to do that for me
 
