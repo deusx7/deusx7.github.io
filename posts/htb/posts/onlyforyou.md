@@ -204,7 +204,7 @@ setup(
 ```
 
 Now I will create the .tar.gz file that will be the one to be uploaded to the repository on Gogs.
-![Uploading image.png…]()
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4917881b-be5a-49a3-9e40-4c869c5673f5)
 
 ```bash
 pip install build --break-system-packages
