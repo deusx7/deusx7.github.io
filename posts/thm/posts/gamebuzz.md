@@ -95,4 +95,31 @@ Now lets get shell. Here's my payload [script](https://github.com/markuched13/ma
 After running it and uploading it then using the fetch endpoint to load the pickle data I got shell
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7ee6d51c-1040-4c2d-be89-184992a40d11)
 
+Let do some privilege escalation 
+
+Running linpeas shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f9e7b38c-e18f-46e5-afd3-12d59976714e)
+
+Viewing the file gives the password for user dev1 as *dc647eb65e6711e155375218212b3964*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b23adc48-ccec-49a1-b591-44f805c2e430)
+
+But we can't switch to the user from the box so we need to login to ssh
+
+But no ssh port is open
+
+From the hint we are to do port knocking for we to get access to the ssh service
+
+Looking at the knock config file shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8f9969a0-aaa0-4b25-ad6e-de2de82580c6)
+
+This means we're to knock the followng ports *[5020,6120,7340]* for ssh to be open
+
+Luckily there's an open source tool on kali that can easily do this for us
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a42f9b32-9a61-4c67-9722-ee7a508a6f37)
+
+Now that ssh is open let us login as dev1
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e766b550-f2ef-471e-b284-70fee8cfba5a)
+
+Checking *sudo -l* shows we can run as *root* on */etc/init.d/knockd*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4cad41e1-c3db-484b-bdd2-ec0e5dd73d8e)
 
