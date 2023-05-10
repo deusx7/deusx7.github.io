@@ -19,3 +19,17 @@ Lets decompile it using [uncompyle2](https://github.com/wibiti/uncompyle2)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/05362c40-c0bf-4158-9aa3-0fe89383676f)
 
 We can see what it does. It creates a socket running on port *5752* and it asks for username and password, If the provided username and password is correct it calls the secret() function which basically opens up the *secret.txt* file
+
+But the username and password is converted from bytes to long I wrote a script to decode it
+
+```python
+#!/usr/bin/python3
+# Author: Hack.You
+from Crypto.Util.number import long_to_bytes
+
+usern = 232340432076717036154994
+passw = 10555160959732308261529999676324629831532648692669445488
+
+print(f'Username: {long_to_bytes(usern)}')
+print(f'Password: {long_to_bytes(passw)}')
+```
