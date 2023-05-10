@@ -145,7 +145,7 @@ Now lets restart the service
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8e541218-4b6a-4a7e-bdc7-b7cc82a9047d)
 
 With this set we now need to stop the knock service and start it back then port knock the ports
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4ae77013-e51b-45fb-b299-1c9875140f9c)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fcfc4db2-3b61-495b-9707-9da2d1fd1e69)
 
 And we're done 👻
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ed17bd46-1cda-46cf-801b-254300e3d2cb)
