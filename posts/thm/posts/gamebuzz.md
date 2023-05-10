@@ -128,6 +128,7 @@ But we don't have write access over the file
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a4915ecf-851b-4452-ba1e-3b763f9afaa3)
 
 So i ran linpeas again and got this
+![acl](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cef8acfe-ccf3-46e2-8582-bb41be08c134)
 
 It shows this file has ACL perm set on it
 
