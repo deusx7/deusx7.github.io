@@ -57,7 +57,15 @@ Now lets get shell :D
 To stabilize the shell
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/79634295-3ecd-410c-932c-543f9a59b040)
 
-Let us escalate privilege to root 
+For the next flag we need to interact with the MongoDB hosted locally 
+
+We can check for internal service running on the host
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f2bca12e-0e7b-43a3-b2be-3a6d38039446)
+
+Lets interact with the MongoDB from the target directly
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1267a39c-5188-4027-9579-aeaacabfeba8)
+
+Let us escalate privilege to root now
 
 Checking *sudo -l* shows we can run */uid_checker* as root
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ecb24c00-ad9c-4387-8297-4df0889b4f4f)
