@@ -33,3 +33,11 @@ passw = 10555160959732308261529999676324629831532648692669445488
 print(f'Username: {long_to_bytes(usern)}')
 print(f'Password: {long_to_bytes(passw)}')
 ```
+
+Running the script gives the username and password
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/071f17a7-1409-409b-b5ac-360259859634)
+
+Now lets connect to the remote socket hosted on port 5752
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d01ccd61-877e-4f5a-8260-2941292587fb)
+
+It gives us this `t3mple_0f_y0ur_51n5`
