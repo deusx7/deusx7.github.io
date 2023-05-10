@@ -160,4 +160,4 @@ I'll transfer the payload to the target
 Running the payload on the binary gives shell as root
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/91247418-1de7-4bdf-9034-3661489175c5)
 
-
+And we're done 👻
