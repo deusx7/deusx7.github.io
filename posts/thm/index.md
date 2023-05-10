@@ -31,3 +31,4 @@ Discover CyberSecLabs. With our growing platform delivering beginner hacking con
 - [[May 10 2023]] [Anonymous Playground](https://h4ckyou.github.io/posts/thm/posts/anonymousplayground.html) `Cipher, Scripting, BinExp`
 - [[May 10 2023]] [DavesBlog](https://h4ckyou.github.io/posts/thm/posts/davesblog.html) `NOSQLi, NodeJS Command Injection, MongoDB Enum, BinExp`
 - [[May 10 2023]] [Fortress](https://h4ckyou.github.io/posts/thm/posts/fortress.html) `Python Compiled Binary, Hash Collision, ADM Group Log File Reading`
+- [[May 10 2023]] [GameBuzz](https://h4ckyou.github.io/posts/thm/posts/gamebuzz.html) `Python Pickle Deserilization, Port Knock, ACL, Knockd Service Abuse`
