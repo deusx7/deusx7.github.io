@@ -65,9 +65,33 @@ class Shell(object):
 pickledData = pickle.dumps(Shell())
 with open('payload.pkl', 'wb') as f:
     f.write(pickledData)
+
 ```
 
 Running it creates the pickle file 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3d67b081-9fbf-44dd-92bf-e90fb55d9253)
 
 Now let upload the serialized payload
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/edb33e1e-ad19-4e34-b60f-101383fcac10)
+
+I already setup *tcpdump* listening for icmp connection 
+
+```bash
+sudo tcpdump -i tun0 icmp
+```
+
+Since the file is already uploaded we can call it via the fetch endpoint on the main domain
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9419975b-ed4c-4d53-9eb0-cec23cc454d6)
+
+```json
+{"object":"/var/upload/payload.pkl"}
+```
+
+Back on tcpdump we get a hit 😄
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8a0bdbe0-d147-4350-a9f5-de65e9ad368f)
+
+Now lets get shell. Here's my payload [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/thm/GameBuzz/pickle.py)
+
+After running it and uploading it then using the fetch endpoint to load the pickle data I got shell
+![Uploading image.png…]()
+
