@@ -103,7 +103,7 @@ resp = requests.get(url)
 print(resp.text)
 ```
 
-Note: I had to use *t3mple_0f_y0ur_51n5.php* cause that's the main page the login is based off
+Note: I had to use *t3mple_0f_y0ur_51n5.php* cause that's the main page the login is based on
 
 Running the script works
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/149f9965-0e07-4090-9c9c-7a822eff1aae)
