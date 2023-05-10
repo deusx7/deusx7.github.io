@@ -102,3 +102,33 @@ url = 'http://fortress:7331/t3mple_0f_y0ur_51n5.php?user={}&pass={}'.format(name
 resp = requests.get(url)
 print(resp.text)
 ```
+
+Note: I had to use *t3mple_0f_y0ur_51n5.php* cause that's the main page the login is based off
+
+Running the script works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/149f9965-0e07-4090-9c9c-7a822eff1aae)
+
+We can see this new file in the html *m0td_f0r_j4x0n.txt*
+
+Going over there gives an ssh key
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/834d8346-f8d0-4e7b-8999-5f63018039ad)
+
+Lets login to ssh as user *h4rdy* 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5c692abf-0a51-483d-b33c-9dd4a2986c7c)
+
+After loggin in we can tell that we're restricted to command cause we're in a rbash shell
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1f2f1171-546c-4c2c-b42e-bc6e7950413b)
+
+Quick google research leads [here](https://gist.github.com/PSJoshi/04c0e239ac7b486efb3420db4086e290)
+
+Trying it works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5f9bfc96-a817-435f-bd59-c881ca2b865b)
+
+But the problem is our path variable is messed up 
+
+Lets fix that 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/888017ab-47ab-4ed3-97f6-e9466f36ce20)
+
+```
+Command: export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:$PATH
+```
