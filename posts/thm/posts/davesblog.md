@@ -8,7 +8,8 @@ Nmap Scan:
 Checking the web server shows this
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e4d01c87-c206-417e-9cfa-1ec50bf94091)
 
-From looking at the web app server buildins we can see this
+From looking at the web app server builtins we can see this
+
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/699e3b64-a912-42dc-9981-f07f4bac6a09)
 
 This tells us that the web server is running on Express which is basically NodeJS and also the db is NoSQL
