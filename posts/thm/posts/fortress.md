@@ -156,7 +156,7 @@ I uploaded linpeas to the box and after running it I found this interesting
 From the result of the scan we can tell that:
 
 ```
-1. One possible way of escalating privilege to root is by performing kernel exploitation 
+1. One possible way of escalating privilege to root is by checking the log files since we're in the adm group
 2. Checking the suid binary
 ```
 
@@ -203,6 +203,14 @@ We see it's just a loop that runs *cat /dev/urandom* each 2 seconds
 
 So nothing really is worth it in this binary
 
-Lets move on with privilege escalation via lxd
+Lets see if there's any thing in the log files
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b5f37e0d-6de8-4b5c-be09-c749262ab4b6)
 
-Here's the link to the [resource](https://www.hackingarticles.in/lxd-privilege-escalation/)
+We see that password *yoU_c@nt_guess_1t_in_zillion_years*
+
+Trying it on *sudo -l* works
+
+Now we can switch to root
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/97caab9e-fa1e-49fa-8617-3829cc289cd5)
+
+And we're done 👻
