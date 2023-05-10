@@ -93,5 +93,6 @@ Back on tcpdump we get a hit 😄
 Now lets get shell. Here's my payload [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/thm/GameBuzz/pickle.py)
 
 After running it and uploading it then using the fetch endpoint to load the pickle data I got shell
-![Uploading image.png…]()
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7ee6d51c-1040-4c2d-be89-184992a40d11)
+
 
