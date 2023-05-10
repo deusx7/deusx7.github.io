@@ -32,3 +32,9 @@ Trying that bypasses the login form
 
 There's a place which claims to be executing system commands but when i try execute normal commands it doesn't work
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/70d80988-4740-4c49-bbb8-0db576988e65)
+
+Since we know that the web server is build on NodeJs lets execute a NodeJS command
+
+```nodejs
+(() => { return require("child_process").execSync("whoami;", { timeout: 5000 }); })();
+```
