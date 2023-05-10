@@ -138,8 +138,14 @@ The *+* sign at the end of the perm signifies ACl
 
 With ACL set on we can change the permission on the file
 
-So lets edit it to change */bin/bash* to suid
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1aebf93e-32ea-40aa-b42b-76ad469f4d27)
+So lets edit it to get a reverse shell
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4fa768fb-90a4-47b1-af59-8fefc4958d25)
 
 Now lets restart the service
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8e541218-4b6a-4a7e-bdc7-b7cc82a9047d)
+
+With this set we now need to stop the knock service and start it back then port knock the ports
+![Uploading image.png…]()
+
+And we're done 👻
+
