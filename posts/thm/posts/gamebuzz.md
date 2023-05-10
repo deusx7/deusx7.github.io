@@ -101,6 +101,7 @@ Running linpeas shows this
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f9e7b38c-e18f-46e5-afd3-12d59976714e)
 
 Viewing the file gives the password for user dev1 as *dc647eb65e6711e155375218212b3964*
+
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b23adc48-ccec-49a1-b591-44f805c2e430)
 
 But we can't switch to the user from the box so we need to login to ssh
@@ -123,3 +124,22 @@ Now that ssh is open let us login as dev1
 Checking *sudo -l* shows we can run as *root* on */etc/init.d/knockd*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4cad41e1-c3db-484b-bdd2-ec0e5dd73d8e)
 
+But we don't have write access over the file
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a4915ecf-851b-4452-ba1e-3b763f9afaa3)
+
+So i ran linpeas again and got this
+
+It shows this file has ACL perm set on it
+
+And to confirm it we can check it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fee6e2a0-0a09-42fb-9e5d-0cf821d92d16)
+
+The *+* sign at the end of the perm signifies ACl 
+
+With ACL set on we can change the permission on the file
+
+So lets edit it to change */bin/bash* to suid
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1aebf93e-32ea-40aa-b42b-76ad469f4d27)
+
+Now lets restart the service
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8e541218-4b6a-4a7e-bdc7-b7cc82a9047d)
