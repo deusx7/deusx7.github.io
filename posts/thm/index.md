@@ -29,3 +29,4 @@ Discover CyberSecLabs. With our growing platform delivering beginner hacking con
 - [[May 02 2023]] [Zeno](https://h4ckyou.github.io/posts/thm/posts/zeno.html) `Remote Code Execution, Service Hijack`
 - [[May 09 2023]] [Chronicle](https://h4ckyou.github.io/posts/thm/posts/chronicle.html) `GIT, Brute Force, Mozila FirePWD, ROP (Ret2Libc)`
 - [[May 10 2023]] [Anonymous Playground](https://h4ckyou.github.io/posts/thm/posts/anonymousplayground.html) `Cipher, Scripting, BinExp`
+- [[May 10 2023]] [DavesBlog](https://h4ckyou.github.io/posts/thm/posts/davesblog.html) `NOSQLi, NodeJS Command Injection, MongoDB Enum, BinExp`
