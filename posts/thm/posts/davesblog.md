@@ -31,6 +31,7 @@ Trying that bypasses the login form
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/66883af2-ca6e-41be-af4a-263eecd1a4de)
 
 A new cookie is formed and its a jwt token 
+
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a7d75288-15ec-4e23-8793-f0cf70640399)
 
 Using [jwt.io](https://jwt.io/) I decoded the jwt token and got the first flag
