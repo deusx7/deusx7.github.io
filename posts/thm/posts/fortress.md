@@ -132,3 +132,32 @@ Lets fix that
 ```
 Command: export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:$PATH
 ```
+
+Doing *sudo -l* shows we can run *cat* as user *j4x0n*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5b64d183-c0c7-494c-959f-0c49246f1888)
+
+Checking [gtfobins](https://gtfobins.github.io/gtfobins/cat/#sudo) shows we can perform *File Read* 
+
+The best file to read is the user's ssh key
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2e636015-36c9-401a-b4c7-591528455224)
+
+Lets save it and login as user *j4x0n*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d2c6a168-6fb9-478b-b3a6-bcf9d96e7bbd)
+
+Looking at the files in the cwd directory shows this *endgame.txt* and viewing it's content shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1670a4b5-faf0-4926-826a-8d1f1f61d402)
+
+It claims that everything has been patched and no way of getting root well lets see about that 😅
+
+I uploaded linpeas to the box and after running it I found this interesting
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7dc2cad0-94a8-497a-bb9c-08463d9f0977)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9a8ab466-ef10-44df-b284-90fc9bc90e9f)
+
+From the result of the scan we can tell that:
+
+```
+1. One possible way of escalating privilege to root is by exploiting that lxd group perm
+2. Checking the suid binaries
+```
+
+Lets start with the SUID binary first. I uploaded it to my machine for further analysis
