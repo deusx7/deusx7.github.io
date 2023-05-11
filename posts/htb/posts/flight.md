@@ -46,7 +46,7 @@ Back on responder I got the hash for user *svc_apache*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b99248b3-00e9-4a8a-bb67-67b1977a0eed)
 
 I brute forced it using JTR 
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d1def843-f290-49e8-8de1-a444ead2cac1)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e2308968-3279-4b93-9a4b-06737a3e685c)
 
 Now we have a cred *svc_apache:S@Ss!K@*t13*
 
@@ -55,6 +55,8 @@ Trying to authenticate to winrm fails
 
 But we can login to smb using the cred
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/84057eae-b3fb-44be-9d06-8a0d697a16a2)
+
+It shows the smb hostname as *G0* I also added that to my */etc/hosts* file
 
 We don't really have good access over the shares but searching through the shares doesn't reveal any form of interesting cred
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/621c1544-ee11-48a7-b5de-dc8a67d859a2)
@@ -76,4 +78,5 @@ Now we can use kerbrute to perform password spraying
 Cool we have another user's cred *S.Moon:S@Ss!K@*t13*
 
 Checking the perm the user has over smb shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0ed3fd86-c81d-4894-9784-0fec6423c2da)
 
