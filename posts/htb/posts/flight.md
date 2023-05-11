@@ -174,3 +174,15 @@ Back on our host we can now access the internal web server
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/37e6f914-8bd4-489f-bd4e-9d5a50152e4b)
 
 To access our shell is as easy as going over to /shell.aspx
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/aea472dc-44df-4241-9dd7-a697bb720430)
+
+I got a reverse shell via using nc
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/12823d66-43b0-4942-b7a4-2863a59d610a)
+
+We can see that we're user *iis apppool\defaultapppool* and it's a Microsoft Virtual Account. One thing about these accounts is that when they authenticate over the network, they do so as the machine account.
+
+From this we can basically abuse this, by just asking the machine for a ticket for the machine account over the network.
+
+The tool that is used is [Rubeus](https://github.com/Flangvik/SharpCollection/blob/master/NetFramework_4.7_Any/Rubeus.exe)
+
+***** NOT YET PWNED *****
