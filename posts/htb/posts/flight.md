@@ -94,5 +94,6 @@ I had responder listening already and after some seconds I got a hit
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/42013ca3-f4be-40bb-b359-ad4e83458707)
 
 I saved the hash then brute forced it using JTR
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ca94464f-f23c-429c-af71-aeced185015b)
 
 
