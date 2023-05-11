@@ -33,7 +33,7 @@ Noticing the url we can see that it's including the file *home.html*
 We can say that this is vulnerable to local file inclusion lets confirm it 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1c0a9997-6e39-48e1-be14-a0bfa3c115f0)
 
-One way we can exploit this is by trying to perform ntlm hash stealing 
+One way we can exploit this is by trying to perform ntlm hash theft 
 
 Using responder i'll steal the ntlm hash
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6c41a537-551f-4fe6-aaa5-c3c21bcec541)
@@ -46,3 +46,34 @@ Back on responder I got the hash for user *svc_apache*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b99248b3-00e9-4a8a-bb67-67b1977a0eed)
 
 I brute forced it using JTR 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d1def843-f290-49e8-8de1-a444ead2cac1)
+
+Now we have a cred *svc_apache:S@Ss!K@*t13*
+
+Trying to authenticate to winrm fails 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fb1d2dd8-52b8-4dd4-bcfd-baec906a7ccf)
+
+But we can login to smb using the cred
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/84057eae-b3fb-44be-9d06-8a0d697a16a2)
+
+We don't really have good access over the shares but searching through the shares doesn't reveal any form of interesting cred
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/621c1544-ee11-48a7-b5de-dc8a67d859a2)
+
+One thing we can do since we have smb cred is to get list of users on the box via *rid bruteforce* then perform a password spraying attack
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/880fe446-2b07-4ce0-96c6-2c1a546ff94c)
+
+I saved the result in a file then used bash scripting to get only the usernames there
+
+```
+Command:
+crackmapexec smb flight.htb -u 'svc_apache' -p 'S@Ss!K@*t13' --rid-brute > brute
+cat brute | awk '{print $6}' | grep flight | cut -d '\' -f 2 | grep -v svc_apache > users.txt
+```
+
+Now we can use kerbrute to perform password spraying
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7fd70294-7f1d-40b9-b985-566b6af6c2ee)
+
+Cool we have another user's cred *S.Moon:S@Ss!K@*t13*
+
+Checking the perm the user has over smb shows this
+
