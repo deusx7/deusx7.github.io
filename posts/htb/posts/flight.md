@@ -48,7 +48,7 @@ Back on responder I got the hash for user *svc_apache*
 I brute forced it using JTR 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e2308968-3279-4b93-9a4b-06737a3e685c)
 
-Now we have a cred *svc_apache:S@Ss!K@*t13*
+Now we have a cred `svc_apache:S@Ss!K@*t13`
 
 Trying to authenticate to winrm fails 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fb1d2dd8-52b8-4dd4-bcfd-baec906a7ccf)
@@ -75,8 +75,24 @@ cat brute | awk '{print $6}' | grep flight | cut -d '\' -f 2 | grep -v svc_apach
 Now we can use kerbrute to perform password spraying
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7fd70294-7f1d-40b9-b985-566b6af6c2ee)
 
-Cool we have another user's cred *S.Moon:S@Ss!K@*t13*
+Cool we have another user's cred `S.Moon:S@Ss!K@*t13`
 
 Checking the perm the user has over smb shows this
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0ed3fd86-c81d-4894-9784-0fec6423c2da)
+
+Nice we have write access over the *Shared* share
+
+But looking at the shares shows that no file is there
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4a9603fb-74f0-4cdb-a5c7-92f2dd367962)
+
+What we can attempt to do is to upload a file whether *scf or ini* to perform ntlm hash theft
+
+I used this [script](https://github.com/Greenwolf/ntlm_theft) to generate the payload file
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8a57713e-6f1c-49bf-a382-8346f2484a40)
+
+I had responder listening already and after some seconds I got a hit
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/42013ca3-f4be-40bb-b359-ad4e83458707)
+
+I saved the hash then brute forced it using JTR
+
 
