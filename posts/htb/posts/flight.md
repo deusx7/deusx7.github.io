@@ -77,6 +77,9 @@ Now we can use kerbrute to perform password spraying
 
 Cool we have another user's cred `S.Moon:S@Ss!K@*t13`
 
+Trying the cred over winrm fails
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3f04279a-329d-47f2-bcc7-582c7db18ca5)
+
 Checking the perm the user has over smb shows this
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0ed3fd86-c81d-4894-9784-0fec6423c2da)
 
@@ -96,4 +99,9 @@ I had responder listening already and after some seconds I got a hit
 I saved the hash then brute forced it using JTR
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ca94464f-f23c-429c-af71-aeced185015b)
 
+We have another cred `c.bum:Tikkycoll_431012284`
 
+Using cme i tried if it can connect to winrm but nope it can't
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/94ffe11c-cfbb-451b-bc1f-c66668f2e6dc)
+
+Checking the perm the user has over smb gives ths
