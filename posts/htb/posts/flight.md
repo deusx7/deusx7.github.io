@@ -166,3 +166,9 @@ Port 8000 looks promising cause something is listening on it
 
 And yea it's a web server
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/58ec6cb2-3e6e-45c0-b8b3-447a601c97f4)
+
+Using chisel I port forwarded the internal port
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a7e80222-519f-44e4-a74e-d213561fb89c)
+
+Back on our host we can now access the internal web server
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/37e6f914-8bd4-489f-bd4e-9d5a50152e4b)
