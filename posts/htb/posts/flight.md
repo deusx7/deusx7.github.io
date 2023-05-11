@@ -149,3 +149,20 @@ Luckily there's a tool called [RunasCs](https://github.com/antonioCoco/RunasCs) 
 I uploaded it to the box then got to switch to user c.bum
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6004085a-1293-48fd-98f3-918d862fb696)
 
+Back to the web directory it shows the user has write access over it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1c3473dd-2836-45df-b4dc-092e63149b50)
+
+So what i did was to upload a aspx shell since the web server will be IIS
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9aad22ff-2f43-4945-ae28-86d863e98d6a)
+
+Now lets see if there's any internal port
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2cc26d04-6eec-4557-8f33-f1c7b58ccee1)
+
+```
+Command: netstat -ano
+```
+
+Port 8000 looks promising cause something is listening on it
+
+And yea it's a web server
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/58ec6cb2-3e6e-45c0-b8b3-447a601c97f4)
