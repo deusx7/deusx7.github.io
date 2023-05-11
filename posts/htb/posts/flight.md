@@ -104,4 +104,48 @@ We have another cred `c.bum:Tikkycoll_431012284`
 Using cme i tried if it can connect to winrm but nope it can't
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/94ffe11c-cfbb-451b-bc1f-c66668f2e6dc)
 
-Checking the perm the user has over smb gives ths
+Checking the perm the user has over smb gives this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0ca48bf4-77e5-4b2d-86f9-f7e9958669aa)
+
+Nice we have access over the Web shares
+
+Moving over there shows that this is where the web server files are placed
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cb232b32-9340-4f12-9123-4d02b8529734)
+
+I uploaded a php command execution script
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/46402f2e-bcaa-4bfa-b926-2e15e4e06761)
+
+```php
+<?php
+system($_REQUEST['c']);
+?>
+```
+
+We can now access it from the web server
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4fd99908-e66d-4600-b3f3-422b388dcb10)
+
+To get shell I uploaded nc to the smb and then got shell from it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2ef35092-24bd-436a-b199-ff7cee2e16e4)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bb20f60e-0d5b-48cb-a37a-c32b730d5bda)
+
+Shell finally 😃
+
+Lets see what we can do from here
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2f8b794a-bc58-4a65-a269-008fc0a972ae)
+
+But what I noticed that the current working directory was *C:\xampp\htdocs\flight.htb* but there's a *inetpub* directory in the *C:/* drive
+
+So this means maybe there's an internal web app running 🤔
+
+Checking that directory shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/48468b00-b9e9-4585-9056-f48c78e392cf)
+
+We can conclude that the only user privileged to access the *development* directory is user *C.Bum*
+
+Though we have the user's cred but since our shell can't work well when we run *runas* i'll need a better shell
+
+Luckily there's a tool called [RunasCs](https://github.com/antonioCoco/RunasCs) that can help with this
+
+I uploaded it to the box then got to switch to user c.bum
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6004085a-1293-48fd-98f3-918d862fb696)
+
