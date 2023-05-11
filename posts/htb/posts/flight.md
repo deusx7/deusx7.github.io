@@ -172,3 +172,5 @@ Using chisel I port forwarded the internal port
 
 Back on our host we can now access the internal web server
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/37e6f914-8bd4-489f-bd4e-9d5a50152e4b)
+
+To access our shell is as easy as going over to /shell.aspx
