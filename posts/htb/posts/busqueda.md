@@ -36,4 +36,10 @@ Back on my tcp dump listener
 So we can get shell from here
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/80a41bf2-dfe5-4069-8686-d7344af0249d)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5c8bd117-978d-4693-81d2-bb91ff65135a)
-![Uploading image.png…]()
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bc5c3960-e70e-430d-90e4-77e9be811f82)
+
+Looking at the user cwd shows a git directory and viewing the config file shows a password
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/23e7ee9b-f143-4eef-ad64-a23d8706a2d1)
+
+Doing *sudo -l* using the password gotten from the git config file *jh1usoih2bkjaspwe92* shows we can run `/usr/bin/python3 /opt/scripts/system-checkup.py *` as *root*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5e87f6ac-ae6f-43ca-b9d3-241f5553f2ed)
