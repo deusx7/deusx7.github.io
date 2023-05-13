@@ -122,7 +122,7 @@ Then i logged in to ssh
 
 We know that the goal is to read the file at `/home/privilegeduser/flag.txt`
 
-But we are currently user *user* so we will be doing some privilege escalation
+But we are currently user `user` so we will be doing some privilege escalation
 
 Checking for sudo permission shows that we can run */usr/bin/socket* as user *privilegeduser*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5f442fee-cf1c-4ae7-95c2-f3fde4f9abb6)
@@ -143,3 +143,61 @@ And we get the flag
 ```
 Flag: Hero{ch3ck_f0r_m1sc0nf1gur4t1on5}
 ```
+
+#### IMF#1: Bug Hunting
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/807bd6ce-c01a-4539-b5c3-424c9f467f78)
+
+I started an instance as usual first
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/afb3e9b9-71fc-4316-9651-7f6a52584c91)
+
+Remember initially we were given the cred to ssh which is `bob:password`
+
+We're given two boxes attempting to login to ssh with the first host fails
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1dfc0235-e19e-4e13-9ae4-191eb5e73c31)
+
+But for the second one it works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ac79ec0c-6fd7-4a02-824f-111bb4b65ccc)
+
+There's a *welcome.txt* in the user's home directory
+
+Checking it's content gives this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3172d0a2-7167-4710-825d-822e15a1ba21)
+
+```
+Hi Bob!
+
+Welcome to our firm. I'm Dave, the tech lead here. We are going to be working together on our app.
+
+Unfortunately, I will be on leave when you arrive. So take the first few days to get familiar with our infrastructure, and tools.
+
+We are using YouTrack as our main issue tracker. The app runs on this machine (port 8080). We are both going to use the "dev" account at first, but I will create a separate account for you later. There is also an admin account, but that's for our boss. The credentials are: "dev:aff6d5527753386eaf09".
+
+The development server with the codebase is offline for a few days due to a hardware failure on our hosting provider's side, but don't worry about that for now.
+
+We also have a backup server, that is supposed to backup the main app's code (but it doesn't at the time) and also the YouTrack configuration and data.
+
+Only I have an account to access it, but you won't need it. If you really have to see if everything is running fine, I made a little utility that run's on a web server.
+
+The command to check the logs is:
+curl backup
+
+The first backups might be messed up a bit, a lot bigger than the rest, they occured while I was setting up YouTrack with it's administration account.
+Hope you find everything to you liking, and welcome again!
+
+Dave
+```
+
+After reading it here's what I understood from it:
+- There's a web server which is running YouTrack hosted on port 8080
+- We are already given the dev credential 
+- There is also a backup server and to access it is by using curl which just checks the log 
+- Hint pointing at the which backup file the YouTrack administrator password is stored
+
+Since there's a web server hosted locally and it is running YouTrack, I used ssh portforward to make it accessible to my host
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/47e5388d-bee5-4251-8de8-c8352823d58f)
+
+```
+Command: ssh -L 8000:127.0.0.1:8080 bob@dyn-05.heroctf.fr -p13654
+```
+
+We can confirmed it worked by scanning our host
