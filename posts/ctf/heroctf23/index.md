@@ -239,6 +239,122 @@ Flag: Hero{1_tr4ck_y0u_tr4ck_h3_tr4ck5}
 I got third blood in this challenge hahaha 🩸
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5d5faa8e-c98f-4827-862d-134d196f2234)
 
+Now back to the web app
+
 The other issues are not of importance except this one
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/40255124-e74f-4280-ad9d-ed50b0cf8df1)
 
+It's talking about the *Backup Log checking utility* and remember that *Dave* said there's a backup server
+
+I downloaded the script to my host and here's the content
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a96ecdae-a0dd-4d3b-8c7e-ee100884a30a)
+
+```php
+<?php
+    $file = $_GET['file'];
+    if(isset($file))
+    {
+        include("$file");
+    }
+    else
+    {
+        include("/var/log/backup.log");
+    }
+?>
+```
+
+Now if you remember that *Dave* said the command to check the log is *curl backup* so this means that backup is a web server running on port 80
+
+Pinging it from the host we currently have access to shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f07694be-5451-4f19-866a-e15c630b34ea)
+
+So basically this is the second host as we can tell from it's ip *i.e the box that when we tried loggin to ssh didn't work*
+
+For us to access the host we need to port forward it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bab12814-abe4-4a4d-a15e-ede1423c80ca)
+
+Now we can access it from our host
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/52ba9d8d-a502-4484-9e5b-b5887ab2ceb1)
+
+But it returns the backup log file and this is intended cause no file parameter was passed in the url
+
+Back to the script we can see it uses *include* to get the content of the file passed in the *$file* parameter and this vulnerable to Local File Inclusion (LFI) due to the usage of *include*
+
+Let us confirm it first
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b0f18a22-6a71-40d3-a1b8-22a92042f7c2)
+
+Cool it works. At this point let's further exploit this vulnerability to get Remote Code Execution (RCE)
+
+There are various ways or achieving this but in this case i'll go with Log Poisoning
+
+First lets determine what web server this web app is built on
+
+Using wappalyser extension i achieved that though you can use nmap,curl,http-header to fingerprint that
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8ce3e9ed-c1d4-49a8-9dee-f096f76ebaab)
+
+The web server is *Nginx*. This is needed cause for log poisoning, we need to know where the log files are placed
+
+And from Nginx it's default is:
+
+```
+/var/log/nginx/access.log
+```
+
+Including the log file works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a7c8a7ac-c8fd-4fb1-bd83-a147989d6e99)
+
+So let us go ahead with the attack
+
+I used burp to work with the header manipulation
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/57536df4-7003-4847-ba10-bd0bdf2122b6)
+
+First thing to do is to inject this php code in the user-agent header
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7fe60d2d-16ee-4567-815b-0c64978536b3)
+
+```php
+<?php system($_GET['cmd']); ?>
+```
+
+Also forward the request at least three times for it to appear in the log file
+
+From here we can get code execution
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a5cb8e0b-7a05-4220-a71d-1013a20c3a46)
+
+Looking at the result we see that we are user `www-data`
+
+Let us get a reverse shell. 
+
+Since there's already nc on the other host, I just used it to host a python web server which contains a file *lol.sh* and the file content is that of a bash reverse shell
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/606d2b8e-2eea-477f-b187-f6e703339f7c)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cc38bd4e-ca42-4521-ab19-25de8e2c1722)
+
+Now i will make the file at */tmp/lol.sh* executable then run it and hope to catch my reverse shell in my listener
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2bbf4f95-ff77-4609-a0db-493fb0ffc063)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d202a735-7e13-4d33-b4f0-bc91b2e0ff3d)
+
+Back on our listener for our shell fingers crossed 🤞
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d8226940-56ef-49c0-a450-8c29883276ec)
+
+Let us now stabilize it using python
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f67e2b1e-738a-4fe5-b332-f3781fa0d9c4)
+
+User www-data is less privileged so lets see how we can escalate privilege
+
+Running *sudo -l* shows that user *www-data* can run */usr/bin/rsync* as user *backup*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b7db3689-03c3-499d-8dbc-c9fd6e3b5d3d)
+
+Moving over to [gtfobins](https://gtfobins.github.io/gtfobins/rsync/#sudo) shows a way we can abuse the permission to get shell
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0795b827-5180-4101-aed2-6fb2f906fc00)
+
+Trying it works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/29f8c5e2-de28-47bb-ae96-4be32a9fa325)
+
+Now that we are user *backup* lets see what we have access to
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0407c34a-f8bd-416a-8cb3-400b35f0a076)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1e5bfa5f-0857-4562-8f75-b41c06e0fdf4)
+
+Nice let's see what's in /backup
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f9e44c85-c543-4d01-865e-c67f3afa0794)
+
+Our flag is in there also
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b8857b7c-db15-4182-856d-1bcf602e7bcc)
