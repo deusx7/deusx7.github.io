@@ -98,3 +98,20 @@ Now that we have chmod binary on it which has execute permission we can then cha
 ```
 Flag: Hero{chmod_1337_would_have_been_easier}
 ```
+
+#### IMF#0: Your mission, should you choose to accept it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b4531861-09dc-4f2f-bb2b-0d9bc5b2dae1)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a4d13a67-eeba-4c9b-8b77-ebf99bbe65d4)
+
+This is just the message asking if we accept the upcoming mission
+
+And the flag is just right there
+
+```
+Flag: Hero{I_4cc3pt_th3_m1ss10n}
+```
+
+#### SUDOkLu
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/edad7b26-fcc7-47d9-b996-f56b28f259ba)
+
+
