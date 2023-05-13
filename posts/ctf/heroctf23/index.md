@@ -32,7 +32,7 @@ Connecting to it shows this
 
 We're asked a calculation 
 
-I used gave it the answer and got this
+I used python to evaluate the question and then after getting the answer and giving the remote service the answer I got this
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/17a26531-73a2-4f90-9c0e-57421c8b6c48)
 
 I got *Too Slow* so basically we need to solve each math it gives
