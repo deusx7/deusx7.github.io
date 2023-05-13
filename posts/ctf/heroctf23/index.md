@@ -201,3 +201,39 @@ Command: ssh -L 8000:127.0.0.1:8080 bob@dyn-05.heroctf.fr -p13654
 ```
 
 We can confirmed it worked by scanning our host
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/547f4d55-b183-4ea6-a0ea-51acec450635)
+
+Dave gave us the dev user credential to be `dev:aff6d5527753386eaf09`
+
+Moving over to my web browser shows a login page
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8095f857-5bca-46ba-adba-79447d8dc5f7)
+
+Using the credential works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6d09fe46-c1e5-411b-a4d5-997e4a04a938)
+
+Next thing I noticed is the verson of the web app which is:
+
+```
+YouTrack 2020.5.2579 
+```
+
+Searching for exploits leads [here](https://www.synacktiv.com/publications/exploiting-cve-2021-25770-a-server-side-template-injection-in-youtrack.html)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e4439eb3-6d6e-4754-ac09-28189c9d483b)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d1318468-5d1a-45d6-b192-91dc929493e1)
+
+But after reading the exploit which is basically exploiting Server Side Template Injection (SSTI) it requires a privileged admin user account and our account isn't an admin account so let us put this aside for now
+
+Looking through the web app shows this issue page
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fb350698-c2a2-458e-9876-acac539e8f8d)
+
+Clicking on the first issue gives the flag
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e6a04139-2589-426c-97d8-979439fadaa3)
+
+```
+Flag: Hero{1_tr4ck_y0u_tr4ck_h3_tr4ck5}
+```
+
+
+The other issues are not of importance except this one
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/40255124-e74f-4280-ad9d-ed50b0cf8df1)
+
