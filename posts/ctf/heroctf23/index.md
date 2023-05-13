@@ -358,3 +358,52 @@ Nice let's see what's in /backup
 
 Our flag is in there also
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b8857b7c-db15-4182-856d-1bcf602e7bcc)
+
+```
+Flag: Hero{n0t_0nly_hum4ns_c4n_b3_po1s3n3d}
+```
+
+#### IMF#3: admin:admin
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7948995e-ec51-4342-b6a4-e23e98abe3a9)
+
+I got 2nd blood on this challenge 🩸
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/eece97e9-dbd0-4206-91da-808dcbacca03)
+
+From the challenge description it seems we're to find credential of the admin user
+
+And looking at our current working directory shows multiple zip files
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c3ba10c4-868b-45e4-b8e7-ae7ec6698994)
+
+If we were to find a password it would be quite stressfull as this zip files are much 
+
+But now remember the hint from the note Dave gave:
+
+```
+The first backups might be messed up a bit, a lot bigger than the rest, they occured while I was setting up YouTrack with it's administration account.
+Hope you find everything to you liking, and welcome again!
+```
+
+This is great cause now we can limit our search to a precise file
+
+And what we can use is the file size and also date 
+
+Looking at the result we can see that the best zip file to be searched is *youtrack-1683836642.zip*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/94424654-2f43-4996-8ce2-04cc941617a3)
+
+Reason is because:
+- It's file size is different from the other files
+- The time it was created is one day different than the others which are just the same
+
+Now that we've proposed our theory let us now unzip it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8e1e756d-8116-4412-9871-d32a7c36820b)
+
+Searching through each of the files is stressfull so I used *grep* to recursively search for the string *password*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5a909c85-5565-4427-b1c4-f4b2b2390c91)
+
+We see a password which looks like what a real admin would use haha
+
+So the cred is likely `admin:Th1sIsAV3ryS3cur3Adm1nP4ssw0rd0101#`
+
+Since *Dave* was referring the cred to the *YouTrack* web service let us try logging in as admin using this newly found password
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/eef55085-c232-452e-b9f7-c4baf0339480)
+
