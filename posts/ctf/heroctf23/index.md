@@ -114,4 +114,32 @@ Flag: Hero{I_4cc3pt_th3_m1ss10n}
 #### SUDOkLu
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/edad7b26-fcc7-47d9-b996-f56b28f259ba)
 
+First I started an instance
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cc8d7191-157c-4594-b590-f9af3aaf750b)
 
+Then i logged in to ssh
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2ea098a6-d122-4d88-9dcc-7e31c98c903d)
+
+We know that the goal is to read the file at `/home/privilegeduser/flag.txt`
+
+But we are currently user *user* so we will be doing some privilege escalation
+
+Checking for sudo permission shows that we can run */usr/bin/socket* as user *privilegeduser*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5f442fee-cf1c-4ae7-95c2-f3fde4f9abb6)
+
+Moving over to [gtfobins](https://gtfobins.github.io/gtfobins/socket/) shows that we can get a reverse shell via the socket binary
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/61d8167d-4d94-4ca4-bd5d-6b9a90754dd3)
+
+We were given the internal IP for the machine and luckily there's netcat on the machine
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f885fb67-8a96-4cd2-b9fd-0b3a723cee35)
+
+So we'll be using nc to catch the reverse shell
+
+I ssh to another session where my reverse shell will be caught
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c8984fb1-a0b7-4732-a34a-bfe3b137788a)
+
+And we get the flag
+
+```
+Flag: Hero{ch3ck_f0r_m1sc0nf1gur4t1on5}
+```
