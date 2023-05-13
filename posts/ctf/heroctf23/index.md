@@ -233,6 +233,11 @@ Clicking on the first issue gives the flag
 Flag: Hero{1_tr4ck_y0u_tr4ck_h3_tr4ck5}
 ```
 
+#### IMF#2: A woman's weapon
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/20cd5a36-475f-4b17-966f-6279b21e9a8e)
+
+I got third blood in this challenge hahaha 🩸
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5d5faa8e-c98f-4827-862d-134d196f2234)
 
 The other issues are not of importance except this one
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/40255124-e74f-4280-ad9d-ed50b0cf8df1)
