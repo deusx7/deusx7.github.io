@@ -21,5 +21,6 @@ P.S:- The scoreboard was dynamic
 
 # Prog
 
+#### Math Trap
 We're given a netcat instance to c
 
