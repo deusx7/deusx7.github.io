@@ -12,12 +12,13 @@ P.S:- The scoreboard was dynamic
 -      Math Trap (50 points)
 
 ## System
--     OK (100 points)
--     l
--     s
--     s
--     s
-
+-     Chm0d (50 points)
+-     IMF#0 (50 points)
+-     SUDOkLu (50 points)
+-     IMF#1: Bug Hunting (500 points)
+-     IMF#2: A woman's weapon (500 points)
+-     IMF#3: admin:admin (500 points)
+-     IMF#4: Put the past behind (500 points)
 
 # Prog
 
