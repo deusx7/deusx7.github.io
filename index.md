@@ -122,7 +122,7 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 - [[April 02 2023]] [RITSEC CTF](https://h4ckyou.github.io/posts/ctf/ritsec23/writeup.html) `Web, Pwn, Crypto`
 - [[April 28 2023]] [CyberStarters 2023 Qualif](https://h4ckyou.github.io/posts/ctf/cyberstarters23/qualif/index.html) `Web, Crypto, Web3, OSINT`
 - [[May 06 2023]] [CyberStarters 2023 Final](https://h4ckyou.github.io/posts/ctf/cyberstarters23/final/index.html) `Web, Crypto, Forensics`
-- [[May 15 2023]] [HeroCTF 2023](https://h4ckyou.github.io/blob/main/posts/ctf/heroctf23/index.html) `Web, Boot2Root`
+- [[May 15 2023]] [HeroCTF 2023](https://h4ckyou.github.io/posts/ctf/heroctf23/index.html) `Web, Boot2Root`
 
 * * *
 #### **Support Or Contact Me:~#**
