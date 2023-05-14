@@ -20,6 +20,10 @@ P.S:- The scoreboard was dynamic
 -     IMF#3: admin:admin (500 points)
 -     IMF#4: Put the past behind (500 points)
 
+# Web
+- Referrrrer (500 points)
+- Drink from my Flask#1 (500 points)
+
 # Prog
 
 #### Math Trap
@@ -498,5 +502,12 @@ Running that decrypts the file and I got the flag
 ```
 Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
 ```
+
+# Web
+
+#### Referrrrer
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/076690c3-0ed8-4879-801d-a76742d1eb31)
+
+After downloading the source code and unzipping it I got this
 
 And we're done 🙂
