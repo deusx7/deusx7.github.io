@@ -838,6 +838,9 @@ probably_public_bits = [
 ]
 ```
 
+How i got the path of the app.py is by causing an error by trying to divide a number by zero
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/90236f97-5a8a-44bb-9db9-23a928a0916b)
+
 Let us first get the other required private bit values
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c76596e7-93c9-4d1e-85ca-32ff53d988ca)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/957aa047-5e62-461a-8c0b-d8ecffcf25e1)
@@ -872,16 +875,15 @@ With this we can port forward the internal server on port 5000 to our host
 First I had to upload chisel to the box 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/472dea4b-879b-40b5-a422-eed90ea001b0)
 
-Now we can port forward it 
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5415734e-abc0-45f4-8849-8fd9a7d22854)
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bbcdb832-c6ba-491b-b647-e57238e2b333)
+But we will need to restart the web app on another port since it kills every owned python3 process and restarts the app. Since the cron deamon is running, it's pretty safe to assume that there is cronjob running this script at a regular interval. There is subtility to note here. As we saw in the previous challenge Flask#1 , flaskdev is not the best developer there is. His mistake in this script was to check for every instance of the app running, regardless of the user who launched it, and to make a strict comparison to 2. This means that if we run the app with our current user, the script will find 3 lines in the output of ps -aux, and will kill it's own app, only to restart it moments later.
 
-```
-Host: chisel server -p 80 --reverse
-Target: ./chisel client 7.tcp.eu.ngrok.io:11451 R:5000:127.0.0.1:5000 &
-```
+Let's restart the app with the knowledge we acquired earlier when analysing the reboot_flask.sh script. We have to run the app on a different port, since 5000 is already in use.
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/12b4874d-aeff-4340-afd7-bd92188b6667)
 
-If we access it from our web server it and try going over /console we get the prompt
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/565cc71b-0f16-4527-8189-517fe43ee508)
+After a minute, flaskdev's instance should have rebooted, we can kill our own.
 
-Using the key
+We can now access the debugging console and get the flag.
+
+
+
+
