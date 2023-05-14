@@ -20,9 +20,9 @@ P.S:- The scoreboard was dynamic
 -     IMF#3: admin:admin (500 points)
 -     IMF#4: Put the past behind (500 points)
 
-# Web
-- Referrrrer (500 points)
-- Drink from my Flask#1 (500 points)
+## Web
+-     Referrrrer (500 points)
+-     Drink from my Flask#1 (500 points)
 
 # Prog
 
@@ -509,5 +509,15 @@ Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/076690c3-0ed8-4879-801d-a76742d1eb31)
 
 After downloading the source code and unzipping it I got this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9e69bdff-2bbb-4272-9d3e-e9d2860afe4d)
 
+Reading the source code shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a9ee6b6c-1641-41dd-b669-ccb5a482b0c6)
 
+So basically there are just two endpoints which are `/` and `/admin` 
+
+Querying `/` just returns the string `Hello World`
+
+But when you query `/admin` it checks for the referer header and compares it with the value `YOU_SHOUD_NOT_PASS!`
+
+If the check is right we get the flag but if it isn't we get `Wrong header!`
