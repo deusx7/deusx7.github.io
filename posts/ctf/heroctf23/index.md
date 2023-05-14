@@ -510,4 +510,4 @@ Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
 
 After downloading the source code and unzipping it I got this
 
-And we're done 🙂
+
