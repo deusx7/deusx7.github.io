@@ -658,3 +658,52 @@ Running that decrypts the file and I got the flag
 Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
 ```
 
+#### Drink from my Flask#2
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/aca98bb2-a3b8-4cd6-9fd9-403acb722327)
+
+This was rated Hard and to me it was lool
+
+Since this is a continuation of the Flask#1 box lets see what we can do
+
+Going over to the user's home directory shows the flag but we don't have access over it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0bdb797e-f8f1-4ec6-ae96-09b836d5ed4c)
+
+Checking the content of the reboot script shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4510d353-986a-484a-ab78-45dcdb1354ae)
+
+```bash
+if [ `ps -aux | grep -E ".*/usr/bin/python3 /var/www/dev/app.py" | wc -l` != "2" ]
+then
+    pkill python3 -U 1000
+    /usr/bin/python3 /var/www/dev/app.py # This dev app is not exposed, it's ok to run it as myself  
+fi
+```
+
+Basically it's a process that runs the file located `/var/www/dev/app.py` 
+
+Reading the file shows that it's like the same vulnerable ssti source
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/434d6fef-8a6a-4f15-80e4-e47d67ed14cd)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bc2d189c-47bb-4967-b783-d7d04eef79a1)
+
+And it's running internally on port 5000
+
+What I did while trying it was to port forward it to my host to see if it was vulnerable to ssti but it wasn't 
+
+And the reason is here:
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/65fee0e8-c2bb-4ed5-a2a3-addc8030010f)
+
+The way it is formatted isn't the same as the one in the vulnerable app.py
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/09eb5221-b7cd-46dd-95df-a79626bbe92d)
+
+Also it's running internally on port 5000 
+
+There's another thing to notice
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e95a38ac-985f-4ec3-bfd0-3edee642fe48)
+
+A `urandom` file is stored in the config directory 🤔
+
+Well let's see...... 
+
+The internal web server running on port 5000 has Debug set to True
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/eb595b83-aad8-4a55-ba2f-53fcda223533)
+
