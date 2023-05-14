@@ -661,7 +661,7 @@ Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
 #### Drink from my Flask#2
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/aca98bb2-a3b8-4cd6-9fd9-403acb722327)
 
-This was rated Hard and to me it was lool
+This was rated Hard and it was to me it was lol 😹
 
 Since this is a continuation of the Flask#1 box lets see what we can do
 
@@ -679,9 +679,12 @@ then
 fi
 ```
 
-Basically it's a process that runs the file located `/var/www/dev/app.py` 
+The script checks if /var/www/app/app.py is running, and if not, kills every owned python3 process and restarts the app. Since the cron deamon is running, it's pretty safe to assume that there is cronjob running this script at a regular interval.
 
-Reading the file shows that it's like the same vulnerable ssti source
+And also cron is running 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f8a8b8ca-48dc-423b-ba4c-a333a363ba89)
+
+Reading the file shows that it's like the same vulnerable ssti source code
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/434d6fef-8a6a-4f15-80e4-e47d67ed14cd)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bc2d189c-47bb-4967-b783-d7d04eef79a1)
 
@@ -700,10 +703,141 @@ Also it's running internally on port 5000
 There's another thing to notice
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e95a38ac-985f-4ec3-bfd0-3edee642fe48)
 
-A `urandom` file is stored in the config directory 🤔
+A `urandom` file is stored in the config directory which is symbolically linked with `/dev/urandom` 🤔
 
 Well let's see...... 
 
 The internal web server running on port 5000 has Debug set to True
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/eb595b83-aad8-4a55-ba2f-53fcda223533)
 
+That means that /console would be open 
+
+But we would need a key to unlock the prompt
+
+It is easy to recreate the key since we have access to the box already 
+
+From this [HackTricks](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/werkzeug) blog shows how it can be done
+
+But the problem is when we read the debug/__init__.py file located here:
+
+```
+Path: /usr/local/lib/python3.10/dist-packages/werkzeug/debug/__init__.py
+```
+
+It shows this:
+
+```python
+def get_pin_and_cookie_name(
+    app: "WSGIApplication",
+) -> t.Union[t.Tuple[str, str], t.Tuple[None, None]]:
+    """Given an application object this returns a semi-stable 9 digit pin
+    code and a random key.  The hope is that this is stable between
+    restarts to not make debugging particularly frustrating.  If the pin
+    was forcefully disabled this returns `None`.
+
+    Second item in the resulting tuple is the cookie name for remembering.
+    """
+    pin = os.environ.get("WERKZEUG_DEBUG_PIN")
+    rv = None
+    num = None
+
+    # Pin was explicitly disabled
+    if pin == "off":
+        return None, None
+
+    # Pin was provided explicitly
+    if pin is not None and pin.replace("-", "").isdecimal():
+        # If there are separators in the pin, return it directly
+        if "-" in pin:
+            rv = pin
+        else:
+            num = pin
+
+    modname = getattr(app, "__module__", t.cast(object, app).__class__.__module__)
+    username: t.Optional[str]
+
+    try:
+        # getuser imports the pwd module, which does not exist in Google
+        # App Engine. It may also raise a KeyError if the UID does not
+        # have a username, such as in Docker.
+        username = getpass.getuser()
+    except (ImportError, KeyError):
+        username = None
+
+    mod = sys.modules.get(modname)
+
+    # This information only exists to make the cookie unique on the
+    # computer, not as a security feature.
+    probably_public_bits = [
+        username,
+        modname,
+        getattr(app, "__name__", type(app).__name__),
+        getattr(mod, "__file__", None),
+    ]
+
+    # This information is here to make it harder for an attacker to
+    # guess the cookie name.  They are unlikely to be contained anywhere
+    # within the unauthenticated debug page.
+    private_bits = [
+        str(uuid.getnode()),
+        get_machine_id(),
+        open("/var/www/config/urandom", "rb").read(16) # ADDING EXTRA SECURITY TO PREVENT PIN FORGING
+    ]
+
+    h = hashlib.sha1()
+    for bit in chain(probably_public_bits, private_bits):
+        if not bit:
+            continue
+        if isinstance(bit, str):
+            bit = bit.encode("utf-8")
+        h.update(bit)
+    h.update(b"cookiesalt")
+
+    cookie_name = f"__wzd{h.hexdigest()[:20]}"
+
+    # If we need to generate a pin we salt it a bit more so that we don't
+    # end up with the same value and generate out 9 digits
+    if num is None:
+        h.update(b"pinsalt")
+        num = f"{int(h.hexdigest(), 16):09d}"[:9]
+
+    # Format the pincode in groups of digits for easier remembering if
+    # we don't have a result yet.
+    if rv is None:
+        for group_size in 5, 4, 3:
+            if len(num) % group_size == 0:
+                rv = "-".join(
+                    num[x : x + group_size].rjust(group_size, "0")
+                    for x in range(0, len(num), group_size)
+                )
+                break
+        else:
+            rv = num
+
+    return rv, cookie_name
+```
+
+Notice the private bits variable 
+
+```python
+    private_bits = [
+        str(uuid.getnode()),
+        get_machine_id(),
+        open("/var/www/config/urandom", "rb").read(16) # ADDING EXTRA SECURITY TO PREVENT PIN FORGING
+    ]
+```
+
+We know that to get the pin we need the private_bits and also the public bits which is easy to get:
+
+```python
+probably_public_bits = [
+    'flaskdev',# username
+    'flask.app',# modname
+    'Flask',# getattr(app, '__name__', getattr(app.__class__, '__name__'))
+    '/usr/local/lib/python3.8/dist-packages/flask/app.py' # getattr(mod, '__file__', None),
+]
+```
+
+Let us first get the other required private bit values
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c76596e7-93c9-4d1e-85ca-32ff53d988ca)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/91b8e399-9071-49b4-a979-d94d8c22bcbc)
