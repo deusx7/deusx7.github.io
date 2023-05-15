@@ -661,7 +661,7 @@ Flag: Hero{4_l1ttle_h1st0ry_l3ss0n_4_u}
 #### Drink from my Flask#2
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/aca98bb2-a3b8-4cd6-9fd9-403acb722327)
 
-This was rated Hard and it was to me it was lol 😹
+This was rated Hard and it was very hard to me lol 😹
 
 Since this is a continuation of the Flask#1 box lets see what we can do
 
