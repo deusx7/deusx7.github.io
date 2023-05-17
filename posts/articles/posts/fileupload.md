@@ -238,5 +238,5 @@ With this we know that there's a race condition because during the upload proces
 
 We can't upload a php file but with this race condition we can do that
 
-I made a script to quickly upload a php file in hope that when it saves in the default directory which is */avatars/files/* and it hasn't done the file type check i'm able to run the file
+I made a script to quickly upload a php file in hopes that when it still in the default directory which is */avatars/files/* and it hasn't done the file type check i'm able to run the file
 
