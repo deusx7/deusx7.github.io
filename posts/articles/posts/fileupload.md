@@ -217,3 +217,26 @@ Now we can get command execution, get the content of the secret file and submit 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ca072c2d-b8e2-4384-9113-af635608c76b)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d0ce0160-cfb6-4f93-8328-d68d487143b9)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a81b10db-c60d-4ac5-a5bc-a2d2bbe5bdf4)
+
+
+<h3> Lab: Web shell upload via race condition </h3>
+
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/64f44403-e3b9-422b-b404-a457c70e33e9)
+
+The hint contains the source code
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7e75a184-0542-4949-ba5c-144cf22172f9)
+
+Here's what it does:
+- The code specifies a target directory named "avatars/" where the uploaded file will be saved.
+- The $target_file variable concatenates the target directory and the name of the uploaded file
+- The move_uploaded_file() function moves the uploaded file from its temporary location to the target directory specified by $target_file.
+- The checkViruses() function checks if there's virus on the file uploaded (though no code is here so likely it is still in development)
+- The checkFileType() function checks the type of file that is uploaded is it is not jpg or png
+- If both checkViruses() and checkFileType() return true, it means the file passed the virus check and has an allowed file type (JPG or PNG). In this case, a success message is echoed, displaying the uploaded file's name.
+
+With this we know that there's a race condition because during the upload process it is moved temporary before it checks the file type
+
+We can't upload a php file but with this race condition we can do that
+
+I made a script to quickly upload a php file in hope that when it saves in the default directory which is */avatars/files/* and it hasn't done the file type check i'm able to run the file
+
