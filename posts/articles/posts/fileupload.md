@@ -325,6 +325,25 @@ But now let us try fetching the file
 
 Back on the burp we copy the two requests 
 
-First the post request
+First the post request i'll put it in the request1 variable on turbo intruder
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2d3a2a21-4e03-4314-aea2-264774a8de81)
+
+Then the get request i'll put it in the request2 variable 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/428e835a-1c08-4b61-9252-f20866af5314)
+
+Note that the GET request should have:
+
+```
+Connection: close\r\n\r\n
+```
+
+With this i'll click the attack button 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f2efd114-4f48-4b0d-8b7b-88c0d4139d48)
+
+We can see the 200 request and the secret content also 😅
+
+Now we submit it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3f20fb03-936c-4e59-8648-6456d024eccf)
+
 
 
