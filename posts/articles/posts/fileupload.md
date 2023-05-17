@@ -137,5 +137,43 @@ We can get the content of the secret file and submit it
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/94134eb6-4985-4ca6-bfea-303e507d8ea9)
 
 
+<h3> Lab: Web shell upload via obfuscated file extension </h3>
 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a17bc08a-e1d4-4ebf-961a-f01f5d305804)
 
+After loggin in I see the upload function
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/69c7bb03-bcd0-49ea-8171-0226a457a934)
+
+Trying to upload a php file shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d3524fe7-265c-4674-90da-fd4657ec5ec0)
+
+So there are various ways we can go about this 
+
+But let's take this good one
+
+I'll edit the php file and add a jpg header using hexeditor
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d0da03f4-0a01-4391-bb4e-fd990238445a)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/27d09fbf-ba05-4030-a734-694c82310d63)
+
+```
+hexeditor shell.php
+```
+
+The reason I added a jpg header is because headers are basically used for file identification
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7ceed1c7-e743-4523-8272-3ba8e0ddee30)
+
+Now i'll upload it and change it's `Content-Type` header to `image/jpg` with also the filename extension as `shell.php3`
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d0977e73-0c17-416a-a317-9f1e73f8df60)
+
+But i still get error 🤔
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0e34879b-1a43-4f01-96e8-92d6919b4a85)
+
+We can now try to bypass it by adding a null byte `%00.jpg` in hopes that the web server will understand it and if it does the .jpg will be striped since `%00` is a null byte
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9c72c583-ff8a-46c0-831d-39147572aa16)
+
+And it uploaded
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8151129c-4aca-40d0-b8cb-be76c377c12c)
+
+From here we can execute code and get the content of the secret file
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2536914b-bcc3-4c2a-ac9a-586718e2ef3b)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3134bf49-d7b1-48f7-8924-966aae39239e)
