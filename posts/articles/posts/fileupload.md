@@ -84,6 +84,51 @@ Now we can access the file from where files are usually uploaded but one directo
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ab265fd8-30c1-4af1-94a2-b74fa01e8de2)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/38e728dc-d3ab-4580-b8bf-318b7601a006)
 
+<h3> Lab: Web shell upload via extension blacklist bypass </h3>
+  
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0b93e64a-accf-4fe7-ad80-cb6cfb95438b)
+
+After I logged in I saw the upload function
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e992d3d2-f418-4751-8cd8-856c67972596)
+
+Trying to upload a php file shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/703fcd2a-ab23-423b-a05e-af6aaf243418)
+
+It's saying no php file are allowed to be uploaded 
+
+Trying php5 works well for the bypass
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/99e12116-6345-4500-9258-b9c915219b88)
+
+But when i tried to execute it, it just shows it as plain text
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/97f6f0de-f291-4240-9ab1-1a68c6d00460)
+
+Let's try what we did previously by trying to put it in a directory backwards
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0b69f418-b6d0-4807-8cfb-81f71301e905)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/416e30e3-59ea-4c86-8cff-134a3134d8a3)
+
+It doesn't work 
+
+One thing we can try is by trying to upload a .htaccess file so that the web server will treat a jpg file as a php file which basically will be executed
+
+Here's the content of the .htaccess i'll upload
+
+```
+AddType application/x-httpd-php .jpg
+```
+
+First I'll save it on my box as a file called `access` 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b5a2021c-d48d-490e-adfd-7d61ad9ba5d3)
+
+Then when i want to upload it i'll turn on my proxy and change the Content-Type to `text/plain` and the filename to `.htaccess`
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b5764005-6fd9-4c61-9951-c715cc3318c1)
+
+After forwarding the request it works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/35152cbb-ce81-4ef0-959d-29f8c983d9a9)
+
+Now i'll upload a php file but then on the proxy change the filename to shell.jpg and the content type to image/jpg
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4c6851a3-0b9a-4f28-b17d-9f2d6bd13ada)
+
+
 
 
 
