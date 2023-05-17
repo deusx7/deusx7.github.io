@@ -30,7 +30,7 @@ Submitting it works
 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6a94c140-bcf9-42fd-9e29-1ddef6758ba7)
 
-After I logged in I saw this upload function
+After I logged in I saw the upload function
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b1a45176-8a86-4ba3-a2ad-89149a35eae3)
 
 Trying to upload a php file gives this error
@@ -50,3 +50,40 @@ After forwarding the request it uploaded
 Now we can get the secret file content from the user's directory and submit it
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8f999b11-1dad-4775-9eaa-4041c0357b6b)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2b61deb3-ae1b-4624-8949-4c9480ac8308)
+
+<h3> Lab: Web shell upload via path traversal </h3>
+
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/787174c2-ec4c-4940-a4bf-0e808c887c0f)
+
+After I logged in I saw the upload function
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8e3d062d-53c4-49bd-96c8-727680e95c91)
+
+Trying to upload a php file works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/de61120f-2b51-4f55-af1e-a00a20953623)
+
+But when i tried running it, it doesn't execute but rather treated as a plain text
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/123de4cb-0bae-42ee-8228-d1ac44bee624)
+
+Hmmm so likely there's a configuration set on that directory on not to execute the files uploaded
+
+We can try uploading it to a directory backwards
+
+So basically when i upload the file and intercept it on burp suite i can change the filename to `../shell.php`
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1c551a6b-9f64-4ef1-82e7-9f34091d19f1)
+
+After forwarding the request show it doesn't understand `/` as it took it as a plain sign
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/57a83331-c7ec-49ad-a7dc-208f8841c467)
+
+One thing I can try is to upload it but this time around url encode `/` which is `%2f`
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/29928f88-a4dd-412d-85a7-057eec2baa6b)
+
+Forwarding it shows it worked
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/281355b7-1f50-4844-b148-dae97dc05c38)
+
+Now we can access the file from where files are usually uploaded but one directory backups then get the content of the secret file and submit it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ab265fd8-30c1-4af1-94a2-b74fa01e8de2)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/38e728dc-d3ab-4580-b8bf-318b7601a006)
+
+
+
+
