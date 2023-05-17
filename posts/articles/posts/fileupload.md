@@ -152,8 +152,9 @@ So there are various ways we can go about this
 But let's take this good one
 
 I'll edit the php file and add a jpg header using hexeditor
-![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d0da03f4-0a01-4391-bb4e-fd990238445a)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/27d09fbf-ba05-4030-a734-694c82310d63)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d0da03f4-0a01-4391-bb4e-fd990238445a)
+
 
 ```
 hexeditor shell.php
