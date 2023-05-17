@@ -304,5 +304,27 @@ if __name__ == '__main__':
 
 I really tried so many attempts for it to work i don't know why but after some large number of request the web server just stops accepting file then resumes it back 💀
 
+So I peeped at a walkthrough and saw they used a burp extension called *Turbo Intruder* 
+
+After learning how it walks when i downloaded the extension and here's now the approach I used in solving it
+
+We know the aim of this task is to read the file at */home/carlos/secret* and we know already that it's a race condition
+
+I saved this in a file
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a0bbbbbe-ea48-482a-bbdb-a5077c5e9921)
+
+```php
+<?php echo file_get_contents('/home/carlos/secret'); ?>
+```
+
+Then i uploaded it. As expected I get the error
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/006b9d75-b89e-4fa1-99d7-b24f6f090068)
+
+But now let us try fetching the file 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/01ccd5d0-02e9-4338-8adb-a8fb5bd545d1)
+
+Back on the burp we copy the two requests 
+
+First the post request
 
 
