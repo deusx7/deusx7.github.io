@@ -178,3 +178,42 @@ And it uploaded
 From here we can execute code and get the content of the secret file
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2536914b-bcc3-4c2a-ac9a-586718e2ef3b)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3134bf49-d7b1-48f7-8924-966aae39239e)
+
+
+<h3> Lab: Remote code execution via polyglot web shell upload </h3>
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2324c589-d507-407c-9150-138e022ead2f)
+
+After loggin in I saw the upload function
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/dd893834-b08f-4185-bd65-4fb98c794cae)
+
+Trying to upload a php file shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/12549708-6c03-4570-a62b-2c18214dada4)
+
+Hmmmmmmm so it's actually checking if it's a real image or is it 🤔
+
+Checking the `Content-Type` header to `image/jpg` during the upload in my proxy shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fca09da0-976b-4260-ac6d-f1a97363ce6d)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/686e120f-9349-4d81-85e9-94d37d167bc7)
+
+Interesting maybe it is really checking if the file to be uploaded is an image
+
+I uploaded a real image with .php as the extension here's the result
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/42c31916-ed8c-43ad-9947-ee3da79db813)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d910d00e-2888-48e7-9467-986bc377f3eb)
+
+So basically we can still upload a php file just that it must be a real image
+
+Well we can still get RCE from this
+
+Using `exiftool` I'll edit the image metadata and put a php command execution command in it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d027488a-565b-459a-b7c8-a44e76ed6921)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4d03e51d-e1ca-49f7-afdd-7abffea1f9a2)
+
+With the metadata edited let us upload this file also change the extension to .php 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/df7617e5-a409-4df0-a00c-46c31c7e326b)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/56b0355b-34d9-4346-86ef-d4848dfdfece)
+
+Now we can get command execution, get the content of the secret file and submit it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ca072c2d-b8e2-4384-9113-af635608c76b)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d0ce0160-cfb6-4f93-8328-d68d487143b9)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a81b10db-c60d-4ac5-a5bc-a2d2bbe5bdf4)
