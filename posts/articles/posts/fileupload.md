@@ -127,7 +127,14 @@ After forwarding the request it works
 
 Now i'll upload a php file but then on the proxy change the filename to shell.jpg and the content type to image/jpg
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4c6851a3-0b9a-4f28-b17d-9f2d6bd13ada)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/31c2d434-5793-4b4b-8c7e-0d3ec9966304)
 
+Trying to access the file and execute command works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9055bdf7-f9a4-43aa-8478-03b41af4a1c1)
+
+We can get the content of the secret file and submit it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/076c2104-8ec8-49be-97ba-d97c0b1efdd9)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/94134eb6-4985-4ca6-bfea-303e507d8ea9)
 
 
 
