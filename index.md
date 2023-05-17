@@ -92,6 +92,8 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 * * *
 ### **Articles:~#**
 - [[Feb 27 2023]] [Windows Privilege Escalation](https://markuched13.github.io/posts/articles/winprivesc_cheatsheet.html) `Windows Privilege Escalation CheatSheet`
+- [[Mar 12 2023]] [SQli](https://h4ckyou.github.io/posts/articles/posts/sqli.html) `SQL Injection`
+- [[Mar 12 2023]] [Authentication](https://h4ckyou.github.io/posts/articles/posts/authentication.html) `Authentication Bypass`
 
 * * *
 ### **Reverse Engineering Practice:~#**
