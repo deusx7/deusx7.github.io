@@ -176,3 +176,98 @@ With this we can modify the path value to call an internal source which is this 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/00115dfe-ecac-4411-ada1-eeebd5ceff15)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b4f51be2-880c-4e08-89ee-206024bd1395)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ac21d5f2-66f3-4252-b803-3a03beb19744)
+
+
+<h3> Lab: Blind SSRF with out-of-band detection </h3>
+
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fdac9e03-a1cd-4184-b37d-caa8c0744e20)
+
+After checking the web server i got this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1d73976b-f3af-44f4-b703-3a83899c48a4)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7a283f22-21ff-4a15-a516-4ef3fed31fd7)
+
+There's no stock button this around to click which is interesting
+
+But clicking that Return to list button while on my proxy shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/56ddfcd5-cd0f-4c5f-93e8-7bef40c56eb0)
+
+I send it to Repeater
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/402222e3-c751-458d-ae5c-8aa6631e7415)
+
+Nothing really looks interesting
+
+How about clicking on a product while the request is being intercepted
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/193dec96-e151-4edb-9c88-3b4d83122c75)
+
+I also forwarded this to Repeater
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b32f5b1a-7286-4047-b9a9-e94f2a681f5f)
+
+Nothing also really looks interesting
+
+The only place that seems where url can be injected is the Referer Header
+
+Let us check for Blind SSRF using OAST
+
+First I opened burp collaborator
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/47c7c14e-09c3-49d7-9bc9-78bfd20f2ef3)
+
+Then i copied the url to the from the *Copy to clipboary* button and replaced it as the *Referer Header*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d028e1fa-6a4b-49b4-a98b-57caf9804491)
+
+After forwading the request i then clicked on *Poll now*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0ed609d5-83e6-457a-aa40-2aafdac4a24c)
+
+We can see 2 DNS request and a HTTP request was received 
+
+Back on the task we get chall solved
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/d230915c-8d17-45a2-849d-352af5f4df6c)
+
+
+<h3> Lab: SSRF with whitelist-based input filter </h3>
+
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b792a925-7f65-4563-a802-6b134d2d19f8)
+
+Going over to the web page shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4528c6c2-d2ee-4c59-8d8d-13b2d741fc25)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5f9b035d-91ed-489a-812c-d0950959e751)
+
+Cool there's a *Check Stock* button 
+
+Clicking on it while intercepting the request shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a81c9364-9c1c-4abf-9dfa-6dc785e68736)
+
+We can see it's making an external call to a url
+
+Let's try injecting our own url to it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/965756c6-32bf-4fc1-a4a8-2d1235017a7e)
+
+Ah it does a strict check for if *stock.weliketoshop.net* is in the url
+
+Hmmm let us see if we can bypass that using `@`
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ff385c92-409b-4c80-98b5-3bad75c3d51d)
+
+Now we can use html anchor `#` since the web server didn't block us
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0203d7e6-ebc4-4fa1-8ffe-e3d00369a7c6)
+
+Uhhhhmmm it blocked us 🤔
+
+I'll url encode the html anchor and forward the request again
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1d6344a0-3921-49ab-b465-af729fd52c67)
+
+It still blocked us 
+
+Now let us go for double url encode
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cb4dce24-5035-40e6-846b-eeef18b74e5b)
+
+Cool it didn't block us
+
+Since the host `pwner` is non existent that is why we are getting 500 Internal Error
+
+I'll update it to `localhost`
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bc2ac660-9dc1-4fa5-abd6-bb552f60d84d)
+
+With this we can delete the user `carlos` account
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/76401b8a-c6f2-483d-9641-2612300a7c1f)
+
+Back on the web we get chall solved
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0c066a0d-688d-4ddc-8ef6-e4dc6549dbb2)
