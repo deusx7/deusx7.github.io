@@ -100,3 +100,35 @@ Trying it over my proxy gives this
 We can now delete the user *carlos*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/26b903b0-163f-4513-be3f-7ee33256f6f7)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/23acecf1-27da-42ef-9b37-76f3803c2be9)
+
+<h3> Lab: SSRF with blacklist-based input filter </h3>
+
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/486edb3d-bc92-48e8-b78d-d526adb663de)
+
+Moving over to the web app shows the normal function we've been seeing
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/53f9dcf8-beeb-4cc1-b70e-cd683703291b)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/555f291f-8e18-4542-bb81-3dbca2f9a461)
+
+But when I tried accessing localhost in the stockApi variable I get an error
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/953fd872-21d7-47e8-bb38-5093f103f3f6)
+
+So we need to bypass this
+
+I decided to try each value of what we are trying to access individually
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5452ceec-c07f-401a-aa56-67a579a4fc5b)
+
+Trying : `http://127.1` gives `200` Ok
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c5e739a0-5c76-4e50-93c7-57bd261901c9)
+
+But appending /admin gives an error
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5b29c541-7bf5-460c-816c-7ac8e3624072)
+
+One thing we can try here is case changing any letter of */admin* to uppercase as the web server might treat it as normal word
+
+Doing that works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e161ad0e-51fe-45b4-80f1-149a42aed2f1)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/739bfefe-9db6-418c-8215-a6b51ef65fd7)
+
+Now we can delete the user carlos account
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5317f144-dd12-47ac-be38-588d0e357ae6)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cb5cda62-d6fc-402a-b20b-61ccadfe486e)
