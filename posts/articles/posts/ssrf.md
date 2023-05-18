@@ -112,6 +112,8 @@ Moving over to the web app shows the normal function we've been seeing
 But when I tried accessing localhost in the stockApi variable I get an error
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/953fd872-21d7-47e8-bb38-5093f103f3f6)
 
+<h3> Lab: SSRF with filter bypass via open redirection vulnerability </h3>
+
 So we need to bypass this
 
 I decided to try each value of what we are trying to access individually
@@ -132,3 +134,45 @@ Doing that works
 Now we can delete the user carlos account
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5317f144-dd12-47ac-be38-588d0e357ae6)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cb5cda62-d6fc-402a-b20b-61ccadfe486e)
+
+
+<h3> Lab: SSRF with filter bypass via open redirection vulnerability </h3>
+ 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c8f0c3f4-0595-4ff1-a7b5-4b95fbe90549)
+
+Going over the web page as usual shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/08397187-b5b2-47b5-afeb-6e6160ec7377)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2b302250-5016-4480-84b4-230b938b33b8)
+
+But when i clock on the Stock button i don't see any variable that is querying a url from an external / internal source
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f3c7596a-d80e-4405-a2ec-5320dfae038b)
+
+So no ssrf here but notice the path:
+
+```
+/product/stock/check?productId=1&storeId=1
+```
+
+But looking below shows a button that can either return to list or go to next product
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/6e4efeef-4ada-4062-9a66-adf15a77c08a)
+ 
+ Clicking the next product button while intercepting the request shows this
+ ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/655f87a8-3a19-48ef-b4b1-3fb55b3d0ac8)
+
+The path looks interesting:
+
+```
+GET /product/nextProduct?currentProductId=1&path=/product?productId=2
+```
+
+I'll send it over to repeater to play with the parameter
+
+But i noticed that when i forward the request it shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/059419d3-b900-4b67-9ede-c07c3fdd8faf)
+
+So that means we have an open redirect since this current parameter is called from the previous one
+
+With this we can modify the path value to call an internal source which is this `http://192.168.0.12:8080/admin/delete?username=carlos` on the view stock request
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/00115dfe-ecac-4411-ada1-eeebd5ceff15)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/b4f51be2-880c-4e08-89ee-206024bd1395)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/ac21d5f2-66f3-4252-b803-3a03beb19744)
