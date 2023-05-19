@@ -109,12 +109,6 @@ But we can see the allowed characters :)
 One way we can improvise in bypassing the filter is by converting the blacklisted character to hex
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2155b706-5ad1-4fa6-a80d-5ae9297da27a)
 
-So now here's the updated payload:
-
-```
-{{""|attr("\x5f\x5fclass\x5f\x5f")|attr("\x5f\x5fbase\x5f\x5f")|attr("\x5f\x5fsubclasses\x5f\x5f")()}}
-```
-
 Using the updated payload works 
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5e6054cd-da25-4b31-a12c-d1b2a2afd8fe)
 
