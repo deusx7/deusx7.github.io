@@ -102,11 +102,11 @@ Now i'll use ffuf to fuzz for allowed special characters
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/1260f974-8e17-4d44-bcee-3b0d2a161e9c)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2e5bc423-bfad-4f9b-ac47-033ca5b6e72c)
 
-Sorry about the way my ffuf is that's the new update :( 
+Sorry about the way my ffuf is that's the new update 😥
 
 But we can see the allowed characters :)
 
-One way we can improvise in bypass the filter is by converting the blacklisted character to hex
+One way we can improvise in bypassing the filter is by converting the blacklisted character to hex
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/2155b706-5ad1-4fa6-a80d-5ae9297da27a)
 
 So now here's the updated payload:
