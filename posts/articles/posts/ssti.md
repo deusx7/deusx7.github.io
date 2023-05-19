@@ -181,7 +181,7 @@ We can then try reading the app.py file
 
 Here's the result gotten from reading app.py (P.S: I exfiltrated it 🙂)
 
-```
+```python
 import random
 from flask import Flask, render_template_string, render_template, request
 
