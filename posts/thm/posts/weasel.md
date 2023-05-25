@@ -104,3 +104,54 @@ Now we can just copy the binary to that path since we have write access *cause /
 ```
 Command: cp /home/dev-datasci/anaconda3/bin/jupyter /home/dev-datasci/.local/bin/jupyter
 ```
+
+Running sudo on it now works cool
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5dd59267-e719-4140-b8f2-aa27e5ea2d23)
+
+```
+Command: sudo /home/dev-datasci/.local/bin/jupyter --help
+```
+
+From here we can start a new lab jupyter instance and access it to get a new terminal running as root
+
+Here's the [docs](https://jupyterlab.readthedocs.io/en/latest/) that helped me out 
+
+But i got this error
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/64fcd6c3-a3d2-4a29-be1e-34c49f88d511)
+
+We can add the *--allow-root* to bypass that message 
+
+Doing that now works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/47e0d398-5eb8-4f0e-afb7-8159b7f400ad)
+
+```
+Command:sudo /home/dev-datasci/.local/bin/jupyter notebook --ip 10.10.195.131 --port 8089 --allow-root
+```
+
+It created this new link with the token as it's GET parameter *http://10.10.195.131:8089/?token=20c98ba247520987b457638652bc252a9f55c74fe42375ba*
+
+I logged out of that jupyter instance and logged in with the new token
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/691750ea-4141-4958-b24e-cd90724ebd3a)
+
+Following the previous way we used to get shell works also
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/25230ead-be03-46df-9929-fe880a5dbfb9)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/cc39d06f-4885-481f-9fa2-e77b396426e2)
+
+But remember we are just root on this wsl but this gives us the permission to access the *C:\* drive on the windows thos
+
+We can now just mount it
+
+Here's the [resource](https://www.public-health.uiowa.edu/it/support/kb48568/) that helped me out
+
+Mounting it works and we can grab the root flag
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/fe087f4c-d35c-4f51-8482-1d2146ffd037)
+
+```
+Command:-
+mkdir /mnt/windows
+mount -t drvfs C: /mnt/windows
+```
+
+The flag is saying something about elevated privesc *THM{evelated_w3as3l_l0ngest_boi}* maybe intended was by getting root from the main host via elevated privilege escalation idk 🤔
+
+And we're done 👻
