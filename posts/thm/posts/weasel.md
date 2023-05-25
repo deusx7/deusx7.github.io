@@ -84,7 +84,7 @@ Also i'm taking this path cause i suck at privesc in windows 😄
 Checking *sudo* permission on the wsl shows this
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/843301ef-3f6b-44ac-afb8-2dbe2cb16308)
 
-Interesting we can run */home/dev-datasci/.local/bin/jupyter* as root that looks to easy already 🙂
+Interesting we can run */home/dev-datasci/.local/bin/jupyter* as root that looks too easy already 🙂
 
 But trying it doesn't work
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e06c24fe-f20f-4532-99bf-4c1f25d3d0c8)
