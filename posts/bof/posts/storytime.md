@@ -116,6 +116,69 @@ This just writes some text to stdout
 Now we see the other functions just writes some text to standard output and just one out of the others has a buffer overflow vuln in it
 
 Let us get the offset required to take control execution over the binary
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/e4fcde4d-2bb8-4e6a-aa2b-919a2aa1420c)
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/43974d1c-17b9-44d8-af02-e49bf62cf872)
 
+Cool the offset is *56*
 
+But how do we exploit this binary now that we've gotten the offset
+
+Best attack scenerio to use is *Ret2Libc*
+
+Reason why I want to use this is cause write@plt is used during the program execution
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/9f418b07-7d3c-44f4-ab70-1f0687c618fa)
+
+Uhmmm we need to know the value of what the registers need to be for us to leak write
+
+Going over to linux [syscalls](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86_64-64_bit) shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f887703e-a3a0-44c2-8699-3f93c51ed7e3)
+
+From there we can see the usage of how [write](https://man7.org/linux/man-pages/man2/write.2.html) syscall can be used
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/445acc46-433a-4d0d-81f0-e90d5773187f)
+
+In this case it should be:
+
+```
+write(1, elf.got['write'], 8)
+```
+
+The reason i used `8` as size of what is to be read is because if we're able to leak the got of write it is going to be 8 bytes long but basically it should be >= *size(elf.got['write'])*
+
+So let us get the gadget needed
+
+For pop rdi, pop rsi, pop rdx:
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bb542566-be6f-47df-9db5-bda113af2b90)
+
+From the result we can see that no pop rdx gadget oops
+
+Let us look at the assembly code of the binary of the functions
+
+Also note that for us to use a linux syscall we need to fill in the registers from the last before the first i.e
+
+```
+Fill in rdx,
+Fill in rsi,
+Fill in rdi
+syscall
+```
+
+Checking main shows this:
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/a42041a8-a5a8-4939-9fd2-6b2cbf23bb24)
+
+The value of *edx* register is already going to be filled with *0x190* so that already fills in our *size(buf)* check
+
+No need to fill in the *rdx* register
+
+So after i checked other functions i found the other functions interesting to use cause it is moves the value of 1 to the rdi and also the write@plt address is after it
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c3fd18a9-6583-4076-bfb5-62c6f1627fde)
+
+But what we should note there is that after the write@plt is called it does *pop rbp* and we will need to pad it with 8 bytes since i'll be using that address 😜
+
+With this the idea of our exploit will be:
+- Overflow the binary to leak write libc then jump to the other function that has a buffer overflow
+- Calculate libc base address
+- Get the address of bin_sh & system
+- ROP to system
+
+Here's my exploit [script]()
 
