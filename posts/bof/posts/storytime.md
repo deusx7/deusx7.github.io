@@ -172,7 +172,7 @@ No need to fill in the *rdx* register
 So after i checked other functions i found the other functions interesting to use cause it is moves the value of 1 to the rdi and also the write@plt address is after it
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/c3fd18a9-6583-4076-bfb5-62c6f1627fde)
 
-But what we should note there is that after the write@plt is called it does *pop rbp* and we will need to pad it with 8 bytes since i'll be using that address 😜
+But what we should note there is that after the write@plt is called it does *pop rbp* and we will need to pad it with 8 bytes since i'll be using the end function write@plt address 😜
 
 With this the idea of our exploit will be:
 - Overflow the binary to leak write libc then jump to the other function that has a buffer overflow
@@ -180,5 +180,9 @@ With this the idea of our exploit will be:
 - Get the address of bin_sh & system
 - ROP to system
 
-Here's my exploit [script]()
+Here's my exploit [script](https://github.com/markuched13/markuched13.github.io/blob/main/solvescript/practice/storytime/solve.py)
 
+Running it works
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/92a95eae-e2dd-4306-ad16-5d6aff5129b1)
+
+And we're done 👻
