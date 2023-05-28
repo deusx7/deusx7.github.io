@@ -1,10 +1,10 @@
 File Checks: 
-![[Pasted image 20230527231715.png]]
+![Pasted image 20230527231715](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/5b232423-86a2-4922-a417-273aa508c7b0)
 
 We're working with a x64 binary which has all protections enabled on it and it is nt stripped and dynamically linked 
 
 Decompiling with ghidra shows the main function
-![[Pasted image 20230527231858.png]]
+![Pasted image 20230527231858](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/bd2a61b5-f783-49a5-95c6-c94bf8e49cce)
 
 Here's the edited version:
 
@@ -92,7 +92,7 @@ print(f'Password:- {password}')
 ```
 
 Running it gives this
-![[Pasted image 20230528005511.png]]
+![Pasted image 20230528005511](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/7c74b9c8-e127-4da0-866c-a3561adf0c15)
 
 ```
 ➜  PleaseCrackMe python3 solve.py 
@@ -103,6 +103,6 @@ Password:- Mfhp^tz
 So the password when I used *HackYou* as the username and *8* as the number is *Mfhp^tz*
 
 Trying it on the binary works
-![[Pasted image 20230528005635.png]]
+![Pasted image 20230528005635](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/068a44af-fc92-45e7-9764-2a757bd1819b)
 
 And that's all 👻
