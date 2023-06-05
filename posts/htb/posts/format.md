@@ -3,7 +3,29 @@
 Difficulty = Medium
 
 Nmap Scan:
-![[Pasted image 20230605094519.png]]
+
+```
+# Nmap 7.93 scan initiated Mon Jun  5 09:43:59 2023 as: nmap -sCV -A -p22,80,3000 -oN nmapscan 10.10.11.213
+Nmap scan report for 10.10.11.213
+Host is up (0.31s latency).
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 c397ce837d255d5dedb545cdf20b054f (RSA)
+|   256 b3aa30352b997d20feb6758840a517c1 (ECDSA)
+|_  256 fab37d6e1abcd14b68edd6e8976727d7 (ED25519)
+80/tcp   open  http    nginx 1.18.0
+|_http-server-header: nginx/1.18.0
+|_http-title: Site doesn't have a title (text/html).
+3000/tcp open  http    nginx 1.18.0
+|_http-server-header: nginx/1.18.0
+|_http-title: Did not follow redirect to http://microblog.htb:3000/
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jun  5 09:44:21 2023 -- 1 IP address (1 host up) scanned in 21.99 seconds
+```
 
 I added the domain `microblog.htb` to my `/etc/hosts` file
 
