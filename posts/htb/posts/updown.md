@@ -224,7 +224,5 @@ Give us shell
 
 And we're done 🌝
 
-<br>
-[Back To Home](../index.md)
 
 
