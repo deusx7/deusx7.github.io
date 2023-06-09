@@ -2,6 +2,10 @@
 
 Difficulty = Medium
 
+`
+P.S: Please bear with me I just copied the notes from Obsidian so the images doesn't really show :(
+`
+
 Nmap Scan:
 
 ```
