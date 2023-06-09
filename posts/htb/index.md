@@ -52,6 +52,7 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[Mar 11 2023]] [Updown](https://h4ckyou.github.io/posts/htb/posts/updown.html) `Source Code Review, LFI, File Upload Vuln, PHP Dfunc Bypass, Python Code Injection, Sudo `
 - [[Mar 12 2023]] [Inject](https://h4ckyou.github.io/posts/htb/posts/inject.html) `File Upload, Directory Transveral, Spring, Ansible`
 - [[Mar 26 2023]] [Cerberus](https://h4ckyou.github.io/posts/htb/posts/cerberus.html) `Icinga CVE, Path Transversal, RCE, Pivoting, Windows Joined Domain`
+- [[Mar 29 2023]] [Fligt](https://h4ckyou.github.io/posts/htb/posts/flight.html)
 - [[May 08 2023]] [MonitorsTwo](https://h4ckyou.github.io/posts/htb/posts/monitorstwo.html) `Cacti RCE, SUID, CVE`
 - [[May 09 2023]] [OnlyForYou](https://h4ckyou.github.io/posts/htb/posts/onlyforyou.html) `LFI, Source Code Review, Command Injection, Cypher Injection`
 - [[May 12 2023]] [Busqueda](https://h4ckyou.github.io/posts/htb/posts/busqueda.html) `Python Code Injection, Gitea, Source Code Analysis`
@@ -59,3 +60,4 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[May 19 2023]] [Three](https://h4ckyou.github.io/posts/htb/posts/three.html) `Enumeration, AWS, RCE`
 - [[June 9 2023]] [Format](https://h4ckyou.github.io/posts/htb/posts/format.html) `Source Code Analysis, File Inclusion, Nginx Misconfiguration, Redis, Python Format String Vulnerability`
 - [[June 9 2023]] [Updown](https://h4ckyou.github.io/posts/htb/posts/updown.html)
+
