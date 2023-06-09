@@ -6,7 +6,7 @@ title:  HackTheBox.
 <h2 class="menu-header" id="indexhtml"><a href="../../index.html">Main</a></h2>
 <hr>
 
-![image](https://user-images.githubusercontent.com/127159644/223288167-f1d2c806-3418-42f2-96f6-7ce7177091f3.png)
+![image](https://www.wallpaperflare.com/man-near-torii-gate-wallpaper-gray-temple-wallpaper-landscape-wallpaper-cqg)
 
 * * *
 <h4 class="menu-header" id="hackthebox">HackTheBox:</h4>
