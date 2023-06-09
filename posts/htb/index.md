@@ -57,4 +57,4 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[May 12 2023]] [Busqueda](https://h4ckyou.github.io/posts/htb/posts/busqueda.html) `Python Code Injection, Gitea, Source Code Analysis`
 - [[May 19 2023]] [Socket](https://h4ckyou.github.io/posts/htb/posts/socket.html) `Web Socket, SQLite Injection`
 - [[May 19 2023]] [Three](https://h4ckyou.github.io/posts/htb/posts/three.html) `Enumeration, AWS, RCE`
-- [[June 9 2023]] [Format](https://h4ckyou.github.io/posts/htb/posts/format.html) `Source Code Analysis, File Inclusion, Nginx Misconfiguration, Arbitrary File Write, Redis, Python Format String Vulnerability`
+- [[June 9 2023]] [Format](https://h4ckyou.github.io/posts/htb/posts/format.html) `Source Code Analysis, File Inclusion, Nginx Misconfiguration, Redis, Python Format String Vulnerability`
