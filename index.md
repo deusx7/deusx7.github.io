@@ -3,31 +3,23 @@ layout: default
 title: Home
 ---
 
-<h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Main</a>&#xA0;&#xA0;&#xA0;<a href="/posts/cyberseclabs/index.html">CyberSecLabs</a>&#xA0;&#xA0;&#xA0;<a href="/posts/thm/index.html">TryHackMe</a>&#xA0;&#xA0;&#xA0;<a href="/posts/htb/index.html">HackTheBox</a>&#xA0;&#xA0;&#xA0;<a href="/posts/ptd/index.html">PwnTillDawn</a>&#xA0;&#xA0;&#xA0;<a href="/posts/pg/index.html">Proving Grounds</a>&#xA0;&#xA0;&#xA0;<a href="/posts/echoctf/index.html">echoCTF</a>&#xA0;&#xA0;&#xA0;<a href="/posts/articles/index.html">Articles</a>&#xA0;&#xA0;&#xA0;<a href="/posts/re/index.html">Reverse Engineering</a>&#xA0;&#xA0;&#xA0;<a href="/posts/bof/index.html">Buffer Overflow</a></h2>
+<h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Main </a>&#xA0;&#xA0;&#xA0;<a href="/posts/thm/index.html">TryHackMe</a>&#xA0;&#xA0;&#xA0;<a href="/posts/htb/index.html">HackTheBox</a>&#xA0;&#xA0;&#xA0;<a href="/posts/ptd/index.html">PwnTillDawn</a>&#xA0;&#xA0;&#xA0;<a href="/posts/pg/index.html">Proving Grounds</a>&#xA0;&#xA0;&#xA0;<a href="/posts/echoctf/index.html">picoCTF</a>&#xA0;&#xA0;&#xA0;<a href="/posts/articles/index.html">Articles</a>&#xA0;&#xA0;&#xA0;</h2>
 
 * * *
 ### Welcome To My Cyber Security Blog, H4X0R
 * * *
 
-Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tricks, Writeups, Articles, Any Stuffs Related To Hacking That I Learn xD......
+Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving snr penetration tester, I Post Different Hacking Tricks, Writeups, Articles, Any Stuffs Related To Hacking That I Learn 0x......
 
 * * *
 ### Whoami:~#
 * * *
 
-- **My Name:**    `Mark Uche`
-- **Also Known As:** `Hack.You`
-- **What Do I Do:**  `CTF / Ethical Hacking / Programming`
-- **Twitter:** `https://twitter.com/0xMarkUche`
-- **Github:** `https://github.com/markuched13`
-
-* * *
-### **CyberSecLabs Writeups:~#**
-* * *
-- [[Feb 12 2023]] [Casino](https://markuched13.github.io/posts/cyberseclabs/CTF--CyberSecLabs--Linux--Challenge_Labs.pdf) `SSTI, XSS, SSRF, GIT, Python Library Hijack `
-- [[Feb 12 2023]] [Stack](https://markuched13.github.io/posts/cyberseclabs/CTF--CyberSecLabs--Windows--Beginner_Lab--Stack.pdf) `GitStack, Keepass`
-- [[Feb 12 2023]] [Dictionary](https://markuched13.github.io/posts/cyberseclabs/CTF--CyberSecLabs--Windows--Challenge_Lab--Dictionary.pdf) `AD, Scripting, Firefox Saved Cred`
-- [[Feb 12 2023]] [Sync](https://markuched13.github.io/posts/cyberseclabs/CTF--CyberSecLabs--Windows--Challenge_Lab--Sync.pdf) `AD, Ink Attack, DCSync Delegation`
+- **My Name:**    `Olakojo Olaoluwa`
+- **Also Known As:** `sec-fortress`
+- **What Do I Do:**  `CTF // Ethical Hacking // Scripting`
+- **Twitter:** [Twitter/sec_fortress](https://twitter.com/sec_fortress)
+- **Github:** [Youtube/@sec-fortress](https://youtube.com/@sec-fortress)
 
 * * *
 ### **TryHackMe Writeups:~#**
@@ -82,52 +74,16 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Mark, I Post Different Hacking Tr
 - 
 
 * * *
-### **EchoCTF Writeups:~#**
+### **PicoCTF Writeups:~#**
 - [[Feb 16 2023]] [Doorknob](https://markuched13.github.io/posts/echoctf/doorknob.html) `NSE Command Injection, Buffer Overflow, Scripting`
 - [[Feb 20 2023]] [Stackler](https://markuched13.github.io/posts/echoctf/stackler.html) `Buffer Overflow`
 - [[Feb 21 2023]] [Nopal](https://markuched13.github.io/posts/echoctf/nopal.html) `Cacti RCE, SNMP RCE`
 - [[Mar 02 2023]] [Stringer](https://h4ckyou.github.io/posts/echoctf/posts/stringer.html) `Format String Vulnerability`
 - [[Mar 02 2023]] [Hairsplit](https://h4ckyou.github.io/posts/echoctf/posts/hairsploit.html) `API`
 
-* * *
-### **Articles:~#**
-- [[Feb 27 2023]] [Windows Privilege Escalation](https://markuched13.github.io/posts/articles/winprivesc_cheatsheet.html) `Windows Privilege Escalation CheatSheet`
-- [[Mar 12 2023]] [SQli](https://h4ckyou.github.io/posts/articles/posts/sqli.html) `SQL Injection`
-- [[Mar 12 2023]] [Authentication](https://h4ckyou.github.io/posts/articles/posts/authentication.html) `Authentication Bypass`
-
-* * *
-### **Reverse Engineering Practice:~#**
-- [[Jan 28 2023]] [CSAW_19](https://markuched13.github.io/posts/re/beleaf.html) `Reverse Engineering`
-- [[Jan 28 2023]] [Helithumper_RE](https://markuched13.github.io/posts/re/helithumperre.html) `Reverse Engineering`
-- [[Mar 02 2023]] [P0lyn0mials](https://h4ckyou.github.io/posts/re/posts/p0lyn0mials.html) `Reverse Engineering`
-
-
-* * *
-### **Buffer Overflow Practice:~#**
-- [[Jan 29 2023]] [CSAW_18](https://markuched13.github.io/posts/bof/boi.html) `Variable Overwrite`
-- [[Jan 29 2023]] [TAMU_19](https://markuched13.github.io/posts/bof/pwn1.html) `Variable Overwrite`
-- [[Jan 29 2023]] [TW_17](https://markuched13.github.io/posts/bof/justdoit.html) `Variable Overwrite`
-- [[Jan 29 2023]] [CSAW_16](https://markuched13.github.io/posts/bof/warmup.html) `Ret2Win, Movaps Stack Allignment`
-- [[Jan 29 2023]] [TFC_21](https://markuched13.github.io/posts/bof/secret.html) ``
-- [[Jan 29 2023]] [KCTF_23](https://markuched13.github.io/posts/bof/chall.html) `Ret2Win`
-- [[Jan 31 2023]] [TU_17](https://markuched13.github.io/posts/bof/vulnchat.html) `Variable Overwrite, Ret2Win`
-- 
-
-
-* * *
-### **CTF Writeups:~#**
-* * *
-- [[Jan 14 2023]] [Sabr CTF](https://markuched13.github.io/posts/ctf/sabr/sabr.html) `Web, Misc, Pwn, RE`
-- [[Jan 30 2023]] [BIC Winter CTF](https://h4ckyou.github.io/posts/ctf/bic23/bicctf.html) `RE,` `Pwn`
-- [[Mar 07 2023]] [DP CTF](https://h4ckyou.github.io/posts/ctf/dp23/dpctf.html) `Web, Pwn, RE`
-- [[Mar 31 2023]] [PICO CTF 2023](https://h4ckyou.github.io/posts/ctf/picoctf/writeup.html) `General, Web, Crypto, Forensics, Pwn, RE`
-- [[April 02 2023]] [RITSEC CTF](https://h4ckyou.github.io/posts/ctf/ritsec23/writeup.html) `Web, Pwn, Crypto`
-- [[April 28 2023]] [CyberStarters 2023 Qualif](https://h4ckyou.github.io/posts/ctf/cyberstarters23/qualif/index.html) `Web, Crypto, Web3, OSINT`
-- [[May 06 2023]] [CyberStarters 2023 Final](https://h4ckyou.github.io/posts/ctf/cyberstarters23/final/index.html) `Web, Crypto, Forensics`
-- [[May 15 2023]] [HeroCTF 2023](https://h4ckyou.github.io/posts/ctf/heroctf23/index.html) `Web, Boot2Root`
 
 * * *
 #### **Support Or Contact Me:~#**
 * * *
 
-Hey You, Having Any Issues With My Writeups, Articles Send Me A DM on Discord `Hack.You#9120`  Am Always Free To Help......
+Hey Yoo, Having Any Issues With My Writeups, Articles Send Me A DM on Twitter `@Sec_fortress`  Am Always Free To Help......
