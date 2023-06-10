@@ -26,10 +26,10 @@ Logging in to the website with Jerry's password we find another flag2 hint:
 ooops, This time we are giving the hint to find another entry point//
 
 We then pick on ssh and use the command:
-
-`┌──(sec-fortress㉿kali)-[~]
- └─$ ssh -p 7744 tom@192.168.161.194`
-
+```
+┌──(sec-fortress㉿kali)-[~]
+└─$ ssh -p 7744 tom@192.168.161.194
+```
 whereas using the password we found earlier for tom
 ![image](../images/dc6.png)
 
