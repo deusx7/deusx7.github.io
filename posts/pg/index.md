@@ -16,7 +16,3 @@ OffSec Proving Grounds (PG) Play and Practice is a modern network for practicing
 <hr>
 
 - [[Jun 10 2023]] [DC-2](https://sec-fortress.github.io/posts/pg/dc-2.md) `GTFOBins, Restricted environments, Wordpress attacks`
--
--
--
--
