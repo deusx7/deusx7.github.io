@@ -64,22 +64,11 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving s
 * * *
 ### **ProvingGrounds Writeups:~#**
 * * *
-- [[Jun 10 2023]] [dc-2](https://sec-fortress.github.io/posts/pg/dc-2.html) `Node JS, Command Injection, Suid`
-- [[Jan 16 2023]] [Algeron](https://markuched13.github.io/posts/pg/algeron.html) `Smatter Mail `
-- [[Jan 16 2023]] [Bratarina](https://markuched13.github.io/posts/pg/bratarina.html) `Open SMTP `
-- [[Jan 16 2023]] [Squid](https://markuched13.github.io/posts/pg/squid.html) `Squid Proxy, PHPMyAdmin`
-- [[Jan 17 2023]] [Fantastic](https://markuched13.github.io/posts/pg/fantastic.html) `Grafana, Disk Group `
-- [[Jan 17 2023]] [PlanetExpress](https://markuched13.github.io/posts/pg/planetexpress.html) `RCE, Suid`
-- [[Jan 17 2023]] [Internal](https://markuched13.github.io/posts/pg/internal.html) `CVE-2009-3103`
-- 
+- [[Jun 10 2023]] [dc-2](https://sec-fortress.github.io/posts/pg/posts/dc2.html) `GTFOBins, Restricted Environment, Brute forcing`
 
 * * *
 ### **PicoCTF Writeups:~#**
-- [[Feb 16 2023]] [Doorknob](https://markuched13.github.io/posts/echoctf/doorknob.html) `NSE Command Injection, Buffer Overflow, Scripting`
-- [[Feb 20 2023]] [Stackler](https://markuched13.github.io/posts/echoctf/stackler.html) `Buffer Overflow`
-- [[Feb 21 2023]] [Nopal](https://markuched13.github.io/posts/echoctf/nopal.html) `Cacti RCE, SNMP RCE`
-- [[Mar 02 2023]] [Stringer](https://h4ckyou.github.io/posts/echoctf/posts/stringer.html) `Format String Vulnerability`
-- [[Mar 02 2023]] [Hairsplit](https://h4ckyou.github.io/posts/echoctf/posts/hairsploit.html) `API`
+<> - [[Feb 16 2023]] [Doorknob](https://markuched13.github.io/posts/echoctf/doorknob.html) `NSE Command Injection, Buffer Overflow, Scripting` <>
 
 
 * * *
