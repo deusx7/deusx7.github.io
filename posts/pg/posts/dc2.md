@@ -6,7 +6,7 @@ A quick nmap scan on *dc-2* ip address(192.168.195.194) gives us this:
 We can then add this domain to our `etc/hosts/` file
 
 We found port 80, which is the default port for `http`, navigating to the websites we get a flag1 hint:
-![image](posts/pg/images/Screenshot_2023-06-09_15_06_16.png)
+![image](../images/Screenshot_2023-06-09_15_06_16.png)
 
 Nothing seems Understandable to me than us creating a custom wordlist with the site using `cewl`, for further clarification, i decided to run `gobuster`:
 ![image](../images/dc2.png)
