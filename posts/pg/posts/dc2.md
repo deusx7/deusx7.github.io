@@ -1,6 +1,6 @@
 # DC-2 PROVEN GROUNDS
 **DIFFICULTY: EASY**
----
+***
 A quick nmap scan on *dc-2* ip address(192.168.195.194) gives us this:
 ![image](https://sec-fortress.github.io/posts/pg/images/dc1.png)
 We can then add this domain to our `etc/hosts/` file
@@ -36,10 +36,18 @@ In the image above we can see the executables that tom can run, this is called a
 * Jerry cant be `su`'ed😂😂 because we are in a restricted environment, we have to break free//
 * we can use `vi` which is a great option for us after checking GTFOBins:
 ![image](../images/dc7.png)
-* We havent still broken free completely, a quick `export PATH=/bin:/usr/bin:$PATH` and `export SHELL=/bin/bash:$SHELL`, gives us a complete environment:
-
+* We havent still broken free completely, a quick `export PATH=/bin:/usr/bin:$PATH` and `export SHELL=/bin/bash:$SHELL`, gives us a complete environment
 Now we can do `su jerry`, type in your password and get logged in:
+![image](../images/dc8.png)
 
+after logging in we still cant view some files and folders in specific directory because we are still the **jerry user**, in our home directory **~** we are given a `flag4.txt`
+![image](../images/dc.png)
 
-after logging in we still cant cant view some files and folders in specific directory:
+Since there are no hint here, a quick `sudo -l` should give us all execuutables we can run:
+![image](../images/last.png)
 
+We are able to run `git`, Looking up GTFOBins again we have a way of getting root:
+![image](../images/dc10.png)
+
+Boom, we are in as root!! #funbox #sec-fortress
+![image](../images/goat.png)
