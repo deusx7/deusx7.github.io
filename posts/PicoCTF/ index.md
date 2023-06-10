@@ -3,10 +3,10 @@ layout: default
 title:  PicoCTF.
 ---
 
-<h2 class="menu-header" id="indexhtml"><a href="../../index.html">Main</a></h2>
+<h2 class="menu-header" id="indexhtml"><a href="../../../index.html">Main</a></h2>
 <hr>
 
-![image](images/Screenshot_2023-06-09_18-51-37.png)
+![image](../images/Screenshot_2023-06-09_18-51-37.png)
 
 * * *
 <h4 class="menu-header" id="Picoctf">PicoCTF:</h4>
