@@ -36,7 +36,10 @@ In the image above we can see the executables that tom can run, this is called a
 * Jerry cant be `su`'ed😂😂 because we are in a restricted environment, we have to break free//
 * we can use `vi` which is a great option for us after checking GTFOBins:
 ![image](../images/dc7.png)
-* We havent still broken free completely, a quick `export PATH=/usr/bin:$PATH`, gives us a complete environment:
+* We havent still broken free completely, a quick `export PATH=/bin:/usr/bin:$PATH` and `export SHELL=/bin/bash:$SHELL`, gives us a complete environment:
+
+Now we can do `su jerry`, type in your password and get logged in:
 
 
-After breaking free, you should be able to `su` to jerry without a password
+after logging in we still cant cant view some files and folders in specific directory:
+
