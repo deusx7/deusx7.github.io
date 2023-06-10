@@ -9,7 +9,7 @@ title:  PicoCTF.
 ![image](images/Screenshot_2023-06-09_18-51-37.png)
 
 * * *
-<h4 class="menu-header" id="Picoctf">PicoCTF:</h4>
+<h4 class="menu-header" id="PicoCTF">PicoCTF:</h4>
 picoCTF is a free computer security education program with original content built on a capture-the-flag framework created by security and privacy experts at Carnegie Mellon University.
 <hr>
 <hr>
