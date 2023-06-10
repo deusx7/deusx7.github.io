@@ -56,7 +56,5 @@ Since there are no hint here, a quick `sudo -l` should give us all execuutables 
 We are able to run `git`, Looking up GTFOBins again we have a way of getting root:
 ![image](../images/dc10.png)
 
-Boom, we are in as root!! #funbox #sec-fortress
+Boom, we are in as root!! #funbox #sec-fortress 👍 🛡️ 🇳🇬
 ![image](../images/goat.png)
-
-👍 ✨ :octocat: 
