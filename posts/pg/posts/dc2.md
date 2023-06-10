@@ -31,15 +31,19 @@ We then pick on ssh and use the command:
 └─$ ssh -p 7744 tom@192.168.161.194
 ```
 whereas using the password we found earlier for tom
+
 ![image](../images/dc6.png)
 
 In the image above we can see the executables that tom can run, this is called a restricted environment whereas we cant run almost all the linux command//
 * We try to view the content of flag3 using the less command and we are left with the option to `su` to jerry
 * Jerry cant be `su`'ed😂😂 because we are in a restricted environment, we have to break free//
 * we can use `vi` which is a great option for us after checking GTFOBins:
+
 ![image](../images/dc7.png)
-* We havent still broken free completely, a quick `export PATH=/bin:/usr/bin:$PATH` and `export SHELL=/bin/bash:$SHELL`, gives us a complete environment
+
+* We haven't still broken free, completely, a quick `export PATH=/bin:/usr/bin:$PATH` and `export SHELL=/bin/bash:$SHELL`, gives us a complete environment
 Now we can do `su jerry`, type in your password and get logged in:
+
 ![image](../images/dc8.png)
 
 after logging in we still cant view some files and folders in specific directory because we are still the **jerry user**, in our home directory we are given a `flag4.txt`
