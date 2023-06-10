@@ -73,5 +73,6 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving s
 * * *
 #### **Support Or Contact Me:~#**
 * * *
+- **MAIL: olakjosh@gmail.com**
 
 Hey Yoo, Having Any Issues With My Writeups, Articles Send Me A DM on Twitter `@Sec_fortress`  Am Always Free To Help......
