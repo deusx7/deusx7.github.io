@@ -61,7 +61,7 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving s
 * * *
 ### **ProvingGrounds Writeups:~#**
 * * *
-- [[Jun 10 2023]] [dc-2](https://sec-fortress.github.io/posts/pg/posts/dc2.html) `GTFOBins, Restricted Environment, Brute forcing`
+- [[Jun 9 2023]] [dc-2](https://sec-fortress.github.io/posts/pg/posts/dc2.html) `GTFOBins, Restricted Environment, Brute forcing`
 
 
 * * *
