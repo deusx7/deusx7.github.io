@@ -40,7 +40,8 @@ In the image above we can see the executables that tom can run, this is called a
 Now we can do `su jerry`, type in your password and get logged in:
 ![image](../images/dc8.png)
 
-after logging in we still cant view some files and folders in specific directory because we are still the **jerry user**, in our home directory **~** we are given a `flag4.txt`
+after logging in we still cant view some files and folders in specific directory because we are still the **jerry user**, in our home directory we are given a `flag4.txt`
+
 ![image](../images/dc.png)
 
 Since there are no hint here, a quick `sudo -l` should give us all execuutables we can run:
