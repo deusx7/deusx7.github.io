@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # DC-2 PROVEN GROUNDS
 **DIFFICULTY: EASY**
 -
