@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  PicoCTF.
+title:  PicoCTF
 ---
 
 <h2 class="menu-header" id="index"><a href="../../index.html">Main</a></h2>
