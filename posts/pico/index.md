@@ -9,7 +9,7 @@ title:  PicoCTF.
 ![image](https://user-images.githubusercontent.com/127159644/223291712-f4754bd8-18c6-4bc0-8127-36909b25aa3d.png)
 
 * * *
-<h4 class="menu-header" id="echoctf">echoCTF:</h4>
+<h4 class="menu-header" id="echoctf">PicoCTF:</h4>
 An online platform to train your offensive and defensive IT security skills.
 <hr>
 <hr>
