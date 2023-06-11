@@ -13,7 +13,7 @@ title:  HackTheBox.
 The Hack The Box platform provides a wealth of challenges - in the form of virtual machines - simulating real-world security issues and vulnerabilities that are constantly provided and updated by the community. Some of them simulate real-world scenarios, and some lean more towards a CTF style of approach.<hr>
 <hr>
 
-- [[Jan 18 2023]] [ScriptKiddie](https://markuched13.github.io/posts/htb/scriptkiddie.html) `Msfvenom, Command Injection, Sudo`
+<!-- - [[Jan 18 2023]] [ScriptKiddie](https://markuched13.github.io/posts/htb/scriptkiddie.html) `Msfvenom, Command Injection, Sudo`
 - [[Jan 18 2023]] [Lame](https://markuched13.github.io/posts/htb/lame.html) `Metasploit, Command Injection`
 - [[Jan 18 2023]] [Legacy](https://markuched13.github.io/posts/htb/legacy.html) `Metasploit`
 - [[Jan 18 2023]] [Devel](https://markuched13.github.io/posts/htb/devel.html) `File Upload, RCE`
@@ -59,5 +59,5 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[May 19 2023]] [Socket](https://h4ckyou.github.io/posts/htb/posts/socket.html) `Web Socket, SQLite Injection`
 - [[May 19 2023]] [Three](https://h4ckyou.github.io/posts/htb/posts/three.html) `Enumeration, AWS, RCE`
 - [[June 9 2023]] [Format](https://h4ckyou.github.io/posts/htb/posts/format.html) `Source Code Analysis, File Inclusion, Nginx Misconfiguration, Redis, Python Format String Vulnerability`
-- [[June 9 2023]] [Updown](https://h4ckyou.github.io/posts/htb/posts/updown.html)
+- [[June 9 2023]] [Updown](https://h4ckyou.github.io/posts/htb/posts/updown.html) -->
 
