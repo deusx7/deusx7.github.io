@@ -13,7 +13,7 @@ title:  PwnTillDawn.
 PwnTillDawn Online Battlefield is wizlynx group's vision of the next-generation offensive security & Penetration testing lab but also capture-the-flag competition.<hr>
 <hr>
 
-- [[Feb 12 2023]] [PwnDrive Academy](https://markuched13.github.io/posts/ptd/pwndriveacademy.html) `Weak Authentication, File Upload`
+<!-- - [[Feb 12 2023]] [PwnDrive Academy](https://markuched13.github.io/posts/ptd/pwndriveacademy.html) `Weak Authentication, File Upload`
 - [[Feb 12 2023]] [DOOMOPS](https://markuched13.github.io/posts/ptd/doomops.html) `[Not Authorized]`
 - [[Feb 12 2023]] [ElMariachi-PC](https://markuched13.github.io/posts/ptd/elmariachipc.html) `ThinVNC`
 - [[Feb 12 2023]] [Django](https://markuched13.github.io/posts/ptd/django.html) `FTP, PhpMyAdmin`
@@ -22,4 +22,4 @@ PwnTillDawn Online Battlefield is wizlynx group's vision of the next-generation 
 - [[Feb 12 2023]] [IAmGroot](https://markuched13.github.io/posts/ptd/groot.html) `[Not Authorized]`
 - [[Feb 12 2023]] [Seth-PC](https://markuched13.github.io/posts/ptd/sethpc.html) `[Not Authorized]`
 - [[Feb 12 2023]] [DeCoCo-Server](https://markuched13.github.io/posts/ptd/decocoserver.html) `[Not Authorized]`
-- [[Feb 13 2023]] [Juno](https://markuched13.github.io/posts/ptd/juno.html) `Reverse Engineering, Cryptography`
+- [[Feb 13 2023]] [Juno](https://markuched13.github.io/posts/ptd/juno.html) `Reverse Engineering, Cryptography` -->
