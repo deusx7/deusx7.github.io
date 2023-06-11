@@ -14,7 +14,7 @@ Discover CyberSecLabs. With our growing platform delivering beginner hacking con
 <hr>
 <hr>
 
-- [[Jan 21 2023]] [TakeOver](https://markuched13.github.io/posts/thm/takeover.html) `Subdomain Enumeration`
+<!-- - [[Jan 21 2023]] [TakeOver](https://markuched13.github.io/posts/thm/takeover.html) `Subdomain Enumeration`
 - [[Jan 28 2023]] [ReversingELF](https://markuched13.github.io/posts/thm/reversingelf.html) `Reverse Engineering`
 - [[Jan 28 2023]] [0x41haz](https://markuched13.github.io/posts/thm/0x41haz.html) `Reverse Engineering`
 - [[Feb 05 2023]] [EavesDropper](https://markuched13.github.io/posts/thm/eavesdrop.html) `Pspy, Path Hijack, Scripting`
@@ -32,4 +32,4 @@ Discover CyberSecLabs. With our growing platform delivering beginner hacking con
 - [[May 10 2023]] [DavesBlog](https://h4ckyou.github.io/posts/thm/posts/davesblog.html) `NOSQLi, NodeJS Command Injection, MongoDB Enum, BinExp`
 - [[May 10 2023]] [Fortress](https://h4ckyou.github.io/posts/thm/posts/fortress.html) `Python Compiled Binary, Hash Collision, ADM Group Log File Reading`
 - [[May 10 2023]] [GameBuzz](https://h4ckyou.github.io/posts/thm/posts/gamebuzz.html) `Python Pickle Deserilization, Port Knock, ACL, Knockd Service Abuse`
-- [[May 25 2023]] [Weasel](https://h4ckyou.github.io/posts/thm/posts/weasel.html) `Jupyter, WSL, Mounting`
+- [[May 25 2023]] [Weasel](https://h4ckyou.github.io/posts/thm/posts/weasel.html) `Jupyter, WSL, Mounting` -->
