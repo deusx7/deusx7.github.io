@@ -21,6 +21,7 @@ Now let tweak our txt file
     
 	   Then the next pipe which is **cut** set a delimeter, in other to cut out only the text after 4 spaces with the `-f 4` option, setting it to 3 or 2 will cut from the number of spaces 
            given, Output:
+    
 	   ![image](../images/pingsweep_script/Pasted%20image%2020230622002410.png)
     
 	   Now we have to remove the semicolon, that isn't an IP with the semicolon, we could just do the `tr -d ":"` whereby tr stands for **translator** and we set a delimeter as usual to remove any symbol with **':'**	   
