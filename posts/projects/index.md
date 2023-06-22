@@ -12,4 +12,4 @@ Hey there, welcome to my Projects Page! As a junior pentester, I'm thrilled to s
 <hr>
 <hr>
 
-- [[June 22 2023]] [Sripting and Automation](https://sec-fortress.github.io/projects/posts/pingsweep_script.html) `Scripting & Automation with Bash🐧 and Python🐲`
+- [[June 22 2023]] [Sripting and Automation](https://sec-fortress.github.io/posts/projects/posts/pingsweep_script.html) `Scripting & Automation with Bash🐧 and Python🐲`
