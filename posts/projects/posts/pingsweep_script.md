@@ -30,8 +30,4 @@ Now let tweak our txt file
 	   ![image](../images/pingsweep_script/Pasted%20image%2020230622002707.png)
     
 # Creating our Bash script
-we start with the `#!/bin/bash` which is called **shebang**, once we have this, you can as usual pull copy our `ping -c 1 192.168.0.$host | grep "64 bytes" | cut -d " " -f 4 | tr -d ":"` to the next line, we only replace the `cat` cmd with `ping` so we can get our output directly to the terminal:
-![[Pasted image 20230622004656.png]]
-
-Now let explain//
-- The ```for host in `seq 1 254`; do ``` mean we start a **for** lip and give a variable called **host** in `seq` short for **sequence**, that is any where we assign the value $host to it replaces it from 1 to 254, the ; mean allow all command at that line to run at one interval at a time, same as the `&`, run each command once at a interval but changing the conditions as given, note that, the ampersand(&) is always faster than ;, you should tweak thescript to see and, then **done**.
+https://github.com/sec-fortress/Ping_sweeper
