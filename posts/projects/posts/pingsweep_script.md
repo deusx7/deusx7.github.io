@@ -28,7 +28,7 @@ Now let tweak our txt file
     
 	   Now we have to remove the semicolon, that isn't an IP with the semicolon, we could just do the `tr -d ":"` whereby tr stands for **translator** and we set a delimeter as usual to remove any symbol with **':'**	   
 	   ![image](../images/pingsweep_script/Pasted%20image%2020230622002707.png)
-           ![video](../images/pingsweep_script/test-2023-06-22_02.54.19.mkv)
+    
 # Creating our Bash script
 we start with the `#!/bin/bash` which is called **shebang**, once we have this, you can as usual pull copy our `ping -c 1 192.168.0.$host | grep "64 bytes" | cut -d " " -f 4 | tr -d ":"` to the next line, we only replace the `cat` cmd with `ping` so we can get our output directly to the terminal:
 ![[Pasted image 20230622004656.png]]
