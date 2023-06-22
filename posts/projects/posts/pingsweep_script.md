@@ -17,7 +17,7 @@ rtt min/avg/max/mdev = 0.056/0.056/0.056/0.000 ms
 Now let tweak our txt file
 - We can do `cat ip.txt | grep "64 bytes" | cut -d " " -f 4 | tr -d ":"
 	-  Now here, we are concatinating out the text in **ip.txt**, then sending a pipe to **grep** only the lines that has **64 bytes**, after that we go this as an output:
-	   ![[Pasted image 20230622002127.png]]
+	   ![image](../images/pingsweep_script/Pasted%20image%2020230622002127.png)
 	   Then the next pipe which is **cut** set a delimeter, in other to cut out only the text after 4 spaces with the `-f 4` option, setting it to 3 or 2 will cut from the number of spaces given, Output:
 	   ![[Pasted image 20230622002410.png]]
 	   Now we have to remove the semicolon, that isn't an IP with the semicolon, we could just do the `tr -d ":"` whereby tr stands for **translator** and we set a delimeter as usual to remove any symbol with **':'**	   
