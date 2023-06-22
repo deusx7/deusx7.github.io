@@ -11,3 +11,5 @@ title:  Projects.
 Hey there, welcome to my Projects Page! As a junior pentester, I'm thrilled to showcase my exciting hacking adventures. Explore my diverse projects where I've hunted for vulnerabilities, exploited weaknesses, and uncovered hidden risks.
 <hr>
 <hr>
+
+- [[June 22 2023]] [Sripting and Automation](https://markuched13.github.io/posts/articles/winprivesc_cheatsheet.html) `Scripting & Automation with Bash🐧 and Python🐲`
