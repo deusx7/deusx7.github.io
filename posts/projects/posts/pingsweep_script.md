@@ -30,5 +30,22 @@ Now let tweak our txt file
 	   ![image](../images/pingsweep_script/Pasted%20image%2020230622002707.png)
     
 # Creating our Bash script
+**Subject:** Ping Sweep Script Available - Check it out!
 
-[Ping_Sweep_script](https://github.com/sec-fortress/Ping_sweeper)
+Dear friends,
+
+I'm excited to share that I have successfully created a ping sweep script that allows you to scan a range of IP addresses and perform an Nmap scan on the discovered hosts. This script can be a handy tool for network administrators and security enthusiasts.
+
+You can access the script through this link: [Ping_Sweep_script](https://github.com/sec-fortress/Ping_sweeper)
+
+To use the script, simply follow the instructions provided in the README file. Make sure you have the necessary prerequisites mentioned in the README, such as a Bash shell and Nmap.
+
+Please note that it's important to use this script responsibly and only on networks where you have permission to scan.
+
+I hope you find this script useful and that it simplifies your IP scanning tasks. If you have any questions or feedback, feel free to reach out to me.
+
+Happy scanning!
+
+Best regards,  
+[Olaoluwa]
+
