@@ -30,4 +30,5 @@ Now let tweak our txt file
 	   ![image](../images/pingsweep_script/Pasted%20image%2020230622002707.png)
     
 # Creating our Bash script
-https://github.com/sec-fortress/Ping_sweeper
+
+![Ping_Sweep_script](https://github.com/sec-fortress/Ping_sweeper)
