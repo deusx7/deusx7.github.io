@@ -4,7 +4,8 @@
 first thing is to perform an ICMP request with:
 - `ping -c 1 <ip> > ip.txt`
 	- we are telling `ping` to perform the request with the -c option only once and then save it to a txt file.
-```OUTPUT
+   
+``` OUTPUT
 
 PING 192.168.0.157 (192.168.0.157) 56(84) bytes of data.
 64 bytes from 192.168.0.157: icmp_seq=1 ttl=64 time=0.056 ms
