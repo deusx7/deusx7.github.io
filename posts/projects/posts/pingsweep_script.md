@@ -16,8 +16,9 @@ rtt min/avg/max/mdev = 0.056/0.056/0.056/0.000 ms
 ```
 
 Now let tweak our txt file
-- We can do `cat ip.txt | grep "64 bytes" | cut -d " " -f 4 | tr -d ":"
+- We can do `cat ip.txt | grep "64 bytes" | cut -d " " -f 4 | tr -d ":"`
 	-  Now here, we are concatinating out the text in **ip.txt**, then sending a pipe to **grep** only the lines that has **64 bytes**, after that:
+ 
 	   ![image](../images/pingsweep_script/Pasted%20image%2020230622002127.png)
     
 	   Then the next pipe which is **cut** set a delimeter, in other to cut out only the text after 4 spaces with the `-f 4` option, setting it to 3 or 2 will cut from the number of spaces 
