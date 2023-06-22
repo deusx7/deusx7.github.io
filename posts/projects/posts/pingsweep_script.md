@@ -31,4 +31,4 @@ Now let tweak our txt file
     
 # Creating our Bash script
 
-![Ping_Sweep_script](https://github.com/sec-fortress/Ping_sweeper)
+[Ping_Sweep_script](https://github.com/sec-fortress/Ping_sweeper)
