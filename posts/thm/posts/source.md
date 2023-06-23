@@ -19,3 +19,15 @@ Navigating to the site we see that it has a logon page:
 - After much invalid attempt to guess the password and username, we decided to find out what vulnerability the protocol uses and it was vulnerable to RCE **[CVE-2019-15107, CVE-2019-15231](infosecmatter.com/nessus-plugin-library/?id=127911)** using `Metasploit`:
 
 ![image](../images/Pasted%20image%2020230622231909.png)
+
+- Firing up **Metasploit**,we can set our exploit just as shown in the image below, Make sure **ssl is set to true** and do `run` OR `exploit`:
+
+![image](../images/Pasted%20image%2020230622232212.png)
+
+- We successfully got a shell as **root**, no much stuff or **priv esc**🥴.
+- We can now get a stabilized shell using `python -c "import pty; pty.spawn('/bin/bash')"`.
+- Navigate the file system and extrat flags
+
+![image](../images/Pasted%20image%2020230622234651.png)
+
+Thanks🛳️✈️
