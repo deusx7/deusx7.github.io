@@ -5,3 +5,4 @@
 ***
 
 A quick nmap scan gives us this
+![image](../images/Pasted%20image%2020230622231249.png)
