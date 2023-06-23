@@ -26,7 +26,7 @@ Navigating to the site we see that it has a logon page:
 
 - We successfully got a shell as **root**, no much stuff or **priv esc**🥴.
 - We can now get a stabilized shell using `python -c "import pty; pty.spawn('/bin/bash')"`.
-- Navigate the file system and extrat flags
+- Navigate the file system and extract flags.
 
 ![image](../images/Pasted%20image%2020230622234651.png)
 
