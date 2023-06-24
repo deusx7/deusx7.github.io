@@ -40,6 +40,7 @@ We can see here that **cutie.png** has some zip archives, extract the archives w
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/ad4b66a8-b0d5-4024-bada-9cd725b879d0)
 
 We get a zip file here and it requires a password, we can bruteforce with **john**, but first of all create a password hash with **zip2john** and then bruteforce:
+
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/398518e4-fa71-4deb-a829-0743abbf258e)
 
 We got a password again, use it on the **8702.zip** by using the command:
