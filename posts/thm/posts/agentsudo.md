@@ -24,6 +24,7 @@ We are asked to use a **codename** as `user-agent` to access some information on
 
 Changing the value of the User-Agent to **C** gave us some useful information:
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/d039ae47-add9-44e1-94d3-bcbccb226e58)
+
 ***
 
 Now we are known as `chris`, We have successfully enumerated our target and can now bruteforce **FTP** on port 21 using **hydra**:
