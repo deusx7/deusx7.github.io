@@ -69,7 +69,6 @@ Time to login through **SSH<port 22>**:
 We got the user flag and an image, We are asked to lookup the image 🙃
 - You can use [tinyEye](https://tineye.com/) to perform an image reverse
 - Fox News tell us it is a "Roswell alien autopsy" ✔️
-
 ***
 ## Priviledge Escalation
 ***
