@@ -37,6 +37,7 @@ We can run `binwalk` in other to see all files embeded in each other:
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/dd834bb0-9e32-4d0c-a8ff-179b45d857e2)
 
 We can see here that **cutie.png** has some zip archives, extract the archives with `binwalk -e cutie.png`, After extraction we get  a folder:
+
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/ad4b66a8-b0d5-4024-bada-9cd725b879d0)
 
 We get a zip file here and it requires a password, we can bruteforce with **john**, but first of all create a password hash with **zip2john** and then bruteforce:
