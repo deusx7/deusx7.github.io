@@ -13,6 +13,7 @@ We can see that we have **port 21,22,80** opened, Port 80 looks juicy, We have a
 ***
 
 Moving to the website we get this message:
+
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/dfa5a29d-5a91-4219-810d-9428f6481b78)
 
 We are asked to use a **codename** as `user-agent` to access some information on the site
