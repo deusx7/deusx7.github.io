@@ -88,5 +88,4 @@ Tested this by getting a reverse shell using **gtfobins**
 
 Happy Hacking🥱//
 
-{% include button.html url="http://www.google.com" %}
-
+<button name="button">Click me</button>
