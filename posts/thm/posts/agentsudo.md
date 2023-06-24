@@ -36,11 +36,48 @@ Login To FTP with `ftp chris@10.10.115.114` and **mget** the files:
 We can run `binwalk` in other to see all files embeded in each other:
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/dd834bb0-9e32-4d0c-a8ff-179b45d857e2)
 
-We can see here that **cutie.png** has some zip archives, extract the archives with `binwalk -e cutie.png`
+We can see here that **cutie.png** has some zip archives, extract the archives with `binwalk -e cutie.png`, After extraction we get  a folder:
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/ad4b66a8-b0d5-4024-bada-9cd725b879d0)
 
+We get a zip file here and it requires a password, we can bruteforce with **john**, but first of all create a password hash with **zip2john** and then bruteforce:
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/398518e4-fa71-4deb-a829-0743abbf258e)
 
+We got a password again, use it on the **8702.zip** by using the command:
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/a43f85e1-79d7-4ba1-8642-7db7570c93d6)
 
+Make sure to type the **password** at the end of the prompt and type **yes**
+Now we have got a **To_agentR.txt** file, concatenating it gives us an output that says;
+```
+Agent C,
 
+We need to send the picture to 'QXJlYTUx' as soon as possible!
 
+By,
+Agent R
+```
+Great we have got a base64 encoded data, **QXJlYTUx**, just do `echo QXJlYTUx | base64 -d` in your terminal to decode.
 
+I think this shoul be the password to a steg .jpg file, remember the files we got from FTP, we have another image file, let try it out:
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/8a9aff69-994a-4d98-9609-1622b12808b6)
 
+Time to login through **SSH<port 22>**:
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/68032a81-aedd-4e2f-a01c-1b51ad805a9a)
+
+We got the user flag and an image, We are asked to lookup the image 🙃
+- You can use [tinyEye](https://tineye.com/) to perform an image reverse
+- Fox News tell us it is a "Roswell alien autopsy" ✔️
+***
+## Priviledge Escalation
+***
+- We are logged in as user **james**.
+- We can't view the root folder, neither the content in it😮‍💨.
+- A quick `sudo -l` tells us we can run bash
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/58c36527-6bcf-4789-8c54-26b5a45923f1)
+
+Tested this by getting a reverse shell using **gtfobins**
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/9a448768-cb64-407f-8b62-d74e4335259b)
+
+- After much enumeration, we found out that it is vulnerable to [CVE-2019-14287](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14287),which allows bypass of !root configuration, and USER= logging, for a **"sudo -u#-1 /bin/bash"** command.
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/bc98d6f8-45dd-4562-9b50-a83df3fb5181)
+
+Happy Hacking🥱//
