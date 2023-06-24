@@ -88,5 +88,5 @@ Tested this by getting a reverse shell using **gtfobins**
 
 Happy Hacking🥱//
 
-> :Buttons
-> > :Button label=GitHub, url=https://github.com
+{% include button.html url="http://www.google.com" %}
+
