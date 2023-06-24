@@ -88,4 +88,4 @@ Tested this by getting a reverse shell using **gtfobins**
 
 Happy Hacking🥱//
 
-<button name="button">Click me</button>
+<button onclick="window.location.href='https://sec-fortress.github.io';">Click</button>
