@@ -1,4 +1,4 @@
-# Agent-sudo TRYHACKME
+# Agent Sudo TRYHACKME
 ***
 ## DIFFICULTY : EASY
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/fa537622-4898-4eb1-a32a-7e255ca2057b)
