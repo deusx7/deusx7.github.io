@@ -58,10 +58,11 @@ Agent R
 ```
 Great we have got a base64 encoded data, **QXJlYTUx**, just do `echo QXJlYTUx | base64 -d` in your terminal to decode.
 
-I think this shoul be the password to a steg .jpg file, remember the files we got from FTP, we have another image file, let try it out:
+I think this should be the password to a steg .jpg file, remember the files we got from FTP, we have another image file, let try it out:
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/8a9aff69-994a-4d98-9609-1622b12808b6)
 
 Time to login through **SSH<port 22>**:
+
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/68032a81-aedd-4e2f-a01c-1b51ad805a9a)
 
 We got the user flag and an image, We are asked to lookup the image 🙃
