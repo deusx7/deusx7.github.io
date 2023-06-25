@@ -34,3 +34,5 @@ Navigating to the site we see that it has a logon page:
 ![image](../images/Pasted%20image%2020230622234651.png)
 
 Thanks🛳️✈️
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home</button>
+
