@@ -9,17 +9,17 @@ title: Home
 ### Welcome To My Cyber Security Blog, H4X0R
 * * *
 
-Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving snr penetration tester, I Post Different Hacking Tricks, Writeups, Articles, Any Stuffs Related To Hacking That I Learn 0x......
+Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achieving senior penetration tester. I post different hacking tricks, writeups, articles, and anything related to hacking that I learn 0x...
 
 * * *
 ### Whoami:~#
 * * *
 
-- **My Name:**    `Olakojo Olaoluwa`
+- **My Name:** `Olakojo Olaoluwa`
 - **Also Known As:** `sec-fortress`
-- **What Do I Do:**  `CTF // Ethical Hacking // Scripting`
-- **Twitter:** [Twitter/sec_fortress](https://twitter.com/sec_fortress)
-- **Youtube:** [Youtube/@sec-fortress](https://youtube.com/@sec-fortress)
+- **What Do I Do:** `CTF // Ethical Hacking // Scripting`
+- **Twitter:** [Twitter/@sec_fortress](https://twitter.com/sec_fortress)
+- **YouTube:** [YouTube/@sec-fortress](https://youtube.com/@sec-fortress)
 
 * * *
 ### **TryHackMe Writeups:~#**
@@ -34,7 +34,7 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving s
 - [[Feb 14 2023]] [DearQA](https://markuched13.github.io/posts/thm/dearqa.html) `Ret2Win (BOF)` -->
 - [[June 23 2023]] [Source](https://sec-fortress.github.io/posts/thm/posts/source.html) `Webmin, Metasploit`
 - [[June 24 2023]] [Agent Sudo](https://sec-fortress.github.io/posts/thm/posts/agentsudo.html) `BruteForce, Redirections, Steganography`
-
+- [[July 1 2023]] [Another Writeup](https://sec-fortress.github.io/posts/thm/posts/anotherwriteup.html) `Cool Technique, Awesome Tool`
 
 * * *
 ### **HackTheBox Writeups:~#**
@@ -47,7 +47,6 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving s
 - [[Jan 18 2023]] [Optimum](https://markuched13.github.io/posts/htb/optimum.html) `Command Injection`
 - [[Jan 18 2023]] [Arctic](https://markuched13.github.io/posts/htb/arctic.html) `ColdFusion, RCE` -->
 
-
 * * *
 ### **PwnTillDawn Writeups:~#**
 * * *
@@ -59,22 +58,20 @@ Yo 👋, Welcome To My Cyber Security Blog I'm Olaoluwa, An 18yr/old achieving s
 - [[Feb 12 2023]] [MrBlue](https://markuched13.github.io/posts/ptd/mrblue.html) `Eternal Blue (MS17-010)`
 - [[Feb 12 2023]] [IAmGroot](https://markuched13.github.io/posts/ptd/groot.html) `[Not Authorized]` -->
 
-
 * * *
 ### **ProvingGrounds Writeups:~#**
 * * *
 - [[Jun 9 2023]] [dc-2](https://sec-fortress.github.io/posts/pg/posts/dc2.html) `GTFOBins, Restricted Environment, Brute forcing`
-
+- [[Jun 17 2023]] [dc-3](https://sec-fortress.github.io/posts/pg/posts/dc3.html) `Cool Technique, Awesome Tool`
 
 * * *
 ### **PicoCTF Writeups:~#**
 * * *
 <!-- - [[Feb 16 2023]] [Doorknob](https://markuched13.github.io/posts/echoctf/doorknob.html) `NSE Command Injection, Buffer Overflow, Scripting` -->
 
-
 * * *
 #### **Support Or Contact Me:~#**
 * * *
 - **MAIL: olakjosh@gmail.com**
 
-Hey Yoo, Having Any Issues With My Writeups, Articles Send Me A DM on Twitter `@Sec_fortress`  Am Always Free To Help......
+Hey yoo! If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@Sec_fortress`. I'm always here to help! xD
