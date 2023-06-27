@@ -10,7 +10,7 @@ title:  PicoCTF.
 
 * * *
 <h4 class="menu-header" id="picoctf">PicoCTF:</h4>
-Hey there! I'm an avid enthusiast of Jeopardy-style CTF contests like PicoCTF. Solving quick challenges across categories like cryptography, web exploitation, and reverse engineering gives me a refreshing mental boost. Experience the thrill of cybersecurity at its finest by exploring PicoCTF on their website: [](https://picoctf.com). Get ready to sharpen your skills and embark on an exciting CTF adventure!
+Hey there! I'm an avid enthusiast of Jeopardy-style CTF contests like PicoCTF. Solving quick challenges across categories like cryptography, web exploitation, and reverse engineering gives me a refreshing mental boost. Experience the thrill of cybersecurity at its finest by exploring PicoCTF on their website: https://picoctf.com. Get ready to sharpen your skills and embark on an exciting CTF adventure!
 <hr>
 <hr>
 
