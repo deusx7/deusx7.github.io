@@ -1,12 +1,12 @@
 ## About
 
 
-- 👋 Hi, I’m @Olaoluwa
+- 👋 Hi, I’m @Olaoluwa~0x
 
-- 👀 I’m interested in Penetration Testing // Bug Hunting // Scripting
+- 👀  I'm interested in 0xPenetration Testing && Bug Hunting && and Scripting.
 
-- 🌱 I’m currently learning Ethical Hacking and preparing for my first certification PJPT{**Practical Junior Penetration Tester**}
+- 🌱 Currently, I'm diving deep into the world of Ethical Hacking and preparing for my first certification, PJPT (Practical Junior Penetration Tester).
 
-- 💞️ I’m looking to collaborate on Projects
+- 💞️ I'm actively seeking collaboration opportunities on hacking projects.
 
-- 📫 How to reach me on Twitter @sec_fortress
+- 📫 Feel free to reach out to me on Twitter @sec_fortress. Let's connect and share our hacking experiences! xD
