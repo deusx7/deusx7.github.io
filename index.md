@@ -2,7 +2,28 @@
 layout: default
 title: Home
 ---
-        
+
+<!-- HTML Meta Tags -->
+<title>Home</title>
+<meta name="description" content="Offensive for Defensive!">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://sec-fortress.github.io">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Home">
+<meta property="og:description" content="Offensive for Defensive!">
+<meta property="og:image" content="https://github.com/sec-fortress/sec-fortress.github.io/blob/main/thumbnail.jpeg?raw=true">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="sec-fortress.github.io">
+<meta property="twitter:url" content="https://sec-fortress.github.io">
+<meta name="twitter:title" content="Home">
+<meta name="twitter:description" content="Offensive for Defensive!">
+<meta name="twitter:image" content="https://github.com/sec-fortress/sec-fortress.github.io/blob/main/thumbnail.jpeg?raw=true">
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
 <h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Main</a>&#xA0;&#xA0;&#xA0; <a href="/posts/thm/index.html">TryHackMe</a>&#xA0;&#xA0;&#xA0;<a href="/posts/htb/index.html">HackTheBox</a>&#xA0;&#xA0;&#xA0;<a href="/posts/ptd/index.html">PwnTillDawn</a>&#xA0;&#xA0;&#xA0;<a href="/posts/pg/index.html">ProvingGrounds</a>&#xA0;&#xA0;&#xA0;<a href="/posts/pico/index.html">PicoCTF</a>&#xA0;&#xA0;&#xA0;<a href="/posts/articles/index.html">Articles</a>&#xA0;&#xA0;&#xA0;<a href="/posts/projects/index.html">Projects</a>&#xA0;&#xA0;&#xA0;</h2>
 
 * * *
