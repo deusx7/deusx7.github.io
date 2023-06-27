@@ -34,7 +34,6 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 - [[Feb 14 2023]] [DearQA](https://markuched13.github.io/posts/thm/dearqa.html) `Ret2Win (BOF)` -->
 - [[June 23 2023]] [Source](https://sec-fortress.github.io/posts/thm/posts/source.html) `Webmin, Metasploit`
 - [[June 24 2023]] [Agent Sudo](https://sec-fortress.github.io/posts/thm/posts/agentsudo.html) `BruteForce, Redirections, Steganography`
-- [[July 1 2023]] [Another Writeup](https://sec-fortress.github.io/posts/thm/posts/anotherwriteup.html) `Cool Technique, Awesome Tool`
 
 * * *
 ### **HackTheBox Writeups:~#**
@@ -62,7 +61,6 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 ### **ProvingGrounds Writeups:~#**
 * * *
 - [[Jun 9 2023]] [dc-2](https://sec-fortress.github.io/posts/pg/posts/dc2.html) `GTFOBins, Restricted Environment, Brute forcing`
-- [[Jun 17 2023]] [dc-3](https://sec-fortress.github.io/posts/pg/posts/dc3.html) `Cool Technique, Awesome Tool`
 
 * * *
 ### **PicoCTF Writeups:~#**
