@@ -20,6 +20,7 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 - **What Do I Do:** `CTF // Ethical Hacking // Scripting`
 - **Twitter:** [Twitter/@sec_fortress](https://twitter.com/sec_fortress)
 - **YouTube:** [YouTube/@sec-fortress](https://youtube.com/@sec-fortress)
+- **LinkedIn:** [LinkedIn/@sec-fortress](https://www.linkedin.com/in/sci-sec)
 
 * * *
 ### **TryHackMe Writeups:~#**
