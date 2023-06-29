@@ -21,7 +21,7 @@ To change the MAC address manually in Linux, follow these steps:
    ifconfig
    ```
    
-   Look for the interface name (e.g., eth0, wlan0) that you want to change the MAC address for.
+   Look for the interface name (e.g., eth0, wlan0) that you want to change the MAC address for, Note that each interface has it own mac address and might have one way or the other connected to the internet.
 
 - Disable the network interface:
 Run the following command to disable the interface:
