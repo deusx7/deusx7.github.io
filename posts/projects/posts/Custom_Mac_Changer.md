@@ -56,7 +56,9 @@ ifconfig <interface>
 
 # Introducing MY Custom MAC Changer Tool
 ---
-**In addition to the manual process, you can also use a custom tool that automates the MAC address change process in Linux. Your Tool Name is a Python-based tool that simplifies the MAC address modification. It provides a user-friendly interface and automates the steps we discussed earlier.**
+**In addition to the manual process, you can also use a custom tool that automates the MAC address change process in Linux. Custom Mac Changer is a Python-based tool that simplifies the MAC address modification. It provides a user-friendly interface and automates the steps we discussed earlier**
+
+You can always find the tool [HERE](https://github.com/sec-fortress/Custom_Mac_Changer), as it entails a more descriptive method than the one used below.
 
 To use the Custom Mac Changer tool, follow these steps:
 
