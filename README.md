@@ -4,7 +4,7 @@ Hey there! 👋 I'm **Olaoluwa**, a passionate Penetration Tester with a love fo
 
 ## 🔭 Current Focus
 
-I'm currently focusing on my **PJPT prep, offsec Labs and scripting**, where I aim to pass the exams(PJPT), not just pass but learn from it well enough and putting it to practice thereby boosting my skills in solving real world problems in areas like[**Active Directory, Linux and Windows exploitation, VAPT ........**]. I'm excited about pushing the boundaries and learning new things in this field. Feel free to explore my repositories to see what I'm up to!
+I'm currently focusing on my **PJPT prep, offsec Labs and scripting**, where I aim to pass the exams(PJPT), not just pass but learn from it well enough and putting it to practice thereby boosting my skills in solving real world problems in areas like [**Active Directory, Linux and Windows exploitation, VAPT ........**]. I'm excited about pushing the boundaries and learning new things in this field. Feel free to explore my repositories to see what I'm up to!
 
 ## 💻 Tech Stack
 
@@ -32,3 +32,21 @@ Here are some of the technologies and tools I frequently work with:
 <img src="https://img.shields.io/badge/Pinterest-%23E60023.svg?style=for-the-badge&logo=Pinterest&logoColor=white">
 <img src="https://img.shields.io/badge/LibreOffice-%2318A303?style=for-the-badge&logo=LibreOffice&logoColor=white">
 </p>
+
+I'm always eager to expand my skill set and open to exploring new technologies and frameworks. I enjoy collaborating with like-minded individuals, so if you have any interesting ideas or projects, let's connect!
+
+
+## 🌱 Learning and Growth
+
+Continuous learning is a crucial aspect of my journey. I'm passionate about staying up-to-date with the latest advancements in Penetration Testing. Currently, I'm focusing on building my skills, including balancing life. I believe in the power of knowledge sharing, and I'm actively involved in **CyberGeeks, CyberPatron, RedTeam Village** to contribute and learn from others.
+
+
+## 📫 Let's Connect
+
+I enjoy connecting with fellow developers, tech enthusiasts, and anyone passionate about the intersection of technology and innovation. Feel free to reach out to me via:
+
+- **Youtube**: [</3sec-fortress](https://youtube.com/@sec-fortress) 
+- **LinkedIn**: [</3sec-fortress](https://www.linkedin.com/in/sci-sec)
+- **Twitter**: [</3sec_fortress](https://twitter.com/sec_fortress)
+- **Portfolio**: ***https://sec-fortress.github.io***
+
