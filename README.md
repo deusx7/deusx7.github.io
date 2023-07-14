@@ -1,10 +1,10 @@
 # About
 
-Hey there! 👋 I'm @Olaoluwa, a passionate Penetration Tester with a love for Offensive Security. Welcome to my GitHub profile, where I enjoy exploring and working on exciting projects. I believe in the power of technology to make a positive impact and strive to create innovative solutions that solve real-world problems.
+Hey there! 👋 I'm **Olaoluwa**, a passionate Penetration Tester with a love for Offensive Security. Welcome to my GitHub profile, where I enjoy exploring and working on exciting projects. I believe in the power of technology to make a positive impact and strive to create innovative solutions that solve real-world problems.
 
 ## 🔭 Current Focus
 
-I'm currently focusing on my **PJPT prep, offsec Labs and scripting**, where I aim to pass the exams(PJPT), not just pass but learn from it well enough and putting it to practice thereby boosting my skills in solving real world problems in areas like[**Active Directory, Linux and Windows exploitation, VAPT ........]. I'm excited about pushing the boundaries and learning new things in this field. Feel free to explore my repositories to see what I'm up to!
+I'm currently focusing on my **PJPT prep, offsec Labs and scripting**, where I aim to pass the exams(PJPT), not just pass but learn from it well enough and putting it to practice thereby boosting my skills in solving real world problems in areas like[**Active Directory, Linux and Windows exploitation, VAPT ........**]. I'm excited about pushing the boundaries and learning new things in this field. Feel free to explore my repositories to see what I'm up to!
 
 ## 💻 Tech Stack
 
