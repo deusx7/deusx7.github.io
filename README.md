@@ -45,8 +45,8 @@ Continuous learning is a crucial aspect of my journey. I'm passionate about stay
 
 I enjoy connecting with fellow developers, tech enthusiasts, and anyone passionate about the intersection of technology and innovation. Feel free to reach out to me via:
 
-- **Youtube**: [</3sec-fortress](https://youtube.com/@sec-fortress) 
-- **LinkedIn**: [</3sec-fortress](https://www.linkedin.com/in/sci-sec)
-- **Twitter**: [</3sec_fortress](https://twitter.com/sec_fortress)
+- **Youtube**: ***[@sec-fortress](https://youtube.com/@sec-fortress)*** 
+- **LinkedIn**: ***[@sec-fortress](https://www.linkedin.com/in/sci-sec)***
+- **Twitter**: ***[@3sec_fortress](https://twitter.com/sec_fortress)***
 - **Portfolio**: ***https://sec-fortress.github.io***
 
