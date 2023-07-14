@@ -1,14 +1,6 @@
-## About
+# About
 
+<img src="![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/afb76cc5-a50b-4aa8-9bc7-a068363f9188)
+" alt="Profile Image">
 
-- 👋 Hi, I’m @Olaoluwa~0x
-
-- 👀  I'm interested in 0xPenetration Testing && Bug Hunting && and Scripting.
-
-- 🌱 Currently, I'm diving deep into the world of Ethical Hacking and preparing for my first certification, PJPT (Practical Junior Penetration Tester).
-
-- 💞️ I'm actively seeking collaboration opportunities on hacking projects.
-
-- 📫 Feel free to reach out to me on Twitter @sec_fortress. Let's connect and share our hacking experiences! xD
-
-<span style="background-color: #ff0000; color: #ffffff;">[![GitHub Follow](https://img.shields.io/github/followers/sec-fortress?style=social)](https://github.com/sec-fortress)</span>
+Hey there! 👋 I'm <span style="color: #ff0000;">[Your Name]</span>, a passionate <span style="color: #00ff00;">[Your Profession/Field]</span> with a love for <span style="color: #0000ff;">[Specific Interests]</span>. Welcome to my GitHub profile, where I enjoy exploring and working on exciting projects. I believe in the power of technology to make a positive impact and strive to create innovative solutions that solve real-world problems.
