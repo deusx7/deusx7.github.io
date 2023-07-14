@@ -47,6 +47,12 @@ I enjoy connecting with fellow developers, tech enthusiasts, and anyone passiona
 
 - **Youtube**: ***[@sec-fortress](https://youtube.com/@sec-fortress)*** 
 - **LinkedIn**: ***[@sec-fortress](https://www.linkedin.com/in/sci-sec)***
-- **Twitter**: ***[@3sec_fortress](https://twitter.com/sec_fortress)***
+- **Twitter**: ***[@sec_fortress](https://twitter.com/sec_fortress)***
 - **Portfolio**: ***https://sec-fortress.github.io***
 
+Don't hesitate to drop me a message or connect with me. I'm always open to engaging in exciting discussions or collaborating on fascinating projects.
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=sec-fortress&show_icons=true&count_private=true)
+
+[![GitHub Follow](https://img.shields.io/github/followers/sec-fortress?style=social)](https://github.com/sec-fortress)
+[![Twitter Follow](https://img.shields.io/twitter/follow/sec_fortress?style=social)](https://twitter.com/sec_fortress)
