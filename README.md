@@ -52,7 +52,7 @@ I enjoy connecting with fellow developers, tech enthusiasts, and anyone passiona
 
 Don't hesitate to drop me a message or connect with me. I'm always open to engaging in exciting discussions or collaborating on fascinating projects.
 
-![](https://github-readme-stats.vercel.app/api?username=sec-fortress&theme=nightowl&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=sec-fortress&show_icons=true&count_private=true)
 ![](https://github-readme-streak-stats.herokuapp.com/?user=sec-fortress&theme=nightowl&hide_border=false)<br/>
 
 [![GitHub Follow](https://img.shields.io/github/followers/sec-fortress?style=social)](https://github.com/sec-fortress)
