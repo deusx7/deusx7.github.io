@@ -195,7 +195,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 Now that we have our reverse shell, it is time to escalate priviledges and gain root
 
-***checklist:**
+***checklist:***
 
 - [ ] Any Kernel exploit 
 - [ ] PATH Abuse
