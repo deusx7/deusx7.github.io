@@ -134,7 +134,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ![](https://i.imgur.com/0jDS1or.png)
 
 - /index.php leads us back to the default home page of the website
-- /webalizer leads to a directory with nothing to
+- /webalizer leads to a directory with nothing too
 
 ![](https://i.imgur.com/4yrCCRn.png)
 
