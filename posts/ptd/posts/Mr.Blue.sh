@@ -159,3 +159,5 @@ Make sure to replace options respectively
 **Our exploit is complete and we got shell as nt authority\system, we are definitely admin**
 
 have fun😁
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
