@@ -60,3 +60,5 @@ We are able to run `git`, Looking up GTFOBins again we have a way of getting roo
 
 Boom, we are in as root!! #funbox #sec-fortress 👍 🛡️ 🇳🇬
 ![image](../images/goat.png)
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
