@@ -23,3 +23,4 @@ PwnTillDawn Online Battlefield is wizlynx group's vision of the next-generation 
 - [[Feb 12 2023]] [Seth-PC](https://markuched13.github.io/posts/ptd/sethpc.html) `[Not Authorized]`
 - [[Feb 12 2023]] [DeCoCo-Server](https://markuched13.github.io/posts/ptd/decocoserver.html) `[Not Authorized]`
 - [[Feb 13 2023]] [Juno](https://markuched13.github.io/posts/ptd/juno.html) `Reverse Engineering, Cryptography` -->
+- [[July 28 2023]] [Mr. Blue](https://sec-fortress.github.io/posts/ptd/posts/Mr.Blue.html) `MS017-010, Eternal Blue, Manual Exploitation`
