@@ -57,6 +57,7 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 - [[Feb 12 2023]] [HollyWood](https://markuched13.github.io/posts/ptd/hollywood.html) `ActiveMQ`
 - [[Feb 12 2023]] [MrBlue](https://markuched13.github.io/posts/ptd/mrblue.html) `Eternal Blue (MS17-010)`
 - [[Feb 12 2023]] [IAmGroot](https://markuched13.github.io/posts/ptd/groot.html) `[Not Authorized]` -->
+- [[July 28 2023]] [Mr. Blue](https://sec-fortress.github.io/posts/ptd/posts/Mr.Blue.html) `MS017-010, Eternal Blue, Manual Exploitation`
 
 * * *
 ### **ProvingGrounds Writeups:~#**
