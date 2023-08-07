@@ -78,9 +78,9 @@ Nmap done: 1 IP address (1 host up) scanned in 43.63 seconds
 
 ### After Much enumeration we finally got a exploit
 
-works --> https://github.com/geek-repo/UnrealIRCd-3.2.8.1/blob/master/poc.py
+works  --> [Exploit 1](https://github.com/geek-repo/UnrealIRCd-3.2.8.1/blob/master/poc.py)
 
-doesn't work --> https://www.exploit-db.com/exploits/13853
+doesn't work --> [Exploit 2](https://www.exploit-db.com/exploits/13853)
 
 ![](https://i.imgur.com/hTtogtO.png)
 
