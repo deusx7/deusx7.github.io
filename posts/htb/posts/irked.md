@@ -1,3 +1,5 @@
+# Difficulty = Easy
+
 Hey, Welcome back
 
 Let run our Nmap scan:
