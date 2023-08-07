@@ -76,7 +76,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 43.63 seconds
 ```
 
-### After Much enumeration we finally got a exploit
+### After Much enumeration we finally got an exploit
 
 works  --> [Exploit 1](https://github.com/geek-repo/UnrealIRCd-3.2.8.1/blob/master/poc.py)
 
