@@ -61,3 +61,4 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[June 9 2023]] [Format](https://h4ckyou.github.io/posts/htb/posts/format.html) `Source Code Analysis, File Inclusion, Nginx Misconfiguration, Redis, Python Format String Vulnerability`
 - [[June 9 2023]] [Updown](https://h4ckyou.github.io/posts/htb/posts/updown.html) -->
 - [[August 7 2023]] [irked](https://sec-fortress.github.io/posts/htb/posts/irked.html) `Enumeration, IRCD, Steganography`
+- [[August 10 2023]] [Templated](https://sec-fortress.github.io/posts/htb/posts/templated.html) `Flask, SSTI, RCE`
