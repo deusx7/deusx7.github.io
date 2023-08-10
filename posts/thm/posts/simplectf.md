@@ -339,3 +339,4 @@ We specified `-p 2222` because ssh won't allow us login on default port 22, Reme
 
 Bankaiii, R00t3d ☢️🥳
 
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
