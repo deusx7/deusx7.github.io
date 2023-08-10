@@ -1,4 +1,4 @@
-# Template
+# Templated
 
 ## Difficulty = Easy
 
