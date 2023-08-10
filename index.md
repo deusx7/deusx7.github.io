@@ -48,6 +48,7 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 - [[Jan 18 2023]] [Optimum](https://markuched13.github.io/posts/htb/optimum.html) `Command Injection`
 - [[Jan 18 2023]] [Arctic](https://markuched13.github.io/posts/htb/arctic.html) `ColdFusion, RCE` -->
 - [[August 7 2023]] [irked](https://sec-fortress.github.io/posts/htb/posts/irked.html) `Enumeration, IRCD, Steganography`
+- [[August 10 2023]] [Templated](https://sec-fortress.github.io/posts/htb/posts/templated.html) `Flask, SSTI, RCE`
 
 * * *
 ### **PwnTillDawn Writeups:~#**
