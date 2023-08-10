@@ -2,6 +2,8 @@
 
 ## Difficulty = Easy
 
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/78df8472-c87f-4998-a9f1-f1e1f9d1b372)
+
 ---
 
 Navigating to the website we get this:
