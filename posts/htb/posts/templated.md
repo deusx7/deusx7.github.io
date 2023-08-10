@@ -49,3 +49,5 @@ As we can see, it print out the output of the `id` command back to us, we can no
 ![](https://i.imgur.com/a4Kfkky.png)
 
 Have fun 🤟😘
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
