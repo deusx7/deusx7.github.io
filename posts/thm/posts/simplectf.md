@@ -301,7 +301,7 @@ beautify_print()
 
 ![](https://i.imgur.com/0EyF45B.png)
 
-- these password is encoded in MD5, so we cracked it and got the real password
+- Unexpectedly, the password is encoded in MD5, so we cracked it and got the real password
 
 ![](https://i.imgur.com/Y73vcY3.png)
 
@@ -318,7 +318,7 @@ We specified `-p 2222` because ssh won't allow us login on default port 22, Reme
 
 ![](https://i.imgur.com/bX7ynU1.png)
 
-- You can download the exploit from here: https://www.exploit-db.com/exploits/44298
+- You can download the exploit from [here](https://www.exploit-db.com/exploits/44298)
 - Now compile it into the system
 
 ![](https://i.imgur.com/47MCfBV.png)
