@@ -70,3 +70,7 @@ while True:
 ```
 
 - It worked, we got a flag:
+
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/7074c766-80cb-433d-b17f-e191223a10c1)
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
