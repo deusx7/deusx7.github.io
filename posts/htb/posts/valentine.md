@@ -189,3 +189,6 @@ Host *
 ![](https://i.imgur.com/fEzrwT2.png)
 
 Baaaannnnnnkaiiii🧘‍♀️
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
