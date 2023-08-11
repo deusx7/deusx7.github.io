@@ -51,6 +51,7 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 - [[August 10 2023]] [Templated](https://sec-fortress.github.io/posts/htb/posts/templated.html) `Flask, SSTI, RCE`
 - [[August 10 2023]] [Phonebook](https://sec-fortress.github.io/posts/htb/posts/phonebook.html) `LDAP, Bruteforcing`
 - [[August 11 2023]] [Bounty Hunter](https://sec-fortress.github.io/posts/htb/posts/bountyhunter.html) `XXE injection, Python Privilege Escalation`
+- [[August 11 2023]] [Valentine](https://sec-fortress.github.io/posts/htb/posts/valentine.html) `CVE-2014-0160, SSH, Tmux Priv_Esc`
 
 * * *
 ### **PwnTillDawn Writeups:~#**
