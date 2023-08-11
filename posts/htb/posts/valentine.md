@@ -145,7 +145,8 @@ RUgZkbMQZNIIfzj1QuilRVBm/F76Y/YMrmnM9k/1xSGIskwCUQ+95CGHJE8MkhD3
 
 Looks like we are been asked for the passphrase of the id_rsa key, here is why :
 
->With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. **To add an extra layer of security**.
+>With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. **To add an extra layer of security**,
+the passphrase is just a key used to encrypt the file that contains the RSA key, using a symmetric cipher (usually DES or 3DES). In order to use the key for public-key encryption, you first need to decrypt its file using the decryption key
 
 
 - after much research i noticed that the port 443/https website is vulnerable to `# OpenSSL 1.0.1f TLS Heartbeat Extension - 'Heartbleed' Memory Disclosure (Multiple SSL/TLS Versions)`
