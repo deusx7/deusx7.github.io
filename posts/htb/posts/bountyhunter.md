@@ -33,9 +33,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Thu Aug 10 12:16:07 2023 -- 1 IP address (1 host up) scanned in 351.09 seconds
 ```
 
-- Navigating to
-![](https://i.imgur.com/1OaNCsp.png)
- port 80 - http, gives us a website
+- Navigating to port 80 - http, gives us a website
 
 ![](https://i.imgur.com/no9CW9K.png)
 
@@ -43,11 +41,11 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 ![](https://i.imgur.com/ZpmMhil.png)
 
-- Also clicking portal on the web page :
+- Also clicking `portal` on the web page :
 
 ![](https://i.imgur.com/DsP1Zwf.png)
 
-- Takes us here
+- Takes us here :
 
 ![](https://i.imgur.com/aDAzybh.png)
 
@@ -55,7 +53,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 ![](https://i.imgur.com/6FHV1Eg.png)
 
-- Fired up Burp suite and after numerous test, i noticed that this page is vulnerable to `XXE injection`
+- Fired up `Burp suite` and after numerous test, i noticed that this page is vulnerable to `XXE injection`
 
 ![](https://i.imgur.com/5vSbY1h.png)
 
