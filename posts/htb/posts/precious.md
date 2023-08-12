@@ -152,3 +152,5 @@ curl 'TARGET_ADDRESS' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv
 
 Booyah 😅, and we are root
 
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
