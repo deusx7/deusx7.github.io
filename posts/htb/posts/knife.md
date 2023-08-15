@@ -38,9 +38,9 @@ Since Port 80/HTTP is opened, i decided to run a dir/file scan with `ffuf` first
 
 ![](https://i.imgur.com/V6RCP5d.png)
 
-- [ ] The website doesn't seems to be responsive.
-- [ ]  `robots.txt` isn't available.
-- [ ] No directories ❌ No files ❌.
+[ ] The website doesn't seems to be responsive.
+[ ] `robots.txt` isn't available.
+[ ] No directories ❌ No files ❌.
 
 Checking the Technologies gives us little Impression, i mean i hardly see websites with `PHP` versions
 
