@@ -1,6 +1,6 @@
 # Knife
 
-![Uploading image.png…]()
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/71a484af-5666-4437-9db8-af5c862bb639)
 
 ## Difficulty = Easy
 ---
