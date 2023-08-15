@@ -175,3 +175,7 @@ We have an unusual capability which is `/usr/bin/python3.8 = cap_setuid,cap_net_
 ![](https://i.imgur.com/cwNk4pd.png)
 
 Bankai 🧘‍♀️!!!!
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
+
