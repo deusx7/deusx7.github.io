@@ -3,7 +3,7 @@ layout: default
 title:  TryHackMe.
 ---
 
-<h2 class="menu-header" id="index"><a href="../../index.html">Main</a></h2>
+<h2 class="menu-header" id="index"><a href="../../index.html">Root</a></h2>
 <hr>
 
 ![image](https://user-images.githubusercontent.com/127159644/223289326-adc9f1f7-1fea-497a-b829-28d6a50f3390.png)
