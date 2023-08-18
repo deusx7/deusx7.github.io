@@ -68,4 +68,4 @@ The Hack The Box platform provides a wealth of challenges - in the form of virtu
 - [[August 12 2023]] [Precious](https://sec-fortress.github.io/posts/htb/posts/precious.html) `exiftool, ruby, Insecure Deserialization`
 - [[August 15 2023]] [Cap](https://sec-fortress.github.io/posts/htb/posts/cap.html) `pcap file, FTP, SSH, Capabilities`
 - [[August 15 2023]] [Knife](https://sec-fortress.github.io/posts/htb/posts/knife.html) `PHP 8.1.0-dev, RCE, GTFOBINS`
-- [[August 18 2023]] [Knife](https://sec-fortress.github.io/posts/htb/posts/antique.html) `JetDirect Password Disclosure, Pivoting, Root-File Read`
+- [[August 18 2023]] [Antique](https://sec-fortress.github.io/posts/htb/posts/antique.html) `JetDirect Password Disclosure, Pivoting, Root-File Read`
