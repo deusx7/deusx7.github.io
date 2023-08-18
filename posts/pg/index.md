@@ -3,7 +3,7 @@ layout: default
 title:  Proving Grounds.
 ---
 
-<h2 class="menu-header" id="index"><a href="../../index.html">Main</a></h2>
+<h2 class="menu-header" id="index"><a href="../../index.html">Root</a></h2>
 <hr>
 
 ![image](https://user-images.githubusercontent.com/127159644/223290883-8737081c-a3de-4bb0-8397-bb7da89f64bc.png)
