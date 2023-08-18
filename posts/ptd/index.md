@@ -3,7 +3,7 @@ layout: default
 title:  PwnTillDawn.
 ---
 
-<h2 class="menu-header" id="index"><a href="../../index.html">Main</a></h2>
+<h2 class="menu-header" id="index"><a href="../../index.html">Root</a></h2>
 <hr>
 
 ![image](https://user-images.githubusercontent.com/127159644/223289905-9ee9d705-09a3-4c47-aaa9-e75fcc9d84c1.png)
