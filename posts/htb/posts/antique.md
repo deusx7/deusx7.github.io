@@ -180,3 +180,4 @@ I tried several ways but couldn't get that rev shell, i decided to enumerate mor
 
 GG , Printer hacking is one of the greatest concerns of many users as well as many cybersecurity professionals. Printers come weakly configured by default and very few bother securing them. This box showcases some common vulnerabilities of network printers. I really love this box because it opened my eye to how printer works and how mis-configurations could lead to take-overs, Bankaaaaiiii!!!!🎎
 
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
