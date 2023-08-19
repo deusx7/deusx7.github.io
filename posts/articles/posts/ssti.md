@@ -184,3 +184,5 @@ if __name__ == '__main__':
 We can also see the flag there 😅
 
 And we're done 👻
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
