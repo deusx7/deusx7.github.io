@@ -347,3 +347,6 @@ Now we submit it
 
 
 And we're done 👻
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
