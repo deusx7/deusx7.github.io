@@ -1,4 +1,4 @@
-First of all set up academy on your VM ware , You can download the file from [here](https://drive.google.com/drive/folders/1VXEuyySgzsSo-MYmyCareTnJ5rAeVKeH)
+First of all set up academy on your VMware or VirtualBox, You can download the file from [here](https://drive.google.com/drive/folders/1VXEuyySgzsSo-MYmyCareTnJ5rAeVKeH)
 
 ![](https://i.imgur.com/sqlEL3g.png)
 
