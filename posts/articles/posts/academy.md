@@ -102,3 +102,5 @@ We can see that this file is removing a zipped backup file and then somehow unzi
 We got root successfully 🥳
 
 ![](https://i.imgur.com/ULfumcp.png)
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
