@@ -246,3 +246,5 @@ Running it gives us the password
 We can then use that to login
 ![image](https://github.com/h4ckyou/h4ckyou.github.io/assets/127159644/8fdcddfc-68cb-4bfb-ab23-99fe504f87a2)
 
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
