@@ -3,12 +3,12 @@ layout: default
 title:  Articles.
 ---
 
-<h2 class="menu-header" id="index"><a href="../../index.html">Main</a></h2>
+<h2 class="menu-header" id="index"><a href="../../index.html">Root</a></h2>
 <hr>
 
 * * *
 <h4 class="menu-header" id="cyberseclabs">Articles:</h4>
-Hacking cheatsheet....
+Hacking cheatsheet/Blogs....
 <hr>
 <hr>
 
@@ -17,3 +17,5 @@ Hacking cheatsheet....
 - [[Mar 12 2023]] [Authentication](https://h4ckyou.github.io/posts/articles/posts/authentication.html) `Authentication Bypass`
 - [[Mar 13 2023]] [File Upload Vulnerability](https://h4ckyou.github.io/posts/articles/posts/fileupload.html) `File Upload Vuln`
 - [[Mar 13 2023]] [SSRF](https://h4ckyou.github.io/posts/articles/posts/ssrf.html) `Server Side Request Forgery`
+- [[Mar 13 2023]] [Academy VM](https://h4ckyou.github.io/posts/articles/posts/academy.html) `Basic CTF approach`
+- [[Mar 13 2023]] [Dev VM](https://h4ckyou.github.io/posts/articles/posts/dev.html) `Enumeration, Information Channeling`
