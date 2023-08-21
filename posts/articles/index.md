@@ -19,3 +19,4 @@ Hacking cheatsheet/Blogs....
 - [[Mar 13 2023]] [SSRF](https://h4ckyou.github.io/posts/articles/posts/ssrf.html) `Server Side Request Forgery`
 - [[Mar 13 2023]] [Academy VM](https://sec-fortress.github.io/posts/articles/posts/academy.html) `Basic CTF approach`
 - [[Mar 13 2023]] [Dev VM](https://sec-fortress.github.io/posts/articles/posts/dev.html) `Enumeration, Information Channeling`
+- [[Aug 21 2023]] [Blackpearl VM](https://sec-fortress.github.io/posts/articles/posts/blackpearl.html) `Enumeration, Information Channeling`
