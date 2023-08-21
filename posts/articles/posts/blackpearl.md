@@ -110,3 +110,6 @@ Great `GTFOBINS` has a payload for it to escalate to root using `PHP`, Tweaking 
 + Then we are root, We did not need `Linpeas` 😆, Always Enumerate first!! bankaiiii 🎎🤟
 
 ![](https://i.imgur.com/qial4zC.png)
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
