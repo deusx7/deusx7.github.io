@@ -112,4 +112,3 @@ Great `GTFOBINS` has a payload for it to escalate to root using `PHP`, Tweaking 
 ![](https://i.imgur.com/qial4zC.png)
 
 <button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
-
