@@ -83,6 +83,7 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 ### **Live Jeopardy CTF Writeups:~#**
 * * *
 <!-- - [[Feb 16 2023]] [Doorknob](https://markuched13.github.io/posts/echoctf/doorknob.html) `NSE Command Injection, Buffer Overflow, Scripting` -->
+- [[Aug 27 2023]] [Ecowas CTF](https://sec-fortress.github.io/posts/articles/posts/ecowasctf.html)
 
 * * *
 
