@@ -85,8 +85,7 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 <!-- - [[Feb 16 2023]] [Doorknob](https://markuched13.github.io/posts/echoctf/doorknob.html) `NSE Command Injection, Buffer Overflow, Scripting` -->
 
 * * *
-#### **Support Or Contact Me:~#**
-* * *
+
 - **MAIL: olakjosh@gmail.com**
 
 Hey yoo! If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@Sec_fortress`. I'm always here to help! xD
