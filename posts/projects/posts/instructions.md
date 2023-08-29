@@ -1,3 +1,5 @@
+# Instructions, Guidelines And Tips
+---
 # LEVEL 00
 
 This level requires you to _find_ a Set User ID program that will run as the “flag00” account. You could also find this by carefully looking in top level directories in / for suspicious looking directories.
