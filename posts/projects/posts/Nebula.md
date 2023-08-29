@@ -49,3 +49,5 @@ I'm excited to share that I'll be creating an in-depth walkthrough of my Nebula 
 At the culmination of my Nebula journey, I'll emerge with a profound grasp of local attack techniques and a glimpse into the realm of remote attacks. Nebula's meticulously designed challenges set the stage for my exhilarating exploration of Linux security vulnerabilities.
 
 To get started, head over to the [downloads page](https://github.com/ExploitEducation/Nebula/releases/download/v5.0.0/exploit-exercises-nebula-5.iso) and embark on your Nebula adventure today!
+
+[Unlock the Next Level](https://sec-fortress.github.io/posts/projects/posts/nebula_writeups.html) 🕵️‍♂️
