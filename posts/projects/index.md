@@ -14,5 +14,5 @@ Hey there, welcome to my Projects Page! As a junior pentester, I'm thrilled to s
 
 - [[June 22 2023]] [Ping Sweeper](https://sec-fortress.github.io/posts/projects/posts/pingsweep_script.html) `Scripting & Automation with Bash🐧`
 - [[June 29 2023]] [Custom Mac Changer](https://sec-fortress.github.io/posts/projects/posts/Custom_Mac_Changer.html) `Scripting & Automation with Python🐍`
-- [[Aug. 28  2023]] [Custom Mac Changer](https://sec-fortress.github.io/posts/projects/posts/Nebula.html)
+- [[Aug 28  2023]] [Nebula](https://sec-fortress.github.io/posts/projects/posts/Nebula.html) `Local Exploits☢️ & Privilege Escalation⚠️`
 
