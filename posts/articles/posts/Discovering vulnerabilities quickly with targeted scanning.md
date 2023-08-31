@@ -1,3 +1,8 @@
+# Discovering vulnerabilities quickly with targeted scanning
+
+---
+---
+
 We are given a website to discover a vulnerability that enables us read arbitrary files from the server. To solve the lab, we have to retrieve the contents of `/etc/passwd` within 10 minutes.
 
 ![](https://i.imgur.com/EuF858b.png)
