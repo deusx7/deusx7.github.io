@@ -35,7 +35,7 @@ The next tab under the **Contents** tab where we have `Requests` and `Response`,
 
 ![](https://i.imgur.com/iD7Ygqk.png)
 
-Navigate to the `Repeater` tab and click `send` then go back to the **Target** tab and you should see additional vulnerabilities (Issues)
+Navigate to the `Repeater` tab and click `send` , then go back to the **Target** tab and you should see additional vulnerabilities (Issues)
 
 ![](https://i.imgur.com/tQVBxo2.png)
 
