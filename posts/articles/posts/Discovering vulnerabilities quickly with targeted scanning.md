@@ -67,3 +67,5 @@ Navigate to the **Repeater** tab and input this payload in the `productID` param
 
 That will be all for today 🥳
 
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
