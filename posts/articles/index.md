@@ -20,3 +20,4 @@ Hacking cheatsheet/Blogs....
 - [[Aug 15 2023]] [Academy VM](https://sec-fortress.github.io/posts/articles/posts/academy.html) `Basic CTF approach`
 - [[Aug 17 2023]] [Dev VM](https://sec-fortress.github.io/posts/articles/posts/dev.html) `Enumeration, Information Channeling`
 - [[Aug 21 2023]] [Blackpearl VM](https://sec-fortress.github.io/posts/articles/posts/blackpearl.html) `Enumeration, Information Channeling`
+- [[Aug 21 2023]] [Discovering vulnerabilities quickly with targeted scanning](https://sec-fortress.github.io/posts/articles/posts/Discovering%20vulnerabilities%20quickly%20with%20targeted%20scanning.html) `Burp Suite, XXE Injection`
