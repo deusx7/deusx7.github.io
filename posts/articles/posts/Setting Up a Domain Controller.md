@@ -1,6 +1,7 @@
 # Setting Up a Domain Controller
 
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/c91e1743-ce1e-4028-b326-6763eb2ee59d)
+
 ---
 Welcome to My quick guide on setting up a domain controller. If you're navigating the intricate world of network administration or simply curious about how these critical components work, you're in the right place. In this blog, I'll provide a concise overview of domain controller setup
 ---
