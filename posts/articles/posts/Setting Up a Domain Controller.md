@@ -4,6 +4,7 @@
 ---
 Welcome to My quick guide on setting up a domain controller. If you're navigating the intricate world of network administration or simply curious about how these critical components work, you're in the right place. In this blog, I'll provide a concise overview of domain controller setup
 ---
+
 - First of all, Create a New virtual Machine, Using VM ware, you can do the same if you use VirtualBox
 
 ![](https://i.imgur.com/GDbz3XZ.png)
