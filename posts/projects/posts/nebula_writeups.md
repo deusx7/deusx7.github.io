@@ -147,6 +147,218 @@ But as a **Penetration Tester** we know that before the script deletes, we would
 
 ![](https://i.imgur.com/xsf3Ojy.png)
 
+## LEVEL 04
+
+We are required to read a `token` file in **/home/flag04** directory using the `flag04` binary 
+
+![](https://i.imgur.com/zXGm0qy.png)
+
+We can't read the file just like that because of some few filters that have been put in place, here is the C code snippet
+
+```c
+---SNIP---
+if(argc == 1) {
+      printf("%s [file to read]\n", argv[0]);
+      exit(EXIT_FAILURE);
+  }
+
+  if(strstr(argv[1], "token") != NULL) {
+      printf("You may not access '%s'\n", argv[1]);
+      exit(EXIT_FAILURE);
+  }
+
+  fd = open(argv[1], O_RDONLY);
+  if(fd == -1) {
+      err(EXIT_FAILURE, "Unable to open %s", argv[1]);
+  }
+
+  rc = read(fd, buf, sizeof(buf));
+  
+  if(rc == -1) {
+      err(EXIT_FAILURE, "Unable to read fd %d", fd);
+  }
+  ---SNIP---
+```
+
+I then decided to create a symbolic link to this file, in our `/tmp` directory which literally gave us some random characters
+
+![](https://i.imgur.com/4DPnF2U.png)
+
+Then i decided to try out the random characters as the password for user `flag04` and woo it worked !!!
+
+![](https://i.imgur.com/IhKz18i.png)
+
+## LEVEL 05
+
+According to the instructions **"Check the flag05 home directory. You are looking for weak directory permissions"** , We can see that .backup has a weak file permission, you can read more on it from [here](https://juggernaut-sec.com/weak-file-permissions/) 
+
+![](https://i.imgur.com/ymaoN4Z.png)
+
+Checking the backup folder we only have read access to the `backup-19072011.tgz` file :
+
+![](https://i.imgur.com/lEI3hAV.png)
+
+Checking what it does , it looks like it is trying to make a .ssh directory here then unzip the content of this backup file to it :
+
+![](https://i.imgur.com/0PHR2jY.png)
+
+Using this particular command i was able unpack this archive to /tmp - `tar zxvf backups.tgz -C /tmp`
+
+![](https://i.imgur.com/ugKcqu3.png)
+
+Navigating there we have an id_rsa key 😘, we can use this to login as user `flag05`, Successfully
+
+![](https://i.imgur.com/AR3Xaz4.png)
+
+## LEVEL 06
+
+I caught this sentence **"account credentials came from a legacy unix system."** , I won't say this was easy but at least we had to bruteforce
+
+Doing `cat /etc/passwd; cat /etc/shadow` gives us some user account information, but one looks suspicious with the `flag06` account pointing directly to an MD5 hash
+
+![](https://i.imgur.com/nmc7TnY.png)
+
+Brute-forcing it with the tool called `John-The-Ripper` gives us a password which seems to be the valid password of user `flag06`
+
+![](https://i.imgur.com/z63bp9j.png)
+
+We got `flag06`
+
+![](https://i.imgur.com/CYHpveB.png)
+
+## LEVEL 07
+
+Looking at the code snippet we have a command injection vulnerability in the `Host` parameter which allows us to send ICMP echo request to an IP address and then we can inject our own arbitrary shell command along side
+
+```shell
+  @output = `ping -c 3 $host 2>&1`;
+  foreach $line (@output) { print "$line"; }
+
+  print("</pre></body></html>");
+  
+}
+
+# check if Host set. if not, display normal page, etc
+
+ping(param("Host"));
+```
+
+When performing Command injection we can use the `&& ; | ||` and other special characters to perform this action, let try this out, since we know it needs the `Host` parameter we can use the `perl`command to do this
+
+![](https://i.imgur.com/IMEJ0lH.png)
+
+As we can see when we used `&&` operator we didn't get the id result but when we use `|` we get the result of id back. Yeah i enumerated and found out that i can use `cURL` but it isn't available on the target system
+
+![](https://i.imgur.com/V1jQHiG.png)
+
+An alternative is `wget` and yeah it is available, With these we can make request to the web server as if we are making an actual request in a browser.
+
+![](https://i.imgur.com/7Y4ARQ9.png)
+
+Using the `-O` option we can specify the output file, in this case it is `-` meaning standard output followed by the website link, the format should look like this
+
+```shell
+wget -O - http://127.0.0.1:<port>/index.cgi?Host="127.0.0.1 | id"
+```
+
+You might be wondering where `:<port>/index.cgi?Host=` came from, well inside the **/home/flag07** folder we have two files which is `index.cgi` and `thttpd.conf` , The **thttpd.conf** has some information we need like `port` , `host` and other info
+
+```
+<SNIP>
+# Do el-cheapo virtual hosting. If vhost is the compiled-in default (not the
+# case on Debian), then novhost disables it. See thttpd(8) for details.
+#vhost
+#novhost
+
+# Use a global passwd file. This means that every file in the entire document
+# tree is protected by the single .htpasswd file at the top of the tree.
+# Otherwise the semantics of the .htpasswd file are the same. If this option is
+# set but there is no .htpasswd file in the top-level directory, then thttpd
+# proceeds as if the option was not set - first looking for a local .htpasswd
+# file, and if that doesn't exist either then serving the file without any
+# password. If globalpasswd is the compiled-in default (not the case on Debian),
+# then noglobalpasswd disables it.
+#globalpasswd
+#noglobalpasswd
+
+# Specifies what user to switch to after initialization when started as root.
+user=flag07
+
+# Specifies a wildcard pattern for CGI programs, for instance "**.cgi" or
+# "/cgi-bin/*". See thttpd(8) for details.
+cgipat=**.cgi
+
+# Specifies a file of throttle settings. See thttpd(8) for details.
+#throttles=/etc/thttpd/throttle.conf
+
+# Specifies a hostname to bind to, for multihoming. The default is to bind to
+# all hostnames supported on the local machine. See thttpd(8) for details.
+#host=
+
+# Specifies a file for logging. If no logfile option is specified, thttpd logs
+# via syslog(). If logfile=/dev/null is specified, thttpd doesn't log at all.
+#logfile=/var/log/thttpd.log
+
+# Specifies a file to write the process-id to. If no file is specified, no
+# process-id is written. You can use this file to send signals to thttpd. See
+# thttpd(8) for details.
+#pidfile=
+
+# Specifies the character set to use with text MIME types.
+#charset=iso-8859-1
+
+# Specifies a P3P server privacy header to be returned with all responses. See
+# http://www.w3.org/P3P/ for details. Thttpd doesn't do anything at all with the
+# string except put it in the P3P: response header.
+#p3p=
+
+# Specifies the number of seconds to be used in a "Cache-Control: max-age"
+# header to be returned with all responses. An equivalent "Expires" header is
+# also generated. The default is no Cache-Control or Expires headers, which is
+# just fine for most sites.
+#max_age=
+```
+
+Therefore we can do `wget -O - http://127.0.0.1:7007/index.cgi?Host="127.0.0.1 | id"` , Giving us an id for flag07, This means we can execute command as **flag07**
+
+![](https://i.imgur.com/1ClgbHN.png)
+
+we can now do the `getflag` command
+
+![](https://i.imgur.com/g2tAk4r.png)
+
+## LEVEL 08
+
+We have a `capture.pcap` file in the **/home/flag08** directory, we can send this file to our attacker system and inspect it with **wireshark** 
+
+![](https://i.imgur.com/XLgE2JG.png)
+
+We can send it using python the **SimpleHTTPServer** library on port 9999 
+
+![](https://i.imgur.com/WJClDAb.png)
+
+Open the **wireshark** application and click `File` then `Open`
+
+![](https://i.imgur.com/QVTtJWg.png)
+
+Locate your **pcap** file wherever it was saved and **Double-click** it to `open`, You should now see  bunch of packets
+
+![](https://i.imgur.com/MjBl4eF.png)
+
+![](https://i.imgur.com/7M2pUIX.png)
+
+Right-Click on any of this **Packets** and click Follow>>TCP Stream
+
+![](https://i.imgur.com/pGnbwhm.png)
+
+We now have a `Password` in the new tab opened
+
+![](https://i.imgur.com/KxJFNK9.png)
+
+After several trials , i found out the password is `backd00Rmate`
+
+![](https://i.imgur.com/ttMCQVO.png)
+
 ---
 
 Remember, to get started, **[read the instructions](https://sec-fortress.github.io/posts/projects/posts/instructions.html)** to ensure you're well-prepared for the Nebula challenge. Happy exploring and learning!
