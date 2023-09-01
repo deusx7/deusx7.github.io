@@ -217,7 +217,11 @@ As usual login with the Password you used to create the account and let continue
 You can now **Re-Boot** the server and that will be all on setting up a Domain controller
 
 ![](https://i.imgur.com/YrYu0CL.gif)
+
 ---
 
 If You've got any questions, Please reach out to me on Twitter **@Sec_fortress**
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
 
