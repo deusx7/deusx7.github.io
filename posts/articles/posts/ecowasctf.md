@@ -176,7 +176,7 @@ Long-Story short, decided to add it to cart then checkout and i got a flag
 
 ![](https://i.imgur.com/87aLkbO.png)
 
-***Thanks for reading, Farewell!!**
+**Thanks for reading, Farewell!!**
 
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/aebdcd22-5119-4862-8ae0-c4abdbb115fa)
 
