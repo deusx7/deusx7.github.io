@@ -100,4 +100,5 @@ I tried to perform Privilege Escalation, But i don't think it is possible becaus
 
 Big shout out to [wizlynxgroup](https://www.wizlynxgroup.com/) and [Pwntilldawn](https://online.pwntilldawn.com/)
 
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
 
