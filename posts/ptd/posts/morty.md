@@ -1,7 +1,7 @@
 # Morty
 
-## Difficulty = Medium
 ***
+## Difficulty = Medium
 ![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/15a53e34-7085-4916-b0b7-7d1814091ce7)
 
 ***
