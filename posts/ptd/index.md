@@ -6,7 +6,7 @@ title:  PwnTillDawn.
 <h2 class="menu-header" id="index"><a href="../../index.html">Root</a></h2>
 <hr>
 
-![image](https://user-images.githubusercontent.com/127159644/223289905-9ee9d705-09a3-4c47-aaa9-e75fcc9d84c1.png)
+![image](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/17df34e5-86a6-49d5-92fa-cf406108e612)
 
 * * *
 <h4 class="menu-header" id="pwntilldawn">PwnTillDawn:</h4>
