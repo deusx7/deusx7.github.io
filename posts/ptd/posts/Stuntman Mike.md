@@ -47,7 +47,7 @@ Decided to enumerate port 8089/**Splunkd**, but we did not have any leads, enume
 
 ![](https://i.imgur.com/GgLPpZB.png)
 
-Definitely we know `Mike` is the username, we can bruteforce the password using this [script](https://github.com/pwnesia/ssb) (I decided not to us **hydra** because it is too slow)
+Definitely we know `Mike` is the username, we can bruteforce the password using this [script](https://github.com/pwnesia/ssb) (I decided not to use **hydra** because it is too slow)
 
 _Syntax :_
 
@@ -62,7 +62,7 @@ _Output :_
 Great!!!, Now we can login with the credentials `mike:babygirl` 
 
 ![](https://i.imgur.com/i6wDrwT.png)
-##### Privilege Escalation
+#### Privilege Escalation
 
 Running `sudo -l` we have permissions to run all commands with sudo {This means we can do sudo followed by any other programs or binary with the password "**babygirl**" and it should give us user as "**root**"}.
 
