@@ -25,3 +25,4 @@ PwnTillDawn Online Battlefield is wizlynx group's vision of the next-generation 
 - [[Feb 13 2023]] [Juno](https://markuched13.github.io/posts/ptd/juno.html) `Reverse Engineering, Cryptography` -->
 - [[July 28 2023]] [Mr. Blue](https://sec-fortress.github.io/posts/ptd/posts/Mr.Blue.html) `MS017-010, Eternal Blue, Manual Exploitation`
 - [[Sept. 4 2023]] [Morty](https://sec-fortress.github.io/posts/ptd/posts/morty.html) `Steganography, PhpMyAdmin 4.8.1, RCE`
+- [[Sept. 4 2023]] [Stuntman Mike](https://sec-fortress.github.io/posts/ptd/posts/Stuntman%20Mike.html) `SSH Brute force, Sudo Privilege Escalation`
