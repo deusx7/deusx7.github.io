@@ -62,7 +62,7 @@ _Output :_
 Great!!!, Now we can login with the credentials `mike:babygirl` 
 
 ![](https://i.imgur.com/i6wDrwT.png)
-#### Privilege Escalation
+### Privilege Escalation
 
 Running `sudo -l` we have permissions to run all commands with sudo {This means we can do sudo followed by any other programs or binary with the password "**babygirl**" and it should give us user as "**root**"}.
 
@@ -73,4 +73,6 @@ This privilege escalation vector is as simple as running the command `sudo su` w
 ![](https://i.imgur.com/K9XVlp3.png)
 
 We got root!! bankai 😂
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
 
