@@ -36,4 +36,6 @@ Discover CyberSecLabs. With our growing platform delivering beginner hacking con
 - [[June 23 2023]] [Source](https://sec-fortress.github.io/posts/thm/posts/source.html) `Webmin, Metasploit`
 - [[June 24 2023]] [Agent Sudo](https://sec-fortress.github.io/posts/thm/posts/agentsudo.html) `BruteForce, Redirections, Steganography`
 - [[Aug. 10 2023]] [Simple CTF](https://sec-fortress.github.io/posts/thm/posts/simplectf.html) `Unauthenticated SQLI, Encoding`
+- [[Sep. 7 2023]] [ZSCTF1](https://sec-fortress.github.io/posts/thm/posts/zsctf1.html) `Authorization Bypass, Pass-The-Hash`
 - [[Sep. 10 2023]] [Kiba](https://sec-fortress.github.io/posts/thm/posts/kiba.html) `Prototype Pollution, RCE, Capabilities`
+- 
