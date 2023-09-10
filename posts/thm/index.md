@@ -35,4 +35,5 @@ Discover CyberSecLabs. With our growing platform delivering beginner hacking con
 - [[May 25 2023]] [Weasel](https://h4ckyou.github.io/posts/thm/posts/weasel.html) `Jupyter, WSL, Mounting` -->
 - [[June 23 2023]] [Source](https://sec-fortress.github.io/posts/thm/posts/source.html) `Webmin, Metasploit`
 - [[June 24 2023]] [Agent Sudo](https://sec-fortress.github.io/posts/thm/posts/agentsudo.html) `BruteForce, Redirections, Steganography`
-- [[August 10 2023]] [Simple CTF](https://sec-fortress.github.io/posts/thm/posts/simplectf.html) `Unauthenticated SQLI, Encoding` 
+- [[Aug. 10 2023]] [Simple CTF](https://sec-fortress.github.io/posts/thm/posts/simplectf.html) `Unauthenticated SQLI, Encoding`
+- [[Sep. 10 2023]] [Kiba](https://sec-fortress.github.io/posts/thm/posts/kiba.html) `Prototype Pollution, RCE, Capabilities`
