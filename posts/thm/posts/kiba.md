@@ -106,3 +106,7 @@ Using this payload we can get elevated privileges as `root` 🐉
 Happy weekend and Have fun 
 
 ![](https://media.giphy.com/media/3o7527WMiaRJmrWMTe/giphy-downsized-large.gif)
+
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
