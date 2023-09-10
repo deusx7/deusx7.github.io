@@ -159,6 +159,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 ![](https://i.imgur.com/6WF13sj.png)
 
 - `/javascript` and `/test` doesn't to give alot of information, so we are typically interested in `phpmyadmin` whereas we need a password and username 😭
+
 ### PORT 2049/NFS
 
 - Running `showmount -e 10.10.199.105` shows us that we can mount **/backup**
@@ -196,6 +197,7 @@ We knew it this are config files of web applications, I can literally see the fa
 ![](https://i.imgur.com/F48vb6D.png)
 
 Also you might want to run `grep --color=auto -rnw '/home/sec-fortress/THM/ZSCTF1/html' -ie "Pass" --color=always 2>/dev/null` to check for any file containing passwords, Just saying we might need it later
+
 ### PORT 139/445/SMB
 
 We don't seem to have any luck here too, we have 2 shares `IPC$` and `print$` , On successful connection to `IPC$` we can't run commands Neither can we even connect to `print$` 
