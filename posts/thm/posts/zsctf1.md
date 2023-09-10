@@ -286,7 +286,7 @@ _How to Produce :_
 
 ![](https://i.imgur.com/39dzdB5.jpg)
 
-- You should have `shadow.1` and `shadow` , just do `/bin/cp shadow.1 shadow` {This is necessary to make sure our own changes was made, cos' we have 2 shadow files in the same directory with different contents, do these keep both **shadow.1** and **shadow** file the same}
+- You should have `shadow.1` and `shadow` , just do `/bin/cp shadow.1 shadow` {This is necessary to make sure our own changes was made, cos' we have 2 shadow files in the same directory with different contents, doing these keep both **shadow.1** and **shadow** file the same}
 - Then send the `/tmp/shadow` file to `/etc/shadow` by using the same `cp`, do `cp ./shadow /etc/shadow`
 
 ![](https://i.imgur.com/3n24IWG.png)
