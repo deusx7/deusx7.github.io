@@ -2,6 +2,7 @@
 
 ***
 Difficulty = Easy 
+
 ![httptryhackme comjrzsecurityctf1](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/644b686a-46d2-44ca-a6ec-73c35985e4ce)
 
 ***
