@@ -1,7 +1,7 @@
 # ZSCTF1
 
 ***
-Difficulty = Easy 
+## Difficulty = Easy 
 
 ![httptryhackme comjrzsecurityctf1](https://github.com/sec-fortress/sec-fortress.github.io/assets/132317714/644b686a-46d2-44ca-a6ec-73c35985e4ce)
 
@@ -300,3 +300,7 @@ Now we can `su` to root with the password we used for the password hash, Mine is
 Bankaiii 🧘‍♀️
 
 ![](https://media.giphy.com/media/Juk9FJzaFa4c5yjBLM/giphy.gif)
+
+
+<button onclick="window.location.href='https://sec-fortress.github.io';">Back To Home螥</button>
+
