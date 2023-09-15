@@ -52,7 +52,7 @@ So i decided to **"Register"** but we need some kind of captcha test, which we d
 
 ![](https://i.imgur.com/NWBlteg.png)
 
-I decided to run a directory bruteforce and we have some interesting files on this server including a `captcha.php` page, Right from here have started to see shell already, lmfao 😂
+I decided to run a directory bruteforce and we have some interesting files on this server including a `captcha.php` page, Right from here, It looks like we have shell already, lmfao 😂
 
 ![](https://i.imgur.com/7eqFs12.jpg)
 
@@ -132,7 +132,7 @@ Running the `id` command we can see that www-data belongs to the supplementary g
 
 ![](https://i.imgur.com/KRmVbhf.png)
 
-As shown by [securiumsolutions](https://securiumsolutions.com/docker-privilege-escalation/) , we can get root by using this payload ` docker run -v /root:/mnt -it alpine` , as shown below 👇
+As shown by [securiumsolutions](https://securiumsolutions.com/docker-privilege-escalation/) , we can get root by using this payload `docker run -v /root:/mnt -it alpine` , as shown below 👇
 
 ![](https://i.imgur.com/ghOZvRb.png)
 
