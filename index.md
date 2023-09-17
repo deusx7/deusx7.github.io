@@ -39,6 +39,7 @@ Yo 👋, welcome to my Cyber Security Blog! I'm Olaoluwa, an 18-year-old achievi
 - [[Sep. 07 2023]] [ZSCTF1](https://sec-fortress.github.io/posts/thm/posts/zsctf1.html) `Authorization Bypass, Pass-The-Hash`
 - [[Sep. 10 2023]] [Kiba](https://sec-fortress.github.io/posts/thm/posts/kiba.html) `Prototype Pollution, RCE, Capabilities`
 - [[Sep. 15 2023]] [ZSCTF2](https://sec-fortress.github.io/posts/thm/posts/ZSCTF2.html) `RCE, Docker Privilege Escalation`
+- [[Sep. 17 2023]] [ZSCTF4](https://sec-fortress.github.io/posts/thm/posts/ZSCTF4.html) `WP-Unauthenticated RCE, Cron jobs, Nano priv Esc`
 
 * * *
 ### **HackTheBox Writeups:~#**
