@@ -1,4 +1,4 @@
-remote_theme: pages-themes/midnight@v0.2.0
+theme: minimal-mistakes-jekyll
 description: Offensive for Defensive!.
 show_downloads: false
 show_repo: false
