@@ -6,7 +6,7 @@ title: Home
 <h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/posts/thm/index.html">Tryhackme</a>&#xA0;&#xA0;&#xA0;<a href="/posts/htb/index.html">Hackthebox</a>&#xA0;&#xA0;&#xA0;</h2>
 
 * * *
-### Welcome To My Cyber Security Blog, <span style="font-family: monospace;">D3u$-X</span>
+### Welcome To My Cybersecurity Blog
 * * *
 
 Hello, 👋 I'm on a mission to become a skilled pentester and ethical hacker, deeply passionate about cybersecurity. I thrive on tackling Capture The Flag (CTF) challenges on platforms like TryHackMe and Hack The Box to enhance my skills.
