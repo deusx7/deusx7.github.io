@@ -15,7 +15,7 @@ I love sharing my knowledge through detailed write-ups and walkthroughs. If you 
 
 
 * * *
-### Whoami:~#
+### deusx:~# whoami
 * * *
 
 - **My Name:** `Ibrahim Odunmbaku`
@@ -24,7 +24,7 @@ I love sharing my knowledge through detailed write-ups and walkthroughs. If you 
 - **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](www.linkedin.com/in/ibrahim-odunmbaku-8639a811b)
 
 * * *
-### **TryHackMe Writeups:~#**
+### **deusx:~# cat TryHackMe_Writeups**
 * * *
 <!-- - [[Jan 21 2023]] [TakeOver](https://markuched13.github.io/posts/thm/takeover.html) `Subdomain Enumeration`
 - [[Jan 28 2023]] [ReversingELF](https://markuched13.github.io/posts/thm/reversingelf.html) `Reverse Engineering`
