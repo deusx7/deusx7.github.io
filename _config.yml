@@ -1,4 +1,4 @@
-theme: minimal-mistakes-jekyll
+remote_theme: pages-themes/minimal@v0.2.0
 description: Going Beyond the Firewall.
 show_downloads: false
 show_repo: false
