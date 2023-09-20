@@ -1,6 +1,4 @@
-theme: jekyll-theme-hacker
-remote_theme: pages-themes/hacker@v0.2.0
-title: Deus-X:~#
+remote_theme: pages-themes/midnight@v0.2.0
 description: Offensive for Defensive!.
 show_downloads: false
 show_repo: false
@@ -13,9 +11,11 @@ plugins:
   - jekyll-coffeescript
   - jekyll-seo-tag
   - some-other-jekyll-plugin
+  - jekyll-remote-theme
   
 gems:
   - jekyll-sitemap
+  
 
 whitelist:
   - jekyll-sitemap
