@@ -18,7 +18,7 @@ I love sharing my knowledge through detailed write-ups and walkthroughs. If you 
 ### deusx:~# whoami
 * * *
 
-- **My Name:** `Ibrahim Odunmbaku`
+- **My Name:** `Ibrahim Adedeji Odunmbaku`
 - **Also Known As:** `Deus-X`
 - **What Do I Do:** `CTFs // Ethical Hacking`
 - **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](www.linkedin.com/in/ibrahim-odunmbaku-8639a811b)
