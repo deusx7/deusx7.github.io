@@ -280,3 +280,5 @@ and bingo! we have a shell.
 
 ![[Pasted image 20230913144315.png]]
 
+![](https://i.imgur.com/a6lHHWU.png)
+
