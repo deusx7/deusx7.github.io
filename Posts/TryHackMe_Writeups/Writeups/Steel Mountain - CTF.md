@@ -280,5 +280,3 @@ and bingo! we have a shell.
 
 ![[Pasted image 20230913144315.png]]
 
-[Open: ../../../../Attachments/Pasted image 20230921110836.png](Attachments/108bbc0929f8da8a8a0a6e792e1bede7_MD5.png)
-![](Attachments/108bbc0929f8da8a8a0a6e792e1bede7_MD5.png)
