@@ -279,6 +279,3 @@ and bingo! we have a shell.
 ![[Pasted image 20230913144245.png]]
 
 ![[Pasted image 20230913144315.png]]
-
-[(Website/Posts/TryHackMe_Writeups/Writeups/7546f02d64c6a6b7ae99d2b81330b8cf_MD5.png)
-![](Website/Posts/TryHackMe_Writeups/Writeups/7546f02d64c6a6b7ae99d2b81330b8cf_MD5.png)
