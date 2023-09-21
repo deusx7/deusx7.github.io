@@ -3,7 +3,11 @@ layout: default
 title: Home
 ---
 
+<<<<<<< HEAD
 <h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/Posts/TryHackMe_Writeups/index.html">Tryhackme</a>&#xA0;&#xA0;&#xA0;<a href="/posts/htb/index.html">Hackthebox</a>&#xA0;&#xA0;&#xA0;</h2>
+=======
+<h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/Posts/TryHackMe_Writeups/index.html">Tryhackme</a>&#xA0;&#xA0;&#xA0;</h2>
+>>>>>>> origin/main
 
 * * *
 ### Welcome To My Cybersecurity Blog
