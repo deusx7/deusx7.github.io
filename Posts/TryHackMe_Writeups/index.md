@@ -5,7 +5,7 @@ title: TryHackMe
 
 ## Root
 
-![[Pasted image 20230921100341.png]]
+![image](https://user-images.githubusercontent.com/127159644/223289326-adc9f1f7-1fea-497a-b829-28d6a50f3390.png)
 
 ---
 
