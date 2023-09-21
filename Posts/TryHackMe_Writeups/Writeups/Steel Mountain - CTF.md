@@ -1,4 +1,4 @@
-p 🔒 **Capture The Flag (CTF) - Steel Mountain** 🔒
+🔒 **Capture The Flag (CTF) - Steel Mountain** 🔒
 
 I recently completed the "Steel Mountain" CTF challenge, and I wanted to share my experience with you. This engaging exercise allowed me to hone my skills in Windows enumeration, Metasploit usage, and privilege escalation. Here's a breakdown of my journey:
 
