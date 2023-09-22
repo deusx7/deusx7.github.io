@@ -10,7 +10,7 @@ Who is the employee of the month? **Bill Harper**
 
 Let's perform a quick nmap scan.
 Results:
-![[Attachments/Pasted image 20230912104926.png]]
+![[20230912104926.png]]
 From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
 
 ![[Attachments/Pasted image 20230912192922.png]]
