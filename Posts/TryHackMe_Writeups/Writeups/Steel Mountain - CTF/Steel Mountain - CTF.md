@@ -6,9 +6,8 @@ If you don't have the right security tools and environment, deploy your own Kali
 Please note that this machine does not respond to ping (ICMP) and may take a few minutes to boot up.
 
 # Initial Access
-Who is the employee of the month? **Bill Harper**
 
-Let's perform a quick nmap scan.
+To kick off our reconnaissance, we initiate an Nmap scan to unveil open ports and services on the target machine. This scan reveals that port 80 is open, indicating the presence of a web server.
 Results:
 ![](images/20230912104926.png)
 From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
