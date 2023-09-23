@@ -184,8 +184,10 @@ After getting the exploit let's necessary settings. First is the IP address of o
 Take note of the this statement. We will need to run a python server on port 80 in the same directory as our netcat [binary](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe) file. If you already have a service running on port 80 like i did in my case you can just stop the service using:
 
 ```shell
-sudo systemctl stop
+sudo systemctl stop <service_name>
 ```
+
+![](images/4f4ee69bfe895cf3acbc23913a5d199e_MD5.png)
 
 Next step is to start a python server in the directory as our netcat binary. When the exploit is ran it will need a server hosting the file in order to transfer it to the target machine. We will then run the exploit a second time to execute the file and gain a shell once our netcat listener is set to that the specified port 4443 in order catch the shell.
 
