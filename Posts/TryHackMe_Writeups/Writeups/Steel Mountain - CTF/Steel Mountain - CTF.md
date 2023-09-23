@@ -45,6 +45,8 @@ Options set
 
 As we can see the RHOSTS is our target host that is the Rejetto Http File Server, The RPORT is the target port which is **8080**. For the SRVHOST it will be our attack machine IP address this is basically the address where the exploit will be served on to be delivered on the target machine just like creating a python server to send a LinPeas script to a target machine but in this case we are sending the expliot **windows/webapps/49125.py** (which is already in metasploit's database) from our attack machine to the target machine. Now the LHOST is our listener IP address which in this case is our attack IP and the address we will use to setup a listener to catch the shell while the LPORT is just the port we want to listen on.
 
+[[Website/Posts/TryHackMe_Writeups/Writeups/images/cddbed62fc1061ed666aede179d8912a_MD5.png|Open: ../images/Pasted image 20230923162431.png]]
+![[Website/Posts/TryHackMe_Writeups/Writeups/images/cddbed62fc1061ed666aede179d8912a_MD5.png]]
 Now to get the flag. Our initial access places us in this directory `C:\Users\bill\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
 
 So from experience we should know the flag should be in the user's desktop, documents folder etc. We then navigate to directory of the user "bill" and cat the user.txt file to get the flag.
