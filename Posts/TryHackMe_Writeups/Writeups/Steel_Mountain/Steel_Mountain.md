@@ -20,18 +20,18 @@ Here we have a website displaying the Employee of the month. But what we need is
 
 From the source code we can find the name of the Employee of the month.
 
-**Question**: "Scan the machine with nmap. What is the other port running a web server on". Looking back to our nmap scan we can see port **8080** is open and is running a http web server.
+**Question 1**: "Scan the machine with nmap. What is the other port running a web server on". Looking back to our nmap scan we can see port **8080** is open and is running a http web server.
 
-Next question "Take a look at the other web server. What file server is running?". Once we navigate to the second web server and click on the link as shown below we are met with the name of the file server which is **Rejetto Http File Server**
+**Question 3:** "Take a look at the other web server. What file server is running?". Once we navigate to the second web server and click on the link as shown below we are met with the name of the file server which is **Rejetto Http File Server**
 
 ![](images/20230912200320.png)
 ![](images/20230912200338.png)
 
-**Question**: "What is the CVE number to exploit this file server?".  A quick search on [exploitdb](https://www.exploit-db.com/) give us our answer.
+**Question 3**: "What is the CVE number to exploit this file server?".  A quick search on [exploitdb](https://www.exploit-db.com/) give us our answer.
 
 ![](images/20230912200413.png)
 
-**Question**: "Use Metasploit to get an initial shell. What is the user flag?"
+**Question 4**: "Use Metasploit to get an initial shell. What is the user flag?"
 Now lets get to work * cracks knuckles *
 
 Fisrt step is to start our metasploit and search "rejetto" there should be a module `exploit/windows/http/rejetto_hfs_exec` so we select that and move to the next step.
@@ -61,22 +61,24 @@ Now that you have an initial shell on this Windows machine as the user Bill, we 
 
 To enumerate this machine, we will use a powershell script called [PowerUp](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1), It's purpose is to evaluate a Windows machine and determine any abnormalities - "_PowerUp aims to be a clearinghouse of common Windows privilege escalation_ _vectors that rely on misconfigurations."
 
-**Question**: "What is the root flag?"
+**Question 5**: "What is the root flag?"
 
-After downloading the PowerUp.ps1 privesc script we can upload the script to our windows machine and enumerate for privilege escalation vectors that rely on misconfigurations.
+After downloading the PowerUp.ps1 Privilege Escalation script we can upload the script to our windows machine and enumerate for privilege escalation vectors that rely on misconfigurations.
 
-To upload using meterpreter:
+To upload using meterpreter use the command:
 ```shell
 upload /path/to/file
 ```
+
 ![](images/20230913095258.png)
 
-After that we need to run the script using powershell. To use powershell in meterpreter:
+After that we need to run the script using powershell. To use powershell in meterpreter Run the following commands:
 
 ```shell
 load powershell
 powershell_shell
 ```
+
 ![](images/20230913095618.png)
  We can then navigate to where we uploaded the script and execute it:
 ```powershell
@@ -88,7 +90,7 @@ Invoke-AllCheck
 This will then enumerate and print out results.
 ![](images/20230913095820.png)
 
-The one we are interested in it the one with the "CanRestart"  option set to True, which indicates that our current user has permissions to restart that service.
+The result we are interested in it the one with the "CanRestart"  option set to True, which indicates that our current user has permissions to restart that service.
 
 ![](images/20230913100109.png)
 As we can see from the image above we have a modifiable path and write permissions to that directory. This means we can replace the ASCService.exe file there with our maliciously crafted payload using msfvenom.
