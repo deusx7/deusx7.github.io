@@ -93,7 +93,7 @@ This will then enumerate and print out results.
 The result we are interested in it the one with the "CanRestart"  option set to True, which indicates that our current user has permissions to restart that service.
 
 ![](images/20230913100109.png)
-As we can see from the image above we have a modifiable path and write permissions to that directory. This means we can replace the ASCService.exe file there with our maliciously crafted payload using msfvenom.
+As we can see from the image above we have a modifiable path and write permissions to that directory. This means we can replace the ASCService.exe file there with our maliciously crafted payload, restart the service which will then run our infected program.
 
 Next we craft our payload from our attack machine using msfvenom and name it the same name as the AdvanceSystemCareService executable which is ASCService.exe:
 ```shell
