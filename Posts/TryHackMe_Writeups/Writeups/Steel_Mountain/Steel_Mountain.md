@@ -61,8 +61,6 @@ Now that you have an initial shell on this Windows machine as the user Bill, we 
 
 To enumerate this machine, we will use a powershell script called [PowerUp](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1), It's purpose is to evaluate a Windows machine and determine any abnormalities - "_PowerUp aims to be a clearinghouse of common Windows privilege escalation_ _vectors that rely on misconfigurations."
 
-**Question 5**: "What is the root flag?"
-
 After downloading the PowerUp.ps1 Privilege Escalation script we can upload the script to our windows machine and enumerate for privilege escalation vectors that rely on misconfigurations.
 
 To upload using meterpreter use the command:
