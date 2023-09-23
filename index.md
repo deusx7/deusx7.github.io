@@ -13,14 +13,16 @@ Hello, 👋 I'm on a mission to become a skilled pentester and ethical hacker, d
 
 I love sharing my knowledge through detailed write-ups and walkthroughs. If you share my passion for cybersecurity, let's connect and collaborate! 🌐🛡️
 
+NOTE: 🚧This site is still under construction lol 🚧
 * * *
 ### deusx:~# whoami
 * * *
 
 - **My Name:** `Ibrahim Adedeji Odunmbaku`
-- **Also Known As:** `Deus-X`
+- **Also Known As:** `DeusX`
 - **What Do I Do:** `CTFs // Ethical Hacking`
-- **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](www.linkedin.com/in/ibrahim-odunmbaku-8639a811b)
+- **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](https://www.linkedin.com/in/ibrahim-odunmbaku-8639a811b/)
+- **Twitter**: [Twitter/@deusx_45](https://twitter.com/deusx_45)
 
 * * *
 ### **deusx:~# cat TryHackMe_Writeups**
