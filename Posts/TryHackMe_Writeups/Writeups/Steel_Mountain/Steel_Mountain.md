@@ -88,6 +88,8 @@ Invoke-AllCheck
 This will then enumerate and print out results.
 ![](images/20230913095820.png)
 
+**Question 5**: "Take close attention to the CanRestart option that is set to true. What is the name of the service which shows up as an _unquoted service path_ vulnerability?"
+
 The result we are interested in it the one with the "CanRestart"  option set to True, which indicates that our current user has permissions to restart that service.
 
 ![](images/20230913100109.png)
