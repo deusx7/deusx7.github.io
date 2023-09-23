@@ -2,7 +2,6 @@
 layout: default
 title: Home
 ---
-
 <h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/Posts/TryHackMe_Writeups/index.html">Tryhackme</a>&#xA0;&#xA0;&#xA0;</h2>
 
 * * *
@@ -23,7 +22,7 @@ NOTE: 🚧This site is still under construction lol 🚧
 - **What Do I Do:** `CTFs // Ethical Hacking`
 - **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](https://www.linkedin.com/in/ibrahim-odunmbaku-8639a811b/)
 - **Twitter**: [Twitter/@deusx_45](https://twitter.com/deusx_45)
-- **Discord**: [Discord/@deusx_]()
+- **Discord**: [Discord/@deusx_](https://discord.com/channels/@deusx_)
 
 * * *
 ### **deusx:~# cat TryHackMe_Writeups**
