@@ -166,15 +166,11 @@ Now to find the flag. It'll most probably be in the Administrator's Desktop.
 # Access and Escalation without Metasploit
 Now let's complete the room without the use of Metasploit.
 
-For this we will utilise powershell and winPEAS to enumerate the system and collect the relevant information to escalate to
-
-**Answer the questions below**
+For this we will utilise powershell and [winPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS) to enumerate the system and collect the relevant information to escalate to
 
 To begin we shall be using the same CVE. However, this time let's use this [exploit.](https://www.exploit-db.com/exploits/39161)
 
 *Note that you will need to have a web server and a netcat listener active at the same time in order for this to work!*
-
-  
 
 To begin, you will need a netcat static binary on your web server. If you do not have one, you can download it from [GitHub](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe)!
 
