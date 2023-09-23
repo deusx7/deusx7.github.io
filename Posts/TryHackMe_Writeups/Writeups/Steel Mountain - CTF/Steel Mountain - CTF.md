@@ -1,5 +1,6 @@
 # Steel Mountain 
-Diffic
+DIFFICULTY: EASY
+![](https://www.google.com/url?sa=i&url=https%3A%2F%2Ftryhackme.com%2Fmodule%2Fbasic-computer-exploitation&psig=AOvVaw05FgBr283x0_1oNKvZkanC&ust=1695564794053000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPDiip71wIEDFQAAAAAdAAAAABAE)
 # Introduction
 **Room instructions**:
 In this room you will enumerate a Windows machine, gain initial access with Metasploit, use Powershell to further enumerate the machine and escalate your privileges to Administrator.
