@@ -59,9 +59,9 @@ So from experience of previous CTFs we should know the flag might be in the user
 Now that you have an initial shell on this Windows machine as the user Bill, we can further enumerate the machine and escalate our privileges to NT AUTHORITY\\SYSTEM!
 
 From tryhackme:
-*To enumerate this machine, we will use a powershell script called PowerUp, It's purpose is to evaluate a Windows machine and determine any abnormalities - "_PowerUp aims to be a clearinghouse of common Windows privilege escalation_ _vectors that rely on misconfigurations._"
+*To enumerate this machine, we will use a powershell script called PowerUp, It's purpose is to evaluate a Windows machine and determine any abnormalities - "_PowerUp aims to be a clearinghouse of common Windows privilege escalation_ _vectors that rely on misconfigurations."*
 
-You can download the script [here](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1).  If you want to download it via the command line, be careful not to download the GitHub page instead of the raw script. Now you can use the **upload** command in Metasploit to upload the script.
+*You can download the script [here](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1).  If you want to download it via the command line, be careful not to download the GitHub page instead of the raw script. Now you can use the **upload** command in Metasploit to upload the script.*
 
 ![](images/20230912203018.png)
 
