@@ -32,4 +32,4 @@ NOTE: 🚧This site is still under construction lol 🚧
 
 - **MAIL**: ibrahimodunmbaku2@gmail.com
 
-If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord . I'm always here to help.
+If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord `@deusx_` . I'm always here to help.
