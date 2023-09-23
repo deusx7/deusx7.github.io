@@ -27,13 +27,13 @@ From our nmap scan above we can see port 8080 is open and running a http server.
 
 Take a look at the other web server. What file server is running? Rejetto Http File Server
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912200320.png]]
+![[images/20230912200320.png]]
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912200338.png]]
+![[images/20230912200338.png]]
 
 What is the CVE number to exploit this file server? **2014-6287**
 
-![[Attachments/Pasted image 20230912200413.png]]
+![[images/20230912200413.png]]
 
 Use Metasploit to get an initial shell. What is the user flag? **b04763b6fcf51fcd7c13abc7db4fd365**
 
