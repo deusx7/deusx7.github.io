@@ -280,5 +280,5 @@ and bingo! we have a shell.
 
 ![[Attachments/Pasted image 20230913144315.png]]
 
-![](https://i.imgur.com/a6lHHWU.png)
+![](https://github.com/deusx7/deusx7.github.io/blob/main/assets/images/20230904204608.png)
 
