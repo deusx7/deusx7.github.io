@@ -42,7 +42,7 @@ Start your metasploit and search rejetto there should be only one option so sele
 Then list your options and set the required options as seen below.
 
 Options:
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912201857.png]]
+![[images/20230912201857.png]]
 Options set
 
 ![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912201920.png]]
