@@ -29,6 +29,6 @@ NOTE: 🚧This site is still under construction lol 🚧
 - [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/TryHackMe_Writeups/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
 * * *
 
-- **MAIL: ibrahimodunmbaku2@gmail.com**
+- **MAIL**: ibrahimodunmbaku2@gmail.com
 
 If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord . I'm always here to help.
