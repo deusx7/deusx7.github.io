@@ -10,11 +10,11 @@ Who is the employee of the month? **Bill Harper**
 
 Let's perform a quick nmap scan.
 Results:
-![[images/20230912104926.png]]
+![](images/20230912104926.png)
 From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
 
 
-![[images/20230912192922.png]]
+![](images/20230912192922.png)
 
 Here we have a website displaying the Employee of the month. But what we need is the name of the employee of the month so lets try and get that. We can start by viewing the page source code or using the inspect element to see the name of the image.
 
