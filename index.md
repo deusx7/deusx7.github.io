@@ -25,7 +25,7 @@ I love sharing my knowledge through detailed write-ups and walkthroughs. If you 
 
 * * *
 ### **deusx:~# cat TryHackMe_Writeups**
-- [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/TryHackMe_Writeups/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit. Windows Privilege Escalation, CVE 2014-6287`
+- [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/TryHackMe_Writeups/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
 * * *
 
 
