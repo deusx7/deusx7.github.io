@@ -17,26 +17,25 @@ Here we have a website displaying the Employee of the month. But what we need is
 
 ![](images/20230912193142.png)
 
-From the source code we can see that the name of the image is "Bill Harper" which is the answer we are looking for.
+From the source code we can find the name of the Employee of the month.
 
-Scan the machine with nmap. What is the other port running a web server on? **8080**
-From our nmap scan above we can see port 8080 is open and running a http server.
+So the next question reads "Scan the machine with nmap. What is the other port running a web server on". Looking back to our nmap scan we can see port **8080** is open and is running a http web server.
 
-Take a look at the other web server. What file server is running? Rejetto Http File Server
+Next question "Take a look at the other web server. What file server is running?". Once we navigate to the second web server and click on the link as shown below we are met with the name of the file server which is **Rejetto Http File Server**
 
 ![](images/20230912200320.png)
-
 ![](images/20230912200338.png)
 
-What is the CVE number to exploit this file server? **2014-6287**
+"What is the CVE number to exploit this file server?".  A quick search on [exploitdb](https://www.exploit-db.com/) give us our answer.
 
 ![](images/20230912200413.png)
 
-Use Metasploit to get an initial shell. What is the user flag? **b04763b6fcf51fcd7c13abc7db4fd365**
+**Question**: "Use Metasploit to get an initial shell. What is the user flag?"
+Now lets get to work * cracks knuckles *
 
-Start your metasploit and search rejetto there should be only one option so select that option `use 0`.
+Fisrt step is to start our metasploit and search "rejetto" there should be a module `exploit/windows/http/rejetto_hfs_exec` so we select that and move to the next step.
 
-Then list your options and set the required options as seen below.
+Next step is to list the options and set the required options as seen below.
 
 Options:
 ![](images/20230912201857.png)
@@ -44,7 +43,7 @@ Options set
 
 ![](images/20230912201920.png)
 
-As we can see the RHOSTS is our target host that is the Http File Server, The RPORT is the target port **8080**. For the SRVHOST it will be our attack machine IP address this is basically the address where the exploit will be served on to be delivered on the target machine just like creating a python server to send a LinPeas script to a target machine but in this case we are sending the expliot **windows/webapps/49125.py** from our machine to the target machine. Now the LHOST is our listener IP address which is our attack IP and the address we will use to setup a listener to catch the shell while the LPORT is just the listening port we want to listen on.
+As we can see the RHOSTS is our target host that is the Rejetto Http File Server, The RPORT is the target port which is **8080**. For the SRVHOST it will be our attack machine IP address this is basically the address where the exploit will be served on to be delivered on the target machine just like creating a python server to send a LinPeas script to a target machine but in this case we are sending the expliot **windows/webapps/49125.py** (which is already in metasploit's database) from our attack machine to the target machine. Now the LHOST is our listener IP address which in this case is our attack IP and the address we will use to setup a listener to catch the shell while the LPORT is just the port we want to listen on.
 
 Now to get the flag. Our initial access places us in this directory `C:\Users\bill\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
 
