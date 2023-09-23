@@ -29,11 +29,11 @@ Take a look at the other web server. What file server is running? Rejetto Http F
 
 ![](images/20230912200320.png)
 
-![[images/20230912200338.png]]
+![](images/20230912200338.png)
 
 What is the CVE number to exploit this file server? **2014-6287**
 
-![[images/20230912200413.png]]
+![](images/20230912200413.png)
 
 Use Metasploit to get an initial shell. What is the user flag? **b04763b6fcf51fcd7c13abc7db4fd365**
 
@@ -42,17 +42,17 @@ Start your metasploit and search rejetto there should be only one option so sele
 Then list your options and set the required options as seen below.
 
 Options:
-![[images/20230912201857.png]]
+![](images/20230912201857.png)
 Options set
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912201920.png]]
+![](images/20230912201920.png)
 
 As we can see the RHOSTS is our target host that is the Http File Server, The RPORT is the target port **8080**. For the SRVHOST it will be our attack machine IP address this is basically the address where the exploit will be served on to be delivered on the target machine just like creating a python server to send a LinPeas script to a target machine but in this case we are sending the expliot **windows/webapps/49125.py** from our machine to the target machine. Now the LHOST is our listener IP address which is our attack IP and the address we will use to setup a listener to catch the shell while the LPORT is just the listening port we want to listen on.
 
 Now to get the flag. Our initial access places us in this directory `C:\Users\bill\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
 
 So from experience we should know the flag should be in the user's desktop, documents folder etc. We then navigate to directory of the user "bill" and cat the user.txt file to get the flag.
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912202842.png]]
+![](images/20230912202842.png)
 
 
 # Privilege Escalation
@@ -62,11 +62,11 @@ To enumerate this machine, we will use a powershell script called PowerUp, that'
 
 You can download the script [here](https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1).  If you want to download it via the command line, be careful not to download the GitHub page instead of the raw script. Now you can use the **upload** command in Metasploit to upload the script.
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912203018.png]]
+![](images/20230912203018.png)
 
 To execute this using Meterpreter, I will type **load powershell** into meterpreter. Then I will enter powershell by entering **powershell_shell**:
 
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230912203036.png]]
+![](images/20230912203036.png)
 
 Take close attention to the CanRestart option that is set to true. What is the name of the service which shows up as an _unquoted service path_ vulnerability? **AdvancedSystemCareService9**
 
@@ -88,7 +88,7 @@ To upload using meterpreter:
 ```shell
 upload /path/to/file
 ```
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913095258.png]]
+![](images/20230913095258.png)
 
 After that we need to run the script using powershell. To use powershell in meterpreter:
 
@@ -96,7 +96,7 @@ After that we need to run the script using powershell. To use powershell in mete
 load powershell
 powershell_shell
 ```
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913095618.png]]
+![](images/20230913095618.png)
  We can then navigate to where we uploaded the script and execute it:
 ```powershell
 cd path\to\script
@@ -105,7 +105,7 @@ Invoke-AllCheck
 ```
 
 This will then enumerate and print out results.
-![[Website/Posts/TryHackMe_Writeups/Writeups/images/20230913095820.png]]
+![](images/20230913095820.png)
 
 The one we are interested in it the one with the "CanRestart"  option set to True, which indicates that our current user has permissions to restart that service.
 
