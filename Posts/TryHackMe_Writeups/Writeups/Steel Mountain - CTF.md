@@ -14,7 +14,7 @@ Results:
 From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
 
 <<<<<<< HEAD
-![image1](Website/Posts/TryHackMe_Writeups/Writeups/images/20230912192922.png)
+![image1](images/20230912192922.png)
 =======
 ![image1](Website/Posts/TryHackMe_Writeups/Writeups/images/20230912192922.png)
 >>>>>>> origin/main
