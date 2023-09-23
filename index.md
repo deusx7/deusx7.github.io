@@ -23,7 +23,7 @@ NOTE: 🚧This site is still under construction lol 🚧
 - **What Do I Do:** `CTFs // Ethical Hacking`
 - **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](https://www.linkedin.com/in/ibrahim-odunmbaku-8639a811b/)
 - **Twitter**: [Twitter/@deusx_45](https://twitter.com/deusx_45)
-- **Discord**: 
+- **Discord**: [Discord/@deusx_]()
 
 * * *
 ### **deusx:~# cat TryHackMe_Writeups**
