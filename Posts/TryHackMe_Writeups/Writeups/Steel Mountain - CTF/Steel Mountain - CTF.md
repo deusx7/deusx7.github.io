@@ -1,5 +1,6 @@
 # Steel Mountain 
 DIFFICULTY: EASY
+
 ![](images/Steel_Mountain.jpeg)
 # Introduction
 **Room instructions**:
