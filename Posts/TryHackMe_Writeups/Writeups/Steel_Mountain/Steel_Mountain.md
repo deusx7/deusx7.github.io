@@ -168,54 +168,24 @@ Now let's complete the room without the use of Metasploit.
 
 For this we will utilise powershell and [winPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS) to enumerate the system and collect the relevant information to escalate to
 
-To begin we shall be using the same CVE. However, this time let's use this [exploit.](https://www.exploit-db.com/exploits/39161)
+The aim here is to try and get access to the machine and perform privilege escalation without metasploit.
 
-*Note that you will need to have a web server and a netcat listener active at the same time in order for this to work!*
-
-To begin, you will need a netcat static binary on your web server. If you do not have one, you can download it from [GitHub](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe)!
-
-You will need to run the exploit twice. The first time will pull our netcat binary to the system and the second will execute our payload to gain a callback!
-
-Congratulations, we're now onto the system. Now we can pull winPEAS to the system using powershell -c.
-
-Once we run winPeas, we see that it points us towards unquoted paths. We can see that it provides us with the name of the service it is also running.
-
-![](images/20230913104012.png)
-
-What powershell -c command could we run to manually find out the service name?
-*Format is "powershell -c "command here"*
-**powershell -c "Get-service"**
-
-Now let's escalate to Administrator with our new found knowledge.
-
-Generate your payload using msfvenom and pull it to the system using powershell.
-
-  
-Now we can move our payload to the unquoted directory winPEAS alerted us to and restart the service with two commands.
-
-First we need to stop the service which we can do like so;
-
-sc stop AdvancedSystemCareService9
-
-Shortly followed by;
-
-sc start AdvancedSystemCareService9
-
-Once this command runs, you will see you gain a shell as Administrator on our listener!
-
-**The Procedure:**
-
-The aim here is to try and get access and perform privilege escalation without metasploit.
 The first step is to download the [exploit](https://www.exploit-db.com/exploits/39161) we were given to use.
+
 Note: make sure to download all files in 1 directory to make things easier.
+
 Let's begin!
 
-After getting the exploit let's configure it with the appropriate settings as indicated in the exploit. First is the IP address of our attack machine and port number we want to listen on to get the shell.
+After getting the exploit let's necessary settings. First is the IP address of our attack machine and port number we want to listen on to get the shell.
 
 ![](images/20230913135614.png)
 
 ![](images/20230913140136.png)
-Take note of the this statement. We will need to run a python server on port 80 in the same directory as our netcat [binary](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe) file.
+Take note of the this statement. We will need to run a python server on port 80 in the same directory as our netcat [binary](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe) file. If you already have a service running on port 80 like i did in my case you can just stop the service using:
+
+```shell
+sudo systemctl stop
+```
 
 Next step is to start a python server in the directory as our netcat binary. When the exploit is ran it will need a server hosting the file in order to transfer it to the target machine. We will then run the exploit a second time to execute the file and gain a shell once our netcat listener is set to that the specified port 4443 in order catch the shell.
 
