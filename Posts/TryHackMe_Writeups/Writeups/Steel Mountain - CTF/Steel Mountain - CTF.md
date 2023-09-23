@@ -7,12 +7,9 @@ In this room you will enumerate a Windows machine, gain initial access with Meta
 
 If you don't have the right security tools and environment, deploy your own Kali Linux machine and control it in your browser, with our [Kali Room](https://tryhackme.com/room/kali).
 # Initial Access
-
-To kick off our reconnaissance, we initiate an Nmap scan to unveil open ports and services on the target machine. This scan reveals that port 80 is open, indicating the presence of a web server.
-Results:
+To kick off our reconnaissance, we initiate an Nmap scan to discover open ports and services on the target machine. 
 ![](images/20230912104926.png)
 From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
-
 
 ![](images/20230912192922.png)
 
