@@ -10,6 +10,7 @@ If you don't have the right security tools and environment, deploy your own Kali
 # Initial Access
 To kick off our reconnaissance, we initiate an Nmap scan to discover open ports and services on the target machine. 
 ![](images/20230912104926.png)
+
 From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
 
 ![](images/20230912192922.png)
@@ -27,11 +28,12 @@ From the source code we can find the name of the Employee of the month.
 ![](images/20230912200320.png)
 ![](images/20230912200338.png)
 
-**Question 3**: "What is the CVE number to exploit this file server?".  A quick search on [exploitdb](https://www.exploit-db.com/) give us our answer.
+**Question 3**: "What is the CVE number to exploit this file server?".  A quick search on [exploitdb](https://www.exploit-db.com/) gives us our answer.
 
 ![](images/20230912200413.png)
 
 **Question 4**: "Use Metasploit to get an initial shell. What is the user flag?"
+
 Now lets get to work * cracks knuckles *
 
 Fisrt step is to start our metasploit and search "rejetto" there should be a module `exploit/windows/http/rejetto_hfs_exec` so we select that and move to the next step.
@@ -109,6 +111,7 @@ Stop-Service -Name "AdvacnedSystemCareService9"
 ```
 
 ![](images/20230913101110.png)
+
 As we can see the service has been stoppeed.
 
 Now let's go back to our meterpreter shell to upload the payload to our target
