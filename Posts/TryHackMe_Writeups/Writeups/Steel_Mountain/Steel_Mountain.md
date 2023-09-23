@@ -242,4 +242,4 @@ and bingo! we have a shell.
 ![](images/20230913144245.png)
 
 ![](images/20230913144315.png)
-GGs! :handshake:
+GGs! 🤝
