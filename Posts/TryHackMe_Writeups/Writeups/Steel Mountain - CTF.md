@@ -282,3 +282,4 @@ and bingo! we have a shell.
 
 ![](Website/assets/images/20230904204608.png)
 
+![image1](https://github.com/deusx7/deusx7.github.io/blob/main/assets/images/20230905211643.png)
