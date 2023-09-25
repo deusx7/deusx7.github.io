@@ -206,7 +206,10 @@ Command to execute the script:
 
 ![](attachments/20230913141953.png)
 
-Now lets take a look at our winPEAS scan. We can see that there is an Unquoted service path  and that we have write access to `C:\Program Files (x86)\IObit\Advanced SystemCare\`
+Now lets take a look at our winPEAS scan. We can see that there is an Unquoted service path  and that we have write access to 
+```
+C:\Program Files (x86)\IObit\Advanced SystemCare\
+```
 In that directory there is a service executable "ASCService.exe" that we can abuse by replacing this with a malicious file which will give us a reverse shell.
 
 ![](attachments/20230913142635.png)
