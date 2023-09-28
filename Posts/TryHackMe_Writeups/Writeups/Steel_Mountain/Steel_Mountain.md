@@ -4,24 +4,24 @@ DIFFICULTY: EASY
 ![](attachments/Steel_Mountain.jpeg)
 # Introduction
 **Room instructions**:
-In this room you will enumerate a Windows machine, gain initial access with Metasploit, use Powershell to further enumerate the machine and escalate your privileges to Administrator.
+In this room, you will enumerate a Windows machine, gain initial access with Metasploit, use Powershell to further enumerate the machine, and escalate your privileges to Administrator.
 
 If you don't have the right security tools and environment, deploy your own Kali Linux machine and control it in your browser, with our [Kali Room](https://tryhackme.com/room/kali).
 # Initial Access
 To kick off our reconnaissance, we initiate an Nmap scan to discover open ports and services on the target machine. 
 ![](attachments/20230912104926.png)
 
-From our scan we can see that port 80 is open and can deduct that it is a website so lets visit the site and see what's waiting for us.
+From our scan, we can see that port 80 is open and can deduce that it is a website so let's visit the site and see what's waiting for us.
 
 ![](attachments/20230912192922.png)
 
-Here we have a website displaying the Employee of the month. But what we need is the name of the employee of the month so lets try and get that. We can start by viewing the page source code or using the inspect element to see the name of the image.
+Here we have a website displaying the Employee of the Month. But what we need is the name of the employee of the month so let's try and get that. We can start by viewing the page source code or using the inspect element to see the name of the image.
 
 ![](attachments/20230912193142.png)
 
-From the source code we can find the name of the Employee of the month.
+From the source code, we can find the name of the Employee of the month.
 
-**Question 1**: "Scan the machine with nmap. What is the other port running a web server on". Looking back to our nmap scan we can see port **8080** is open and is running a http web server.
+**Question 1**: "Scan the machine with Nmap. What is the other port running a web server on". Looking back to our Nmap scan we can see port **8080** is open and is running a http web server.
 
 **Question 3:** "Take a look at the other web server. What file server is running?". Once we navigate to the second web server and click on the link as shown below we are met with the name of the file server which is **Rejetto Http File Server**
 
@@ -34,7 +34,7 @@ From the source code we can find the name of the Employee of the month.
 
 **Question 4**: "Use Metasploit to get an initial shell. What is the user flag?"
 
-Now lets get to work * cracks knuckles *
+Now let's get to work * cracks knuckles *
 
 Fisrt step is to start our metasploit and search "rejetto" there should be a module `exploit/windows/http/rejetto_hfs_exec` so we select that and move to the next step.
 
@@ -47,15 +47,15 @@ Options set
 
 ![](attachments/20230912201920.png)
 
-As we can see the RHOSTS is our target host that is the Rejetto Http File Server, The RPORT is the target port which is **8080**. For the SRVHOST it will be our attack machine IP address this is basically the address where the exploit will be served on to be delivered on the target machine just like creating a python server to send a LinPeas script to a target machine but in this case we are sending the expliot **windows/webapps/49125.py** (which is already in metasploit's database) from our attack machine to the target machine. 
-Now the LHOST is our listener IP address which in this case is our attack IP and the address we will use to setup a listener to catch the shell while the LPORT is just the port we want to listen on.
+As we can see the RHOSTS is our target host which is the Rejetto Http File Server, The RPORT is the target port which is **8080**. For the SRVHOST it will be our attack machine IP address this is basically the address where the exploit will be served on to be delivered on the target machine just like creating a python server to send a LinPeas script to a target machine but in this case, we are sending the expliot **windows/webapps/49125.py** (which is already in metasploit's database) from our attack machine to the target machine. 
+Now the LHOST is our listener IP address which in this case is our attack IP and the address we will use to set up a listener to catch the shell while the LPORT is just the port we want to listen on.
 
 We then run the exploit and gain a meterpreter shell
 ![](attachments/20230923162713.png)
 
 Now to get the flag. Our initial access places us in this directory `C:\Users\bill\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
 
-So from experience of previous CTFs we should know the flag might be in the user's desktop, documents folder or somewhere else. We then navigate to desktop directory of the user "bill" and cat the user.txt file to get the flag.
+So from experience of previous CTFs, we should know the flag might be in the user's desktop, documents folder, or somewhere else. We then navigate to the desktop directory of the user "bill" and cat the user.txt file to get the flag.
 
 ![](attachments/20230912202842.png)
 
