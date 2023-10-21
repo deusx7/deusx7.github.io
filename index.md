@@ -25,12 +25,17 @@ NOTE: 🚧This site is still under construction lol 🚧
 - **Discord**: [Discord/@deusx_](https://discord.com/channels/@deusx_)
 
 * * *
-### **deusx:~# cat TryHackMe_Writeups**
+
+### **TryHackMe**
 - [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/THM/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
+
 * * *
-### **deusx:~# cat Hackthebox_Labs**
+
+### **HackTheBox**
 - [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/HTB/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
+
 * * *
+
 - **MAIL**: ibrahimodunmbaku2@gmail.com
 
 If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord `@deusx_` . I'm always here to help.
