@@ -60,7 +60,9 @@ a database password by the "spring.datasource" in the above image.
 
 ![](attachments/20231021013113.png)
 
-**NOTE**: If you're reading this for a guide remember to stabilize your shell or else you won't be able to log in. After logging into the database I discovered a database called cozyhosting and a table named users which contained password hashes that can be cracked. So I copied and pasted them to my attack machine to start cracking it using hashcat `hashcat -a 0 -m 3200 hash.txt /usr/share/wordlists/rockyou.txt` . 
+**NOTE**: If you're reading this for a guide remember to stabilize your shell or else you won't be able to log in. You can easily do this with: `python3 -c 'import pty;pty.spawn("/bin/bash")'` then `export TERM=xterm` then hit ctrl + z to background the shell and enter `stty raw -echo;fg`, press enter twice and that's it. 
+
+After logging into the database I discovered a database called cozyhosting and a table named users which contained password hashes that can be cracked. So I copied and pasted them to my attack machine to start cracking it using hashcat `hashcat -a 0 -m 3200 hash.txt /usr/share/wordlists/rockyou.txt` . 
  
 ![](attachments/20231021013324.png) 
 
