@@ -5,7 +5,7 @@ title: Home
 <h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/Posts/TryHackMe_Writeups/index.html">Tryhackme</a>&#xA0;&#xA0;&#xA0;</h2>
 
 * * *
-### Welcome To My Cybersecurity Blog
+# Welcome To My Cybersecurity Blog
 * * *
 
 Hello, 👋 I'm on a mission to become a skilled pentester and ethical hacker, deeply passionate about cybersecurity. I thrive on tackling Capture The Flag (CTF) challenges on platforms like TryHackMe and Hack The Box to enhance my skills.
@@ -14,7 +14,7 @@ I love sharing my knowledge through detailed write-ups and walkthroughs. If you 
 
 NOTE: 🚧This site is still under construction lol 🚧
 * * *
-### deusx:~# whoami
+## deusx:~# whoami
 * * *
 
 - **My Name:** `Ibrahim Adedeji Odunmbaku`
@@ -28,8 +28,6 @@ NOTE: 🚧This site is still under construction lol 🚧
 ### **deusx:~# cat TryHackMe_Writeups**
 - [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/TryHackMe_Writeups/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
 * * *
-
-***
 ### **deusx:~# cat Hackthebox_Labs**
 - [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/Hackthebox_Labs/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
 ***
