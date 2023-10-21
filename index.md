@@ -29,7 +29,7 @@ NOTE: 🚧This site is still under construction lol 🚧
 - [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/TryHackMe_Writeups/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
 * * *
 ### **deusx:~# cat Hackthebox_Labs**
-- [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/Hackthebox_Labs/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
+- [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/Hackthebox_Labs/Writeups/CozyHosting/CozyHosting.md1) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
 * * *
 - **MAIL**: ibrahimodunmbaku2@gmail.com
 
