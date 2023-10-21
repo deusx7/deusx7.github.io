@@ -5,7 +5,10 @@ DIFFICULTY: EASY
 ![[attachments/Pasted image 20231021011123.png]]
 # Introduction 
 
-This is an easy rated linux machine from hackthebox. It contains Directory Enumeration, Session Hijacking, PostgreSQL, Privilege Escalation, Hash Cracking, and Command Injection. # Initial Access To kick off our reconnaissance, I initiated an Nmap scan to discover open ports and services on the target machine. 
+This is an easy rated linux machine from hackthebox. It contains Directory Enumeration, Session Hijacking, PostgreSQL, Privilege Escalation, Hash Cracking, and Command Injection. 
+# Initial Access 
+
+To kick off our reconnaissance, I initiated an Nmap scan to discover open ports and services on the target machine. 
 
 ![[attachments/Pasted image 20231021011234.png]]
 
