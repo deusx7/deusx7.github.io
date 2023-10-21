@@ -30,7 +30,7 @@ NOTE: 🚧This site is still under construction lol 🚧
 * * *
 ### **deusx:~# cat Hackthebox_Labs**
 - [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/Hackthebox_Labs/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
-***
+* * *
 - **MAIL**: ibrahimodunmbaku2@gmail.com
 
 If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord `@deusx_` . I'm always here to help.
