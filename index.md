@@ -23,7 +23,8 @@ NOTE: 🚧This site is still under construction lol 🚧
 - **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](https://www.linkedin.com/in/ibrahim-odunmbaku-8639a811b/)
 - **Twitter**: [Twitter/@deusx_45](https://twitter.com/deusx_45)
 - **Discord**: [Discord/@deusx_](https://discord.com/channels/@deusx_)
-
+- **YouTube**: [YouTube/@deusx_](https://youtube.com/@Deus-X?si=FD4r1RL5HrpbkQPd)
+  
 * * *
 
 ### **TryHackMe**
