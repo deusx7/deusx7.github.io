@@ -29,6 +29,7 @@ NOTE: 🚧This site is still under construction lol 🚧
 
 ### **TryHackMe**
 - [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/THM/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
+
 - [[Dec 29 2023]] [BoilerCTF](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/THM/Writeups/BoilerCTF/BoilerCTF.html) `FTP, sar2html, Privilege Escalation, Cryptography, webmin`
 
 * * *
