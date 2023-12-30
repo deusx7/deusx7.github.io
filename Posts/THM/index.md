@@ -30,4 +30,4 @@ TryHackMe is a cutting-edge platform for mastering cybersecurity through immersi
 Start your Cybersecurity journey today by signing up for [TryHackMe](https://tryhackme.com/signup). Unlock your potential, contribute to a safer digital world, and shape the future of online security. Let's hack the future together!
 
 - [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/TryHackMe_Writeups/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
-- [[Dec 29 2023]] [BoilerCTF](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/THM/Writeups/BoilerCTF/BoilerCTF.html) `FTP, sar2html, Privilege Escalation, Cryptography, webmin`
+- [[Dec 29 2023]] [BoilerCTF](https://deusx7.github.io/Posts/THM/Writeups/BoilerCTF/BoilerCTF.html) `FTP, sar2html, Privilege Escalation, Cryptography, webmin`
