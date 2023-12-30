@@ -26,19 +26,14 @@ NOTE: 🚧This site is still under construction lol 🚧
 - **YouTube**: [YouTube/@deusx_](https://youtube.com/@Deus-X?si=FD4r1RL5HrpbkQPd)
   
 * * *
-
 ### **TryHackMe**
+
 - [[Sept 23 2023]] [Steel Mountain](https://deusx7.github.io/Posts/THM/Writeups/Steel_Mountain/Steel_Mountain.html) `Metasploit, Windows Privilege Escalation, CVE 2014-6287`
-<<<<<<< HEAD
 
-- [[Dec 29 2023]] [BoilerCTF](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/THM/Writeups/BoilerCTF/BoilerCTF.html) `FTP, sar2html, Privilege Escalation, Cryptography, webmin`
-=======
 - [[Dec 29 2023]] [BoilerCTF](https://deusx7.github.io/Posts/THM/Writeups/BoilerCTF/BoilerCTF.html) `FTP, sar2html, Privilege Escalation, Cryptography, webmin`
->>>>>>> origin/main
-
 * * *
-
 ### **HackTheBox**
+
 - [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/HTB/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
 
 * * *
