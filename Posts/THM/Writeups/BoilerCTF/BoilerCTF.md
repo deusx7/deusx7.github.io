@@ -1,5 +1,7 @@
 # BoilerCTF
+
 Difficulty: Medium
+
 ![](attachments/4a800c6513239dbdfaf74ce869a88add.jpeg)
 
 # Introduction
