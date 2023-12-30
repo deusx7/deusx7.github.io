@@ -8,7 +8,7 @@ title: Home
 # Welcome To My Cybersecurity Blog
 * * *
 
-Test Hello, 👋 I'm on a mission to become a skilled pentester and ethical hacker, deeply passionate about cybersecurity. I thrive on tackling Capture The Flag (CTF) challenges on platforms like TryHackMe and Hack The Box to enhance my skills. 
+ Hello, 👋 I'm on a mission to become a skilled pentester and ethical hacker, deeply passionate about cybersecurity. I thrive on tackling Capture The Flag (CTF) challenges on platforms like TryHackMe and Hack The Box to enhance my skills. 
 
 I love sharing my knowledge through detailed write-ups and walkthroughs. If you share my passion for cybersecurity, let's connect and collaborate! 🌐🛡️
 
