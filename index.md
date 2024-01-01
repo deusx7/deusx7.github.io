@@ -32,7 +32,7 @@ NOTE: 🚧This site is still under construction lol 🚧
 
 - [[Dec 29 2023]] [BoilerCTF](https://deusx7.github.io/Posts/THM/Writeups/BoilerCTF/BoilerCTF.html) `FTP, sar2html, Privilege Escalation, Cryptography, webmin`
 
-- [[Dec 30 2023]] [UltraTech](https://deusx7.github.io/Posts/THM/Writeups/UltraTech/UltraTech.html) `Security, Pentest, Privilege Escalation, Enumeration, Web Exploitation, API
+- [[Dec 30 2023]] [UltraTech](https://deusx7.github.io/Posts/THM/Writeups/UltraTech/UltraTech.html) `Security, Pentest, Privilege Escalation, Enumeration, Web Exploitation, API`
 
 * * *
 ### **HackTheBox**
