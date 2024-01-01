@@ -54,7 +54,7 @@ type in the following into the URL bar: `chrome://settings/content/javascript?se
 
 successfully doing that and navigating to the directory, we have some saying there is a hint in the video but after watching the video, at the :56 second mark a voice speaks and tells us we are looking in the wrong place, which means there's something else we have to look for. 
 
-After much searching i discovered in the Network tab that there was a request being sent to  a hidden directory which retrieves the video and then redirects us to the current page:
+After much searching i discovered in the Network tab that there was a request being sent to  a hidden directory and then redirects us to the current page:
 ![](attachments/20240101225757.png)
 
 Navigating to this discovered directory:
