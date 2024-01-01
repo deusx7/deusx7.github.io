@@ -43,7 +43,7 @@ First up as usual we kick off our reconnaissance with an Nmap scan to discover o
 
 Nmap scan result:
 
-![](attachments/20231231160736.png)
+!(attachments/20231231160736.png)
 *Note: The IP will be different for the rest of the write-up because i restarted the machine for this write-up*
 
 There are a 4 open ports and the rest are filtered. We have http running on port 8081 and 31331, which means it's a website and we can visit them. Ftp is also open on port 21 but no anonymous login enabled so we have to get credentials to login as well as ssh port 22. Next up is to visit the websites.
