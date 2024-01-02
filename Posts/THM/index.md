@@ -36,3 +36,5 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 - [[Dec 30 2023]] [UltraTech](https://deusx7.github.io/Posts/THM/Writeups/UltraTech/UltraTech.html) `Security, Pentest, Privilege Escalation, Enumeration, Web Exploitation, API
 
 - [[Jan 1 2024]] [Year of the Rabbit](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Rabbit/Year_of_the_Rabbit.html) `puzzle, challenge, boot-to-root, web, Privilege Escalation, CVE-2019-14287`
+
+- [[Jan 2 2024]] [GoldenEye](https://deusx7.github.io/Posts/THM/Writeups/GoldenEye/GoldenEye.html) `Hydra, pop3, Nmap, Enumeration, Privilege Escalation, overlayfs exploit`
