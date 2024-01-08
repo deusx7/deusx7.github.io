@@ -1,3 +1,4 @@
+r
 # Relevant 
 
 Difficulty: Medium
@@ -40,3 +41,5 @@ Machine may take up to 5 minutes for all services to start.
 First up an Nmap scan is performed to discover open ports and services running on the target.
 
 Nmap scan result:
+
+]]
