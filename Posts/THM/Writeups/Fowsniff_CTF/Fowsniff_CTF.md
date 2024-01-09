@@ -54,8 +54,8 @@ Using the usernames and passwords you captured, can you use metasploit to brute 
 ![](attachments/20240109152402.png)
 
 After setting the appropriate options: 
-USER_FILE - create a separate file for the usernames captured and set it using `set USER_FILE <usernames.txt>`
-PASS_FILE - create a separate file for the passwords captured and set it using `set PASS_FILE <passwords.txt>`
+USER_FILE - create a separate file for the usernames captured and set it using `set USER_FILE usernames.txt`
+PASS_FILE - create a separate file for the passwords captured and set it using `set PASS_FILE passwords.txt`
 RHOSTS - Target IP address `set RHOST <IP>`
 Then run it using `exploit`
 
