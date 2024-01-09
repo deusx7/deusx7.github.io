@@ -38,3 +38,5 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 - [[Jan 1 2024]] [Year of the Rabbit](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Rabbit/Year_of_the_Rabbit.html) `puzzle, challenge, boot-to-root, web, Privilege Escalation, CVE-2019-14287`
 
 - [[Jan 2 2024]] [GoldenEye](https://deusx7.github.io/Posts/THM/Writeups/GoldenEye/GoldenEye.html) `Hydra, pop3, Nmap, Enumeration, Privilege Escalation, overlayfs exploit`
+
+- [[Jan 8 2024]] [Fowsniff_CTF](https://deusx7.github.io/Posts/THM/Writeups/Fowsniff_CTF/Fowsniff_CTF.html) `Hydra, pop3, Nmap, Enumeration, Privilege Escalation, overlayfs exploit`
