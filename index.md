@@ -38,6 +38,8 @@ NOTE: 🚧This site is still under construction lol 🚧
 
 -  [[Jan 2 2024]] [GoldenEye](https://deusx7.github.io/Posts/THM/Writeups/GoldenEye/GoldenEye.html) `Hydra, pop3, Nmap, Enumeration, Privilege Escalation, overlayfs exploit` 
 
+- [[Jan 8 2024]] [Fowsniff_CTF](https://deusx7.github.io/Posts/THM/Writeups/Fowsniff_CTF/Fowsniff_CTF.html) `portscanning, hashes, bruteforcing, Enumeration, Privilege Escalation, pop3`
+
 * * *
 ### **HackTheBox**
 
