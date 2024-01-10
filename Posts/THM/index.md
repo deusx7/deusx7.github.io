@@ -2,7 +2,7 @@
 layout: default
 title: TryHackMe
 ---
-<h1 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="deusx7.github.io/index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/Posts/HTB/index.html">HackTheBox</a>&#xA0;&#xA0;&#xA0;</h1>
+<h1 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="../../index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/Posts/HTB/index.html">HackTheBox</a>&#xA0;&#xA0;&#xA0;</h1>
 <script src="https://tryhackme.com/badge/1528520"></script>
 
 ![image](https://user-images.githubusercontent.com/127159644/223289326-adc9f1f7-1fea-497a-b829-28d6a50f3390.png)
