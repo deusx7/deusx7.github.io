@@ -4,7 +4,7 @@ title: TryHackMe
 ---
 ## Root
 
-![[attachments/Pasted image 20240110155430.png]]
+![](attachments/20240110155430.png)
 
 ---
 ### HackTheBox
