@@ -88,7 +88,7 @@ Using the list of usernames and  the known password we get our answer
 
 ![](attachments/20240109154744.png)
 
-Using this command `find / -type f -group users -perm /g=x 2>/dev/null` we can find he file:
+Using this command `find / -type f -group users -perm /g=x 2>/dev/null` we can find the file:
 
 ![](attachments/20240109154948.png)
 
