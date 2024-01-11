@@ -39,6 +39,8 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 
 - [[Jan 8 2024]] [Fowsniff_CTF](https://deusx7.github.io/Posts/THM/Writeups/Fowsniff_CTF/Fowsniff_CTF.html) `portscanning, hashes, bruteforcing, Enumeration, Privilege Escalation, pop3`
 
+- [[Jan 11 2024]] [Ice](https://deusx7.github.io/Posts/THM/Writeups/Ice/Ice.html) `Windows, Nmap, mimkatz, Metasploit, Windows Privilege Escalation, CVE-2004-1561`
+
 * * *
 ### **HackTheBox**
 
