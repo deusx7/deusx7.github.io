@@ -29,7 +29,7 @@ We were also advised to use the SYN scan set `-sS` to scan all ports on the mach
 - `-sC` use nmap default scripts
 - `-sV` for service version detection
 - `-sS` for TCP SYN scan
-- `-A` OS detection
+- `-A` OS detection, Aggressive Scan
 - `-Pn` disable ping
 - `-p-` scan all ports
 - `--min-rate 1000` scan speed
