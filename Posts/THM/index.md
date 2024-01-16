@@ -43,3 +43,5 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 - [[Jan 8 2024]] [Fowsniff_CTF](https://deusx7.github.io/Posts/THM/Writeups/Fowsniff_CTF/Fowsniff_CTF.html) `PortScanning, hashes, bruteforcing, Enumeration, Privilege Escalation, pop3`
 
 - [[Jan 11 2024]] [Ice](https://deusx7.github.io/Posts/THM/Writeups/Ice/Ice.html) `Windows, Nmap, mimkatz, Metasploit, Windows Privilege Escalation, CVE-2004-1561`
+
+-  [[Jan 15 2024]] [Biohazard](https://deusx7.github.io/Posts/THM/Writeups/Biohazard/Biohazard.html) `cipher, base, steganography, root`

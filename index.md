@@ -41,6 +41,8 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 
 - [[Jan 11 2024]] [Ice](https://deusx7.github.io/Posts/THM/Writeups/Ice/Ice.html) `Windows, Nmap, mimkatz, Metasploit, Windows Privilege Escalation, CVE-2004-1561`
 
+- [[Jan 15 2024]] [Biohazard](https://deusx7.github.io/Posts/THM/Writeups/Biohazard/Biohazard.html) `cipher, base, steganography, root`
+
 * * *
 ### **HackTheBox**
 
