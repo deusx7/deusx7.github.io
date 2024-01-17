@@ -43,6 +43,8 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 
 - [[Jan 15 2024]] [Biohazard](https://deusx7.github.io/Posts/THM/Writeups/Biohazard/Biohazard.html) `cipher, base, steganography, root`
 
+- [[Jan 17 2024]] [Attacktive Directory](https://deusx7.github.io/Posts/THM/Writeups/Attacktive_Directory/Attacktive_Directory.html) `Active Directory, Kerberos, SMB, impacket, ASREPRoasting`
+
 * * *
 ### **HackTheBox**
 
