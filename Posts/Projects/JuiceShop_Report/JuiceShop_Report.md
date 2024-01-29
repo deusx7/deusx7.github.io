@@ -78,6 +78,7 @@ Moving over to perform an automated enumeration with the use of a directory brut
 List  of discovered directories and files:
 
 ![](attachments/20240128200648.png)
+ 
  with this information in hand the scope of the testing increases significantly because there are new pages to test for vulnerabilities and new files to check for vital information.
 
 Switching back to the manual enumeration, some additional paths/directories were discovered in the main.js file during the analysis of source code:
