@@ -201,7 +201,9 @@ Another SQL Injection vulnerability was discovered at  `/rest/products/search?q=
 ![](attachments/20240126131617.png)
 
 Dumping the tables:
+
 ![](attachments/20240126131744.png)
+
 Reveals all the tables in the database.
 
 
