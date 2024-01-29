@@ -463,6 +463,7 @@ Examples of libraries and frameworks that make it easier to generate properly en
 
 <details>
 	<summary> Read more</summary>
+	
 **Phases: Implementation; Architecture and Design**
 
 Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies.
@@ -530,6 +531,7 @@ Even though client-side checks provide minimal benefits with respect to server-s
 
 <details>
 	<summary>Read more</summary>
+
 Do not rely exclusively on deny list validation to detect malicious input or to encode output. There are too many ways to encode the same character, so you're likely to miss some variants.
 
 When your application combines data from multiple sources, perform the validation after the sources have been combined. The individual data elements may pass the validation step but violate the intended restrictions after they have been combined.
