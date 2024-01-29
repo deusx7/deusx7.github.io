@@ -53,7 +53,7 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 * * *
 ### Projects
 
-- [[Jan 22 2024]] [Web Application Penetration Test Report](https://deusx7.github.io/deusx7Posts/Projects/JuiceShop_Report/JuiceShop_Report.html)
+- [[Jan 22 2024]] [Web Application Penetration Test Report](https://deusx7.github.io/Posts/Projects/JuiceShop_Report/JuiceShop_Report.html)
 
 * * *
 
