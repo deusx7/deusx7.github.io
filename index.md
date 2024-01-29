@@ -51,6 +51,11 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 - [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/HTB/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
 
 * * *
+### Projects
+
+- [[Jan 22 2024]] [Web Application Pentetration Test Report](https://deusx7.github.io/deusx7Posts/Projects/JuiceShop_Report/JuiceShop_Report.html)
+
+* * *
 
 - **MAIL**: ibrahimodunmbaku2@gmail.com
 
