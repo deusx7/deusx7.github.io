@@ -59,7 +59,7 @@ As part of the enumeration phase, manual and automated enumeration was carried o
 # Phase 1 & 2: Enumeration & Discovery
 ## Directory Indexing
 
-Logging into the newly created user account and performing a manual directory search by looking for a `robots.txt` file to find any restricted directory:
+Logging into the newly created user account and performing a manual directory search by looking for a `robots.txt` file to find any restricted directory. A robots. txt file contains instructions for bots that tell them which webpages they can and cannot access. Robots. txt files are most relevant for web crawlers from search engines like Google.
 
 ![](attachments/20240128194954.png)
 ## Information Leakage
