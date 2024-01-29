@@ -206,7 +206,6 @@ Dumping the tables:
 
 Reveals all the tables in the database.
 
-
 ## Weak Hashing Algorithm
 
 Following up on this by dumping the contents of the Users table, some password hashes were extracted and cracked to get the plain text passwords:
@@ -216,6 +215,7 @@ Hashes:
 ![](attachments/20240128211129.png)
 
 Cracked:
+
 ![](attachments/20240128211334.png)
 
 These hashes were easily cracked because they are using a weak hashing algorithm (MD5) and  a weak password. The admin email and password was successfully extracted with this attack and the admin account became accessible:
