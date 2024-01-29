@@ -85,6 +85,7 @@ Switching back to the manual enumeration, some additional paths/directories were
 ![](attachments/20240125093101.png)
 
 Extracting the paths discovered:
+
 ![](attachments/20240125094226.png)
 
 Some of these paths will be referred to later on in the testing.
@@ -128,6 +129,7 @@ First thing that was tested in this phase was the login form `/rest/user/login` 
 ![](attachments/20240126114444.png)
 
 Entering the payload as the email and a random password gives admin access to the site:
+
 ![](attachments/20240126114543.png)
 
 ## Privilege Escalation
@@ -165,6 +167,7 @@ When a user logs in a GET request is sent to the `/rest/user/admin` endpoint wit
 ![](attachments/20240126120427.png)
 
 Removing the header, still results in a successful response and login:
+
 ![](attachments/20240126120623.png)
 
 ## Reflected Cross-Site Scripting (XSS)
@@ -178,6 +181,7 @@ Payload: `<img src=x onerror="alert('XSS')" />`
 ## Application Misconfiguration
 
 Checking the stored cookies on the site reveals there is no HttpOnly flag set on the token:
+
 ![](attachments/20240126125530.png)
 
 Using the payload: `<img src=x onerror="alert(document.cookie)" />` the user's cookie is disclosed:
@@ -232,6 +236,7 @@ other ID are detected and accessible. This is an IDOR vulnerability (Insecure di
 ## Abuse of Functionality by HTTP Parameter Pollution
 
 Looking at the request made to /BasketItems:
+
 ![](attachments/20240126154011.png)
 
 Manipulating the request  body and putting a negative value as the quantity and also changing the method to PUT:
@@ -261,6 +266,7 @@ The `/ftp` directory discovered earlier contained a file which had old coupons w
 ![](attachments/20240126161944.png)
 
 Coupons and their date in milliseconds:
+
 ![](attachments/20240126162115.png)
 To bypass this all that was done was to change the `clientDate` value to the date of the coupon
 
@@ -273,6 +279,7 @@ Which resulted in a 2019 coupon being used in 2024 to get a 75% discount:
 ## Abuse of Functionality
 
 The customer feedback section:
+
 ![](attachments/20240127122106.png)
 
 At the frontend of the application giving 0-star review is not possible but by manipulating request it was made possible:
@@ -304,9 +311,8 @@ Uploading the file and sending the request:
 ![](attachments/20240127130701.png)
 
 In the body of the response, the contents of the `passwd` file is displayed: 
-![](attachments/20240127130727.png)
 
-This is an **XXE** (XML External Entities) vulnerability.
+![](attachments/20240127130727.png)
 
 ## Stored XSS through Header Poisoning
 
@@ -321,6 +327,7 @@ Using the header `True-Client-IP` which was discovered from the server source co
 ![](attachments/20240127133622.png)
 
 In the Response the lastloginIP value has been set to the specified value:
+
 ![](attachments/20240127133659.png)
 
 Using this vulnerability it was possible to get a Stored XSS vulnerability by putting the payload in the header:
@@ -340,6 +347,7 @@ This was only be possible because the server side source code is available to th
 ## Abuse of Functionality by Modifying products via PUT request as a normal user 
 
 Performing a PUT request to the  `/api/products` endpoint to change the name of a product:
+
 ![](attachments/20240127184231.png)
 
 Adding the Content-Type Header:
@@ -385,9 +393,6 @@ Evidence:
 
 ![](attachments/20240127193051.png)
 
-This is a **Abuse of Functionality** vulnerability
-
-
 ## Cross-Site Scripting (XSS)
 
 Going back to the package.json file discovered earlier in the `/ftp` directory, There were a list of packages and dependencies running on the server and their versions that could be vulnerable. After much investigation, it was discovered that the `"sanitize-html": "1.4.2"`
@@ -416,6 +421,7 @@ A server-side template injection attack (SSTI) is **when a threat actor exploits
 Testing the  page:
 
 Injecting the payload results in a output on the page:
+
 ![](attachments/20240127210326.png)
 
 # Remediation
