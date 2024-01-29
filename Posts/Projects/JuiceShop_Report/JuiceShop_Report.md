@@ -119,6 +119,7 @@ Response to the Request gives the output of the file contents:
 Navigating to the `/metrics` directory discloses some sensitive information that should not be made publicly accessible:
 
 ![](attachments/20240126113812.png)
+
 It contains detailed statistics about the server.
 # Phase 3: Exploitation
 
