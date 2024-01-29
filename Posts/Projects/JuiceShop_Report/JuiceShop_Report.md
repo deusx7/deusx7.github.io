@@ -5,17 +5,17 @@
 **Prepared By**: Odunmbaku Adedeji Ibrahim 
 **Date**: January 22, 2024
 
-# EXECUTIVE SUMMARY
+# Executive Summary
 
 The OWASP Juice Shop penetration test was conducted to assess the security posture of the web application. The objective was to identify and analyze potential vulnerabilities and provide recommendations for improving the overall security of the application.
 
 ## Scope
 
-The scope of this assessment, as provided by Juice Shop, was http://ubuntu-server:8002/. It was also stated that all paths on the site are in scope and are to be fully tested.
+The scope of this assessment, as provided by Juice Shop, was `http://ubuntu-server:8002/`. It was also stated that all paths on the site are in scope and are to be fully tested.
 
 ## Classification of Vulnerabilities
 
-![[attachments/Pasted image 20240128190324.png]]
+![](attachments/20240128190324.png)
 
 Classification of vulnerabilities ranges from High to Informational as seen in the chart above.
 
@@ -23,18 +23,18 @@ Classification of vulnerabilities ranges from High to Informational as seen in t
 
 A total of 13 vulnerabilities were discovered with 11 being High and 2 Medium.
 
-![[attachments/Pasted image 20240128190333.png]]
+![](attachments/20240128190333.png)
 
 
 # Vulnerability Details:
 
 List of vulnerabilities discovered:
 
-![[attachments/Pasted image 20240128190341.png]]
+![](attachments/20240128190341.png)
 
-## ACTIVITY LOG
+# Activity Log
 
-The penetration Test started by working through the standard methodology of Enumeration → Discovery → Exploitation → Remediation.  Throughout the engagement, several types of activities were carried out on each of the web interfaces within the web application. The following list details the high-level activities and considerations carried out during the engagement. This list is not inclusive of every test performed:
+The penetration Test started by working through the standard methodology of `Enumeration → Discovery → Exploitation → Remediation`.  Throughout the engagement, several types of activities were carried out on each of the web interfaces within the web application. The following list details the high-level activities and considerations carried out during the engagement. This list is not inclusive of every test performed:
 
 - Conducted both manual and automatic enumeration using various tools.
 - Conducted mapping of all paths in the application.
@@ -54,40 +54,44 @@ The penetration Test started by working through the standard methodology of Enum
 
 As part of the enumeration phase, manual and automated enumeration was carried out, exploring all functionalities of the web application. Starting by creating a normal user account while taking note of potentially vulnerable areas:
 
-![[attachments/Pasted image 20240128194854.png]]
+![](attachments/20240128194854.png)
 
-## Phase 1 & 2: Enumeration & Discovery
+# Phase 1 & 2: Enumeration & Discovery
+## Directory Indexing
 
 Logging into the newly created user account and performing a manual directory search by looking for a `robots.txt` file to find any restricted directory:
 
-![[attachments/Pasted image 20240128194954.png]]
-This led to the first vulnerability discovered **Directory Indexing**. Proceeding to the /ftp directory some confidential documents were disclosed:
+![](attachments/20240128194954.png)
+## Information Leakage
 
-![[attachments/Pasted image 20240128195531.png]]
+Proceeding to the /ftp directory some confidential documents were disclosed:
 
-![[attachments/Pasted image 20240128195556.png]]
-This is the second vulnerability discovered which is **Information Leakage**
+![](attachments/20240128195531.png)
+
+![](attachments/20240128195556.png)
+
+## Improper Input Handling
 
 Moving over to perform an automated enumeration with the use of a directory brute-force automated tool called `feroxbuster`. 
 *Directory brute-forcing is a method where an attacker systematically tries to discover hidden or sensitive files and directories on a web server by guessing their names.*
 
 List  of discovered directories and files:
 
-![[attachments/Pasted image 20240128200648.png]]
+![](attachments/20240128200648.png)
  with this information in hand the scope of the testing increases significantly because there are new pages to test for vulnerabilities and new files to check for vital information.
 
 Switching back to the manual enumeration, some additional paths/directories were discovered in the main.js file during the analysis of source code:
 
-![[attachments/Pasted image 20240125093101.png]]
+![](attachments/20240125093101.png)
 
 Extracting the paths discovered:
-![[attachments/Pasted image 20240125094226.png]]
+![](attachments/20240125094226.png)
 
 Some of these paths will be referred to later on in the testing.
 
 A file named `package.json.bak` earlier discovered in the `/ftp` directory was the next thing to investigate.
 
-![[attachments/Pasted image 20240125101126.png]]
+![](attachments/20240125101126.png)
 
 *The package.json file is a file that enables npm (node package manager) to start your project, run scripts, install dependencies, publish to the NPM registry, and many other useful tasks.*
 
@@ -95,7 +99,7 @@ This package.json.bak file could potentially contains versions of dependencies r
 
 Trying to access the file shows that a server side filter is in place to block any file without the extension of `.md and .pdf`. 
 
-![[attachments/Pasted image 20240125102416.png]]
+![](attachments/20240125102416.png)
 
 Bypassing this filter involved having to leverage a Null Byte Bypass. 
 
@@ -103,156 +107,319 @@ Bypassing this filter involved having to leverage a Null Byte Bypass.
 
 Injecting the character `%25` which is a % in URL encoding followed by `00` along with the `.md` extension in the request Header allowed for easy bypass of this server side filter:
 
-![[attachments/Pasted image 20240126112506.png]]
+![](attachments/20240126112506.png)
 
 Response to the Request gives the output of the file contents:
 
-![[attachments/Pasted image 20240126112715.png]]
+![](attachments/20240126112715.png)
 
-3rd vulnerability discovered **Improper Input Handling**
+## Application Misconfiguration
 
 Navigating to the `/metrics` directory discloses some sensitive information that should not be made publicly accessible:
 
-![[attachments/Pasted image 20240126113812.png]]
-It contains detailed statistics about the server, this is sensitive information and led to the 4th vulnerability discovered **Application Misconfiguration**.
+![](attachments/20240126113812.png)
+It contains detailed statistics about the server.
+# Phase 3: Exploitation
 
-
-## Phase 3: Exploitation
+## SQL Injection
 
 First thing that was tested in this phase was the login form `/rest/user/login` API using a basic SQL injection payload `' or 1=1 --`:
 
-![[attachments/Pasted image 20240126114444.png]]
+![](attachments/20240126114444.png)
 
 Entering the payload as the email and a random password gives admin access to the site:
-![[attachments/Pasted image 20240126114543.png]]
+![](attachments/20240126114543.png)
 
-This is a critical vulnerability known as **SQL Injection**
+## Privilege Escalation
 
 Moving on to the next step, when a user is created on the site a POST request is sent to the `/api/Users` endpoint:
 
-![[attachments/Pasted image 20240126115339.png]]
+![](attachments/20240126115339.png)
 
 In the body of the response a 'role' for that users is automatically added and default as "customer":
-![[attachments/Pasted image 20240126115414.png]]
+![](attachments/20240126115414.png)
 
 Adding the role of admin to the body of the request ended up giving the user admin privileges:
 
 Request:
 
-![[attachments/Pasted image 20240126115838.png]]
+![](attachments/20240126115838.png)
 
 Response:
 
-![[attachments/Pasted image 20240126115926.png]]
+![](attachments/20240126115926.png)
 
 Login as the user:
 
 The user is able to access the administration panel only for admins
 
-![[attachments/Pasted image 20240128204800.png]]
+![](attachments/20240128204800.png)
 
 This led to a successful Privilege Escalation from the role of customer to the role of admin
+
+## Insufficient Authorization
 
 Next vulnerability discovered was the **Insufficient Authorization** vulnerability.
 When a user logs in a GET request is sent to the `/rest/user/admin` endpoint with an Authorization Header set:
 
-![[attachments/Pasted image 20240126120427.png]]
+![](attachments/20240126120427.png)
 
 Removing the header, still results in a successful response and login:
-![[attachments/Pasted image 20240126120623.png]]
+![](attachments/20240126120623.png)
 
-This is an **Insufficient Authorization** vulnerability
-
-
+## Reflected Cross-Site Scripting (XSS)
 
 A Reflected Cross-Site Scripting (XSS) vulnerability was discovered in the parameter `q`
 for the search function:
 Payload: `<img src=x onerror="alert('XSS')" />`
 
-![[attachments/Pasted image 20240126124351.png]]
+![](attachments/20240126124351.png)
 
+## Application Misconfiguration
 
 Checking the stored cookies on the site reveals there is no HttpOnly flag set on the token:
-![[attachments/Pasted image 20240126125530.png]]
+![](attachments/20240126125530.png)
 
 Using the payload: `<img src=x onerror="alert(document.cookie)" />` the user's cookie is disclosed:
 
-![[attachments/Pasted image 20240126125419.png]]
+![](attachments/20240126125419.png)
 
 Checking the GET request sent to `/rest/user/whoami` shows the Authorization token is the same as the cookie value:
 
-![[attachments/Pasted image 20240126125910.png]]
+![](attachments/20240126125910.png)
 
-With the token disclosed, it is possible for an attacker to perform any amount of API requests and login as the user. This is falls under **Application Misconfiguration**  
+With the token disclosed, it is possible for an attacker to perform any amount of API requests and login as the user. 
+
+## SQL Injection
 
 Another SQL Injection vulnerability was discovered at  `/rest/products/search?q=`. Performing an automated using SQLmap led to the discovery of an SQLite database in use:
 
-![[attachments/Pasted image 20240126131617.png]]
+![](attachments/20240126131617.png)
 
 Dumping the tables:
-![[attachments/Pasted image 20240126131744.png]]
-Reveals all the tables in the database. This is another **SQL Injection** vulnerability.
+![](attachments/20240126131744.png)
+Reveals all the tables in the database.
+
+
+## Weak Hashing Algorithm
 
 Following up on this by dumping the contents of the Users table, some password hashes were extracted and cracked to get the plain text passwords:
 
 Hashes:
 
-![[attachments/Pasted image 20240128211129.png]]
+![](attachments/20240128211129.png)
 
 Cracked:
-![[attachments/Pasted image 20240128211334.png]]
+![](attachments/20240128211334.png)
 
 These hashes were easily cracked because they are using a weak hashing algorithm (MD5) and  a weak password. The admin email and password was successfully extracted with this attack and the admin account became accessible:
 
-![[attachments/Pasted image 20240126152443.png]]
+![](attachments/20240126152443.png)
 
-![[attachments/Pasted image 20240126152926.png]]
+![](attachments/20240126152926.png)
 
 ## Insecure Indexing
 
 When adding an item to basket in the homepage, there is a request made to /rest/basket/ID:
-![[attachments/Pasted image 20240126153032.png]]
+![](attachments/20240126153032.png)
 
 Fuzzing the ID value:
 
-![[attachments/Pasted image 20240126153447.png]]
+![](attachments/20240126153447.png)
 
 other ID are detected and accessible. This is an IDOR vulnerability (Insecure direct Object referencing)
 
-## HTTP Parameter Pollution
+## Abuse of Functionality by HTTP Parameter Pollution
 
 Looking at the request made to /BasketItems:
-![[attachments/Pasted image 20240126154011.png]]
+![](attachments/20240126154011.png)
 
 Manipulating the request  body and putting a negative value as the quantity and also changing the method to PUT:
 
-![[attachments/Pasted image 20240126155737.png]]
+![](attachments/20240126155737.png)
 
 Results in changing the total price and the quantity:
 
-![[attachments/Pasted image 20240126155750.png]]
+![](attachments/20240126155750.png)
 
-![[attachments/Pasted image 20240126160052.png]]
+![](attachments/20240126160052.png)
 
-![[attachments/Pasted image 20240126160231.png]]
+![](attachments/20240126160231.png)
 
-This falls under **Abuse of Functionality**
-## Coupon Test
+## Time based Vulnerability on Coupons
+
+Testing the coupon section for any vulnerabilities involved inspecting the source code and checking for the `applyButton` function:
+
+![](attachments/20240126160707.png)
+
+Clicking on the `redeem` button sends a PUT request to `/rest/basket/ID/coupon/ID`:
+
+![](attachments/20240126161007.png)
+
+The `/ftp` directory discovered earlier contained a file which had old coupons which were tested but didn't work due to a verification going on in the code for date:
+
+![](attachments/20240126161944.png)
+
+Coupons and their date in milliseconds:
+![](attachments/20240126162115.png)
+To bypass this all that was done was to change the `clientDate` value to the date of the coupon
+
+![](attachments/20240126164339.png)
+
+Which resulted in a 2019 coupon being used in 2024 to get a 75% discount:
+
+![](attachments/20240126164628.png)
+
+## Abuse of Functionality
+
+The customer feedback section:
+![](attachments/20240127122106.png)
+
+At the frontend of the application giving 0-star review is not possible but by manipulating request it was made possible:
+
+Request body changed the rating from 3 to 0:
+
+![](attachments/20240127123107.png)
+
+Response:
+
+![](attachments/20240127123121.png)
+
+O-star reviews:
+
+![](attachments/20240127124923.png)
+
+This is an **Abuse of Functionality**.
+
+Another vulnerability discovered was in the complaint section, this section has a file upload capability and only allows PDF, XML and ZIP files. But it was discovered other extensions were also allowed when reviewing the source code:
+
+![](attachments/20240127125822.png)
+
+It accepts XML files. Therefore an XXE attack was carried out. Using this payload to try and read the system's `passwd` file which contains user information on the server:
+
+![](attachments/20240127130256.png)
+
+Uploading the file and sending the request:
+
+![](attachments/20240127130701.png)
+
+In the body of the response, the contents of the `passwd` file is displayed: 
+![](attachments/20240127130727.png)
+
+This is an **XXE** (XML External Entities) vulnerability.
+
+## Stored XSS through Header Poisoning
+
+Taking a look at the Last Login IP section which is used to display the IP address of the user that last logged in:
+
+![](attachments/20240127132052.png)
+
+By manipulating the Request Header, it was possible to set the IP to any value specified:
+
+Using the header `True-Client-IP` which was discovered from the server source code located at the github repository:
+
+![](attachments/20240127133622.png)
+
+In the Response the lastloginIP value has been set to the specified value:
+![](attachments/20240127133659.png)
+
+Using this vulnerability it was possible to get a Stored XSS vulnerability by putting the payload in the header:
+
+![](attachments/20240127134902.png)
+
+Response:
+
+![](attachments/20240127134936.png)
+
+When clicking on the LastLoginIP button the payload was executed which leads to stored XSS:
+
+![](attachments/20240127135022.png)
+
+This was only be possible because the server side source code is available to the public.
+
+## Abuse of Functionality by Modifying products via PUT request as a normal user 
+
+Performing a PUT request to the  `/api/products` endpoint to change the name of a product:
+![](attachments/20240127184231.png)
+
+Adding the Content-Type Header:
+
+![](attachments/20240127184507.png)
+
+Gives the ability to change product names:
+
+![](attachments/20240127184531.png)
+
+It was also discovered that creation of new products was possible using a POST request:
+
+Request:
+
+![](attachments/20240127185108.png)
+
+Response:
+
+![](attachments/20240127185238.png)
+
+Reloading the site shows the new product:
+
+![](attachments/20240127185551.png)
+
+## Abuse of Functionality
+
+The next test was at the product review section. The ability to change product review of all products on the site was discovered. 
+
+![](attachments/20240127192851.png)
+
+Using the specific header which will change review on all products and making a PATCH request to the `/rest/products/reviews` endpoint:
+
+Response:
+
+![](attachments/20240127192339.png)
+
+Evidence:
+
+![](attachments/20240127192831.png)
 
 
-testing of the login form   we explored all of the available functionality within the application
-using each account role provided. Starting as a normal user, we began building a map of the
-application features and potentially vulnerable areas, such as login forms, user profile pages, or
-input fields for sensitive information. This process was also repeated under an administrative
-account, and the differences in roles and access permissions were noted. By thoroughly mapping
-the application and roles, we had developed a good idea of the functionality and features used
-within the application, as well as how the application was intended to behave.
-Next, we walked back through the application again, but this time from the perspective of a
-malicious user or attacker. Instead of considering the expected actions from normal application
-usage, we applied various techniques related to intercepting/manipulating outgoing requests or
-incoming responses, passing malformed data to input fields, and attempting to generate unusual
-responses from the application
-## Abuse of Functionality - High 
+![](attachments/20240127193037.png)
+
+![](attachments/20240127193051.png)
+
+This is a **Abuse of Functionality** vulnerability
+
+
+## Cross-Site Scripting (XSS)
+
+Going back to the package.json file discovered earlier in the `/ftp` directory, There were a list of packages and dependencies running on the server and their versions that could be vulnerable. After much investigation, it was discovered that the `"sanitize-html": "1.4.2"`
+is  vulnerable. Searching online for the vulnerability, a specific payload was discovered and used to get a XSS attack:
+
+![](attachments/20240127195613.png)
+
+Modifying the payload and using the Customer Feedback section tot test this:
+
+
+![](attachments/20240127201856.png)
+An XSS alert was possible indicating a successful XSS attack:
+
+![](attachments/20240127201927.png)
+
+## Server-Side Template Injection
+
+At a point during the pentest, it was discovered that the `/profile` page was making use of PUG.
+
+![](attachments/20240127202906.png)
+
+ Pug is **a template engine that allows you to write cleaner templates with less repetition**. With this knowledge in hand it was possible to carry out a SSTI attack.
+ 
+A server-side template injection attack (SSTI) is **when a threat actor exploits a template's native syntax and injects malicious payloads into the template**.
+
+Testing the  page:
+
+Injecting the payload results in a output on the page:
+![](attachments/20240127210326.png)
+
+# Remediation
+## Abuse of Functionality
 
 Abuse of Functionality is an attack technique that uses a web site's own features and functionality to attack itself or others. Abuse of Functionality can be described as the abuse of an application's intended functionality to perform an undesirable outcome. These attacks have varied results such as consuming resources, circumventing access controls, or leaking information. The potential and level of abuse will vary from web site to web site and application to application. Abuse of functionality attacks are often a combination of other attack types and/or utilize other attack vectors.
 
@@ -261,7 +428,7 @@ Abuse of Functionality is an attack technique that uses a web site's own feature
 **Reference**: 
 [https://cheatsheetseries.owasp.org/cheatsheets/Abuse_Case_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Abuse_Case_Cheat_Sheet.html)  
 [https://cwe.mitre.org/data/definitions/227.html](https://cwe.mitre.org/data/definitions/227.html)
-## Application Misconfiguration - High
+## Application Misconfiguration
 
 Application Misconfiguration attacks exploit configuration weaknesses found in web applications. Many applications come with unnecessary and unsafe features, such as debug and QA features, enabled by default. These features may provide a means for a hacker to bypass authentication methods and gain access to sensitive information, perhaps with elevated privileges.
 
@@ -274,17 +441,11 @@ Likewise, default installations may include well-known usernames and passwords, 
 
 **Reference**:
 [https://cwe.mitre.org/data/definitions/16.html](https://cwe.mitre.org/data/definitions/16.html)
-## Cross-site Scripting - High
+## Cross-site Scripting
 
 Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.
 
 When an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.
-
-There are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.
-
-Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.
-
-Persistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.
 
 **Solution**:
 
@@ -294,6 +455,8 @@ Use a vetted library or framework that does not allow this weakness to occur or 
 
 Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft's Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.
 
+<details>
+	<summary> Read more</summary>
 **Phases: Implementation; Architecture and Design**
 
 Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies.
@@ -320,13 +483,14 @@ When performing input validation, consider all potentially relevant properties, 
 
 Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.
 
+</details>
+
 **Reference**:
 [https://owasp.org/www-community/attacks/xss/](https://owasp.org/www-community/attacks/xss/)  
 [https://cwe.mitre.org/data/definitions/79.html](https://cwe.mitre.org/data/definitions/79.html)
-## Directory Indexing - High
+## Directory Indexing
 
 Automatic directory listing/indexing is a web server function that lists all of the files within a requested directory if the normal base file (index.html/home.html/default.htm/default.asp/default.aspx/index.php) is not present. When a user requests the main page of a web site, they normally type in a URL such as: https://www.example.com/directory1/ - using the domain name and excluding a specific file. The web server processes this request and searches the document root directory for the default file name and sends this page to the client. If this page is not present, the web server will dynamically issue a directory listing and send the output to the client. Essentially, this is equivalent to issuing an "ls" (Unix) or "dir" (Windows) command within this directory and showing the results in HTML form. From an attack and countermeasure perspective, it is important to realize that unintended directory listings may be possible due to software vulnerabilities (discussed in the example section below) combined with a specific web request.
-
 
 **Solution**:
 
@@ -336,8 +500,7 @@ Reference:
 [https://owasp.org/www-community/attacks/Path_Traversal](https://owasp.org/www-community/attacks/Path_Traversal)  
 [https://cwe.mitre.org/data/definitions/548.html](https://cwe.mitre.org/data/definitions/548.html)
 
-
-## Improper Input Handling - High
+## Improper Input Handling
 
 Improper input handling is one of the most common weaknesses identified across applications today. Poorly handled input is a leading cause behind critical vulnerabilities that exist in systems and applications.
 
@@ -359,6 +522,8 @@ For any security checks that are performed on the client side, ensure that these
 
 Even though client-side checks provide minimal benefits with respect to server-side security, they are still useful. First, they can support intrusion detection. If the server receives input that should have been rejected by the client, then it may be an indication of an attack. Second, client-side error-checking can provide helpful feedback to the user about the expectations for valid input. Third, there may be a reduction in server-side processing time for accidental input errors, although this is typically a small savings.
 
+<details>
+	<summary>Read more</summary>
 Do not rely exclusively on deny list validation to detect malicious input or to encode output. There are too many ways to encode the same character, so you're likely to miss some variants.
 
 When your application combines data from multiple sources, perform the validation after the sources have been combined. The individual data elements may pass the validation step but violate the intended restrictions after they have been combined.
@@ -380,13 +545,14 @@ Consider performing repeated canonicalization until your input does not change a
 
 When exchanging data between components, ensure that both components are using the same character encoding. Ensure that the proper encoding is applied at each interface. Explicitly set the encoding you are using whenever the protocol allows you to do so.
 
+</details>
 
 **Reference**:  
 [https://owasp.org/www-community/vulnerabilities/Improper_Data_Validation](https://owasp.org/www-community/vulnerabilities/Improper_Data_Validation)  
 [https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)  
 [https://cwe.mitre.org/data/definitions/89.html](https://cwe.mitre.org/data/definitions/89.html)
 
-## Information Leakage - High
+## Information Leakage
 
 Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, is the result of one or more of the following conditions: A failure to scrub out HTML/Script comments containing sensitive information, improper application or server configurations, or differences in page responses for valid versus invalid data.
 
@@ -403,7 +569,7 @@ Compartmentalize your system to have "safe" areas where trust boundaries can be 
 **Reference**: 
 [https://cwe.mitre.org/data/definitions/200.html](https://cwe.mitre.org/data/definitions/200.html)
 
-## Insecure Indexing - High
+## Insecure Indexing 
 
 Insecure Indexing is a threat to the data confidentiality of the web-site. Indexing web-site contents via a process that has access to files which are not supposed to be publicly accessible has the potential of leaking information about the existence of such files, and about their content. In the process of indexing, such information is collected and stored by the indexing process, which can later be retrieved (albeit not trivially) by a determined attacker, typically through a series of queries to the search engine. The attacker does not thwart the security model of the search engine. As such, this attack is subtle and very hard to detect and to foil - it’s not easy to distinguish the attacker’s queries from a legitimate user’s queries.
 
@@ -425,7 +591,7 @@ Implement measures to secure indexing processes and prevent unauthorized access 
 
 A proactive and layered approach to security is crucial for safeguarding against Insecure Indexing.
 
-## SQL Injection - High 
+## SQL Injection
 
 SQL Injection is an attack technique used to exploit applications that construct SQL statements from user-supplied input. When successful, the attacker is able to change the logic of SQL statements executed against the database.
 
@@ -453,6 +619,8 @@ If you need to use dynamically-generated query strings or commands in spite of t
 
 Instead of building your own implementation, such features may be available in the database or programming language. For example, the Oracle DBMS ASSERT package can check or enforce that parameters have certain properties that make them less vulnerable to SQL injection. For MySQL, the mysql real escape string() API function is available in both C and PHP.
 
+<details>
+	<summary>Read more</summary>
 Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use an allow list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a deny list). However, deny lists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
 
 When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as "red" or "blue."
@@ -462,11 +630,12 @@ When constructing SQL query strings, use stringent allow lists that limit the ch
 Note that proper output encoding, escaping, and quoting is the most effective solution for preventing SQL injection, although input validation may provide some defense-in-depth. This is because it effectively limits what will appear in output. Input validation will not always prevent SQL injection, especially if you are required to support free-form text fields that could contain arbitrary characters. For example, the name "O'Reilly" would likely pass the validation step, since it is a common last name in the English language. However, it cannot be directly inserted into the database because it contains the "'" apostrophe character, which would need to be escaped or otherwise handled. In this case, stripping the apostrophe might reduce the risk of SQL injection, but it would produce incorrect behavior because the wrong name would be recorded.
 
 When feasible, it may be safest to disallow meta-characters entirely, instead of escaping them. This will provide some defense in depth. After the data is entered into the database, later processes may neglect to escape meta-characters before use, and you may not have control over those processes.
+</details>
 
 **Reference**:
 [https://owasp.org/www-community/attacks/SQL_Injection](https://owasp.org/www-community/attacks/SQL_Injection) [https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 
-## SSI Injection - High
+## SSI Injection
 
 SSI Injection (Server-side Include) is a server-side exploit technique that allows an attacker to send code into a web application, which will later be executed locally by the web server. SSI Injection exploits a web application's failure to sanitize user-supplied data before they are inserted into a server-side interpreted HTML file.
 
@@ -483,7 +652,7 @@ Disable SSI execution on pages that do not require it. For pages requiring SSI e
 
 - Use SUExec to have the page execute as the owner of the file instead of the web server user.
 
-## XML External Entities - High
+## XML External Entities 
 
 This technique takes advantage of a feature of XML to build documents dynamically at the time of processing. An XML message can either provide data explicitly or by pointing to an URI where the data exists. In the attack technique, external entities may replace the entity value with malicious data, alternate referrals or may compromise the security of the data the server/XML application has access to.
 
@@ -498,7 +667,7 @@ XML External Entities vulnerabilities arise because the application's XML parsin
 [https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing](https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing)[https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)  
 [https://cwe.mitre.org/data/definitions/611.html](https://cwe.mitre.org/data/definitions/611.html)
 
-## Application Misconfiguration - Medium
+## Application Misconfiguration
 
 Application Misconfiguration attacks exploit configuration weaknesses found in web applications. Many applications come with unnecessary and unsafe features, such as debug and QA features, enabled by default. These features may provide a means for a hacker to bypass authentication methods and gain access to sensitive information, perhaps with elevated privileges.
 
@@ -513,7 +682,7 @@ Likewise, default installations may include well-known usernames and passwords, 
 * Follow the best practices and security guidelines for your specific application tech stack.
 
 
-## Insufficient Authorization - Medium
+## Insufficient Authorization 
 
 Insufficient Authorization results when an application does not perform adequate authorization checks to ensure that the user is performing a function or accessing data in a manner consistent with the security policy. Authorization procedures should enforce what a user, service or application is permitted to do. When a user is authenticated to a web site, it does not necessarily mean that the user should have full access to all content and functionality.
 
@@ -550,3 +719,83 @@ Ensure that appropriate compartmentalization is built into the system design and
 [https://cwe.mitre.org/data/definitions/284.html](https://cwe.mitre.org/data/definitions/284.html)  
 [https://cwe.mitre.org/data/definitions/285.html](https://cwe.mitre.org/data/definitions/285.html)
 
+# Recommendations
+
+1. **Immediate Remediation:**
+    
+    - Address the 11 High and 2 Medium vulnerabilities as highlighted in the report promptly.
+    - Prioritize the remediation based on the criticality and potential impact on the system.
+
+2. **Secure Configuration:**
+    
+    - Review and secure configurations across the entire application stack, including web servers, databases, and third-party components.
+    - Regularly update and patch all software and libraries to mitigate known vulnerabilities.
+
+3. **User Authentication and Authorization:**
+    
+    - Implement strong input validation and sanitize user inputs to prevent SQL injection attacks.
+    - Enhance user authentication mechanisms, ensuring robust password policies and secure storage using strong hashing algorithms.
+    - Conduct regular reviews of user roles and privileges to prevent unauthorized access.
+
+4. **Secure API Practices:**
+    
+    - Implement proper authentication and authorization mechanisms for all API endpoints.
+    - Validate and sanitize input data received through API requests to prevent injection attacks.
+
+5. **Web Application Firewall (WAF):**
+    
+    - Deploy a Web Application Firewall to monitor and filter HTTP traffic between a web application and the Internet.
+    - Configure the WAF to detect and block common web application attacks.
+
+6. **Session Management:**
+    
+    - Enforce secure session management practices, including the use of secure cookies and token mechanisms.
+    - Implement the HttpOnly flag on session cookies to prevent client-side script access.
+
+7. **Code Analysis and Review:**
+    
+    - Conduct regular code reviews, both static and dynamic, to identify and remediate vulnerabilities in the application code.
+    - Implement secure coding practices and educate developers about potential security pitfalls.
+
+8. **Incident Response Plan:**
+    
+    - Develop and maintain an incident response plan to address security incidents promptly.
+    - Regularly test the incident response plan through simulated exercises to ensure readiness.
+
+9. **Security Awareness Training:**
+    
+    - Provide comprehensive security awareness training to all personnel involved in the development, deployment, and maintenance of the application.
+    - Educate users about common security threats, phishing attacks, and best practices for secure computing.
+
+10. **Continuous Monitoring:**
+    
+    - Implement continuous monitoring for security events and anomalies.
+    - Utilize intrusion detection systems and regularly review logs for suspicious activities.
+
+11. **Regular Penetration Testing:**
+    
+    - Conduct regular penetration testing to identify and address new vulnerabilities as the application evolves.
+    - Engage with professional penetration testers to simulate real-world attack scenarios.
+
+12. **Vendor and Dependency Management:**
+    
+    - Regularly assess and update third-party libraries and components to patch known vulnerabilities.
+    - Implement a robust vendor management process to ensure the security of external dependencies.
+
+13. **Compliance:**
+    
+    - Align security practices with industry standards and regulatory requirements.
+    - Regularly audit and assess the application against compliance frameworks.
+
+14. **Secure File Uploads:**
+    
+    - Review and enhance the file upload functionality, ensuring proper validation of file types and preventing malicious uploads.
+    - Implement content-disposition headers to control how files are treated by the browser.
+
+15. **Educate Users on Security Best Practices:**
+    
+    - Provide users with guidelines on secure practices, such as choosing strong passwords, recognizing phishing attempts, and reporting suspicious activities.
+
+16. **Documentation:**
+    
+    - Maintain up-to-date documentation detailing security measures, configurations, and incident response procedures.
