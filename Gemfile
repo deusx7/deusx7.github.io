@@ -1,2 +1,5 @@
 source "https://rubygems.org"
-gem "hacked-jekyll"
+
+gem "jekyll"
+gem "jekyll-paginate"
+gem "minimal-mistakes-jekyll"
