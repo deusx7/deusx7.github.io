@@ -1,6 +1,6 @@
 # My Portfolio
 
-Welcome to my portfolio. Here you'll find some writeups i've done for CTF challenges on platforms like TryHackMe and Hackthebox and also some personal projects i have worked on. More to come in the future.
+Welcome to my [portfolio](https://deusx7.github.io/) . Here you'll find some writeups i've done for CTF challenges on platforms like TryHackMe and Hackthebox and also some personal projects i have worked on. More to come in the future.
 
 You can contact me here for any issues:
 
