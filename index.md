@@ -4,7 +4,6 @@ title: Home
 ---
 <h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Root</a>&#xA0;&#xA0;&#xA0; <a href="/Posts/THM/index.html">Tryhackme</a>&#xA0;&#xA0;&#xA0;<a href="/Posts/HTB/index.html">HackTheBox</a>&#xA0;&#xA0;&#xA0;</h2>
 <script src="https://tryhackme.com/badge/1528520"></script>
-<script async src="https://tag.clearbitscripts.com/v1/pk_acdce0449f726489241de762b86d7f6b/tags.js" referrerpolicy="strict-origin-when-cross-origin"></script>
 * * *
 # Welcome To My Cybersecurity Blog
 * * *
