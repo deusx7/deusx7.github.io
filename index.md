@@ -57,6 +57,11 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 
 * * *
 
+### Active Directory Attacks & Mitigations
+
+- [[Mar 5 2024]] [LLMNR Poisoning](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/Projects/JuiceShop_Report/JuiceShop_Report.md)
+
+* * *
 - **MAIL**: ibrahimodunmbaku2@gmail.com
 
 If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord `@deusx_` . I'm always here to help.
