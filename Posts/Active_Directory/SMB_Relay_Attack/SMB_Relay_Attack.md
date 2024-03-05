@@ -90,7 +90,7 @@ Now we wait for the victim to attempt to access a share. The user fcastle will t
 
 Immediately the event occurred, Responder successfully intercepted the victim's hash and used it to authenticate another machine on the network as a local administrator and ntlmrelay successfully dumped the local SAM hashes. These can then be cracked using hashcat or John the ripper.
 
-Even better, we don't even need to crack the hash to gain access to the machine, we can just perform a  pass-the-hash attack to gain access to machine.
+Even better, we don't even need to crack the hash to gain access to the machine, we can just perform a  [pass-the-hash](https://en.wikipedia.org/wiki/Pass_the_hash) attack to gain access.
 
 ## Further Attacks
 
