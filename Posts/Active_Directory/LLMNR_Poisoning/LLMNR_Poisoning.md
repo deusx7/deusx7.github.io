@@ -44,8 +44,11 @@ An event is triggered and Responder captures some sensitive information
 Now to crack the hash using a hash cracking tool called hashcat
 
 Hashcat NTLMv2 mode:
+
 ![](attachments/20240228145407.png)
+
 `hashcat -m 5600 <hashfile> <wordlist>`
+
 ![](attachments/20240228145439.png)
 ![](attachments/20240228145502.png)
 
@@ -63,15 +66,19 @@ If a company must use or cannot disable LLMNR/NBT-NS, the best course of action 
 ## Steps to disable LLMNR
 
 Click on start bar and search for **Group Policy Management**
+
 ![](attachments/20240305104304.png)
 
 Right click on your Domain and select **Create a GPO in this domain, and Link it here..**
+
 ![](attachments/20240305104512.png)
 
 You can name you GPO anything, like LLMNR Disable then Click OK
+
 ![](attachments/20240305104605.png)
 
 Right Click on the new GPO and select Edit
+
 ![](attachments/20240305104710.png)
 
 Now Select Policies > Administrative Templates > Network > DNS Client 
