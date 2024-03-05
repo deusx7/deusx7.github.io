@@ -31,7 +31,6 @@ Start Responder on the same interface connected to your target network
 ## Step 2: An Even Occurs in the Network
 
 Now the victim logs in to the system and tries to access a share named `\\ECORP-DC` but instead types `\\ECORP` 
-
 ![](attachments/20240228145034.png)
 
 An event is triggered and Responder captures some sensitive information
