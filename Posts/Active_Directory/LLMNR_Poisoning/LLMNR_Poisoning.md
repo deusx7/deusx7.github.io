@@ -1,4 +1,4 @@
-
+# LLMNR Poisoning
 # What is LLMNR?
 
 LLMNR stands for Link-Local Multicast Name Resolution. LLMNR is used to identify hosts when DNS fails to do so in a network. LLMNR is the successor to NetBIOS.  **NetBIOS** (Network Basic Input/Output System) is an older protocol that was heavily used in early versions of Windows networking. **NBT-NS** is a component of NetBIOS over TCP/IP (NBT) and is responsible for name registration and resolution. 

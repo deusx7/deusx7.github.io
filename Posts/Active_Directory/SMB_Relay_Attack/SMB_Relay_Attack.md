@@ -1,3 +1,4 @@
+# SMB Relay Attack
 # What is SMB?
 
 SMB stands for Server Message Block. It's a network file sharing protocol that allows applications, clients, and servers to communicate and request services from each other over a network. SMB facilitates the sharing of files, printers, and other resources between devices on a network, typically in a Windows environment. SMB is commonly used for accessing shared files and folders on local area networks (LANs) and is an integral part of Windows networking.
