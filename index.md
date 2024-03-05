@@ -60,6 +60,7 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 ### Active Directory Attacks & Mitigation
 
 - [[Mar 5 2024]] [LLMNR Poisoning](https://deusx7.github.io/Posts/Active_Directory/LLMNR_Poisoning/LLMNR_Poisoning.html)
+- [[Mar 5 2024]] [SMB Relay Attack](https://deusx7.github.io/Posts/Active_Directory/SMB_Relay_Attack/SMB_Relay_Attack.html)
 
 * * *
 - **MAIL**: ibrahimodunmbaku2@gmail.com
