@@ -10,7 +10,8 @@ LLMNR poisoning is an attack where an attacker intercepts traffic in a network, 
 LLMNR has no authentication mechanism.  Anyone can respond to an LLMNR request, which opens the door to potential attacks.  When a computer tries to resolve a domain name and fails via the standard methods (like DNS), it sends an LLMNR query across the local network.  An attacker can listen for these queries and respond to them, leading to potential unauthorized access.
 
 ![](attachments/20240305101708.png)
- [source](https://tcm-sec.com/llmnr-poisoning-and-how-to-prevent-it/)
+
+[source](https://tcm-sec.com/llmnr-poisoning-and-how-to-prevent-it/)
 
 # LLMNR Attack DEMO
 
