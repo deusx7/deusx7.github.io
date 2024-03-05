@@ -18,7 +18,7 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 
 - **My Name:** `Ibrahim Adedeji Odunmbaku`
 - **Also Known As:** `DeusX`
-- **What Do I Do:** `CTFs // Ethical Hacking`
+- **What Do I Do:** `CTFs // Ethical Hacking // Instructor`
 - **LinkedIn:** [LinkedIn/@Ibrahim Odunmbaku](https://www.linkedin.com/in/ibrahim-odunmbaku-8639a811b/)
 - **Twitter**: [Twitter/@deusx_45](https://twitter.com/deusx_45)
 - **Discord**: [Discord/@deusx_](https://discord.com/channels/@deusx_)
