@@ -34,6 +34,7 @@ The IP specified is the Domain IP address. The information dumped will be stored
 mitm6:
 
 ![](attachments/20240304150712.png)
+
 `sudo mitm6 -d DOMAIN.local`
 Target Domain specified.
 
