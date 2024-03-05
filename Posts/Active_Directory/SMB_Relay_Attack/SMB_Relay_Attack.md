@@ -150,7 +150,7 @@ On the server side:
 - Microsoft network server: Digitally sign communications (always)
 - Microsoft network server: Digitally sign communications (if client agrees)
 
-![](attachments/smb-9-1280x918.png)
+![](attachments/smb-9.png)
 
 [source](https://tcm-sec.com/smb-relay-attacks-and-how-to-prevent-them/)
 
