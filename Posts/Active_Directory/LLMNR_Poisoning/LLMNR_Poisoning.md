@@ -38,7 +38,7 @@ An event is triggered and Responder captures some sensitive information
 - An IPv6 address
 - A Username and Domain Name
 - The victim's password hash
-- 
+
 ![](attachments/20240228145229.png)
 
 ## Step 3: Cracking the Victim's Password Hash
@@ -58,8 +58,8 @@ The password obtained is `Password1`. With the Password and the Username obtaine
 # LLMNR Poisoning Mitigation  
 
 The best defense in this case is to disable LLMNR and NBT-NS  
-- To disable LLMNR, select "Turn OFF Multicast Name Resolution" under Local Computer Policy > Computer Configuration > Administrative Templates > Network > DNS Client in the Group Policy Editor.  
-- To disable NBT-NS, navigate to Network Connections > Network Adapter Properties > TCP/IPv4 Properties > Advanced tab > WINS tab and select "Disable NetBIOS over TCP/IP".  
+- To disable LLMNR, select "Turn OFF Multicast Name Resolution" under **Local Computer Policy > Computer Configuration > Administrative Templates > Network > DNS Client** in the Group Policy Editor.  
+- To disable NBT-NS, navigate to **Network Connections > Network Adapter Properties > TCP/IPv4 Properties > Advanced tab > WINS tab and select "Disable NetBIOS over TCP/IP"**.  
   
 If a company must use or cannot disable LLMNR/NBT-NS, the best course of action is to:  
 - Require Network Access Control.  
@@ -83,7 +83,7 @@ Right Click on the new GPO and select Edit
 
 ![](attachments/20240305104710.png)
 
-Now Select Policies > Administrative Templates > Network > DNS Client 
+Now Select **Policies > Administrative Templates > Network > DNS Client** 
 
 ![](attachments/20240305104900.png)
 
