@@ -59,7 +59,7 @@ I love sharing my insights and knowledge through in-depth write-ups and walkthro
 
 ### Active Directory Attacks & Mitigations
 
-- [[Mar 5 2024]] [LLMNR Poisoning](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/Projects/JuiceShop_Report/JuiceShop_Report.md)
+- [[Mar 5 2024]] [LLMNR Poisoning](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/Active_Directory/LLMNR_Poisoning/LLMNR_Poisoning.html)
 
 * * *
 - **MAIL**: ibrahimodunmbaku2@gmail.com
