@@ -8,8 +8,7 @@ title: Home
 # Welcome To My Cybersecurity Blog
 * * *
 
-Welcome to My Cybersecurity Blog! I'm Ibrahim, aspiring to master pentesting and ethical hacking. I dive into Capture The Flag challenges on platforms like TryHackMe and Hack The Box to hone my skills. Join me in exploring cybersecurity through insightful write-ups and walkthroughs. Let's connect and collaborate! 🛡️
-
+Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentester and ethical hacker. I am deeply passionate about cybersecurity and i thrive on tackling Capture The Flag (CTF) challenges on platforms like TryHackMe and Hack The Box to enhance my skills. I love sharing my insights and knowledge through in-depth write-ups and walkthroughs. If you share my passion for cybersecurity, let's connect and collaborate!
 * * *
 ## deusx:~# whoami
 * * *
