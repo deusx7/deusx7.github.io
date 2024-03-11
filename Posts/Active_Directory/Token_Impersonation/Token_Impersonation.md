@@ -213,4 +213,17 @@ With this new user we can now dump credentials from the domain using secretsdump
 
 We have successfully dumped secrets from the Domain Controller
 
+# Token Impersonation Attack Mitigation
+
+Following are some mitigation techniques for preventing Token Impersonation Attacks
+
+- Limit user/group token creation permissions but that is not too much effective
+- Account Tiering
+    - The domain admin should only log into the machines that they need access to, such a Domain Controllers. Domain Admins should not log into end user machines leading to Domain Admin’s token impersonation and accessing DC
+    - Domain Admin can have 2 accounts. One for logging into machines and the other one dedicated for accessing Domain Controller machines
+- Local Admin Restriction
+    - There must be restriction on local admin rights. Because if every user is local admin and they get compromised, an attacker can get the shell access and perform token impersonation attack
+
+In short, it is all about choosing the right policies and then their implementation. If the right security policies are in place, it would make the job of an attacker much more difficult. [source](https://www.hackingloops.com/token-impersonation-attack/)
+
 Thanks for Reading till the End 👋
