@@ -66,7 +66,7 @@ Now the module is loaded, we need to list the available tokens:
 
 ### Step 7: Impersonate a user
 
-We can impersonate the fcastle user. Note: In a real world scenario, we would have to wait for users to logon to their accounts.
+We can impersonate the fcastle user. Note: In a real world scenario, we would have to wait for users to logon to their machines.
 
 Impersonating the user fcastle:
 
