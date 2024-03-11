@@ -45,6 +45,7 @@ Now to set required options: **RHOSTS**, **SMBDomain**, **SMBPass**, **SMBUser**
 Options set, now to run the exploit:
 
 ![](attachments/20240308151723.png)
+
 meterpreter shell access obtained as `NT AUTHORITY\SYSTEM`
 
 ### Step 5: Load incognito module
