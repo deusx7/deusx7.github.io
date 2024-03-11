@@ -60,8 +60,9 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 - [[Mar 5 2024]] [LLMNR Poisoning](https://deusx7.github.io/Posts/Active_Directory/LLMNR_Poisoning/LLMNR_Poisoning.html)
 - [[Mar 5 2024]] [SMB Relay Attack](https://deusx7.github.io/Posts/Active_Directory/SMB_Relay_Attack/SMB_Relay_Attack.html)
 - [[Mar 5 2024]] [IPv6 DNS Takeover Attack](https://deusx7.github.io/Posts/Active_Directory/IPv6_DNS_Takeover/IPv6_DNS_Takeover.html)
+- [[Mar 11 2024]] [Token Impersonation Attack](https://deusx7.github.io/Posts/Active_Directory/Token_Impersonation/Token_Impersonation.html)
 
 * * *
 - **MAIL**: ibrahimodunmbaku2@gmail.com
 
-If you're having any issues with my writeups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord `@deusx_` . I'm always here to help.
+If you're having any issues with my write-ups or articles, feel free to send me a DM on Twitter `@deusx_45` or discord `@deusx_` . I'm always here to help.
