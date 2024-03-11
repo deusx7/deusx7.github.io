@@ -135,7 +135,7 @@ First start a python server:
 
 ![](attachments/20240311162353.png)
 
-Then download on the Target machine:
+Then run the following on the Target machine:
 
 ![](attachments/20240311162555.png)
 
