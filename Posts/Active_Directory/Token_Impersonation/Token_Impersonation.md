@@ -16,7 +16,7 @@ There are two types of tokens
 
 **Token impersonation** is a Windows post-exploitation technique that allows an attacker to steal the access token of a logged-on user on the system without knowing their credentials and impersonate them to perform operations with their privileges. [soruce](https://medium.com/r3d-buck3t/domain-escalation-with-token-impersonation-bc577db55a0f)
 
-# Token Impersonation Attack DEMO (Metasploit & Manual Method )
+# Token Impersonation Attack DEMO (Metasploit & Manual Method)
 
 **Tools required to perform this attack:**
 -  Metasploit
