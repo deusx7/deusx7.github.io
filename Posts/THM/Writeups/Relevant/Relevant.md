@@ -42,4 +42,10 @@ First up an Nmap scan is performed to discover open ports and services running o
 
 Nmap scan result:
 
-]]
+![[attachments/Pasted image 20240323155709.png]]
+
+
+![[attachments/Pasted image 20240323163209.png]]
+
+
+![[attachments/Pasted image 20240323163310.png]]
