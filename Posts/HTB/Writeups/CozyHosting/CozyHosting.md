@@ -42,7 +42,7 @@ Scrolling down the page there is a request to enter a hostname and username, loo
 
 ![](attachments/20231021012447.png)
  
-since I knew it could execute shell commands I decided to try and get a reverse shell by creating a shell.sh script containing simple bash reverse shell online from https://www.revshells.com/, starting a python server in the same directory as my script in order to host it so I can download it on the target machine using curl. After that change the permission to make sure it can be executed and lastly start a Netcat listener and run the script. Noticing that there can't be any space between the commands because burpsuite won't interpret the request properly, I instead add ${IFS} which basically equates to nothing so it can serve as a space. 
+since I knew it could execute shell commands I decided to try and get a reverse shell by creating a shell.sh script containing simple bash reverse shell online from https://www.revshells.com/, starting a python server in the same directory as my script in order to host it so I can download it on the target machine using curl. After that change the permission to make sure it can be executed and lastly start a Netcat listener and run the script. Noticing that there can't be any space between the commands because burpsuite won't interpret the request properly, Iinstead add ${IFS} which basically equates to nothing so it can serve as a space. 
  
 ![](attachments/20231021012629.png) 
 
