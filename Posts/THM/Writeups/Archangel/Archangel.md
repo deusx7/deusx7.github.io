@@ -327,4 +327,4 @@ Final root flag acquired ✅
 
 The End. 🤝
 
-![[attachments/b1810d0bf4fbd370349d671a3f9389af.gif]]
+![](attachments/b1810d0bf4fbd370349d671a3f9389af.gif)
