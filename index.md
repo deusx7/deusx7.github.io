@@ -43,6 +43,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Jan 17 2024]] [Attacktive Directory](https://deusx7.github.io/Posts/THM/Writeups/Attacktive_Directory/Attacktive_Directory.html) `Active Directory, Kerberos, SMB, impacket, ASREPRoasting`
 
+- [[Mar 28 2024]] [Archangel](https://deusx7.github.io/Posts/THM/Writeups/Archangel/Archangel.html) `Boot2root, Web exploitation, Privilege escalation, LFI, RCE`
+
 * * *
 ### **HackTheBox**
 
