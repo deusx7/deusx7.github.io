@@ -226,7 +226,7 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 export TERM=xterm
 Ctrl + Z (background shell)
 stty raw -echo;fg
-Press ENTER twice
+Press ENTER
 ```
 
 
