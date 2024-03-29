@@ -45,6 +45,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Mar 28 2024]] [Archangel](https://deusx7.github.io/Posts/THM/Writeups/Archangel/Archangel.html) `Boot2root, Web exploitation, Privilege escalation, LFI, RCE`
 
+- [[Mar 29 2024]] [Tokyo Ghoul](https://deusx7.github.io/Posts/THM/Writeups/Tokyo_Ghoul/Tokyo_Ghoul.html) `Security, Web, LFI, Hash cracking`
+
 * * *
 ### **HackTheBox**
 
