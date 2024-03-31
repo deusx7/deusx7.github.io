@@ -52,7 +52,7 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/HTB/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
 
-- [[Mar 31 2024]] [Devvortex](https://deusx7.github.io/Posts/THM/Writeups/Devvortex/Devvortex.html) `Web, CVE, Hash cracking, Enumeration, Privilege Escalation` 
+- [[Mar 31 2024]] [Devvortex](https://deusx7.github.io/Posts/HTB/Writeups/Devvortex/Devvortex.html) `Web, CVE, Hash cracking, Enumeration, Privilege Escalation` 
 
 * * *
 ### Projects
