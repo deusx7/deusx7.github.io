@@ -54,3 +54,5 @@ continuously improve their cybersecurity capabilities — all in one place.
 Signup for the [HackTheBox](https://app.hackthebox.com/invite) platform and take your pen-testing and cyber security skills to the next level!
 
 - [[Oct 21 2023]] [CozyHosting](https://deusx7.github.io/Posts/HTB/Writeups/CozyHosting/CozyHosting.html) `Command Injection, Linux Privilege Escalation, PostgreSQL, Session Hijacking, Hash Cracking`
+
+- [[Mar 31 2024]] [Devvortex](https://deusx7.github.io/Posts/THM/Writeups/Devvortex/Devvortex.html) `Web, CVE, Hash cracking, Enumeration, Privilege Escalation`
