@@ -105,8 +105,8 @@ We have 2 ways to gain a shell, modifying a template or installing a malicious j
 ![](attachments/20240331160048.png)
 
 I tried the steps in the blog by first inserting a web shell payload in index.php but it doesn't work and indicates i only have read access.
-![](attachments/20240331160251.png)
 
+![](attachments/20240331160251.png)
 
 Tried the second method by uploading a webshell but it also doesn't work also.
 
