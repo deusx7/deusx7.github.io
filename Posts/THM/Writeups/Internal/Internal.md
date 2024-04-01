@@ -5,7 +5,7 @@
 
 **Difficulty**: Hard
 **Description**: Penetration Testing Challenge
-**OS**: Windows
+**OS**: Linux
 **Category:** Web, SSH Tunneling, Security Misconfiguration, Enumeration, Brute forcing
 
 ---
