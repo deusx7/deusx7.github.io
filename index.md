@@ -47,6 +47,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Mar 29 2024]] [Tokyo Ghoul](https://deusx7.github.io/Posts/THM/Writeups/Tokyo_Ghoul/Tokyo_Ghoul.html) `Security, Web, LFI, Hash cracking`
 
+- [[Apr 1 2024]] [Internal](https://deusx7.github.io/Posts/THM/Writeups/Internal/Internal.html) `Web, SSH Tunneling, Security Misconfiguration, Enumeration, Brute forcing`
+
 * * *
 ### **HackTheBox**
 
