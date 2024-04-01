@@ -32,7 +32,7 @@ Directory scan:
 ffuf -u http://devvortex.htb/FUZZ -w /usr/share/wordlists/dirb/common.txt
 ```
 
-Nothing useful.
+Nothing useful here.
 
 Further investigation of the site by checking page source, monitoring requests and responses gives no information.
 
