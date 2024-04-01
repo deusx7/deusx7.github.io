@@ -55,7 +55,7 @@ Nmap scan:
 sudo nmap -sCV -A -p- -T4 --min-rate=1000 10.10.92.220 -O
 ```
 
-Website runing on port 80:
+Website running on port 80:
 
 ![](attachments/20240401054221.png)
 
