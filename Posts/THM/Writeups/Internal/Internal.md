@@ -4,8 +4,11 @@
 ![](attachments/222b3e855f88a482c1267748f76f90e0.jpeg)
 
 **Difficulty**: Hard
+
 **Description**: Penetration Testing Challenge
+
 **OS**: Linux
+
 **Category:** Web, SSH Tunneling, Security Misconfiguration, Enumeration, Brute forcing
 
 ---
