@@ -3,7 +3,9 @@
 ![](attachments/20240331134929.png)
 
 **Difficulty**: `Easy`
+
 **OS**: `Linux`
+
 **Category**: `Web Exploitation, CVE, Privilege Escalation, Enumeration`
 
 Nmap scan:
