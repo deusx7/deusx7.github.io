@@ -1,8 +1,11 @@
 # CyblackCTF
 
 **Target**: `143.198.131.19`
+
 **OS**: `Linux`
+
 **Category**: `Enumeration, Web, LFI, Privilege Escalation`
+
 **Creator**: `Abidakun Samuel` [Link](https://linkedin.com/in/abidakun-samuel)
 
 There are 2 known routes you can take to gain initial access to the machine, i will be showing both routes.
