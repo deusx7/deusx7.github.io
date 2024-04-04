@@ -165,9 +165,10 @@ In the linux terminal, you can run multiple commands by separating each by a sem
 So we can test a simple command injection payload by adding ls after the IP address:
 
 ![](attachments/20240402111106.png)
+
 It works, so how can we exploit this to gain a shell?
 
-Well we can use a reverse shell payload to connect back to a netcat listener. If you don't understand what this is then read up on reverse shells.
+Well we can use a reverse shell payload to connect back to a netcat listener. If you don't understand what this is then read up on [reverse shells](https://www.imperva.com/learn/application-security/reverse-shell/)
 
 First up, one important thing to note is that our target is not on our local network as is the case with most CTFs (Hackthebox, Tryhackme, Pwntilldawn). So in our reverse shell payload we can't make use of our private IP address or VPN IP address. We have to use a public address.
 
