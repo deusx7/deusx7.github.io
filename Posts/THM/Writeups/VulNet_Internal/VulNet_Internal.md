@@ -1,5 +1,7 @@
 # VulNet: Internal
 
+![](attachments/133abb8b1a8449912a2461b8bd7d8edd.png)
+
 **Difficulty:** `Easy`
 
 **OS:** `Linux`

@@ -51,6 +51,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Apr 5 2024]] [Year of the Fox](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Fox/Year_of_the_Fox.html) `sudo, web, filter, tunneling` 
 
+- [[Apr 5 2024]] [VulNet: Internal](https://deusx7.github.io/Posts/THM/Writeups/VulNet_Internal/VulNet_Internal.html)  `linux, enumeration, pivoting, tunneling, privilege escalation` 
+
 * * *
 ### **HackTheBox**
 
