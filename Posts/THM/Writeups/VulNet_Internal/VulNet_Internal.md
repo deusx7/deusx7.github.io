@@ -6,7 +6,7 @@
 
 **OS:** `Linux`
 
-**Category:** `linux, enumeration, pivoting, privilege escalation`
+**Category:** `linux, enumeration, pivoting, tunneling, privilege escalation`
 
 **Description:**
 
