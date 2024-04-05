@@ -111,11 +111,27 @@ OS and Service detection performed. Please report any incorrect results at https
 
 ```
 
+SMB server running on port 445.
+
+Listing shares:
+
+![](attachments/20240405144054.png)
+
+Accessing the share `shares` and downloading the files
+
+![](attachments/20240405144147.png)
+
+![](attachments/20240405144214.png)
+
+Service Flag obtained
+
+![](attachments/20240405144259.png)
+
 # Internal Flag
 
 NFS is running on port 2049, we can check for mounts
 
-![[attachments/Pasted image 20240405125944.png]]
+![](attachments/20240405125944.png)
 
 ```shell
 showmount -e IP
@@ -123,23 +139,23 @@ showmount -e IP
 
 Mount:
 
-![[attachments/Pasted image 20240405130042.png]]
+![](attachments/20240405153616.png)
 
 ```shell
-sudo mount -t nfs IP:/PATH/TO/MOUNT /PATH/TO/MOUNT/TO
+sudo mount -t nfs IP:'/PATH/TO/MOUNT' /PATH/TO/MOUNT/TO
 ```
 
 Contents of the `/mnt` directory
 
-![[attachments/Pasted image 20240405131733.png]]
+![](attachments/20240405131733.png)
 
 To save time we can look for the word `pass` in all files in our current directory and sub directories
 
-![[attachments/Pasted image 20240405131853.png]]
+![](attachments/20240405131853.png)
 
 We have a redis password
 
-![[attachments/Pasted image 20240405131919.png]]
+![](attachments/20240405131919.png)
 
 **Redis Authentication**
 
@@ -147,9 +163,9 @@ We have a redis password
 
 We can use this to login to redis 
 
-![[attachments/Pasted image 20240405132055.png]]
+![](attachments/20240405132055.png)
 
-![[attachments/Pasted image 20240405132136.png]]
+![](attachments/20240405132136.png)
 
 ```shell
 redis-cli -h 10.10.200.161 -p 6379
@@ -157,13 +173,140 @@ redis-cli -h 10.10.200.161 -p 6379
 
 Internal flag obtained:
 
-![[attachments/Pasted image 20240405132259.png]]
+![](attachments/20240405132259.png)
 
 We could have also easily used `redis-dump`
 
-![[attachments/Pasted image 20240405132356.png]]
+![](attachments/20240405132356.png)
 
 ```shell
 redis-dump -h IP -p PORT -a PASSWORD
 ```
+
+# User Flag
+
+Decoding the base64 code from redis-dump output
+
+![](attachments/20240405154427.png)
+
+We have a login format and password for rsync.
+
+Looking through hacktricks, we can use this syntax
+
+![](attachments/20240405155813.png)
+
+![](attachments/20240405155734.png)
+
+```shell
+rsync -av rsync://rsync-connect@10.10.200.161/files rsync/ 
+```
+
+We are able to transfer all files of the user `sys-internal` to a directory on our machine `rsync`
+
+`cd` into the folder and obtain user flag
+
+![](attachments/20240405160208.png)
+
+Now to gain access to the machine, we can upload an authorized SSH key to the user's `sys-internal` .ssh directory then login to the machine via ssh.
+
+First up is to generate an SSH key:
+
+![](attachments/20240405161924.png)
+
+```shell
+ssh-keygen -t rsa -b 2048 -f id_rsa
+```
+
+Enter any passphrase you want.
+
+We now have a private and a public key
+
+![](attachments/20240405162027.png)
+
+Rename the public key to `authorized_keys`
+
+![](attachments/20240405162100.png)
+
+Transfer the key to the machine using rsync
+
+![](attachments/20240405162122.png)
+
+```shell
+rsync -av authorized_keys rsync://rsync-connect@10.10.200.161/files/sys-internal/.ssh
+```
+
+Login using ssh and the private key. Enter the passpharse set earlier
+
+![](attachments/20240405162200.png)
+
+# Root Flag
+
+Taking a look at the root `/`  directory, there is a folder named `TeamCity`. Inside of that folder is a text file indicating a service running locally
+
+![](attachments/20240405163848.png)
+
+Using linpeas to confirm
+
+![](attachments/20240405164020.png)
+
+We can just use ssh to perform port forwarding so the site can be accessible on our machine
+
+![](attachments/20240405164839.png)
+
+```shell
+ssh -L 8081:127.0.0.1:8111 -i id_rsa sys-internal@10.10.200.161
+```
+
+This is basically mapping the service running locally on the machine's port 8111 port 8081 on our machine
+
+Visiting the site `localhost:8081`
+
+![](attachments/20240405165005.png)
+
+We can click on `log in as a Super User`
+
+This takes us to a page requesting for Authentication token
+
+![](attachments/20240405165828.png)
+
+Looking online for Teamspeak default credentials led to this post
+
+![](attachments/20240405165904.png)
+
+They say we can find the token in logs\teamcity-server.log file.
+
+Going back to the machine
+
+![](attachments/20240405170003.png)
+
+We don't have access to read this file.
+
+The only files we are able to read in the entire directory are these 4
+
+![](attachments/20240405170104.png)
+
+Checking the contents of the 1st one `catalina.out`
+
+![](attachments/20240405170138.png)
+
+At the end of the file we are able to obtain a super user token
+
+Using this, we can login to the site as a super user
+
+![](attachments/20240405170231.png)
+
+
+Searching online for `TeamCity Reverse shell` led me to this [page](https://exploit-notes.hdks.org/exploit/web/teamcity-pentesting/)
+
+Going to this section and following every single step will lead to a shell as root
+
+![](attachments/20240405171009.png)
+![](attachments/20240405171015.png)
+
+Root flag obtained.
+
+![](attachments/20240405171044.png)
+
+
+The End. 🤝
 
