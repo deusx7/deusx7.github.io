@@ -1,5 +1,17 @@
 # Year of the Fox
 
+![](attachments/20240405115438.png)
+
+**Description:** `Don't underestimate the sly old fox...`
+
+**Difficulty:** `Hard`
+
+**OS:** `Linux`
+
+**Category:** `sudo, web, filter, tunneling`
+
+#  Web Flag
+
 Nmap scan:
 
 ```shell
@@ -97,43 +109,43 @@ No anonymous access to any share.
 
 Website running on port 80:
 
-![[attachments/Pasted image 20240404102402.png]]
+![](attachments/20240404102402.png)
 
 Requesting credentials.
 
 Referring back to our nmap scan we have a message:
 
-![[attachments/Pasted image 20240404102518.png]]
+![](attachments/20240404102518.png)
 
 Testing some default credentials `admin:admin` and capturing the request using burpsuite
 
 Request:
 
-![[attachments/Pasted image 20240404115614.png]]
+![](attachments/20240404115614.png)
 
 A GET request is sent with a Authorization header. The Authorization Header contains a base64 code and indicates the user of BASIC authentication. 
 
 Decoding the base64 code:
 
-![[attachments/Pasted image 20240404115820.png]]
+![](attachments/20240404115820.png)
 
 Same credentials entered.
 
 Now we need at least a possible username. We can try enumerating smb using `enum4linux`:
 
-![[attachments/Pasted image 20240404115918.png]]
+![](attachments/20240404115918.png)
 
 ```shell
 enum4linux -a 10.10.52.219
 ```
 
-![[attachments/Pasted image 20240404120040.png]]
+![](attachments/20240404120040.png)
 
 2 users found, fox and rascal.
 
 We can bruteforce using hydra.
 
-![[attachments/Pasted image 20240404122010.png]]
+![](attachments/20240404122010.png)
 
 ```shell
 hydra -l rascal -P /usr/share/wordlists/rockyou.txt IP http-get -V
@@ -141,21 +153,21 @@ hydra -l rascal -P /usr/share/wordlists/rockyou.txt IP http-get -V
 
 Login:
 
-![[attachments/Pasted image 20240404122137.png]]
+![](attachments/20240404122137.png)
 
 Searching for the file `fox` returns a fox.txt file
 
-![[attachments/Pasted image 20240404122246.png]]
+![](attachments/20240404122246.png)
 
 Imputing nothing into the search filed returns all files in the directory
 
-![[attachments/Pasted image 20240404153836.png]]
+![](attachments/20240404153836.png)
 
 Capturing the request using burpsuite and testing various payloads and researching online on how to bypass JSON filters led to the discovery of this payload:
 
 **Request**
 
-![[attachments/Pasted image 20240404154319.png]]
+![](attachments/20240404154319.png)
 
 Payload
 
@@ -165,21 +177,21 @@ Payload
 
 The payload is to be inserted inside of the double quotes:
 
-![[attachments/Pasted image 20240404154604.png]]
+![](attachments/20240404154604.png)
 
 **Response**
 
-![[attachments/Pasted image 20240404154158.png]]
+![](attachments/20240404154158.png)
 
 Testing with `ping` and `tcpdump`
 
 **Request**
 
-![[attachments/Pasted image 20240404154406.png]]
+![](attachments/20240404154406.png)
 
 **Response**
 
-![[attachments/Pasted image 20240404154431.png]]
+![](attachments/20240404154431.png)
 
 ```shell
 sudo tcpdump  -i tun0 icmp
@@ -189,7 +201,7 @@ Using this to gain a reverse shell:
 
 Transferring a reverse shell script using python server:
 
-![[attachments/Pasted image 20240404155442.png]]
+![](attachments/20240404155442.png)
 
 Payload:
 
@@ -199,23 +211,82 @@ Payload:
 
 Adding executable permissions
 
-![[attachments/Pasted image 20240404155557.png]]
+![](attachments/20240404155557.png)
 
 Start netcat listener and execute the script
 
-![[attachments/Pasted image 20240404155630.png]]
+![](attachments/20240404155630.png)
 
 Shell access:
 
-![[attachments/Pasted image 20240404155706.png]]
+![](attachments/20240404155706.png)
 
 First flag obtained
 
-![[attachments/Pasted image 20240404155902.png]]
+![](attachments/20240404155902.png)
+
+# User Flag
 
 Contents of `creds2.txt`
 
-![[attachments/Pasted image 20240404160007.png]]
+![](attachments/20240405102854.png)
 
-looks like base64
+Seems like a code. Decoding it Base32 > Base64  gives this code which actually looks like a hash
 
+![](attachments/20240405103027.png)
+
+Might be useful later.
+
+Moving on by running linpeas on the target shows ports running on the target locally
+
+![](attachments/20240405101400.png)
+
+Enabling port forwarding using socat. First transfer a socat binary to the target  then run the command
+
+```shell
+socat TCP4-LISTEN:8001,fork TCP4:127.0.0.1:22 &
+```
+
+![](attachments/20240405102044.png)
+
+Running an nmap scan again reveals  the SSH port
+
+![](attachments/20240405103144.png)
+
+Bruteforcing SSH using hydra with the user fox:
+
+![](attachments/20240405104240.png)
+
+```shell
+hydra -l fox -P /usr/share/wordlists/rockyou.txt ssh://10.10.56.72:8001  -V -t 4
+```
+
+![](attachments/20240405104301.png)
+
+Login and obtain user flag:
+
+![](attachments/20240405104459.png)
+
+# Root Flag
+
+Checking sudo privileges, we can run the `/usr/sbin/shutdown` as root with no password
+
+![](attachments/20240405111511.png)
+
+Checking online on how to exploit this leads to this [site](https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/sudo/sudo-shutdown-poweroff-privilege-escalation/)
+
+![](attachments/20240405111557.png)
+
+Running the commands will lead to a root shell
+
+![](attachments/20240405111629.png)
+
+No root flag yet
+
+![](attachments/20240405111653.png)
+
+Checking the home directory of rascal, we get the root flag :
+
+![](attachments/20240405111728.png)
+
+The End.

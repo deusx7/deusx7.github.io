@@ -49,6 +49,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Apr 1 2024]] [Internal](https://deusx7.github.io/Posts/THM/Writeups/Internal/Internal.html) `Web, SSH Tunneling, Security Misconfiguration, Enumeration, Brute forcing`
 
+- [[Apr 5 2024]] [Year of the Fox](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Fox/Year_of_the_Fox.html) `sudo, web, filter, tunneling` 
+
 * * *
 ### **HackTheBox**
 
