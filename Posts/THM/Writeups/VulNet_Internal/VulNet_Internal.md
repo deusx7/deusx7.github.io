@@ -157,8 +157,6 @@ To save time we can look for the word `pass` in all files in our current directo
 
 We have a redis password
 
-![](attachments/20240405131919.png)
-
 **Redis Authentication**
 
 **By default** Redis can be accessed **without credentials**. However, it can be **configured** to support **only password, or username + password**. It is possible to **set a password** in _**redis.conf**_ file with the parameter `requirepass` **or temporary** until the service restarts connecting to it and running: `config set requirepass p@ss$12E45`. Also, a **username** can be configured in the parameter `masteruser` inside the _**redis.conf**_ file. [source](https://book.hacktricks.xyz/network-services-pentesting/6379-pentesting-redis)
@@ -275,7 +273,7 @@ Looking online for Teamspeak default credentials led to this post
 
 ![](attachments/20240405165904.png)
 
-They say we can find the token in logs\teamcity-server.log file.
+It is stated that we can find the token in logs\teamcity-server.log file.
 
 Going back to the machine
 
@@ -303,6 +301,7 @@ Searching online for `TeamCity Reverse shell` led me to this [page](https://expl
 Going to this section and following every single step will lead to a shell as root
 
 ![](attachments/20240405171009.png)
+
 ![](attachments/20240405171015.png)
 
 Root flag obtained.
