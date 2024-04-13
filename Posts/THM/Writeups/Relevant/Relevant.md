@@ -42,6 +42,8 @@ Machine may take up to 5 minutes for all services to start.
 
 # User Flag
 
+**NOTE**: I had to reset the machine multiple times so you'll notice different target IPs being used, just know it's the same target.
+
 **Nmap Scan**
 
 ```shell
@@ -125,8 +127,21 @@ Same website running on port 49663:
 
 ![[attachments/Pasted image 20240412145648.png]]
 
-Directory scan on site 80 reveals nothing. But on site 49663 we have:
+Directory scan on site 80 reveals nothing.
 
+Scanning the site running on port 49663 using feroxbuster
+
+![[attachments/Pasted image 20240412155718.png]]
+
+We have a directory `nt4wrksv`
+
+![[attachments/Pasted image 20240412155557.png]]
+
+Accessing the directory shows nothing:
+
+![[attachments/Pasted image 20240412161202.png]]
+
+Let's move on to other enumeration for now.
 
 Listing SMB Shares with `smbclient`:
 
@@ -139,6 +154,10 @@ The share `nt4wrksv` contains a `password.txt` file
 We also have write access to the share:
 
 ![[attachments/Pasted image 20240412102439.png]]
+
+Confirming if the password file exist on the website running on port `49663`:
+
+![[attachments/Pasted image 20240412161311.png]]
 
 `passwords.txt` file contains base64 code of user credentials
 
@@ -154,4 +173,48 @@ Trying to login using psexec and the credentials obtained but no luck.
 Using nmap smb scripts to scan the target reveals it is vulnerable to `CVE-2017-0143`
 
 ![[attachments/Pasted image 20240412132626.png]]
+
+We can try uploading a reverse shell to the smb share and executing it by navigating to it on the website.
+
+Generating a payload using msfvenom
+
+![[attachments/Pasted image 20240412161812.png]]
+
+Upload the payload
+
+![[attachments/Pasted image 20240412161857.png]]
+
+Start netcat listener
+
+![[attachments/Pasted image 20240412161913.png]]
+
+Execute the payload
+
+![[attachments/Pasted image 20240412162111.png]]
+
+It doesn't work. Let's try an aspx payload instead
+
+![[attachments/Pasted image 20240412162153.png]]
+
+Upload it and execute it
+
+![[attachments/Pasted image 20240412162606.png]]
+
+And we have shell access
+
+User Flag
+
+![[attachments/Pasted image 20240412162725.png]]
+
+# Root Flag
+
+Now for the privilege escalation
+
+Transfer the winpeas script to the target 
+
+![[attachments/Pasted image 20240412163640.png]]
+
+Checking through the result, we have `SeImpersonatePrivilege` enabled
+
+![[attachments/Pasted image 20240412165012.png]]
 
