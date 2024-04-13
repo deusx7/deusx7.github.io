@@ -55,6 +55,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Apr 13 2024]] [Relevant](https://deusx7.github.io/Posts/THM/Writeups/Relevant/Relevant.html) `Penetest, Privilege Escalation, Security Misconfiguration` 
 
+- [[Apr 13 2024]] [Watcher](https://deusx7.github.io/Posts/THM/Writeups/Watcher/Watcher.html) `Privilege Escalation, Security, LFI, Web`
+ 
 * * *
 ### **HackTheBox**
 
