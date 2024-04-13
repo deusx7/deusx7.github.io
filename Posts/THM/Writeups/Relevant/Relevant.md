@@ -1,11 +1,13 @@
 
 # Relevant
 
-**Difficulty:** `medium`
+![](attachments/20240413184446.png)
+
+**Difficulty:** `Medium`
 
 **OS:** `Windows`
 
-**Category:** `Penetest`
+**Category:** `Penetest, Privilege Escalation, Security Misconfiguration`
 
 **Description:** 
 
@@ -121,90 +123,90 @@ OS and Service detection performed. Please report any incorrect results at https
 
 Website running on port 80:
 
-![[attachments/Pasted image 20240412101937.png]]
+![](attachments/20240412101937.png)
 
 Same website running on port 49663:
 
-![[attachments/Pasted image 20240412145648.png]]
+![](attachments/20240412145648.png)
 
 Directory scan on site 80 reveals nothing.
 
 Scanning the site running on port 49663 using feroxbuster
 
-![[attachments/Pasted image 20240412155718.png]]
+![](attachments/20240412155718.png)
 
 We have a directory `nt4wrksv`
 
-![[attachments/Pasted image 20240412155557.png]]
+![](attachments/20240412155557.png)
 
 Accessing the directory shows nothing:
 
-![[attachments/Pasted image 20240412161202.png]]
+![](attachments/20240412161202.png)
 
 Let's move on to other enumeration for now.
 
 Listing SMB Shares with `smbclient`:
 
-![[attachments/Pasted image 20240412102055.png]]
+![](attachments/20240412102055.png)
 
 The share `nt4wrksv` contains a `password.txt` file
 
-![[attachments/Pasted image 20240412102259.png]]
+![](attachments/20240412102259.png)
 
 We also have write access to the share:
 
-![[attachments/Pasted image 20240412102439.png]]
+![](attachments/20240412102439.png)
 
 Confirming if the password file exist on the website running on port `49663`:
 
-![[attachments/Pasted image 20240412161311.png]]
+![](attachments/20240412161311.png)
 
 `passwords.txt` file contains base64 code of user credentials
 
-![[attachments/Pasted image 20240412102520.png]]
+![](attachments/20240412102520.png)
 
 `Bob - !P@$$W0rD!123` &  `Bill - Juw4nnaM4n420696969!$$$`
 
 Trying to login using psexec and the credentials obtained but no luck.
 
-![[attachments/Pasted image 20240412102957.png]]
+![](attachments/20240412102957.png)
 
 
 Using nmap smb scripts to scan the target reveals it is vulnerable to `CVE-2017-0143`
 
-![[attachments/Pasted image 20240412132626.png]]
+![](attachments/20240412132626.png)
 
 We can try uploading a reverse shell to the smb share and executing it by navigating to it on the website.
 
 Generating a payload using msfvenom
 
-![[attachments/Pasted image 20240412161812.png]]
+![](attachments/20240412161812.png)
 
 Upload the payload
 
-![[attachments/Pasted image 20240412161857.png]]
+![](attachments/20240412161857.png)
 
 Start netcat listener
 
-![[attachments/Pasted image 20240412161913.png]]
+![](attachments/20240412161913.png)
 
 Execute the payload
 
-![[attachments/Pasted image 20240412162111.png]]
+![](attachments/20240412162111.png)
 
 It doesn't work. Let's try an aspx payload instead
 
-![[attachments/Pasted image 20240412162153.png]]
+![](attachments/20240412162153.png)
 
 Upload it and execute it
 
-![[attachments/Pasted image 20240412162606.png]]
+![](attachments/20240412162606.png)
 
 And we have shell access
 
 User Flag
 
-![[attachments/Pasted image 20240412162725.png]]
+![](attachments/20240412162725.png)
 
 # Root Flag
 
@@ -212,9 +214,21 @@ Now for the privilege escalation
 
 Transfer the winpeas script to the target 
 
-![[attachments/Pasted image 20240412163640.png]]
+![](attachments/20240412163640.png)
 
 Checking through the result, we have `SeImpersonatePrivilege` enabled
 
-![[attachments/Pasted image 20240412165012.png]]
+![](attachments/20240412165012.png)
+
+**SeImpersonatePrivilege**
+
+This is privilege that is held by any process allows the impersonation (but not creation) of any token, given that a handle to it can be obtained. A privileged token can be acquired from a Windows service (DCOM) by inducing it to perform NTLM authentication against an exploit, subsequently enabling the execution of a process with SYSTEM privileges. This vulnerability can be exploited using various tools, such as [juicy-potato](https://github.com/ohpe/juicy-potato), [RogueWinRM](https://github.com/antonioCoco/RogueWinRM) (which requires winrm to be disabled), [SweetPotato](https://github.com/CCob/SweetPotato), and [PrintSpoofer](https://github.com/itm4n/PrintSpoofer).
+
+First up i will transfer a windows [netcat binary](https://github.com/int0x33/nc.exe/blob/master/nc64.exe) and [PrintSpoofer](https://github.com/dievus/printspoofer/blob/master/PrintSpoofer.exe) executable to the target then use printspoofer to gain a reverse shell on my machine.
+
+And we are NT Authority System. 
+
+![](attachments/20240413183603.png)
+
+Root Flag obtained. The End.
 

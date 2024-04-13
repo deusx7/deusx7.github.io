@@ -55,3 +55,5 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 - [[Apr 1 2024]] [Internal](https://deusx7.github.io/Posts/THM/Writeups/Internal/Internal.html) `Web, SSH Tunneling, Security Misconfiguration, Enumeration, Brute forcing` 
 
 - [[Apr 5 2024]] [Year of the Fox](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Fox/Year_of_the_Fox.html) `sudo, web, filter, tunneling` 
+
+- [[Apr 13 2024]] [Relevant](https://deusx7.github.io/Posts/THM/Writeups/Relevant/Relevant.html) `Penetest, Privilege Escalation, Security Misconfiguration` 
