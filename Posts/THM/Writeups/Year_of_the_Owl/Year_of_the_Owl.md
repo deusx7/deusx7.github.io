@@ -1,6 +1,8 @@
 
 # Year of the Owl
 
+![[attachments/Pasted image 20240416152403.png]]
+
 **Difficulty:** `Hard`
 
 **OS:** `Windows`
