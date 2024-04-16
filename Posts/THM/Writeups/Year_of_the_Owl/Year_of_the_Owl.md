@@ -211,30 +211,31 @@ PORT      STATE         SERVICE
 
 SNMP enumeration might not be a bad idea. [read more](https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp)
 
-```
-There are 2 important versions of SNMP:
+---
+*There are 2 important versions of SNMP:*
 
-- **SNMPv1**: Main one, it is still the most frequent, the **authentication is based on a string** (community string) that travels in **plain-text** (all the information travels in plain text). **Version 2 and 2c** send the **traffic in plain text** also and uses a **community string as authentication**.
+- ***SNMPv1**: Main one, it is still the most frequent, the **authentication is based on a string** (community string) that travels in **plain-text** (all the information travels in plain text). **Version 2 and 2c** send the **traffic in plain text** also and uses a **community string as authentication**.*
 
-- **SNMPv3**: Uses a better **authentication** form and the information travels **encrypted** using (**dictionary attack** could be performed but would be much harder to find the correct creds than in SNMPv1 and v2).
+- ***SNMPv3**: Uses a better **authentication** form and the information travels **encrypted** using (**dictionary attack** could be performed but would be much harder to find the correct creds than in SNMPv1 and v2).*
 
-Community Strings
+*Community Strings*
 
-As mentioned before, **in order to access the information saved on the MIB you need to know the community string on versions 1 and 2/2c and the credentials on version 3.** The are **2 types of community strings**:
+*As mentioned before, **in order to access the information saved on the MIB you need to know the community string on versions 1 and 2/2c and the credentials on version 3.** The are **2 types of community strings**:*
 
-- `**public**` mainly **read only** functions
+- *`**public**` mainly **read only** functions*
     
-- `**private**` **Read/Write** in general
+- *`**private**` **Read/Write** in general*
     
 
-Note that **the writability of an OID depends on the community string used**, so **even** if you find that "**public**" is being used, you could be able to **write some values.** Also, there **may** exist objects which are **always "Read Only".** If you try to **write** an object a `**noSuchName**` **or** `**readOnly**` **error** is received**.**
+*Note that **the writability of an OID depends on the community string used**, so **even** if you find that "**public**" is being used, you could be able to **write some values.** Also, there **may** exist objects which are **always "Read Only".** If you try to **write** an object a `**noSuchName**` **or** `**readOnly**` **error** is received**.***
 
-In versions 1 and 2/2c if you to use a **bad** community string the server wont **respond**. So, if it responds, a **valid community strings was used**.
-```
+*In versions 1 and 2/2c if you to use a **bad** community string the server wont **respond**. So, if it responds, a **valid community strings was used**.*
+
+--- 
 
 With this information we can begin our enumeration.
 
-Using snmp-check
+Using `snmp-check`
 
 ![](attachments/20240416132055.png)
 
