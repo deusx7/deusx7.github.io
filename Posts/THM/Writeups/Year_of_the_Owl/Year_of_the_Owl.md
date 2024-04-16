@@ -209,7 +209,7 @@ PORT      STATE         SERVICE
 
 ```
 
-SNMP enumeration might not be a bad idea. [read more)(https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp)
+SNMP enumeration might not be a bad idea. [read more](https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp)
 
 ```
 There are 2 important versions of SNMP:
