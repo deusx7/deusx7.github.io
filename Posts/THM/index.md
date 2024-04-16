@@ -60,5 +60,5 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 
 - [[Apr 13 2024]] [Watcher](https://deusx7.github.io/Posts/THM/Writeups/Watcher/Watcher.html) `Privilege Escalation, Security, LFI, Web`
 
-- [[Apr 16 2024]] [Year of the Fox](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Fox/Year_of_the_Fox.html) `SNMP, Privilege Escalation, Bruteforcing, Enumeration, Pentest, Disclosure, Windows 
+- [[Apr 16 2024]] [Year of the Fox](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Fox/Year_of_the_Fox.html) `SNMP, Privilege Escalation, Bruteforcing, Enumeration, Pentest, Disclosure, Windows`
 
