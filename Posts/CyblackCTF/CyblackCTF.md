@@ -777,4 +777,4 @@ Root flag obtained
 
 ![](attachments/20240402164600.png)
 
-Thanks for Reading. You can contact me if you have any issue(s) with this write-up [LinkedIn/@Ibrahim Odunmbaku](https://www.linkedin.com/in/ibrahim-odunmbaku-8639a811b/)[Twitter/@deusx_45](https://twitter.com/deusx_45)  [Discord/@deusx_](https://discord.com/channels/@deusx_)
+Thanks for Reading. You can contact me if you have any issue(s) with this write-up [LinkedIn/@Ibrahim Odunmbaku](https://www.linkedin.com/in/ibrahim-odunmbaku-8639a811b/) [Twitter/@deusx_45](https://twitter.com/deusx_45)  [Discord/@deusx_](https://discord.com/channels/@deusx_)
