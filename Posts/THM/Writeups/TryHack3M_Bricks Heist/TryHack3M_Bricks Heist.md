@@ -1,11 +1,14 @@
 
 # TryHack3M: Bricks Heist
 
+![](attachments/20240418141010.png)
+
+
 **Difficulty:** `Easy`
 
-**OS:** ``
+**OS:** `Linux`
 
-**Category:** ``
+**Category:** `CVE-2024–25600, RCE, Bitcoin, Wordpress, Threat Hunting`
 
 **Description:** `Crack the code, command the exploit! Dive into the heart of the system with just an RCE CVE as your key.`
 
@@ -22,25 +25,25 @@ Can you hack back the server and identify what happened there?
 
 **Note:** Add `MACHINE_IP bricks.thm` to your **/etc/hosts** file.
 
-![[attachments/Pasted image 20240417130113.png]]
+![](attachments/20240417130113.png)
 
 # Question 1: What is the content of the hidden .txt file in the web folder?
 
-![[attachments/Pasted image 20240417131100.png]]
+![](attachments/20240417131100.png)
 
 Directory scan revels nothing
 
-![[attachments/Pasted image 20240417131416.png]]
+![](attachments/20240417131416.png)
 
 Changing the method using burp suite
 
 **Request**
 
-![[attachments/Pasted image 20240417131243.png]]
+![](attachments/20240417131243.png)
 
 **Response**
 
-![[attachments/Pasted image 20240417131328.png]]
+![](attachments/20240417131328.png)
 
 Nmap scan
 
@@ -171,11 +174,11 @@ OS and Service detection performed. Please report any incorrect results at https
 
 This reveals there is a wordpress site running on 443
 
-![[attachments/Pasted image 20240417132208.png]]
+![](attachments/20240417132208.png)
 
 Next up is to perform a directory scan and wpscan
 
-![[attachments/Pasted image 20240417132438.png]]
+![](attachments/20240417132438.png)
 
 ```shell
 wpscan --url https://bricks.thm/ --enumerate dbe,cb,u,ap --detection-mode aggressive --disable-tls-checks
@@ -183,23 +186,23 @@ wpscan --url https://bricks.thm/ --enumerate dbe,cb,u,ap --detection-mode aggres
 
 I added the `--disable-tls-checks` because it keeps throwing this error without it.
 
-![[attachments/Pasted image 20240417133152.png]]
+![](attachments/20240417133152.png)
 
-![[attachments/Pasted image 20240417132504.png]]
+![](attachments/20240417132504.png)
 
 `wpscan` returns some information
 
-![[attachments/Pasted image 20240417132604.png]]
+![](attachments/20240417132604.png)
 
 `XML-RPC` is enabled, which means we can perform brute force.
 
 We also have a valid username
 
-![[attachments/Pasted image 20240417132956.png]]
+![](attachments/20240417132956.png)
 
 Brute forcing for a valid password
 
-![[attachments/Pasted image 20240417133327.png]]
+![](attachments/20240417133327.png)
 
 ```shell
 wpscan --url https://bricks.thm/ -U administrator -P /usr/share/wordlists/rockyou.txt --disable-tls-checks
@@ -207,36 +210,36 @@ wpscan --url https://bricks.thm/ -U administrator -P /usr/share/wordlists/rockyo
 
 While the brute force is running, i also noticed the version of wordpress running
 
-![[attachments/Pasted image 20240417133948.png]]
+![](attachments/20240417133948.png)
 
 Checked for any public exploit but found none.
 
 Couldn't find any passwords with the bruteforce also. After much searching around the application, i decided to check out the theme version for any exploit
 
-![[attachments/Pasted image 20240417142318.png]]
+![](attachments/20240417142318.png)
 
 Checking online we can see there is an RCE exploit for it
 
-![[attachments/Pasted image 20240417142414.png]]
+![](attachments/20240417142414.png)
 
 I mean the room name literally has "bricks" in it and room description talks about RCE lol
 
 Exploit link:https://github.com/Chocapikk/CVE-2024-25600/tree/main
 PoC link: https://snicco.io/vulnerability-disclosure/bricks/unauthenticated-rce-in-bricks-1-9-6
 
-![[attachments/Pasted image 20240417142735.png]]
+![](attachments/20240417142735.png)
 
 Clone the exploit repo, install requirements and run the exploit
 
-![[attachments/Pasted image 20240417143506.png]]
+![](attachments/20240417143506.png)
 
 And we have shell access
 
-![[attachments/Pasted image 20240417143529.png]]
+![](attachments/20240417143529.png)
 
 First flag obtained 
 
-![[attachments/Pasted image 20240417143624.png]]
+![](attachments/20240417143624.png)
 
 # Question 2: What is the name of the suspicious process?
 
@@ -256,17 +259,17 @@ The shell isn't a proper shell so i had to get a stable shell. To do that:
 
 And with that you will get a shell.
 
-![[attachments/Pasted image 20240417144753.png]]
+![](attachments/20240417144753.png)
 
-![[attachments/Pasted image 20240417144809.png]]
+![](attachments/20240417144809.png)
 
-![[attachments/Pasted image 20240417144820.png]]
+![](attachments/20240417144820.png)
 
-![[attachments/Pasted image 20240417144830.png]]
+![](attachments/20240417144830.png)
 
 To get an even better shell, run the following
 
-![[attachments/Pasted image 20240417145054.png]]
+![](attachments/20240417145054.png)
 
 
 ```shell
@@ -276,4 +279,106 @@ Ctrl + Z (background shell)
 stty raw -echo;fg
 Press ENTER
 ```
+
+Next up is to find a suspicious process.
+
+We can use the `systemctl` command for this
+
+![](attachments/20240418123545.png)
+
+```shell
+systemctl list-units --type=service --state=running
+```
+
+Press ENTER to keep displaying more services
+
+![](attachments/20240418123647.png)
+
+![](attachments/20240418123847.png)
+
+We have our answer for both questions **What is the name of the suspicious process?** & **What is the service name affiliated with the suspicious process?**
+
+# What is the log file name of the miner instance?
+
+Navigating to the `/lib/NetworkManager` directory, we have a configuration file that contains logs on the miner instance
+
+![](attachments/20240418125919.png)
+
+![](attachments/20240418130033.png)
+
+# What is the wallet address of the miner instance?
+
+Checking the beginning of the file with the command `head -n 30 inet.conf`, we have a code here.
+
+![](attachments/20240418131531.png)
+
+Using cyberchef to decode it
+
+![](attachments/20240418131704.png)
+
+We have a code here.
+
+If you notice carefully we have almost identical code
+
+```
+bc1qyk79fcp9hd5kreprce89tkh4wrtl8avt4l67qa | bc1qyk79fcp9had5kreprce89tkh4wrtl8avt4l67qa
+
+Spilt
+
+bc1qyk79fcp9hd5kreprce89tkh4wrtl8avt4l67qa
+bc1qyk79fcp9had5kreprce89tkh4wrtl8avt4l67qa
+```
+
+Both start with `bc1` but differ in `9hd` `9had`
+
+Doing a quick search
+
+![](attachments/20240418132041.png)
+So the correct answer is the second one 
+
+```
+bc1qyk79fcp9had5kreprce89tkh4wrtl8avt4l67qa
+```
+
+# The wallet address used has been involved in transactions between wallets belonging to which threat group?
+
+After searching a million websites using both addresses, i finally found it.
+
+Using this website [link](https://blockchair.com/). I searched for this address `bc1qyk79fcp9hd5kreprce89tkh4wrtl8avt4l67qa`
+
+
+![](attachments/20240418135730.png)
+
+Lot's of transactions came out. I looked at the last one
+
+![](attachments/20240418135803.png)
+
+Clicked on privacy issues
+
+![](attachments/20240418135823.png)
+
+Then searched for this address online
+
+![](attachments/20240418135846.png)
+
+
+We have some information related to maybe cyber crime
+
+![](attachments/20240418140004.png)
+
+Going to this [site](https://ofac.treasury.gov/recent-actions/20240220)
+
+![](attachments/20240418140159.png)
+
+We have a name "Ivan Gennadievich"
+
+Looks like he was involved in some really bad stuff. Further research on his name lead me to the answer
+
+![](attachments/20240418140400.png)
+
+`LockBit`
+
+The End.
+
+![](attachments/20240418140550.png)
 

@@ -58,6 +58,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 - [[Apr 13 2024]] [Watcher](https://deusx7.github.io/Posts/THM/Writeups/Watcher/Watcher.html) `Privilege Escalation, Security, LFI, Web`
 
 - [[Apr 16 2024]] [Year of the Owl](https://deusx7.github.io/Posts/THM/Writeups/Year_of_the_Owl/Year_of_the_Owl.html) `SNMP, Privilege Escalation, Bruteforcing, Enumeration, Pentest, Disclosure, Windows`
+
+- [[Apr 18 2024]] [TryHack3M: Bricks Heist](https://deusx7.github.io/Posts/THM/Writeups/TryHack3M_Bricks Heist/TryHack3M_Bricks Heist.html) `CVE-2024–25600, RCE, Bitcoin, Wordpress, Threat Hunting`
  
 * * *
 ### **HackTheBox**
