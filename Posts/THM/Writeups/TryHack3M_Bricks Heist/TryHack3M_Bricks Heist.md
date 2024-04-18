@@ -334,6 +334,7 @@ Both start with `bc1` but differ in `9hd` `9had`
 Doing a quick search
 
 ![](attachments/20240418132041.png)
+
 So the correct answer is the second one 
 
 ```
