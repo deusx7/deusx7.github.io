@@ -224,8 +224,8 @@ Checking online we can see there is an RCE exploit for it
 
 I mean the room name literally has "bricks" in it and room description talks about RCE lol
 
-Exploit link:https://github.com/Chocapikk/CVE-2024-25600/tree/main
-PoC link: https://snicco.io/vulnerability-disclosure/bricks/unauthenticated-rce-in-bricks-1-9-6
+Exploit [link](https://github.com/Chocapikk/CVE-2024-25600/tree/main)
+PoC [link](https://snicco.io/vulnerability-disclosure/bricks/unauthenticated-rce-in-bricks-1-9-6)
 
 ![](attachments/20240417142735.png)
 
