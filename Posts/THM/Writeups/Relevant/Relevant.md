@@ -7,7 +7,7 @@
 
 **OS:** `Windows`
 
-**Category:** `Penetest, Privilege Escalation, Security Misconfiguration`
+**Category:** `Pentest, Privilege Escalation, Security Misconfiguration`
 
 **Description:** 
 
