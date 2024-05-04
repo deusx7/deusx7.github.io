@@ -329,4 +329,4 @@ Final root flag acquired ✅
 
 The End. 🤝
 
-![](attachments/b1810d0bf4fbd370349d671a3f9389af.gif)
+![](../Breaching_Active_Directory/attachments/b1810d0bf4fbd370349d671a3f9389af.gif)
