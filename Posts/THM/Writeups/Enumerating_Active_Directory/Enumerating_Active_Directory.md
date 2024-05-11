@@ -131,6 +131,10 @@ If we have the AD credentials in the format of `<username>:<password>`, we can u
 runas.exe /netonly /user:<domain>\<username> cmd.exe
 ```
 
+![[attachments/Pasted image 20240511101559.png]]
+
+![[attachments/Pasted image 20240511101701.png]]
+
 Let's look at the parameters:
 
 - **/netonly** - Since we are not domain-joined, we want to load the credentials for network authentication but not authenticate against a domain controller. So commands executed locally on the computer will run in the context of your standard Windows account, but any network connections will occur using the account specified here.
@@ -195,3 +199,10 @@ This is where it becomes potent. Have you ever had a case where an MS SQL databa
 
 We will be using that in the next task for our first AD enumeration technique.
 
+**Answer the questions below**
+
+What native Windows binary allows us to inject credentials legitimately into memory? `runas.exe`
+
+What parameter option of the runas binary will ensure that the injected credentials are used for all network connections? `/netonly`
+
+What network folder on a domain controller is accessible by any authenticated AD account and stores GPO information? `SYSVOL`

@@ -323,7 +323,7 @@ We can easily used the `download` feature from evil-winrm to download the files 
 
 ![](attachments/20240416150154.png)
 
-next is to use a tool called [secretsdump)(https://github.com/fortra/impacket/blob/master/examples/secretsdump.py) to combine the SAM and SYSTEM backup files
+next is to use a tool called [secretsdump](https://github.com/fortra/impacket/blob/master/examples/secretsdump.py) to combine the SAM and SYSTEM backup files
 
 you can run it using 
 
