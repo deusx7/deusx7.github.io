@@ -11,7 +11,7 @@ These guys call themselves hackers. Can you show them who's the boss ??
 
 **OS**: Windows (Active Directory)
 
-**Category**: `Kerberoastin, AS-REP Roasting, Active Directory, Hash Cracking, crackmapexec`
+**Category**: `Kerberoasting, AS-REP Roasting, Active Directory, Hash Cracking, crackmapexec`
 
 # Task 1: Deploy The Box
 
