@@ -62,7 +62,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 - [[Apr 18 2024]] [TryHack3M: Bricks Heist](https://deusx7.github.io/Posts/THM/Writeups/TryHack3M_Bricks Heist/TryHack3M_Bricks Heist.html) `CVE-2024–25600, RCE, Bitcoin, Wordpress, Threat Hunting`
 
 - [[May 4 2024]] [Breaching Active Directory](https://deusx7.github.io/Posts/THM/Writeups/Breaching_Active_Directory/Breaching_Active_Directory.html) `Active Directory, Security, Network`
- 
+
+- [[April 16 2024]] [RazorBlack](https://deusx7.github.io/Posts/THM/Writeups/RazorBlack/RazorBlack.html) `Kerberoastin, AS-REP Roasting, Active Directory, Hash Cracking, crackmapexec` 
 * * *
 ### **HackTheBox**
 
