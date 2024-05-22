@@ -40,11 +40,11 @@ Next is to configure DNS.
 
 Search for "Advanced Network Configuration"
 
-![](attachments/20240503210915.png)
+![](../Breaching_Active_Directory/attachments/20240503210915.png)
 
 Double click on the network connection you're using
 
-![](attachments/20240503211021.png)
+![](../Breaching_Active_Directory/attachments/20240503211021.png)
 
 Go to IPv4 settings and set:
 
