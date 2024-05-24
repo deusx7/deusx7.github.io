@@ -66,4 +66,6 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 
 - [[May 4 2024]] [Breaching Active Directory](https://deusx7.github.io/Posts/THM/Writeups/Breaching_Active_Directory/Breaching_Active_Directory.html) `Active Directory, Security, Network`
 
-- [[April 16 2024]] [RazorBlack](https://deusx7.github.io/Posts/THM/Writeups/RazorBlack/RazorBlack.html) `Kerberoastin, AS-REP Roasting, Active Directory, Hash Cracking, crackmapexec`
+- [[May 16 2024]] [RazorBlack](https://deusx7.github.io/Posts/THM/Writeups/RazorBlack/RazorBlack.html) `Kerberoastin, AS-REP Roasting, Active Directory, Hash Cracking, crackmapexec`
+
+- [[May 24 2024]] [VulnNet: Roasted](https://deusx7.github.io/Posts/THM/Writeups/VulnNet_Roasted/VulnNet_Roasted.html) `Kerberoasting, AS-REP Roasting, Active Directory, Powershell`
