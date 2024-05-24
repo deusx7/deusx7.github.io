@@ -65,7 +65,7 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[May 16 2024]] [RazorBlack](https://deusx7.github.io/Posts/THM/Writeups/RazorBlack/RazorBlack.html) `Kerberoasting, AS-REP Roasting, Active Directory, Hash Cracking, crackmapexec`
 
-- [[May 24 2024]] [VulnNet: Roasted](https://deusx7.github.io/Posts/THM/Writeups/VulnNet_Roasted/VulnNet_Roasted.html) `Kerberoasting, AS-REP Roasting, Active Directory, Powershell` 
+- [[May 24 2024]] [VulnNet: Roasted](https://deusx7.github.io/Posts/THM/Writeups/VulnNet_Roasted/VulnNet_Roasted.html) `Kerberoasting, AS-REP Roasting, Active Directory, Powershell`
 
 * * *
 ### **HackTheBox**
