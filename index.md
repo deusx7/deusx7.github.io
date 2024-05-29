@@ -69,6 +69,7 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[May 27 2024]] [VulnNet: Active](https://deusx7.github.io/Posts/THM/Writeups/VulnNet_Active/VulnNet_Active.html) `Active Directory, SMB, Redis, Bloodhound`
 
+- [[May 29 2024]] [Reset](https://deusx7.github.io/Posts/THM/Writeups/Reset/Reset.html) `Active Directory, SMB, Delegation, Bloodhound`
 
 * * *
 ### **HackTheBox**
