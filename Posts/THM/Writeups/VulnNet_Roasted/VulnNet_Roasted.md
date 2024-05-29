@@ -318,7 +318,6 @@ Service Info: Host: WIN-2BO8M1OE1M1; OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Fri May 24 11:38:47 2024 -- 1 IP address (1 host up) scanned in 167.44 seconds
-
 ```
 
 ```shell
