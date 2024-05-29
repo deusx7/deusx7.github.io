@@ -208,3 +208,157 @@ copy all and crack the hashes using hashcat. The mode is `13100`
 The hashes won't crack 
 
 ![[attachments/Pasted image 20240528144030.png]]
+
+At this point i was stuck and didn't know where else to check so i decided to try downloading that one pdf that refused to download earlier and for some reason it worked this time.
+
+In the content of this pdf we can find a user and a the same password we got earlier.
+
+![[attachments/Pasted image 20240529134612.png]]
+
+Still nothing so after much research i decided to try and steal NTLM hashes with responder.
+
+# Stealing NTLM Hash
+
+I read this blog as a guide: https://www.hackingarticles.in/multiple-files-to-capture-ntlm-hashes-ntlm-theft/
+
+Follow the steps
+
+![[attachments/Pasted image 20240529143945.png]]
+
+![[attachments/Pasted image 20240529144034.png]]
+
+![[attachments/Pasted image 20240529144320.png]]
+
+It didn't work so i uploaded the `.lnk` file instead
+
+![[attachments/Pasted image 20240529144515.png]]
+
+and i got the hash
+
+![[attachments/Pasted image 20240529144549.png]]
+
+place the hash inside a file and crack, the mode is `5600`
+
+![[attachments/Pasted image 20240529145112.png]]
+
+so now we have the password for the user `AUTOMATE`
+
+Using evil-winrm, we can login
+
+![[attachments/Pasted image 20240529145237.png]]
+
+Look for user flag and submit.
+
+# Privilege Escalation
+
+Running `whoami /all` to check the user privileges doesn't reveal anything useful
+
+![[attachments/Pasted image 20240529150100.png]]
+
+Next is to transfer sharphound and use bloodhound to get a better view
+
+![[attachments/Pasted image 20240529150343.png]]
+
+The file keeps getting deleted, looks like there is antivirus enabled
+
+![[attachments/Pasted image 20240529150613.png]]
+
+No need for running sharphound on the machine though, since there is LDAP protocol.
+
+we can just run
+
+```shell
+bloodhound-python -ns TARGET IP --dns-tcp -d thm.corp -u AUTOMATE -p PASSWORD -d thm.corp -c all --zip
+```
+
+![[attachments/Pasted image 20240529155209.png]]
+
+Unzip it
+
+![[attachments/Pasted image 20240529155230.png]]
+
+Import the json files
+
+Drag and drop
+
+![[attachments/Pasted image 20240529155516.png]]
+
+We are able to get list of AS-REP Roastable users who don't require preauthentication
+
+![[attachments/Pasted image 20240529160531.png]]
+
+We can see the user `TABATHA_BRIT` whose password we have already obtained earlier via AS-REP Roasting
+
+Now we can check the shortest path to domain through the user
+
+![[attachments/Pasted image 20240529161553.png]]
+
+But this route doesn't work
+
+Quick tip is to first of all mark TABATHA as owned
+
+![[attachments/Pasted image 20240529165531.png]]
+
+Then search for domain computers and select shortest path from owned
+
+![[attachments/Pasted image 20240529165918.png]]
+
+![[attachments/Pasted image 20240529170013.png]]
+
+This shows 
+
+- Tabatha has `GenericAll` access to Shawna
+- Shawna has `ForgetChangePassword` to Cruz
+- Cruz has `GenericWrite` to Darla
+- and Darla is a `MemberOf` Domain Computers
+
+Since we have `GenericAll` access we can just change the password 
+
+![[attachments/Pasted image 20240529170714.png]]
+
+Now login as the user
+
+![[attachments/Pasted image 20240529170950.png]]
+
+Next up `ForgotChangePassword` to Cruz
+
+I ran the `runas.exe` to spawn a cmd shell as the user shawna and then tried using net command to change the password of cruz but it didn't workout
+
+![[attachments/Pasted image 20240529172108.png]]
+
+![[attachments/Pasted image 20240529172122.png]]
+
+To exploit this, bloodhound already has suggestions for you.
+
+Just right click on what you need and select help
+
+![[attachments/Pasted image 20240529172900.png]]
+
+Select linux abuse and you'll  see the command to run
+
+![[attachments/Pasted image 20240529172941.png]]
+
+
+![[attachments/Pasted image 20240529172825.png]]
+
+Now rdp as the user cruz with the new password
+
+![[attachments/Pasted image 20240529173034.png]]
+
+![[attachments/Pasted image 20240529173016.png]]
+
+
+Next up, cruz has `GenericWrite` to Darla
+
+Checking bloodhound on how to exploit this
+
+![[attachments/Pasted image 20240529173242.png]]
+
+The tool can be cloned from this repo: https://github.com/ShutdownRepo/targetedKerberoast.git
+
+Run it with the creds for the cruz user
+
+![[attachments/Pasted image 20240529174450.png]]
+Then copy the hash for darla and crack it
+
+The hash
