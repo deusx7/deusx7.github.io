@@ -1,7 +1,7 @@
 
 # Reset
 
-![[attachments/Pasted image 20240528132945.png]]
+![](attachments/20240528132945.png)
 Step into the shoes of a red teamer in our simulated hack challenge!   
 Navigate a realistic organizational environment with up-to-date defenses. 
 
@@ -112,7 +112,7 @@ nmap -sCV -p- --min-rate=1000 -T4 <IP> -oN scan -vv
 
 First up from the scan output we can see the domain name is thm.corp so we add this to the `/etc/hosts` file
 
-![[attachments/Pasted image 20240528133844.png]]
+![](attachments/20240528133844.png)
 
 Next we have some notable ports open
 
@@ -125,39 +125,39 @@ Next we have some notable ports open
 
 Using smbclient 
 
-![[attachments/Pasted image 20240528134141.png]]
+![](attachments/20240528134141.png)
 
 We have some shares. The one that stands out is `Data` so let's check it out
 
-![[attachments/Pasted image 20240528134350.png]]
+![](attachments/20240528134350.png)
 
 Download all files found in the onboarding directory. For some reason i can't download the last pdf.
 
 In the txt file we can get a password
 
-![[attachments/Pasted image 20240528134522.png]]
+![](attachments/20240528134522.png)
 
 The PDF has no useful information.
 
 Using smbmap for better info, it shows we have read and write access to the `Data` Share
 
-![[attachments/Pasted image 20240528134918.png]]
+![](attachments/20240528134918.png)
 
 And we have read access to the `IPC$` share that contains a lot of files.
 
 No Access for the rest
 
-![[attachments/Pasted image 20240528135003.png]]
+![](attachments/20240528135003.png)
 
 User enumeration using `netexec`
 
-![[attachments/Pasted image 20240528140246.png]]
+![](attachments/20240528140246.png)
 
 Extract only the names and put in a text file so we can have a username wordlist for brute forcing
 
 Since we have kerberos running on the target we can use a tool like kerbrute to enumerate 
 
-![[attachments/Pasted image 20240528140527.png]]
+![](attachments/20240528140527.png)
 
 All users are valid
 
@@ -171,7 +171,7 @@ Impacket Syntax:
 impacket-GetNPUsers DOMAIN/user -no-pass
 ```
 
-![[attachments/Pasted image 20240528141055.png]]
+![](attachments/20240528141055.png)
 
 copy these hashes and paste in a file so we can crack them
 
@@ -185,19 +185,19 @@ hashcat -m 18200 hash.txt /usr/share/wordlists/rockyou.txt
 
 Only one was cracked
 
-![[attachments/Pasted image 20240528142848.png]]
+![](attachments/20240528142848.png)
 
 # Kerberoasting
 
 With these we can then perform kerberoasting using the impacket tool `GetUserSPNs`
 
-![[attachments/Pasted image 20240528143128.png]]
+![](attachments/20240528143128.png)
 
 We have a couple of accounts
 
 Add the `-request` switch to get the hashes for the accounts
 
-![[attachments/Pasted image 20240528143251.png]]
+![](attachments/20240528143251.png)
 
 That's a lot of hashes
 
@@ -207,13 +207,13 @@ copy all and crack the hashes using hashcat. The mode is `13100`
 
 The hashes won't crack 
 
-![[attachments/Pasted image 20240528144030.png]]
+![](attachments/20240528144030.png)
 
 At this point i was stuck and didn't know where else to check so i decided to try downloading that one pdf that refused to download earlier and for some reason it worked this time.
 
 In the content of this pdf we can find a user and a the same password we got earlier.
 
-![[attachments/Pasted image 20240529134612.png]]
+![](attachments/20240529134612.png)
 
 Still nothing so after much research i decided to try and steal NTLM hashes with responder.
 
@@ -223,29 +223,29 @@ I read this blog as a guide: https://www.hackingarticles.in/multiple-files-to-ca
 
 Follow the steps
 
-![[attachments/Pasted image 20240529143945.png]]
+![](attachments/20240529143945.png)
 
-![[attachments/Pasted image 20240529144034.png]]
+![](attachments/20240529144034.png)
 
-![[attachments/Pasted image 20240529144320.png]]
+![](attachments/20240529144320.png)
 
 It didn't work so i uploaded the `.lnk` file instead
 
-![[attachments/Pasted image 20240529144515.png]]
+![](attachments/20240529144515.png)
 
 and i got the hash
 
-![[attachments/Pasted image 20240529144549.png]]
+![](attachments/20240529144549.png)
 
 place the hash inside a file and crack, the mode is `5600`
 
-![[attachments/Pasted image 20240529145112.png]]
+![](attachments/20240529145112.png)
 
 so now we have the password for the user `AUTOMATE`
 
 Using evil-winrm, we can login
 
-![[attachments/Pasted image 20240529145237.png]]
+![](attachments/20240529145237.png)
 
 Look for user flag and submit.
 
@@ -253,15 +253,15 @@ Look for user flag and submit.
 
 Running `whoami /all` to check the user privileges doesn't reveal anything useful
 
-![[attachments/Pasted image 20240529150100.png]]
+![](attachments/20240529150100.png)
 
 Next is to transfer sharphound and use bloodhound to get a better view
 
-![[attachments/Pasted image 20240529150343.png]]
+![](attachments/20240529150343.png)
 
 The file keeps getting deleted, looks like there is antivirus enabled
 
-![[attachments/Pasted image 20240529150613.png]]
+![](attachments/20240529150613.png)
 
 No need for running sharphound on the machine though, since there is LDAP protocol.
 
@@ -271,39 +271,39 @@ we can just run
 bloodhound-python -ns TARGET IP --dns-tcp -d thm.corp -u AUTOMATE -p PASSWORD -d thm.corp -c all --zip
 ```
 
-![[attachments/Pasted image 20240529155209.png]]
+![](attachments/20240529155209.png)
 
 Unzip it
 
-![[attachments/Pasted image 20240529155230.png]]
+![](attachments/20240529155230.png)
 
 Import the json files
 
 Drag and drop
 
-![[attachments/Pasted image 20240529155516.png]]
+![](attachments/20240529155516.png)
 
 We are able to get list of AS-REP Roastable users who don't require preauthentication
 
-![[attachments/Pasted image 20240529160531.png]]
+![](attachments/20240529160531.png)
 
 We can see the user `TABATHA_BRIT` whose password we have already obtained earlier via AS-REP Roasting
 
 Now we can check the shortest path to domain through the user
 
-![[attachments/Pasted image 20240529161553.png]]
+![](attachments/20240529161553.png)
 
 But this route doesn't work
 
 Quick tip is to first of all mark TABATHA as owned
 
-![[attachments/Pasted image 20240529165531.png]]
+![](attachments/20240529165531.png)
 
 Then search for domain computers and select shortest path from owned
 
-![[attachments/Pasted image 20240529165918.png]]
+![](attachments/20240529165918.png)
 
-![[attachments/Pasted image 20240529170013.png]]
+![](attachments/20240529170013.png)
 
 This shows 
 
@@ -314,51 +314,85 @@ This shows
 
 Since we have `GenericAll` access we can just change the password 
 
-![[attachments/Pasted image 20240529170714.png]]
+![](attachments/20240529170714.png)
 
 Now login as the user
 
-![[attachments/Pasted image 20240529170950.png]]
+![](attachments/20240529170950.png)
 
 Next up `ForgotChangePassword` to Cruz
 
 I ran the `runas.exe` to spawn a cmd shell as the user shawna and then tried using net command to change the password of cruz but it didn't workout
 
-![[attachments/Pasted image 20240529172108.png]]
+![](attachments/20240529172108.png)
 
-![[attachments/Pasted image 20240529172122.png]]
+![](attachments/20240529172122.png)
 
 To exploit this, bloodhound already has suggestions for you.
 
 Just right click on what you need and select help
 
-![[attachments/Pasted image 20240529172900.png]]
+![](attachments/20240529172900.png)
 
 Select linux abuse and you'll  see the command to run
 
-![[attachments/Pasted image 20240529172941.png]]
+![](attachments/20240529172941.png)
 
 
-![[attachments/Pasted image 20240529172825.png]]
+![](attachments/20240529172825.png)
 
 Now rdp as the user cruz with the new password
 
-![[attachments/Pasted image 20240529173034.png]]
+![](attachments/20240529173034.png)
 
-![[attachments/Pasted image 20240529173016.png]]
+![](attachments/20240529173016.png)
 
 
 Next up, cruz has `GenericWrite` to Darla
 
 Checking bloodhound on how to exploit this
 
-![[attachments/Pasted image 20240529173242.png]]
+![](attachments/20240529173242.png)
 
 The tool can be cloned from this repo: https://github.com/ShutdownRepo/targetedKerberoast.git
 
 Run it with the creds for the cruz user
 
-![[attachments/Pasted image 20240529174450.png]]
-Then copy the hash for darla and crack it
+![](attachments/20240529174450.png)
 
-The hash
+Then copy the hash for darla and crack it.
+
+The hash didn't crack but even better, we can just reset the password using `net rpc` like we did earlier
+
+![](attachments/20240529194536.png)
+
+Infact we could have just done this to all the account right from the beginning
+
+![](attachments/20240529194607.png)
+
+Now we have access to the user darla
+
+Checking back on bloodhound we can see the user is allowed to delegate to haystack.thm.corp
+
+![](attachments/20240529195540.png)
+
+Bloodhound gives a detailed explanation about this 
+
+![](attachments/20240529195700.png)
+
+Checking the suggestion shw
+Taking a look at this blog gives an idea on how to perform this attack https://www.alteredsecurity.com/post/resource-based-constrained-delegation-rbcd (start from step 3)
+
+Bloodhound gives a suggestion to use `getst` which is part of the impacket toolkit. This will request a service ticket and save it as a ccahe. Then since we have constrained delegation privileges, we will be able to impersonate the admin user.
+
+- Export the file name which it was saved to
+- **Remember to add `haystack.thm.corp` to your /etc/hosts file**
+
+ Then using wmiexec we can login as the admin user. wmiexec is able to read the `KRB5CCNAME` variable which is what allows us to login successfully.
+
+Get a shell as the admin user and find the flag.
+ 
+![](attachments/20240529201640.png)
+
+GGs 🤝
+
