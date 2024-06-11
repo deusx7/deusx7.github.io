@@ -1,5 +1,14 @@
-m
+
 # Airplane
+
+
+![](https://tryhackme-images.s3.amazonaws.com/room-icons/6b9f423bda07437c11975e4db7892bee.svg "TryHackMe")
+
+Are you ready to fly?
+
+**Difficulty**: `Medium`
+**Category**: `LFI, Web, Linux, Enumeration`
+**Platform**: `Linux`
 
 Nmap scan
 
@@ -107,19 +116,19 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 Website on port 8000
 
-![[attachments/Pasted image 20240610164552.png]]
+![](attachments/20240610164552.png)
 
 Insert domain into `/etc/hosts` file
 
-![[attachments/Pasted image 20240610164642.png]]
+![](attachments/20240610164642.png)
 
-![[attachments/Pasted image 20240610164850.png]]
+![](attachments/20240610164850.png)
 
 URL looks to be vulnerable to LFI (local file inclusion). The parameter  page is vulnerable
 
 Testing various lfi payloads.
 
-![[attachments/Pasted image 20240610171509.png]]
+![](attachments/20240610171509.png)
 
 This works
 
@@ -129,13 +138,13 @@ This works
 
 Checking for common files on a linux system using this vulenrability
 
-![[attachments/Pasted image 20240611100407.png]]
+![](attachments/20240611100407.png)
 
-![[attachments/Pasted image 20240611100430.png]]
+![](attachments/20240611100430.png)
 
 This file contains information about the TCP sockets in use on the system.
 
-![[attachments/Pasted image 20240611100528.png]]
+![](attachments/20240611100528.png)
 
 Port 6048 is actively being used.
 
@@ -175,34 +184,34 @@ echo "Results have been saved to $OUTPUT_FILE"
 
 This will just loop through numbers 1 - 1000 and display the contents of `cmdline` which shows the binary running
 
-![[attachments/Pasted image 20240611103622.png]]
+![](attachments/20240611103622.png)
 
 Scrolling through the result, we can see the port `6048` and the name airplane which is the name of the room and also the binary being used which is gdbserver.
 
 Searching online for gdbserver exploits
 
-![[attachments/Pasted image 20240611103744.png]]
+![](attachments/20240611103744.png)
 
 How to run it
-![[attachments/Pasted image 20240611103839.png]]
+![](attachments/20240611103839.png)
 
 Generate the payload
 
-![[attachments/Pasted image 20240611103931.png]]
+![](attachments/20240611103931.png)
 
 Run the exploit
 
-![[attachments/Pasted image 20240611104112.png]]
+![](attachments/20240611104112.png)
 
 Catch a shell
 
-![[attachments/Pasted image 20240611104134.png]]
+![](attachments/20240611104134.png)
 
 The user has a `.ssh` directory which is empty
 
 we can generate a private key on our attack machine and send it to the target so we can access via ssh and get a proper shell
 
-![[attachments/Pasted image 20240611104528.png]]
+![](attachments/20240611104528.png)
 
 ```shell
 ssh-keygen -t rsa -b 2048 -f ~/Tryhackme/airplane/id_rsa
@@ -210,17 +219,17 @@ ssh-keygen -t rsa -b 2048 -f ~/Tryhackme/airplane/id_rsa
 
 Rename the public key to authorized_keys and transfer it to the target .ssh directory
 
-![[attachments/Pasted image 20240611104750.png]]
+![](attachments/20240611104750.png)
 
 Now ssh as the user hudson
 
-![[attachments/Pasted image 20240611104856.png]]
+![](attachments/20240611104856.png)
 
 # Pivoting to the user Carlos
 
 Running linpeas on the target reveals the find binary has SUID set as the user carlos
 
-![[attachments/Pasted image 20240611135419.png]]
+![](attachments/20240611135419.png)
 
 Running the following command will give a shell as the user 
 
@@ -229,11 +238,42 @@ Running the following command will give a shell as the user
 ```
 
 
-![[attachments/Pasted image 20240611135448.png]]
+![](attachments/20240611135448.png)
 
 Get the user flag
 
-![[attachments/Pasted image 20240611135538.png]]
+![](attachments/20240611135538.png)
 
 # Privilege Escalation
 
+Generate another key like we did before or use the existing key
+
+make sure the change permission of the authorized_keys to 600 
+
+```
+chmod 600 authorized_keys
+```
+
+![](attachments/20240611155920.png)
+
+login as carlos
+
+![](attachments/20240611155935.png)
+
+`sudo -l` shows we can run a ruby script in the root directory
+
+![](attachments/20240611160024.png)
+
+With this we can just create a ruby file in our current dir and insert 
+
+```ruby
+exec "/bin/bash"
+```
+
+which is used to spawn a bash shell in ruby
+
+then run the binary with sudo and abuse path traversal to direct it to our ruby file. Since we can run all ruby file `*.rb` that starts from root `/root/../home/carlos/shell.rb`
+
+![](attachments/20240611160956.png)
+
+GGs 

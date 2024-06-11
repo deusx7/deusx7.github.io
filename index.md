@@ -73,6 +73,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[May 30 2024]] [specter](https://deusx7.github.io/Posts/THM/Writeups/specter/specter.html) `LFI, web, brute force, enumeration`
 
+- [[Jun 11 2024]] [Airplane](https://deusx7.github.io/Posts/THM/Writeups/Airplane/Airplane.html) `LFI, web, Linux, enumeration`
+
 * * *
 ### **HackTheBox**
 

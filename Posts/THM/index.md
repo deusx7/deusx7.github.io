@@ -75,3 +75,5 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 - [[May 29 2024]] [Reset](https://deusx7.github.io/Posts/THM/Writeups/Reset/Reset.html) `Active Directory, SMB, Delegation, Bloodhound`
 
 - [[May 30 2024]] [specter](https://deusx7.github.io/Posts/THM/Writeups/specter/specter.html) `LFI, web, brute force, enumeration`
+
+- [[Jun 11 2024]] [Airplane](https://deusx7.github.io/Posts/THM/Writeups/Airplane/Airplane.html) `LFI, web, Linux, enumeration`
