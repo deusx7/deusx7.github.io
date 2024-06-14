@@ -792,4 +792,17 @@ There are way too many users (3999)
 
 ![[attachments/Pasted image 20240613165146.png]]
 
-We can output the result into a file and extract the username
+We can output the result into a file and extract the usernames  to maybe use for attacks later.
+
+Checking the share `Shared`, we can see the spark version in use on the machine
+
+![[attachments/Pasted image 20240614095855.png]]
+
+Checking online for an exploit
+
+we find a github repo that contains info on the exploit and we can see the creator of the room was part of this finding
+
+![[attachments/Pasted image 20240614100350.png]]
+
+Download the debian package and install, if you are using debian based Linux distro of course
+
