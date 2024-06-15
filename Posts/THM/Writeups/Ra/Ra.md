@@ -806,3 +806,5 @@ we find a github repo that contains info on the exploit and we can see the creat
 
 Download the debian package and install, if you are using debian based Linux distro of course
 
+
+![[attachments/Pasted image 20240614154819.png]]
