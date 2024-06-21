@@ -77,3 +77,5 @@ Start your Cybersecurity journey today by signing up for [TryHackMe](https://try
 - [[May 30 2024]] [specter](https://deusx7.github.io/Posts/THM/Writeups/specter/specter.html) `LFI, web, brute force, enumeration`
 
 - [[Jun 11 2024]] [Airplane](https://deusx7.github.io/Posts/THM/Writeups/Airplane/Airplane.html) `LFI, web, Linux, enumeration`
+
+- [[Jun 21 2024]] [Ra](https://deusx7.github.io/Posts/THM/Writeups/Ra/Ra.html) `Responder, CVE-2020-12772, windows, Active Directory`

@@ -75,6 +75,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Jun 11 2024]] [Airplane](https://deusx7.github.io/Posts/THM/Writeups/Airplane/Airplane.html) `LFI, web, Linux, enumeration`
 
+- [[Jun 21 2024]] [Ra](https://deusx7.github.io/Posts/THM/Writeups/Ra/Ra.html) `Responder, CVE-2020-12772, windows, Active Directory`
+
 * * *
 ### **HackTheBox**
 
