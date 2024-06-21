@@ -835,7 +835,7 @@ In the exploit on github, the target was `buse@fire.windcorp.thm` so we can sear
 ![](attachments/20240621104844.png)
 
 
-Start responder on your vpn interface
+Start responder on your vpn interface tun0
 
 ![](attachments/20240621105218.png)
 
@@ -929,5 +929,13 @@ We can then login via evil-winrm as the new user
 Obtain the final flag
 
 ![](attachments/20240621153319.png)
+
+To take it a step further we can dump secrets using secretsdump and get the administrator's hash to login as the admin using a pass-the-hash attack
+
+![](attachments/20240621170325.png)
+
+Login using evil-winrm and the admin hash
+
+![](attachments/20240621170439.png)
 
 GGs 
