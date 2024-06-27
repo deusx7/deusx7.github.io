@@ -89,6 +89,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Jan 22 2024]] [Web Application Penetration Test Report](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/Projects/JuiceShop_Report/JuiceShop_Report.md)
 
+- [[Apr 16 2024]] [Cyblack CTF](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/CyblackCTF/CyblackCTF.md)
+
 * * *
 
 ### Active Directory Attacks & Mitigation
