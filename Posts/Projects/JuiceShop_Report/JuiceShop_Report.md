@@ -2,7 +2,9 @@
 # Web Application Penetration Testing Report
 
 **Prepared for**: OWASP Juice Shop
-**Prepared By**: Odunmbaku Adedeji Ibrahim 
+
+**Prepared By**: Ibrahim Adedeji Odunmbaku 
+
 **Date**: January 22, 2024
 
 # Executive Summary
