@@ -91,6 +91,8 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 
 - [[Apr 16 2024]] [Cyblack CTF](https://deusx7.github.io/Posts/CyblackCTF/CyblackCTF.html)
 
+- [[Jul 22 2024]][Cyblack CTF 2](https://deusx7.github.io/Posts/CyblackCTF/CyblackCTF2.html)
+
 * * *
 
 ### Active Directory Attacks & Mitigation
