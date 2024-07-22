@@ -62,6 +62,7 @@ Website running on port 80
 Contents of robots.txt file as disclosed by the nmap scan results
 
 ![](attachments/20240722081421.png)
+
 Neither of the directories exist.
 
 Directory Scan using dirsearch:
