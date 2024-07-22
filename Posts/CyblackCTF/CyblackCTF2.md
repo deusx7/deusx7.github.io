@@ -76,9 +76,9 @@ Admin login page:
 
 we can try random default credentials like `admin:password` `admin:admin` `administrator:password123` etc.
 
-Now if you're using wordlists like rockyou.txt or fasttrack.txt you won't have success with brute forcing because the password doesn't exit there. This is why manually testing knowing default credentials first is a good thing or even creating a custom wordlist.
+Now if you're using wordlists like rockyou.txt or fasttrack.txt you won't have success with brute forcing because the password doesn't exit there. This is why manually testing using default credentials first is a good thing or even creating a custom wordlist.
 
-After much trial and error, using the credentials `admin:Admin`, we gain access to the admin panel
+After much trial and error, using the credentials `admin:Admin`, we gain access to the admin panel. Weirdly enough, the password "Admin" is not present in the whole of rockyou and fasttrack.
 
 ![](attachments/20240721155723.png)
 
