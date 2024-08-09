@@ -6,7 +6,7 @@ Networking is the foundation of modern communication, allowing devices to connec
 
 A network is a collection of interconnected devices, such as computers, servers, and networking hardware, that communicate with each other to share resources and information. Networks can be as simple as a few devices connected in a home or as complex as thousands of machines spread across the globe.
 
-## Types of Networks
+# Types of Networks
 
 ## 1. Local Area Network (LAN)
 
@@ -217,6 +217,23 @@ Additionally, a single computer can run multiple types of server software. In a 
 A single computer can also run multiple types of client software. There must be client software for every service required. With multiple clients installed, a host can connect to multiple servers at the same time. For example, a user can check email and view a web page while instant messaging and listening to internet radio.
 
 ![](attachments/20240809101555.png)
+
+# Why Protocols Matter
+
+Just like humans, computers use rules, or protocols, in order to communicate. Protocols are required for computers to properly communicate across the network. In both a wired and wireless environment, a local network is defined as an area where all hosts must "speak the same language," which, in computer terms, means they must "share a common protocol."
+
+If everyone in the same room spoke a different language, they would not be able to communicate. Likewise, if devices in a local network did not use the same protocols, they would not be able to communicate.
+
+Networking protocols define many aspects of communication over the local network. As shown in the table, these include message format, message size, timing, encoding, encapsulation, and message patterns
+
+| **Protocol Characteristic** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Message format**          | When a message is sent, it must use a specific format or structure. Message formats depend on the type of message and the channel that is used to deliver the message.                                                                                                                                                                                                                                                                                              |
+| **Message size**            | The rules that govern the size of the pieces communicated across the network are very strict. They can also be different, depending on the channel used. When a long message is sent from one host to another over a network, it may be necessary to break the message into smaller pieces in order to ensure that the message can be delivered reliably.                                                                                                           |
+| **Timing**                  | Many network communication functions are dependent on timing. Timing determines the speed at which the bits are transmitted across the network. It also affects when an individual host can send data and the total amount of data that can be sent in any one transmission.                                                                                                                                                                                        |
+| **Encoding**                | Messages sent across the network are first converted into bits by the sending host. Each bit is encoded into a pattern of sounds, light waves, or electrical impulses depending on the network media over which the bits are transmitted. The destination host receives and decodes the signals in order to interpret the message.                                                                                                                                  |
+| **Encapsulation**           | Each message transmitted on a network must include a header that contains addressing information that identifies the source and destination hosts, otherwise it cannot be delivered. Encapsulation is the process of adding this information to the pieces of data that make up the message. In addition to addressing, there may be other information in the header that ensures that the message is delivered to the correct application on the destination host. |
+| **Message pattern**         | Some messages require an acknowledgment before the next message can be sent. This type of request/response pattern is a common aspect of many networking protocols. However, there are other types of message patterns that do not require an acknowledgment, depending on the protocol and the situation.                                                                                                                                                          |
 #  TCP, UDP, and the Three-Way Handshake
 
 TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are two commonly used transport layer protocols in computer networks.
@@ -235,6 +252,24 @@ Once the three-way handshake is complete, the connection is established, and bot
 
 In summary, TCP is a reliable, connection-oriented protocol that guarantees delivery of data, while UDP is a simpler, connectionless protocol that does not provide the same level of reliability. The three-way handshake is a process used by TCP to establish a connection between devices, involving the exchange of SYN, SYN-ACK, and ACK packets.
 
+# Common Network Application Services
+
+What are the most common internet services that you use on a regular basis? For most people, the list includes services such as internet searches, social media sites, video and audio streaming, on-line shopping sites, email, and messaging. Each of these services relies on protocols from the TCP/IP protocol suite to reliably communicate the information between the clients and the servers.
+
+Some of the most common servers that provide these services are shown in the figure. A brief description of each service is shown in the table.
+
+![](attachments/20240809113228.png)
+
+| Protocol                                   | Description                                                                                                                                 |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Domain Name System (DNS)                   | Resolves internet names to IP addresses.                                                                                                    |
+| Secure Shell (SSH)                         | Used to provide remote access to servers and networking devices.                                                                            |
+| Simple Mail Transfer Protocol (SMTP)       | Sends email messages and attachments from clients to servers and from servers to other email servers.                                       |
+| Post Office Protocol (POP)                 | Used by email clients to retrieve email and attachments from a remote server.                                                               |
+| Internet Message Access Protocol (IMAP)    | Used by email clients to retrieve email and attachments from a remote server.                                                               |
+| Dynamic Host Configuration Protocol (DHCP) | Used to automatically configure devices with IP addressing and other necessary information to enable them to communicate over the internet. |
+| Hypertext Transfer Protocol (HTTP)         | Used by web browsers to request web pages and web servers to transfers the files that make up web pages of the World Wide Web.              |
+| File Transfer Protocol (FTP)               | Used for interactive file transfer between systems.                                                                                         |
 
 # Common Ports and Protocols
 
@@ -262,6 +297,66 @@ Here are some commonly used ports and the protocols associated with them in comp
 
 Please note that some protocols use both TCP and UDP, depending on the specific functionality and requirements. Additionally, these port assignments are not exhaustive, and other applications and services may use different ports as well.
 
+# Networking Models
+
+## TCP/IP Model
+
+The TCP/IP model, also known as the Internet Protocol Suite, is the conceptual framework for communication protocols used on the internet and similar networks. It defines how data should be packetized, addressed, transmitted, routed, and received to reach its destination. The model is named after two of its most important protocols: the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
+Layers of the TCP/IP Model
+
+The TCP/IP model is organized into four distinct layers, each responsible for specific aspects of data communication:
+
+### 1. Application Layer
+
+Purpose: The Application Layer is the topmost layer of the TCP/IP model and is closest to the end-user. It provides protocols that allow software applications to communicate with each other across the network.
+
+Functions:
+
+- Facilitates communication between applications on different devices.
+- Provides protocols for email (SMTP), file transfer (FTP), web browsing (HTTP/HTTPS), and more.
+- Manages application-specific data formats and ensures that data is properly packaged for transmission.
+
+Examples of Protocols: HTTP, HTTPS, FTP, SMTP, DNS, Telnet.
+
+### 2. Transport Layer
+
+Purpose: The Transport Layer is responsible for ensuring reliable data transfer between devices. It manages end-to-end communication, error-checking, and flow control.
+
+Functions:
+- Provides connection-oriented communication using TCP, ensuring data is delivered reliably and in the correct order.
+- Supports connectionless communication using UDP (User Datagram Protocol) for faster, but less reliable, data transmission.
+-  Handles segmentation and reassembly of data into packets for transmission.
+- Manages error detection and recovery, as well as flow control to prevent network congestion.
+
+Examples of Protocols: TCP, UDP.
+
+### 3. Internet Layer
+
+Purpose: The Internet Layer is responsible for logical addressing, routing, and packet forwarding. It determines the best path for data to travel from the source to the destination.
+
+Functions:
+
+- Assigns IP addresses to devices on the network, ensuring that data is sent to the correct destination.
+- Routes data packets across multiple networks and devices, using IP addresses to determine the best path.
+-  Manages packet fragmentation and reassembly, breaking down large data packets into smaller ones for efficient transmission.
+
+Examples of Protocols: IP (Internet Protocol), ICMP (Internet Control Message Protocol), ARP (Address Resolution Protocol), IGMP (Internet Group Management Protocol).
+
+### 4. Network Access Layer (Link Layer)
+
+Purpose: The Network Access Layer, also known as the Link Layer, is responsible for the physical transmission of data over the network. It deals with the hardware and media used to transmit data, such as cables, switches, and wireless signals.
+
+Functions:
+- Encapsulates data into frames for transmission over the physical medium.
+- Handles MAC (Media Access Control) addresses to identify devices on the same local network.
+- Manages access to the physical network, determining how data is placed onto the network medium.
+- Detects and corrects errors that may occur during the physical transmission of data.
+
+Examples of Protocols: Ethernet, Wi-Fi (IEEE 802.11), ARP (Address Resolution Protocol).
+
+Importance of the TCP/IP Model
+
+The TCP/IP model is foundational to the modern internet and has been widely adopted as the standard for networking protocols. It is simpler and more flexible than other networking models, such as the OSI (Open Systems Interconnection) model, which makes it more practical for real-world applications. Understanding the TCP/IP model is essential for anyone working in networking, cybersecurity, or IT infrastructure, as it underpins the protocols and technologies that keep the internet and other networks running smoothly.
 ##  The OSI Model
 
 The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a communication system into seven distinct layers. Each layer has specific responsibilities and interacts with the layers above and below it. The OSI model provides a structured approach to understanding and designing network protocols and communication systems. Here's a brief overview of each layer:
@@ -296,6 +391,15 @@ Each group of eight bits, such as the representations of letters and numbers, is
 
 Codes can be used to represent almost any type of information digitally including computer data, graphics, photos, voice, video, and music.
 
+# Networks and Hosts
+
+The logical 32-bit IPv4 address is hierarchical and is made up of two parts, the network and the host. In the figure, the network portion is blue, and the host portion is red. Both parts are required in an IPv4 address. Both networks have the subnet mask 255.255.255.0. The subnet mask is used to identify the network on which the host is connected.
+
+As an example, there is a host with an IPv4 address 192.168.5.11 with a subnet mask of 255.255.255.0. The first three octets, (192.168.5), identify the network portion of the address, and the last octet, (11) identifies the host. This is known as hierarchical addressing because the network portion indicates the network on which each unique host address is located. Routers only need to know how to reach each network, rather than needing to know the location of each individual host.
+
+With IPv4 addressing, multiple logical networks can exist on one physical network if the network portion of the logical network host addresses is different. For example: three hosts on a single, physical local network have the same network portion of their IPv4 address (192.168.18) and three other hosts have different network portions of their IPv4 addresses (192.168.5). The hosts with the same network number in their IPv4 addresses will be able to communicate with each other, but will not be able to communicate with the other hosts without the use of routing. In this example, there is one physical network and two logical IPv4 networks.
+
+Another example of a hierarchical network is the telephone system. With a telephone number, the country code, area code, and exchange represent the network address and the remaining digits represent a local phone number.
 # Subnetting 
 
 Resources for this video:
