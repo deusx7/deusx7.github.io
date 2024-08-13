@@ -104,6 +104,8 @@ A router is a critical device in networking. It connects multiple networks and d
 - Assigning IP addresses to devices within a network (if it has a DHCP server).
 - Filtering traffic based on security rules.
 
+![[attachments/Pasted image 20240813143652.png]]
+
 #### 2. **Switch**
 
 Switches are used to connect devices within a single network, typically within a Local Area Network (LAN). They operate at the data link layer (Layer 2) of the OSI model and use MAC addresses to forward data to the correct destination. Switches create a direct connection between the sending and receiving devices, ensuring that data only reaches the intended recipient.
@@ -113,6 +115,8 @@ Switches are used to connect devices within a single network, typically within a
 - Forwarding data to specific devices within a network.
 - Reducing network congestion by dividing a network into segments.
 - Enabling communication between multiple devices within the same network.
+
+![[attachments/Pasted image 20240813143720.png]]
 
 #### 3. **Hub**
 
@@ -124,6 +128,7 @@ A hub is a basic networking device that connects multiple devices in a network. 
 - Broadcasting data to all devices in a network.
 - Operating as a simple, low-cost solution for basic networking needs.
 
+![[attachments/Pasted image 20240813143804.png]]
 #### 4. **Access Point (AP)**
 
 An access point is a device that allows wireless devices to connect to a wired network using Wi-Fi. It extends the wireless coverage of a network and is commonly used in homes, offices, and public places to provide internet access to mobile devices like smartphones, laptops, and tablets. Access points operate at the data link layer (Layer 2) of the OSI model.
@@ -134,17 +139,10 @@ An access point is a device that allows wireless devices to connect to a wired n
 - Extending the range of a wired network.
 - Managing connections and security for wireless clients.
 
-#### 5. **Modem**
+![[attachments/Pasted image 20240813143902.png]]
 
-A modem (short for modulator-demodulator) is a device that converts digital data from a computer into analog signals for transmission over phone lines, cable systems, or satellite connections. It also converts incoming analog signals back into digital data that computers can understand. Modems are essential for connecting to the internet, especially in environments where the internet service is provided via telephone or cable lines.
 
-**Key Functions:**
-
-- Converting digital data to analog signals and vice versa.
-- Connecting a local network to the internet via an ISP (Internet Service Provider).
-- Facilitating communication over different types of transmission media (e.g., DSL, cable, satellite).
-
-#### 6. **Firewall**
+#### 5. **Firewall**
 
 A firewall is a network security device that monitors and controls incoming and outgoing network traffic based on predefined security rules. Firewalls can be hardware-based, software-based, or a combination of both. They are critical for protecting networks from unauthorized access, cyber threats, and data breaches. Firewalls typically operate at the network layer (Layer 3) but can also function at higher layers.
 
@@ -154,7 +152,8 @@ A firewall is a network security device that monitors and controls incoming and 
 - Allowing or denying traffic based on security policies.
 - Protecting against malicious activities like hacking, viruses, and malware.
 
-#### 7. **Network Interface Card (NIC)**
+![[attachments/Pasted image 20240813144017.png]]
+#### 6. **Network Interface Card (NIC)**
 
 A Network Interface Card (NIC) is a hardware component that allows a computer or other device to connect to a network. NICs can be built into the device's motherboard or added as an expansion card. They can provide either wired (Ethernet) or wireless (Wi-Fi) connectivity. NICs operate at the data link layer (Layer 2) of the OSI model.
 
@@ -164,7 +163,8 @@ A Network Interface Card (NIC) is a hardware component that allows a computer or
 - Providing a physical interface for wired or wireless communication.
 - Handling data transmission and reception between a device and the network.
 
-#### 8. End Devices
+![[attachments/Pasted image 20240813144038.png]]
+#### 7. End Devices
 
 End devices are the devices that users interact with directly and that generate or receive data in a network. These devices typically include computers, smartphones, tablets, printers, and IoT devices. They are the final point of communication within a network, either sending or receiving data. Examples of end devices (Computers, smartphones, printers, IoT devices).
 
@@ -174,6 +174,83 @@ End devices are the devices that users interact with directly and that generate 
 - Data Reception.
 - User Interaction.
 - Network Access.
+![[attachments/Pasted image 20240813144148.png]]
+
+# Networking Models
+
+## TCP/IP Model
+
+The TCP/IP model, also known as the Internet Protocol Suite, is the conceptual framework for communication protocols used on the internet and similar networks. It defines how data should be packetized, addressed, transmitted, routed, and received to reach its destination. The model is named after two of its most important protocols: the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
+Layers of the TCP/IP Model
+
+The TCP/IP model is organized into four distinct layers, each responsible for specific aspects of data communication:
+
+### 1. Application Layer
+
+Purpose: The Application Layer is the topmost layer of the TCP/IP model and is closest to the end-user. It provides protocols that allow software applications to communicate with each other across the network.
+
+Functions:
+
+- Facilitates communication between applications on different devices.
+- Provides protocols for email (SMTP), file transfer (FTP), web browsing (HTTP/HTTPS), and more.
+- Manages application-specific data formats and ensures that data is properly packaged for transmission.
+
+Examples of Protocols: HTTP, HTTPS, FTP, SMTP, DNS, Telnet.
+
+### 2. Transport Layer
+
+Purpose: The Transport Layer is responsible for ensuring reliable data transfer between devices. It manages end-to-end communication, error-checking, and flow control.
+
+Functions:
+- Provides connection-oriented communication using TCP, ensuring data is delivered reliably and in the correct order.
+- Supports connectionless communication using UDP (User Datagram Protocol) for faster, but less reliable, data transmission.
+-  Handles segmentation and reassembly of data into packets for transmission.
+- Manages error detection and recovery, as well as flow control to prevent network congestion.
+
+Examples of Protocols: TCP, UDP.
+
+### 3. Internet Layer
+
+Purpose: The Internet Layer is responsible for logical addressing, routing, and packet forwarding. It determines the best path for data to travel from the source to the destination.
+
+Functions:
+
+- Assigns IP addresses to devices on the network, ensuring that data is sent to the correct destination.
+- Routes data packets across multiple networks and devices, using IP addresses to determine the best path.
+-  Manages packet fragmentation and reassembly, breaking down large data packets into smaller ones for efficient transmission.
+
+Examples of Protocols: IP (Internet Protocol), ICMP (Internet Control Message Protocol), ARP (Address Resolution Protocol), IGMP (Internet Group Management Protocol).
+
+### 4. Network Access Layer (Link Layer)
+
+Purpose: The Network Access Layer, also known as the Link Layer, is responsible for the physical transmission of data over the network. It deals with the hardware and media used to transmit data, such as cables, switches, and wireless signals.
+
+Functions:
+- Encapsulates data into frames for transmission over the physical medium.
+- Handles MAC (Media Access Control) addresses to identify devices on the same local network.
+- Manages access to the physical network, determining how data is placed onto the network medium.
+- Detects and corrects errors that may occur during the physical transmission of data.
+
+Examples of Protocols: Ethernet, Wi-Fi (IEEE 802.11), ARP (Address Resolution Protocol).
+
+Importance of the TCP/IP Model
+
+The TCP/IP model is foundational to the modern internet and has been widely adopted as the standard for networking protocols. It is simpler and more flexible than other networking models, such as the OSI (Open Systems Interconnection) model, which makes it more practical for real-world applications. Understanding the TCP/IP model is essential for anyone working in networking, cybersecurity, or IT infrastructure, as it underpins the protocols and technologies that keep the internet and other networks running smoothly.
+##  The OSI Model
+
+The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a communication system into seven distinct layers. Each layer has specific responsibilities and interacts with the layers above and below it. The OSI model provides a structured approach to understanding and designing network protocols and communication systems. Here's a brief overview of each layer:
+
+1. Physical Layer: The physical layer is responsible for the transmission and reception of raw unstructured data bits over a physical medium. It defines the electrical, mechanical, and functional characteristics of the physical interface between devices.
+2. Data Link Layer: The data link layer handles the reliable transmission of data frames between directly connected nodes over a physical link. It provides error detection and correction, flow control, and handles access to the physical medium. Ethernet, Wi-Fi, and PPP (Point-to-Point Protocol) are examples of data link layer protocols.
+3. Network Layer: The network layer enables the routing of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols. The IP (Internet Protocol) is a key network layer protocol.
+4. Transport Layer: The transport layer ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operate at this layer.
+5. Session Layer: The session layer establishes, manages, and terminates communication sessions between applications. It provides synchronization and dialog control mechanisms to enable seamless communication between devices. This layer also handles session checkpointing and recovery.
+6. Presentation Layer: The presentation layer is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system. This layer deals with data syntax and semantics.
+7. Application Layer: The application layer is the closest layer to the end-user and provides services directly to user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. Examples of protocols at this layer include HTTP, SMTP, FTP, and DNS.
+
+The key idea behind the OSI model is to separate the complex task of network communication into manageable layers, with each layer focused on specific functions. This modular approach facilitates interoperability, ease of implementation, and troubleshooting in network systems.
+
+It's important to note that the OSI model is a conceptual model and does not necessarily reflect the exact implementation of all networking systems, which often use a hybrid of various layers and protocols. However, the OSI model remains a useful reference for understanding network communication and protocols.
 # Client and Server
 
 All computers connected to a network that participate directly in network communication are classified as hosts. Hosts can send and receive messages on the network. In modern networks, computer hosts can act as a client, a server, or both, as shown in the figure. The software installed on the computer determines which role the computer plays.
@@ -297,82 +374,6 @@ Here are some commonly used ports and the protocols associated with them in comp
 - RDP (Remote Desktop Protocol): Port 3389 (TCP)
 
 Please note that some protocols use both TCP and UDP, depending on the specific functionality and requirements. Additionally, these port assignments are not exhaustive, and other applications and services may use different ports as well.
-
-# Networking Models
-
-## TCP/IP Model
-
-The TCP/IP model, also known as the Internet Protocol Suite, is the conceptual framework for communication protocols used on the internet and similar networks. It defines how data should be packetized, addressed, transmitted, routed, and received to reach its destination. The model is named after two of its most important protocols: the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
-Layers of the TCP/IP Model
-
-The TCP/IP model is organized into four distinct layers, each responsible for specific aspects of data communication:
-
-### 1. Application Layer
-
-Purpose: The Application Layer is the topmost layer of the TCP/IP model and is closest to the end-user. It provides protocols that allow software applications to communicate with each other across the network.
-
-Functions:
-
-- Facilitates communication between applications on different devices.
-- Provides protocols for email (SMTP), file transfer (FTP), web browsing (HTTP/HTTPS), and more.
-- Manages application-specific data formats and ensures that data is properly packaged for transmission.
-
-Examples of Protocols: HTTP, HTTPS, FTP, SMTP, DNS, Telnet.
-
-### 2. Transport Layer
-
-Purpose: The Transport Layer is responsible for ensuring reliable data transfer between devices. It manages end-to-end communication, error-checking, and flow control.
-
-Functions:
-- Provides connection-oriented communication using TCP, ensuring data is delivered reliably and in the correct order.
-- Supports connectionless communication using UDP (User Datagram Protocol) for faster, but less reliable, data transmission.
--  Handles segmentation and reassembly of data into packets for transmission.
-- Manages error detection and recovery, as well as flow control to prevent network congestion.
-
-Examples of Protocols: TCP, UDP.
-
-### 3. Internet Layer
-
-Purpose: The Internet Layer is responsible for logical addressing, routing, and packet forwarding. It determines the best path for data to travel from the source to the destination.
-
-Functions:
-
-- Assigns IP addresses to devices on the network, ensuring that data is sent to the correct destination.
-- Routes data packets across multiple networks and devices, using IP addresses to determine the best path.
--  Manages packet fragmentation and reassembly, breaking down large data packets into smaller ones for efficient transmission.
-
-Examples of Protocols: IP (Internet Protocol), ICMP (Internet Control Message Protocol), ARP (Address Resolution Protocol), IGMP (Internet Group Management Protocol).
-
-### 4. Network Access Layer (Link Layer)
-
-Purpose: The Network Access Layer, also known as the Link Layer, is responsible for the physical transmission of data over the network. It deals with the hardware and media used to transmit data, such as cables, switches, and wireless signals.
-
-Functions:
-- Encapsulates data into frames for transmission over the physical medium.
-- Handles MAC (Media Access Control) addresses to identify devices on the same local network.
-- Manages access to the physical network, determining how data is placed onto the network medium.
-- Detects and corrects errors that may occur during the physical transmission of data.
-
-Examples of Protocols: Ethernet, Wi-Fi (IEEE 802.11), ARP (Address Resolution Protocol).
-
-Importance of the TCP/IP Model
-
-The TCP/IP model is foundational to the modern internet and has been widely adopted as the standard for networking protocols. It is simpler and more flexible than other networking models, such as the OSI (Open Systems Interconnection) model, which makes it more practical for real-world applications. Understanding the TCP/IP model is essential for anyone working in networking, cybersecurity, or IT infrastructure, as it underpins the protocols and technologies that keep the internet and other networks running smoothly.
-##  The OSI Model
-
-The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a communication system into seven distinct layers. Each layer has specific responsibilities and interacts with the layers above and below it. The OSI model provides a structured approach to understanding and designing network protocols and communication systems. Here's a brief overview of each layer:
-
-1. Physical Layer: The physical layer is responsible for the transmission and reception of raw unstructured data bits over a physical medium. It defines the electrical, mechanical, and functional characteristics of the physical interface between devices.
-2. Data Link Layer: The data link layer handles the reliable transmission of data frames between directly connected nodes over a physical link. It provides error detection and correction, flow control, and handles access to the physical medium. Ethernet, Wi-Fi, and PPP (Point-to-Point Protocol) are examples of data link layer protocols.
-3. Network Layer: The network layer enables the routing of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols. The IP (Internet Protocol) is a key network layer protocol.
-4. Transport Layer: The transport layer ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operate at this layer.
-5. Session Layer: The session layer establishes, manages, and terminates communication sessions between applications. It provides synchronization and dialog control mechanisms to enable seamless communication between devices. This layer also handles session checkpointing and recovery.
-6. Presentation Layer: The presentation layer is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system. This layer deals with data syntax and semantics.
-7. Application Layer: The application layer is the closest layer to the end-user and provides services directly to user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. Examples of protocols at this layer include HTTP, SMTP, FTP, and DNS.
-
-The key idea behind the OSI model is to separate the complex task of network communication into manageable layers, with each layer focused on specific functions. This modular approach facilitates interoperability, ease of implementation, and troubleshooting in network systems.
-
-It's important to note that the OSI model is a conceptual model and does not necessarily reflect the exact implementation of all networking systems, which often use a hybrid of various layers and protocols. However, the OSI model remains a useful reference for understanding network communication and protocols.
 
 # Binary
 
