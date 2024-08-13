@@ -174,6 +174,7 @@ End devices are the devices that users interact with directly and that generate 
 - Data Reception.
 - User Interaction.
 - Network Access.
+
 ![[attachments/Pasted image 20240813144148.png]]
 
 # Networking Models
@@ -375,24 +376,6 @@ Here are some commonly used ports and the protocols associated with them in comp
 
 Please note that some protocols use both TCP and UDP, depending on the specific functionality and requirements. Additionally, these port assignments are not exhaustive, and other applications and services may use different ports as well.
 
-# Binary
-
-Did you know that computers and networks only work with binary digits, zeros and ones? It can be difficult to imagine that all of our data is stored and transmitted as a series of bits. Each bit can only have one of two possible values, 0 or 1. The term bit is an abbreviation of “binary digit” and represents the smallest piece of data. Humans interpret words and pictures, computers interpret only patterns of bits.
-
-A bit is stored and transmitted as one of two possible discrete states. This can include two directions of magnetization, two distinct voltage or current levels, two distinct levels of light intensity, or any other physical system of two discrete states. For example, a light switch can be either On or Off; in binary representation, these states would correspond to 1 and 0 respectively.
-
-Every input device (mouse, keyboard, voice-activated receiver) will translate human interaction into binary code for the CPU to process and store. Every output device (printer, speakers, monitors, etc.) will take binary data and translate it back into human recognizable form. Within the computer itself, all data is processed and stored as binary.
-
-Computers use binary codes to represent and interpret letters, numbers and special characters with bits. A commonly used code is the American Standard Code for Information Interchange (ASCII). With ASCII, each character is represented by eight bits. For example:
-
-- **Capital letter:** A = 01000001
-- **Number:** 9 = 00111001
-- **Special character:** # = 00100011
-
-Each group of eight bits, such as the representations of letters and numbers, is known as a byte.
-
-Codes can be used to represent almost any type of information digitally including computer data, graphics, photos, voice, video, and music.
-
 # Networks and Hosts
 
 The logical 32-bit IPv4 address is hierarchical and is made up of two parts, the network and the host. In the figure, the network portion is blue, and the host portion is red. Both parts are required in an IPv4 address. Both networks have the subnet mask 255.255.255.0. The subnet mask is used to identify the network on which the host is connected.
@@ -402,31 +385,57 @@ As an example, there is a host with an IPv4 address 192.168.5.11 with a subnet m
 With IPv4 addressing, multiple logical networks can exist on one physical network if the network portion of the logical network host addresses is different. For example: three hosts on a single, physical local network have the same network portion of their IPv4 address (192.168.18) and three other hosts have different network portions of their IPv4 addresses (192.168.5). The hosts with the same network number in their IPv4 addresses will be able to communicate with each other, but will not be able to communicate with the other hosts without the use of routing. In this example, there is one physical network and two logical IPv4 networks.
 
 Another example of a hierarchical network is the telephone system. With a telephone number, the country code, area code, and exchange represent the network address and the remaining digits represent a local phone number.
-# Subnetting 
 
-Subnetting is the process of dividing a network into smaller subnetworks called subnets. It allows for more efficient use of IP addresses and facilitates network management and routing. Subnetting is commonly used in IPv4 networks.
+![[attachments/Pasted image 20240813151103.png]]
 
-Subnetting involves borrowing bits from the host portion of an IP address to create a subnet identifier. By doing this, a network can be divided into multiple subnets, each with its own range of IP addresses.
+## IP address fundamentals
 
-CIDR (Classless Inter-Domain Routing) notation is a method used to represent IP addresses and their corresponding subnet masks. It specifies the network prefix length, which indicates the number of bits used for the network portion of the IP address. CIDR notation is expressed by appending a forward slash (/) followed by the prefix length to the IP address.
+Network devices typically have the following three identities:
 
-Here's an example to illustrate subnetting and CIDR notation:
+- **Physical address.** MAC address.
+- **Logical address.** IP address.
+- **Hostname.** Useful for humans to recognize the device.
 
-Consider an IP address: 192.168.0.0/24
+![Diagram of a workstation with a hostname, IP address and MAC address.](https://cdn.ttgtmedia.com/rms/onlineimages/ip_address_workstation-f_mobile.png)
 
-In this example, the IP address is in the format of "192.168.0.0" and the "/24" represents the prefix length, indicating that the first 24 bits represent the network portion of the IP address, while the remaining 8 bits represent the host portion.
+A workstation has three identities: hostname, IP address and MAC address.
 
-With a /24 prefix length, the subnet mask for this network would be 255.255.255.0. This means that the first three octets are reserved for the network, and the last octet can be used for addressing hosts within the subnet.
+In the case of IPv4 addresses, each host has a unique IP address on the network, and nodes rely on it to exchange information. Data breaks down into pieces, known as packets, which then travel across the network. Each packet contains a source and destination IP address, much like postal service mail includes a destination and return address on the envelope.
 
-To subnet this network further, additional bits can be borrowed from the host portion. For instance, if we borrow 2 bits, we can create 4 subnets. The subnet mask would become 255.255.255.192 (in binary: 11111111.11111111.11111111.11000000).
+![Diagram of the sender and receiver addresses on an envelope relating to source and destination IP addresses.](https://cdn.ttgtmedia.com/rms/onlineimages/img_2_ip-addresses_sender-receiver-h_mobile.jpg)
 
-The four resulting subnets would be:
+Damon Garn
 
-1. Subnet 1: 192.168.0.0/26 (network range: 192.168.0.0 - 192.168.0.63)
-2. Subnet 2: 192.168.0.64/26 (network range: 192.168.0.64 - 192.168.0.127)
-3. Subnet 3: 192.168.0.128/26 (network range: 192.168.0.128 - 192.168.0.191)
-4. Subnet 4: 192.168.0.192/26 (network range: 192.168.0.192 - 192.168.0.255)
+Source and destination IP addresses are much like sender and receiver addresses on envelopes.
 
-Each subnet can then be assigned to a different segment or used for different purposes within the network.
+Administrators can subdivide networks into smaller, more manageable sections. This process lets them control the flow of network traffic, isolate traffic to increase security and limit traffic to certain areas of the network to improve performance.
 
-CIDR notation provides a concise way to represent networks and subnets by specifying the prefix length. It allows for flexibility in defining network boundaries and enables efficient address allocation in IP networking.
+These network segments are called subnetworks, or subnets. Each subnet has a unique identifier within the larger network ID. When administrators divide a network into parts, such as engineering and finance, the address structure is based on numbers.
+
+![Diagram of two areas of a network separated into subnets, each with its own IP address.](https://cdn.ttgtmedia.com/rms/onlineimages/subnetworks_for_different_departments-f_mobile.png)
+
+## IP address classes
+
+IPv4 addresses divide into five classes. The primary difference between the first three classes -- Class A, Class B and Class C -- is the number of subnets versus the number of hosts per subnet.
+
+The following table outlines the details between IP address classes.
+
+|Name|First octet|Number of subnets|Number of hosts|Description|
+|---|---|---|---|---|
+|Class A|1 to 126|126|Approximately 16.7 million|Many hosts per network.|
+|Class B|128 to 191|16,384|65,536|Many hosts per network.|
+|Class C|192 to 223|Approximately 2.1 million|254|Many networks with fewer hosts per network.|
+|Class D|224 to 239|n/a|n/a|Multicasting.|
+|Class E|240 to 254|n/a|n/a|Experimental.|
+
+### Private IP address ranges
+
+Systems and sites on the public internet consume most of the roughly 4.3 billion available IPv4 addresses. However, private networks can reserve some ranges for internal use. Networks in home offices and businesses likely use one of these ranges.
+
+The following table defines [private IPv4 address](https://www.techtarget.com/whatis/definition/private-IP-address) ranges.
+
+| Reserved class | Range       | Default subnet mask | Description                                      |
+| -------------- | ----------- | ------------------- | ------------------------------------------------ |
+| Class A        | 10.0.0.0    | 255.0.0.0           | Larger networks with many hosts.                 |
+| Class B        | 172.16.0.0  | 255.255.0.0         | Medium networks with a moderate number of hosts. |
+| Class C        | 192.168.0.0 | 255.255.255.0       | Smaller networks with fewer hosts.               |
