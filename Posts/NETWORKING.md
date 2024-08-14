@@ -182,6 +182,7 @@ End devices are the devices that users interact with directly and that generate 
 ## TCP/IP Model
 
 The TCP/IP model, also known as the Internet Protocol Suite, is the conceptual framework for communication protocols used on the internet and similar networks. It defines how data should be packetized, addressed, transmitted, routed, and received to reach its destination. The model is named after two of its most important protocols: the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
+
 Layers of the TCP/IP Model
 
 The TCP/IP model is organized into four distinct layers, each responsible for specific aspects of data communication:
@@ -196,7 +197,7 @@ Functions:
 - Provides protocols for email (SMTP), file transfer (FTP), web browsing (HTTP/HTTPS), and more.
 - Manages application-specific data formats and ensures that data is properly packaged for transmission.
 
-Examples of Protocols: HTTP, HTTPS, FTP, SMTP, DNS, Telnet.
+Examples of Protocols: HTTP, HTTPS, FTP, SMTP, DNS, Telnet,SSH.
 
 ### 2. Transport Layer
 
@@ -365,7 +366,6 @@ Here are some commonly used ports and the protocols associated with them in comp
 - POP3 (Post Office Protocol version 3): Port 110 (TCP)
 - IMAP (Internet Message Access Protocol): Port 143 (TCP)
 - SNMP (Simple Network Management Protocol): Port 161 (UDP)
-- RDP (Remote Desktop Protocol): Port 3389 (TCP)
 - NTP (Network Time Protocol): Port 123 (UDP)
 - SMB (Server Message Block): Port 445 (TCP)
 - FTPS (FTP over SSL/TLS): Port 990 (TCP)
