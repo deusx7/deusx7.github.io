@@ -434,8 +434,19 @@ Systems and sites on the public internet consume most of the roughly 4.3 billion
 
 The following table defines [private IPv4 address](https://www.techtarget.com/whatis/definition/private-IP-address) ranges.
 
-| Reserved class | Range       | Default subnet mask | Description                                      |
-| -------------- | ----------- | ------------------- | ------------------------------------------------ |
-| Class A        | 10.0.0.0    | 255.0.0.0           | Larger networks with many hosts.                 |
-| Class B        | 172.16.0.0  | 255.255.0.0         | Medium networks with a moderate number of hosts. |
-| Class C        | 192.168.0.0 | 255.255.255.0       | Smaller networks with fewer hosts.               |
+| Reserved class | Range                         | Default subnet mask | Description                                      |
+| -------------- | ----------------------------- | ------------------- | ------------------------------------------------ |
+| Class A        | 10.0.0.0 - 10.255.255.255     | 255.0.0.0           | Larger networks with many hosts.                 |
+| Class B        | 172.16.0.0 - 172.31.255.255   | 255.255.0.0         | Medium networks with a moderate number of hosts. |
+| Class C        | 192.168.0.0 - 192.168.255.255 | 255.255.255.0       | Smaller networks with fewer hosts.               |
+
+
+Class A: The first octet (first 8 bits) of the IP address represents the network portion, and the remaining 3 octets (24 bits) represent the host portion. Class A networks have network addresses in the range 1.0.0.0 to 126.0.0.0, with a maximum of 16,777,214 host addresses per network.
+
+Class B: The first two octets (16 bits) represent the network portion, and the remaining two octets (16 bits) represent the host portion. Class B networks have network addresses in the range 128.0.0.0 to 191.255.0.0, with a maximum of 65,534 host addresses per network.
+
+Class C: The first three octets (24 bits) represent the network portion, and the last octet (8 bits) represents the host portion. Class C networks have network addresses in the range 192.0.0.0 to 223.255.255.0, with a maximum of 254 host addresses per network.
+
+Class D: These are reserved for multicast addresses, used for one-to-many communications. The address range for Class D is 224.0.0.0 to 239.255.255.255.
+
+Class E: These are reserved for experimental and future use. The address range for Class E is 240.0.0.0 to 255.255.255.255.
