@@ -420,13 +420,13 @@ IPv4 addresses divide into five classes. The primary difference between the firs
 
 The following table outlines the details between IP address classes.
 
-|Name|First octet|Number of subnets|Number of hosts|Description|
-|---|---|---|---|---|
-|Class A|1 to 126|126|Approximately 16.7 million|Many hosts per network.|
-|Class B|128 to 191|16,384|65,536|Many hosts per network.|
-|Class C|192 to 223|Approximately 2.1 million|254|Many networks with fewer hosts per network.|
-|Class D|224 to 239|n/a|n/a|Multicasting.|
-|Class E|240 to 254|n/a|n/a|Experimental.|
+| Name    | First octet | Number of subnets         | Number of hosts            | Description                                 |
+| ------- | ----------- | ------------------------- | -------------------------- | ------------------------------------------- |
+| Class A | 1 to 126    | 126                       | Approximately 16.7 million | Many hosts per network.                     |
+| Class B | 128 to 191  | 16,384                    | 65,536                     | Many hosts per network.                     |
+| Class C | 192 to 223  | Approximately 2.1 million | 254                        | Many networks with fewer hosts per network. |
+| Class D | 224 to 239  | n/a                       | n/a                        | Multicasting.                               |
+| Class E | 240 to 254  | n/a                       | n/a                        | Experimental.                               |
 
 ### Private IP address ranges
 
