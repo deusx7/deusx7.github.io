@@ -20,7 +20,7 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 - **Twitter**: [Twitter/@deusx_45](https://twitter.com/deusx_45)
 - **Discord**: [Discord/@deusx_](https://discord.com/channels/@deusx_)
 - **YouTube**: [YouTube/@deusx_](https://youtube.com/@Deus-X?si=FD4r1RL5HrpbkQPd)
-- **Resume**: [Resume](https://drive.google.com/file/d/10aAzXc02c7j2D3uZ2JGO-SGhlyJ6b15P/view?usp=sharing)
+- **Resume**: [Resume](https://drive.google.com/file/d/1A088Sdf29fihl2jikvJLjYfVopqQVfLd/view?usp=sharing)
   
 * * *
 ### **TryHackMe**
