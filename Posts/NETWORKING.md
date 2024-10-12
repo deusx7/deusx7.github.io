@@ -104,7 +104,7 @@ A router is a critical device in networking. It connects multiple networks and d
 - Assigning IP addresses to devices within a network (if it has a DHCP server).
 - Filtering traffic based on security rules.
 
-![[attachments/Pasted image 20240813143652.png]]
+![](attachments/20240813143652.png)
 
 #### 2. **Switch**
 
@@ -116,7 +116,7 @@ Switches are used to connect devices within a single network, typically within a
 - Reducing network congestion by dividing a network into segments.
 - Enabling communication between multiple devices within the same network.
 
-![[attachments/Pasted image 20240813143720.png]]
+![](attachments/20240813143720.png)
 
 #### 3. **Hub**
 
@@ -128,7 +128,7 @@ A hub is a basic networking device that connects multiple devices in a network. 
 - Broadcasting data to all devices in a network.
 - Operating as a simple, low-cost solution for basic networking needs.
 
-![[attachments/Pasted image 20240813143804.png]]
+![](attachments/20240813143804.png)
 #### 4. **Access Point (AP)**
 
 An access point is a device that allows wireless devices to connect to a wired network using Wi-Fi. It extends the wireless coverage of a network and is commonly used in homes, offices, and public places to provide internet access to mobile devices like smartphones, laptops, and tablets. Access points operate at the data link layer (Layer 2) of the OSI model.
@@ -139,7 +139,7 @@ An access point is a device that allows wireless devices to connect to a wired n
 - Extending the range of a wired network.
 - Managing connections and security for wireless clients.
 
-![[attachments/Pasted image 20240813143902.png]]
+![](attachments/20240813143902.png)
 
 
 #### 5. **Firewall**
@@ -152,7 +152,7 @@ A firewall is a network security device that monitors and controls incoming and 
 - Allowing or denying traffic based on security policies.
 - Protecting against malicious activities like hacking, viruses, and malware.
 
-![[attachments/Pasted image 20240813144017.png]]
+![](attachments/20240813144017.png)
 #### 6. **Network Interface Card (NIC)**
 
 A Network Interface Card (NIC) is a hardware component that allows a computer or other device to connect to a network. NICs can be built into the device's motherboard or added as an expansion card. They can provide either wired (Ethernet) or wireless (Wi-Fi) connectivity. NICs operate at the data link layer (Layer 2) of the OSI model.
@@ -163,7 +163,7 @@ A Network Interface Card (NIC) is a hardware component that allows a computer or
 - Providing a physical interface for wired or wireless communication.
 - Handling data transmission and reception between a device and the network.
 
-![[attachments/Pasted image 20240813144038.png]]
+![](attachments/20240813144038.png)
 #### 7. End Devices
 
 End devices are the devices that users interact with directly and that generate or receive data in a network. These devices typically include computers, smartphones, tablets, printers, and IoT devices. They are the final point of communication within a network, either sending or receiving data. Examples of end devices (Computers, smartphones, printers, IoT devices).
@@ -175,7 +175,7 @@ End devices are the devices that users interact with directly and that generate 
 - User Interaction.
 - Network Access.
 
-![[attachments/Pasted image 20240813144148.png]]
+![](attachments/20240813144148.png)
 
 # Networking Models
 
@@ -370,7 +370,7 @@ With IPv4 addressing, multiple logical networks can exist on one physical networ
 
 Another example of a hierarchical network is the telephone system. With a telephone number, the country code, area code, and exchange represent the network address and the remaining digits represent a local phone number.
 
-![[attachments/Pasted image 20240813151103.png]]
+![](attachments/20240813151103.png)
 
 ## IP address fundamentals
 
