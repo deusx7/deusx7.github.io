@@ -187,7 +187,7 @@ Layers of the TCP/IP Model
 
 The TCP/IP model is organized into four distinct layers, each responsible for specific aspects of data communication:
 
-### 1. Application Layer
+### 4. Application Layer
 
 Purpose: The Application Layer is the topmost layer of the TCP/IP model and is closest to the end-user. It provides protocols that allow software applications to communicate with each other across the network.
 
@@ -199,7 +199,7 @@ Functions:
 
 Examples of Protocols: HTTP, HTTPS, FTP, SMTP, DNS, Telnet,SSH.
 
-### 2. Transport Layer
+### 3. Transport Layer
 
 Purpose: The Transport Layer is responsible for ensuring reliable data transfer between devices. It manages end-to-end communication, error-checking, and flow control.
 
@@ -211,7 +211,7 @@ Functions:
 
 Examples of Protocols: TCP, UDP.
 
-### 3. Internet Layer
+### 2. Internet Layer
 
 Purpose: The Internet Layer is responsible for logical addressing, routing, and packet forwarding. It determines the best path for data to travel from the source to the destination.
 
@@ -223,7 +223,7 @@ Functions:
 
 Examples of Protocols: IP (Internet Protocol), ICMP (Internet Control Message Protocol), ARP (Address Resolution Protocol), IGMP (Internet Group Management Protocol).
 
-### 4. Network Access Layer (Link Layer)
+### 1. Network Access Layer (Link Layer)
 
 Purpose: The Network Access Layer, also known as the Link Layer, is responsible for the physical transmission of data over the network. It deals with the hardware and media used to transmit data, such as cables, switches, and wireless signals.
 
@@ -242,13 +242,13 @@ The TCP/IP model is foundational to the modern internet and has been widely adop
 
 The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a communication system into seven distinct layers. Each layer has specific responsibilities and interacts with the layers above and below it. The OSI model provides a structured approach to understanding and designing network protocols and communication systems. Here's a brief overview of each layer:
 
-1. Physical Layer: The physical layer is responsible for the transmission and reception of raw unstructured data bits over a physical medium. It defines the electrical, mechanical, and functional characteristics of the physical interface between devices.
-2. Data Link Layer: The data link layer handles the reliable transmission of data frames between directly connected nodes over a physical link. It provides error detection and correction, flow control, and handles access to the physical medium. Ethernet, Wi-Fi, and PPP (Point-to-Point Protocol) are examples of data link layer protocols.
-3. Network Layer: The network layer enables the routing of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols. The IP (Internet Protocol) is a key network layer protocol.
+7. Physical Layer: The physical layer is responsible for the transmission and reception of raw unstructured data bits over a physical medium. It defines the electrical, mechanical, and functional characteristics of the physical interface between devices.
+6. Data Link Layer: The data link layer handles the reliable transmission of data frames between directly connected nodes over a physical link. It provides error detection and correction, flow control, and handles access to the physical medium. Ethernet, Wi-Fi, and PPP (Point-to-Point Protocol) are examples of data link layer protocols.
+5. Network Layer: The network layer enables the routing of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols. The IP (Internet Protocol) is a key network layer protocol.
 4. Transport Layer: The transport layer ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operate at this layer.
-5. Session Layer: The session layer establishes, manages, and terminates communication sessions between applications. It provides synchronization and dialog control mechanisms to enable seamless communication between devices. This layer also handles session checkpointing and recovery.
-6. Presentation Layer: The presentation layer is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system. This layer deals with data syntax and semantics.
-7. Application Layer: The application layer is the closest layer to the end-user and provides services directly to user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. Examples of protocols at this layer include HTTP, SMTP, FTP, and DNS.
+3. Session Layer: The session layer establishes, manages, and terminates communication sessions between applications. It provides synchronization and dialog control mechanisms to enable seamless communication between devices. This layer also handles session checkpointing and recovery.
+2. Presentation Layer: The presentation layer is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system. This layer deals with data syntax and semantics.
+1. Application Layer: The application layer is the closest layer to the end-user and provides services directly to user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. Examples of protocols at this layer include HTTP, SMTP, FTP, and DNS.
 
 The key idea behind the OSI model is to separate the complex task of network communication into manageable layers, with each layer focused on specific functions. This modular approach facilitates interoperability, ease of implementation, and troubleshooting in network systems.
 
@@ -298,22 +298,6 @@ A single computer can also run multiple types of client software. There must be 
 
 ![](attachments/20240809101555.png)
 
-# Why Protocols Matter
-
-Just like humans, computers use rules, or protocols, in order to communicate. Protocols are required for computers to properly communicate across the network. In both a wired and wireless environment, a local network is defined as an area where all hosts must "speak the same language," which, in computer terms, means they must "share a common protocol."
-
-If everyone in the same room spoke a different language, they would not be able to communicate. Likewise, if devices in a local network did not use the same protocols, they would not be able to communicate.
-
-Networking protocols define many aspects of communication over the local network. As shown in the table, these include message format, message size, timing, encoding, encapsulation, and message patterns
-
-| **Protocol Characteristic** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Message format**          | When a message is sent, it must use a specific format or structure. Message formats depend on the type of message and the channel that is used to deliver the message.                                                                                                                                                                                                                                                                                              |
-| **Message size**            | The rules that govern the size of the pieces communicated across the network are very strict. They can also be different, depending on the channel used. When a long message is sent from one host to another over a network, it may be necessary to break the message into smaller pieces in order to ensure that the message can be delivered reliably.                                                                                                           |
-| **Timing**                  | Many network communication functions are dependent on timing. Timing determines the speed at which the bits are transmitted across the network. It also affects when an individual host can send data and the total amount of data that can be sent in any one transmission.                                                                                                                                                                                        |
-| **Encoding**                | Messages sent across the network are first converted into bits by the sending host. Each bit is encoded into a pattern of sounds, light waves, or electrical impulses depending on the network media over which the bits are transmitted. The destination host receives and decodes the signals in order to interpret the message.                                                                                                                                  |
-| **Encapsulation**           | Each message transmitted on a network must include a header that contains addressing information that identifies the source and destination hosts, otherwise it cannot be delivered. Encapsulation is the process of adding this information to the pieces of data that make up the message. In addition to addressing, there may be other information in the header that ensures that the message is delivered to the correct application on the destination host. |
-| **Message pattern**         | Some messages require an acknowledgment before the next message can be sent. This type of request/response pattern is a common aspect of many networking protocols. However, there are other types of message patterns that do not require an acknowledgment, depending on the protocol and the situation.                                                                                                                                                          |
 #  TCP, UDP, and the Three-Way Handshake
 
 TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are two commonly used transport layer protocols in computer networks.
@@ -402,10 +386,6 @@ A workstation has three identities: hostname, IP address and MAC address.
 
 In the case of IPv4 addresses, each host has a unique IP address on the network, and nodes rely on it to exchange information. Data breaks down into pieces, known as packets, which then travel across the network. Each packet contains a source and destination IP address, much like postal service mail includes a destination and return address on the envelope.
 
-![Diagram of the sender and receiver addresses on an envelope relating to source and destination IP addresses.](https://cdn.ttgtmedia.com/rms/onlineimages/img_2_ip-addresses_sender-receiver-h_mobile.jpg)
-
-Damon Garn
-
 Source and destination IP addresses are much like sender and receiver addresses on envelopes.
 
 Administrators can subdivide networks into smaller, more manageable sections. This process lets them control the flow of network traffic, isolate traffic to increase security and limit traffic to certain areas of the network to improve performance.
@@ -450,3 +430,21 @@ Class C: The first three octets (24 bits) represent the network portion, and the
 Class D: These are reserved for multicast addresses, used for one-to-many communications. The address range for Class D is 224.0.0.0 to 239.255.255.255.
 
 Class E: These are reserved for experimental and future use. The address range for Class E is 240.0.0.0 to 255.255.255.255.
+
+# Public IP address ranges
+
+Public IP addresses are ==any IP addresses that are not part of a private IP address range==. There are many public IP address ranges, including:
+
+- 1.0.0.0–9.255.255.255
+- 11.0.0.0–126.255.255.255
+- 129.0.0.0–169.253.255.255
+- 169.255.0.0–172.15.255.255
+- 172.32.0.0–191.0.1.255
+- 192.0.3.0–192.88.98.255
+- 192.88.100.0–192.167.255.255
+- 192.169.0.0–198.17.255.255
+- 198.20.0.0–223.255.255.255 
+
+Public IP addresses are unique identifiers for devices connected to the internet. They are used by all servers and sites on the internet, such as google.com. 
+
+In contrast, private IP addresses are used inside a network and can be reused on different private networks. A common default private IP address format is 192.168.
