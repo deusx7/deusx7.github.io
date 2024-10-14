@@ -87,11 +87,13 @@ Hello 👋, My name is  Ibrahim and i'm on a mission to become a skilled pentest
 * * *
 ### Projects
 
-- [[../kali tips]] [Web Application Penetration Test Report](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/Projects/JuiceShop_Report/JuiceShop_Report.md)
+- [Web Application Penetration Test Report](https://github.com/deusx7/deusx7.github.io/blob/main/Posts/Projects/JuiceShop_Report/JuiceShop_Report.md)
 
-- [[Apr 16 2024]] [Cyblack CTF](https://deusx7.github.io/Posts/CyblackCTF/CyblackCTF.html)
+- [Cyblack CTF](https://deusx7.github.io/Posts/CyblackCTF/CyblackCTF.html)
 
-- [[Jul 22 2024]][Cyblack CTF 2](https://deusx7.github.io/Posts/CyblackCTF/CyblackCTF2.html)
+- [Cyblack CTF 2](https://deusx7.github.io/Posts/CyblackCTF/CyblackCTF2.html)
+
+- [Remote Access Trojan](https://www.youtube.com/watch?v=-5n20CDJrQs)
 
 * * *
 
